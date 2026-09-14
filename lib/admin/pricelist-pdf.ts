@@ -2,7 +2,7 @@
  * Branded PDF rendering for a downloadable price list.
  *
  * Uses pdfkit and the same visual language as the invoice and price-sheet PDFs
- * (PURAMASS header, bronze accents, ruled rows) so a downloaded price list
+ * (VYTA header, vital accents, ruled rows) so a downloaded price list
  * matches the rest of the document set.
  *
  * Which columns the table carries, and whether the name / description / details
@@ -25,12 +25,12 @@ import {
 import type { PricelistExportData } from '@/lib/admin/pricelist-export';
 
 const COLORS = {
-  ink: '#1A1A1A',
-  muted: '#6B7280',
-  faint: '#9CA3AF',
-  rule: '#C9CCD1',
-  rowRule: '#F2F2F2',
-  bronze: '#9C8B5A',
+  ink: '#07203A',
+  muted: '#5B7A8C',
+  faint: '#8FA9B6',
+  rule: '#D5E2E7',
+  rowRule: '#EFF5F7',
+  vital: '#438B9E',
 };
 
 type PDFDoc = InstanceType<typeof PDFDocument>;
@@ -129,7 +129,7 @@ function drawHeader(ctx: Ctx): void {
     .fillColor(COLORS.ink)
     .font('Helvetica-Bold')
     .fontSize(22)
-    .text('PURAMASS', marginLeft, top, { lineBreak: false });
+    .text('VYTA', marginLeft, top, { lineBreak: false, characterSpacing: 4 });
   doc
     .fillColor(COLORS.muted)
     .font('Helvetica')
@@ -298,7 +298,7 @@ export async function renderPricelistPdf(
     layout: layoutFor(options.columns),
     margins: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN },
     bufferPages: true,
-    info: { Title: `Price List — ${data.name}`, Author: 'PuraMass' },
+    info: { Title: `Price List — ${data.name}`, Author: 'VYTA Biosciences' },
   });
 
   const chunks: Buffer[] = [];

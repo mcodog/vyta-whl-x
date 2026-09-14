@@ -298,7 +298,7 @@ export function stockChangeReportPrintHtml(
     )}
     <div class="filters" style="margin-top:22px;">
       <strong>How this report is calculated</strong>
-      <p style="margin:8px 0 0; font-size:11.5px; line-height:1.55; color:#374151;">
+      <p style="margin:8px 0 0; font-size:11.5px; line-height:1.55; color:#1B3A52;">
         Figures cover stock changes recorded between the selected dates.
         <em>Opening</em> is the stock right before the first change in the range;
         <em>Closing</em> is the stock after the last. <em>Sold</em> counts units

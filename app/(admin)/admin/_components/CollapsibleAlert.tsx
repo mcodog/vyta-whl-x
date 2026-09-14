@@ -12,7 +12,7 @@ type Tone = 'red' | 'amber' | 'indigo';
 const toneStyles: Record<Tone, { container: string; headerHover: string; border: string }> = {
   red: { container: 'bg-white border-line border-l-2 border-l-red-400', headerHover: 'hover:bg-surface', border: 'border-line' },
   amber: { container: 'bg-white border-line border-l-2 border-l-amber-400', headerHover: 'hover:bg-surface', border: 'border-line' },
-  indigo: { container: 'bg-white border-line border-l-2 border-l-bronze', headerHover: 'hover:bg-surface', border: 'border-line' },
+  indigo: { container: 'bg-white border-line border-l-2 border-l-vital', headerHover: 'hover:bg-surface', border: 'border-line' },
 };
 
 interface CollapsibleAlertProps {

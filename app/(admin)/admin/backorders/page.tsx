@@ -121,7 +121,7 @@ export default function BackordersPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-            <PackageX className="w-6 h-6 text-bronze" /> Backorders
+            <PackageX className="w-6 h-6 text-vital" /> Backorders
           </h1>
           <p className="text-sm text-ink-muted mt-1">
             Invoice line items ordered beyond available stock.
@@ -136,7 +136,7 @@ export default function BackordersPage() {
             key={t}
             onClick={() => setTab(t)}
             className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
-              tab === t ? 'border-bronze text-bronze' : 'border-transparent text-ink-muted hover:text-ink'
+              tab === t ? 'border-vital text-vital' : 'border-transparent text-ink-muted hover:text-ink'
             }`}
           >
             {TAB_LABEL[t]}
@@ -175,7 +175,7 @@ export default function BackordersPage() {
                   <tr key={r.id} className="hover:bg-surface transition-colors align-top">
                     <td className="px-5 py-4 whitespace-nowrap">
                       {r.invoice ? (
-                        <Link href={`/admin/invoices/${r.invoice.id}`} className="font-mono text-sm text-ink hover:text-bronze">
+                        <Link href={`/admin/invoices/${r.invoice.id}`} className="font-mono text-sm text-ink hover:text-vital">
                           {r.invoice.invoice_number}
                         </Link>
                       ) : <span className="text-ink-muted text-sm">—</span>}
@@ -296,7 +296,7 @@ export default function BackordersPage() {
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
                         {r.invoice ? (
-                          <Link href={`/admin/invoices/${r.invoice.id}`} className="font-mono text-sm text-ink hover:text-bronze">
+                          <Link href={`/admin/invoices/${r.invoice.id}`} className="font-mono text-sm text-ink hover:text-vital">
                             {r.invoice.invoice_number}
                           </Link>
                         ) : <span className="text-ink-muted text-sm">—</span>}

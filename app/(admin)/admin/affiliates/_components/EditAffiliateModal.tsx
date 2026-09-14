@@ -92,7 +92,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
             <div>
@@ -101,7 +101,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
 
@@ -122,7 +122,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
               type="text"
               value={walletAddress}
               onChange={(e) => setWalletAddress(e.target.value)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
               placeholder="0x..."
             />
           </div>
@@ -159,7 +159,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="New password"
               />
               <button
@@ -178,7 +178,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
               id="active-edit"
               checked={active}
               onChange={(e) => setActive(e.target.checked)}
-              className="rounded border-line accent-bronze"
+              className="rounded border-line accent-vital"
             />
             <label htmlFor="active-edit" className="text-sm text-ink">Active (can log in)</label>
           </div>
@@ -189,7 +189,7 @@ export default function EditAffiliateModal({ affiliate, onClose, onUpdated }: Pr
               id="manual-code-only-edit"
               checked={manualCodeOnly}
               onChange={(e) => setManualCodeOnly(e.target.checked)}
-              className="mt-0.5 rounded border-line accent-bronze"
+              className="mt-0.5 rounded border-line accent-vital"
             />
             <label htmlFor="manual-code-only-edit" className="text-sm text-ink">
               Manual code only

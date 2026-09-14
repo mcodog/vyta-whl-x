@@ -94,7 +94,7 @@ export default function ChangelogFormModal({ entry, defaultAuthor, onClose, onSa
   };
 
   const inputCls =
-    'w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40';
+    'w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
@@ -274,7 +274,7 @@ export default function ChangelogFormModal({ entry, defaultAuthor, onClose, onSa
               <button
                 type="button"
                 onClick={() => setLinks((prev) => [...prev, { label: '', url: '' }])}
-                className="inline-flex items-center gap-1.5 text-sm text-bronze hover:text-bronze-dark font-medium"
+                className="inline-flex items-center gap-1.5 text-sm text-vital hover:text-vital-dark font-medium"
               >
                 <Plus className="w-4 h-4" /> Add link
               </button>

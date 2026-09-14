@@ -34,7 +34,7 @@ interface MenuPos {
 /**
  * A custom (non-native) fulfillment-status picker used in the invoices table's
  * Shipping column. Replaces the classic `<select>` with a chip trigger + portal
- * dropdown that matches the admin design system (ink/bronze/line/surface tokens)
+ * dropdown that matches the admin design system (ink/vital/line/surface tokens)
  * and closes on outside-click / Escape.
  *
  * The menu renders in a portal with fixed positioning so it is never clipped by
@@ -131,7 +131,7 @@ export default function FulfillmentSelect({
                   type="button"
                   onClick={() => { onChange(s); setOpen(false); }}
                   className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 text-xs text-left hover:bg-surface transition-colors ${
-                    active ? 'bg-bronze/5' : ''
+                    active ? 'bg-vital/5' : ''
                   }`}
                 >
                   <span className={`flex items-center justify-center w-6 h-6 rounded-lg border ${m.chip} ${m.text}`}>
@@ -139,7 +139,7 @@ export default function FulfillmentSelect({
                   </span>
                   <span className="flex-1 font-medium text-ink">{m.label}</span>
                   {active
-                    ? <Check className="w-4 h-4 text-bronze flex-shrink-0" />
+                    ? <Check className="w-4 h-4 text-vital flex-shrink-0" />
                     : <span className="w-4 flex-shrink-0" />}
                 </button>
               </li>
@@ -159,7 +159,7 @@ export default function FulfillmentSelect({
         disabled={disabled}
         aria-label={ariaLabel}
         onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-1.5 pl-2 pr-1.5 py-1 rounded-lg border text-xs font-medium transition-all hover:brightness-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze/40 disabled:opacity-50 disabled:cursor-not-allowed ${meta.chip} ${meta.text}`}
+        className={`inline-flex items-center gap-1.5 pl-2 pr-1.5 py-1 rounded-lg border text-xs font-medium transition-all hover:brightness-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-vital/40 disabled:opacity-50 disabled:cursor-not-allowed ${meta.chip} ${meta.text}`}
       >
         <meta.Icon className="w-3.5 h-3.5 flex-shrink-0" />
         <span className="whitespace-nowrap">{meta.label}</span>

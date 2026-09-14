@@ -6,13 +6,13 @@ import { lineItemSku, type InvoiceForHtml } from '@/lib/admin/invoice-html';
 const money = (n: unknown) => `$${Number(n ?? 0).toFixed(2)}`;
 
 const COLORS = {
-  ink: '#1A1A1A',
-  muted: '#6B7280',
-  faint: '#9CA3AF',
-  rule: '#C9CCD1',
-  rowRule: '#F2F2F2',
-  surface: '#F7F7F7',
-  bronze: '#9C8B5A',
+  ink: '#07203A',
+  muted: '#5B7A8C',
+  faint: '#8FA9B6',
+  rule: '#D5E2E7',
+  rowRule: '#EFF5F7',
+  surface: '#F7FAFB',
+  vital: '#438B9E',
   indigo: '#4B4FC4',
 };
 
@@ -37,12 +37,14 @@ function drawHeader(ctx: DrawContext): void {
     .fillColor(COLORS.ink)
     .font('Helvetica-Bold')
     .fontSize(22)
-    .text('PURAMASS', marginLeft, top, { lineBreak: false });
+    .text('VYTA', marginLeft, top, { lineBreak: false, characterSpacing: 4 });
   doc
     .fillColor(COLORS.muted)
     .font('Helvetica')
     .fontSize(9)
-    .text('puramass.com  ·  info@aminocan.com', marginLeft, doc.y + 2);
+    .text('BIOSCIENCES  ·  puramass.com  ·  info@aminocan.com', marginLeft, doc.y + 2, {
+      characterSpacing: 0.4,
+    });
 
   // Right-aligned doc info
   doc
@@ -303,7 +305,7 @@ function drawItemsTable(ctx: DrawContext): void {
     doc
       .font('Helvetica-Bold')
       .fontSize(7)
-      .fillColor(isVial ? COLORS.indigo : COLORS.bronze)
+      .fillColor(isVial ? COLORS.indigo : COLORS.vital)
       .text(`  ${isVial ? 'VIAL' : 'BOX'}`, { characterSpacing: 0.5 });
     const descBottom = doc.y;
     // Numeric cells on the row's top line
@@ -372,7 +374,7 @@ function drawTotals(ctx: DrawContext): void {
     doc
       .font(isTotal ? 'Helvetica-Bold' : 'Helvetica')
       .fontSize(isTotal ? 12 : 10)
-      .fillColor(isDue ? COLORS.bronze : COLORS.ink)
+      .fillColor(isDue ? COLORS.vital : COLORS.ink)
       .text(r.label, left, y, { width: colWidth / 2 });
     doc.text(r.value, left + colWidth / 2, y, {
       width: colWidth / 2,
@@ -479,7 +481,7 @@ export async function renderInvoicePdf(inv: InvoiceForHtml): Promise<Buffer> {
   const doc = new PDFDocument({
     size: 'A4',
     margins: { top: 50, bottom: 50, left: 50, right: 50 },
-    info: { Title: `Invoice ${inv.invoice_number}`, Author: 'PuraMass' },
+    info: { Title: `Invoice ${inv.invoice_number}`, Author: 'VYTA Biosciences' },
   });
 
   const chunks: Buffer[] = [];

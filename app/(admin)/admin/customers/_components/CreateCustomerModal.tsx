@@ -232,7 +232,7 @@ export default function CreateCustomerModal({
   };
 
   const fld =
-    'w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40';
+    'w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40';
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60] p-4" onClick={onClose}>
@@ -242,7 +242,7 @@ export default function CreateCustomerModal({
       >
         <div className="flex items-center justify-between p-5 border-b border-line">
           <div className="flex items-center gap-2">
-            <UserPlus className="w-5 h-5 text-bronze" />
+            <UserPlus className="w-5 h-5 text-vital" />
             <h2 className="text-lg font-bold text-ink">New Customer</h2>
           </div>
           <button onClick={onClose} className="text-ink-muted hover:text-ink">
@@ -258,7 +258,7 @@ export default function CreateCustomerModal({
               <span className="text-sm font-semibold">Merged into affiliate</span>
             </div>
             <div className="flex items-start gap-2 p-3 bg-surface border border-line rounded-lg text-sm text-ink">
-              <Users className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+              <Users className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
               <span>
                 The details were added to{' '}
                 <span className="font-medium break-all">{merged.name}</span>&apos;s existing
@@ -334,7 +334,7 @@ export default function CreateCustomerModal({
                   <span className="text-sm font-semibold">Customer created</span>
                 </div>
                 <div className="flex items-start gap-2 p-3 bg-surface border border-line rounded-lg text-sm text-ink">
-                  <KeyRound className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <KeyRound className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <span>
                     The account for{' '}
                     <span className="font-medium break-all">{sent.email}</span> is ready. They
@@ -350,7 +350,7 @@ export default function CreateCustomerModal({
                   <span className="text-sm font-semibold">Customer created</span>
                 </div>
                 <div className="flex items-start gap-2 p-3 bg-surface border border-line rounded-lg text-sm text-ink">
-                  <Mail className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <span>
                     A set-up link was emailed to{' '}
                     <span className="font-medium break-all">{sent.email}</span>. They&apos;ll
@@ -436,7 +436,7 @@ export default function CreateCustomerModal({
             {priceLists.length > 0 && (
               <div>
                 <label className="block text-xs font-medium text-ink mb-1 inline-flex items-center gap-1.5">
-                  <ListChecks className="w-3.5 h-3.5 text-bronze" /> Price List <span className="text-ink-muted font-normal">(optional)</span>
+                  <ListChecks className="w-3.5 h-3.5 text-vital" /> Price List <span className="text-ink-muted font-normal">(optional)</span>
                 </label>
                 <select
                   value={selectedListId}

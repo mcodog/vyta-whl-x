@@ -4,12 +4,12 @@ import React from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { useCountUpSmooth } from '@/lib/hooks/useCountUpSmooth';
 
-export type StatTint = 'emerald' | 'purple' | 'bronze' | 'blue' | 'ink' | 'indigo' | 'amber';
+export type StatTint = 'emerald' | 'purple' | 'vital' | 'blue' | 'ink' | 'indigo' | 'amber';
 
 const TINTS: Record<StatTint, string> = {
   emerald: 'bg-emerald-500/10 text-emerald-600',
   purple: 'bg-purple-500/10 text-purple-600',
-  bronze: 'bg-bronze/10 text-bronze',
+  vital: 'bg-vital/10 text-vital',
   blue: 'bg-blue-500/10 text-blue-600',
   ink: 'bg-ink/5 text-ink',
   indigo: 'bg-indigo-500/10 text-indigo-600',

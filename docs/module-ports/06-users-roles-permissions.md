@@ -146,7 +146,7 @@ Pure functions exported for use across admin pages. `export type UserRole = 'cus
 Role badge classes (`getRoleBadgeClasses`):
 - `customer`: `bg-gray-500/10 text-ink-muted`
 - `assistant`: `bg-blue-500/10 text-blue-400`
-- `admin`: `bg-bronze/10 text-bronze`
+- `admin`: `bg-vital/10 text-vital`
 - ~~`affiliate`: `bg-emerald-500/10 text-emerald-500`~~ (STRIP)
 
 ### Permission hook — `lib/hooks/usePermissions.ts`
@@ -178,13 +178,13 @@ This is the central admin gate and provides the role to all admin pages.
 
 ## UI/UX specification
 
-Same design tokens as Module 5 (`ink`, `ink-muted`, `surface`, `line`, `bronze`; emerald/red/amber accents; `lucide-react` icons).
+Same design tokens as Module 5 (`ink`, `ink-muted`, `surface`, `line`, `vital`; emerald/red/amber accents; `lucide-react` icons).
 
 ### Admin shell (layout)
 - **Checking state:** centered **"Loading admin panel..."**.
-- **Not logged in:** inline login card — title **"AMINOCAN"**, eyebrow **"ADMIN PANEL"**, Email + Password fields, **"Sign In"** button (`LogIn`); error banner shows Supabase message or **"Enter your email and password"** / **"Something went wrong"**. On success it re-runs `checkAdmin()`.
+- **Not logged in:** inline login card — title **"VYTA"**, eyebrow **"ADMIN PANEL"**, Email + Password fields, **"Sign In"** button (`LogIn`); error banner shows Supabase message or **"Enter your email and password"** / **"Something went wrong"**. On success it re-runs `checkAdmin()`.
 - **Not admin / error:** centered **"Access Denied"**; subtext **"Your account does not have admin privileges."** (not_admin) or **"Something went wrong. Try refreshing."** (error); **"Go Home"** button → `/`.
-- **Authenticated shell:** white header with **AMINOCAN** logo, a `|` divider, and a role eyebrow — for admin it reads **"Admin"**, otherwise `getRoleName(role)`. **Assistant** users get a small amber **"Read Only"** pill next to the role and a banner above content: *"You have read-only access. Contact an administrator to make changes."* (`Info` icon, amber). A **"Back to Store"** link (`ArrowLeft`) sits at the right.
+- **Authenticated shell:** white header with **VYTA** logo, a `|` divider, and a role eyebrow — for admin it reads **"Admin"**, otherwise `getRoleName(role)`. **Assistant** users get a small amber **"Read Only"** pill next to the role and a banner above content: *"You have read-only access. Contact an administrator to make changes."* (`Info` icon, amber). A **"Back to Store"** link (`ArrowLeft`) sits at the right.
 - **Nav:** desktop = wrapping pill buttons; mobile = a compact toggle button showing the active page label that opens a 2/3-column grid drawer (`Menu`/`X`). Active pill = `bg-ink text-white`; inactive = white bordered. Badge counts render as colored pills (red for backorders, amber for low-stock; `99+` cap).
 
 ### Users page

@@ -91,12 +91,12 @@ const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : use
 // Avatar
 // ---------------------------------------------------------------------------
 const AVATAR: Record<NodeKind, { cls: string; icon: typeof Users | null }> = {
-  apex: { cls: 'bg-bronze/15 text-bronze', icon: Network },
+  apex: { cls: 'bg-vital/15 text-vital', icon: Network },
   affiliate: { cls: 'bg-emerald-500/10 text-emerald-600', icon: Users },
   salesperson: { cls: 'bg-purple-500/10 text-purple-600', icon: Briefcase },
   unassigned: { cls: 'bg-surface text-ink-muted border border-line', icon: Layers },
   unknown: { cls: 'bg-amber-500/10 text-amber-600', icon: Users },
-  customer: { cls: 'bg-bronze/10 text-bronze', icon: null },
+  customer: { cls: 'bg-vital/10 text-vital', icon: null },
   client: { cls: 'bg-blue-500/10 text-blue-600', icon: MapPin },
 };
 
@@ -183,10 +183,10 @@ function NodeCard({
         onClick={() => onSelect(node)}
         className={`w-52 rounded-xl border bg-white px-3 py-2.5 cursor-pointer transition-[border-color,box-shadow] duration-150 ${
           selected
-            ? 'border-bronze ring-2 ring-bronze/30 shadow-sm'
+            ? 'border-vital ring-2 ring-vital/30 shadow-sm'
             : accent
-              ? 'border-bronze/40 shadow-sm hover:border-bronze'
-              : 'border-line hover:border-bronze/40 hover:shadow-sm'
+              ? 'border-vital/40 shadow-sm hover:border-vital'
+              : 'border-line hover:border-vital/40 hover:shadow-sm'
         }`}
       >
         <div className="flex items-center gap-2 text-left">
@@ -207,7 +207,7 @@ function NodeCard({
           type="button"
           onClick={(e) => { e.stopPropagation(); onToggle(node.key); }}
           aria-label={isOpen ? 'Collapse' : 'Expand'}
-          className="absolute left-1/2 -translate-x-1/2 -bottom-3 z-10 inline-flex items-center gap-1 h-6 px-2 rounded-full border border-line bg-white text-ink-muted hover:text-ink hover:border-bronze/50 shadow-sm text-[11px] font-semibold tabular-nums transition-colors"
+          className="absolute left-1/2 -translate-x-1/2 -bottom-3 z-10 inline-flex items-center gap-1 h-6 px-2 rounded-full border border-line bg-white text-ink-muted hover:text-ink hover:border-vital/50 shadow-sm text-[11px] font-semibold tabular-nums transition-colors"
         >
           {isOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
           {node.children.length}
@@ -764,12 +764,12 @@ export default function GenealogyPage() {
 
   const gridGap = 26 * view.k;
   const canvasStyle: React.CSSProperties = {
-    backgroundColor: 'var(--color-surface, #F7F7F7)',
+    backgroundColor: 'var(--color-surface, #F7FAFB)',
     backgroundImage: [
-      'linear-gradient(to right, rgba(26,26,26,0.05) 1px, transparent 1px)',
-      'linear-gradient(to bottom, rgba(26,26,26,0.05) 1px, transparent 1px)',
-      'linear-gradient(to right, rgba(26,26,26,0.08) 1px, transparent 1px)',
-      'linear-gradient(to bottom, rgba(26,26,26,0.08) 1px, transparent 1px)',
+      'linear-gradient(to right, rgba(7,32,58,0.05) 1px, transparent 1px)',
+      'linear-gradient(to bottom, rgba(7,32,58,0.05) 1px, transparent 1px)',
+      'linear-gradient(to right, rgba(7,32,58,0.08) 1px, transparent 1px)',
+      'linear-gradient(to bottom, rgba(7,32,58,0.08) 1px, transparent 1px)',
     ].join(','),
     backgroundSize: `${gridGap}px ${gridGap}px, ${gridGap}px ${gridGap}px, ${gridGap * 5}px ${gridGap * 5}px, ${gridGap * 5}px ${gridGap * 5}px`,
     backgroundPosition: `${view.x}px ${view.y}px`,
@@ -782,21 +782,21 @@ export default function GenealogyPage() {
       <style>{`
         .gtree ul { position: relative; display: flex; justify-content: center; padding-top: 22px; }
         .gtree li { list-style: none; position: relative; padding: 22px 10px 0; display: flex; flex-direction: column; align-items: center; }
-        .gtree li::before, .gtree li::after { content: ''; position: absolute; top: 0; right: 50%; width: 50%; height: 22px; border-top: 2.5px solid var(--color-line, #C9CCD1); }
-        .gtree li::after { right: auto; left: 50%; border-left: 2.5px solid var(--color-line, #C9CCD1); }
+        .gtree li::before, .gtree li::after { content: ''; position: absolute; top: 0; right: 50%; width: 50%; height: 22px; border-top: 2.5px solid var(--color-line, #D5E2E7); }
+        .gtree li::after { right: auto; left: 50%; border-left: 2.5px solid var(--color-line, #D5E2E7); }
         .gtree li:only-child::before, .gtree li:only-child::after { display: none; }
         .gtree li:only-child { padding-top: 0; }
         .gtree li:first-child::before, .gtree li:last-child::after { border: 0 none; }
-        .gtree li:last-child::before { border-right: 2.5px solid var(--color-line, #C9CCD1); border-radius: 0 6px 0 0; }
+        .gtree li:last-child::before { border-right: 2.5px solid var(--color-line, #D5E2E7); border-radius: 0 6px 0 0; }
         .gtree li:first-child::after { border-radius: 6px 0 0 0; }
-        .gtree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 22px; border-left: 2.5px solid var(--color-line, #C9CCD1); }
+        .gtree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 22px; border-left: 2.5px solid var(--color-line, #D5E2E7); }
         .gtree > ul { padding-top: 0; }
       `}</style>
 
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-          <Network className="w-6 h-6 text-bronze" /> Customer Genealogy
+          <Network className="w-6 h-6 text-vital" /> Customer Genealogy
         </h1>
         <p className="text-sm text-ink-muted mt-1 max-w-2xl">
           The hierarchy of who owns whom — from the sales person (or affiliate) at the top, down to
@@ -810,7 +810,7 @@ export default function GenealogyPage() {
           sub={`${totals.salesPersonsActive} active`} loading={loading} />
         <StatTile icon={Users} tint="emerald" label="Affiliates" value={totals.affiliates}
           sub={`${totals.affiliatesActive} active`} loading={loading} />
-        <StatTile icon={UserCircle} tint="bronze" label="Customers" value={totals.customers}
+        <StatTile icon={UserCircle} tint="vital" label="Customers" value={totals.customers}
           sub={`${totals.attributed} attributed`} loading={loading} />
         <StatTile icon={MapPin} tint="blue" label="Clients" value={totals.clients}
           sub="ship-to recipients" loading={loading} />
@@ -842,7 +842,7 @@ export default function GenealogyPage() {
             placeholder="Search people, customers, clients…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
 
@@ -860,7 +860,7 @@ export default function GenealogyPage() {
             onClick={() => setHideEmpty((v) => !v)}
             title="Show or hide people with no customers"
             className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm font-medium transition-colors ${
-              hideEmpty ? 'bg-white border-line text-ink-muted hover:text-ink' : 'bg-bronze/10 border-bronze/20 text-bronze'
+              hideEmpty ? 'bg-white border-line text-ink-muted hover:text-ink' : 'bg-vital/10 border-vital/20 text-vital'
             }`}
           >
             <Layers className="w-4 h-4" /> {hideEmpty ? 'Active only' : 'Show all'}
@@ -883,7 +883,7 @@ export default function GenealogyPage() {
         <div className="bg-white rounded-xl border border-line overflow-hidden">
           <div className="px-5 py-3.5 border-b border-line flex items-center justify-between gap-3">
             <h2 className="text-sm font-bold text-ink uppercase tracking-wider flex items-center gap-2">
-              {grouping === 'salesperson' ? <Briefcase className="w-4 h-4 text-bronze" /> : <Users className="w-4 h-4 text-bronze" />}
+              {grouping === 'salesperson' ? <Briefcase className="w-4 h-4 text-vital" /> : <Users className="w-4 h-4 text-vital" />}
               {grouping === 'salesperson' ? 'Sales-person hierarchy' : 'Affiliate hierarchy'}
             </h2>
             <span className="text-xs text-ink-muted">
@@ -1071,7 +1071,7 @@ function DetailPanel({
               <MiniStat label="Revenue" value={fmtMoney(node.revenue ?? 0)} />
             </div>
             <div className="space-y-0">
-              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-bronze inline-flex items-center gap-1"><Mail className="w-3.5 h-3.5" />{d.email}</a></Field>}
+              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-vital inline-flex items-center gap-1"><Mail className="w-3.5 h-3.5" />{d.email}</a></Field>}
               <Field label="Status">{d?.active === false ? 'Inactive' : 'Active'}</Field>
               {typeof d?.total_earnings === 'number' && (
                 <Field label="Commissions"><span className="inline-flex items-center gap-1"><Wallet className="w-3.5 h-3.5 text-ink-muted" />{fmtMoney(d.total_earnings)}</span></Field>
@@ -1090,7 +1090,7 @@ function DetailPanel({
               <MiniStat label="Revenue" value={fmtMoney(node.revenue ?? 0)} />
             </div>
             <div className="space-y-0">
-              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-bronze inline-flex items-center gap-1"><Mail className="w-3.5 h-3.5" />{d.email}</a></Field>}
+              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-vital inline-flex items-center gap-1"><Mail className="w-3.5 h-3.5" />{d.email}</a></Field>}
               {typeof d?.commission_rate === 'number' && (
                 <Field label="Commission"><span className="inline-flex items-center gap-1"><Percent className="w-3.5 h-3.5 text-ink-muted" />{d.commission_rate}%</span></Field>
               )}
@@ -1109,7 +1109,7 @@ function DetailPanel({
               <MiniStat label="Revenue" value={fmtMoney(node.revenue ?? 0)} />
             </div>
             <div className="space-y-0">
-              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-bronze inline-flex items-center gap-1 break-all"><Mail className="w-3.5 h-3.5 shrink-0" />{d.email}</a></Field>}
+              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-vital inline-flex items-center gap-1 break-all"><Mail className="w-3.5 h-3.5 shrink-0" />{d.email}</a></Field>}
               {d?.phone && <Field label="Phone"><span className="inline-flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-ink-muted" />{d.phone}</span></Field>}
               {cityLine(d?.shipping_city, d?.shipping_state, d?.shipping_country) && (
                 <Field label="Location">{cityLine(d?.shipping_city, d?.shipping_state, d?.shipping_country)}</Field>
@@ -1143,7 +1143,7 @@ function DetailPanel({
               })()}
               {d?.address && <Field label="Address">{d.address}</Field>}
               {cityLine(d?.city, d?.state, d?.country) && <Field label="Location">{cityLine(d?.city, d?.state, d?.country)}</Field>}
-              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-bronze break-all">{d.email}</a></Field>}
+              {d?.email && <Field label="Email"><a href={`mailto:${d.email}`} className="hover:text-vital break-all">{d.email}</a></Field>}
               {d?.phone && <Field label="Phone">{d.phone}</Field>}
               {d?.created_at && <Field label="Added">{fmtDate(d.created_at)}</Field>}
             </div>

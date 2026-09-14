@@ -77,7 +77,7 @@ export default function ChangelogCard({
       </div>
 
       <button type="button" onClick={onOpen} className="text-left w-full group">
-        <h3 className="text-base font-bold text-ink group-hover:text-bronze transition-colors">
+        <h3 className="text-base font-bold text-ink group-hover:text-vital transition-colors">
           {entry.title}
         </h3>
       </button>
@@ -101,7 +101,7 @@ export default function ChangelogCard({
         <div className="flex flex-wrap items-center gap-1.5 mt-2">
           <TagIcon className="w-3.5 h-3.5 text-ink-light" />
           {entry.tags.map((tag) => (
-            <span key={tag} className="text-xs text-bronze bg-bronze/10 px-2 py-0.5 rounded-full">
+            <span key={tag} className="text-xs text-vital bg-vital/10 px-2 py-0.5 rounded-full">
               {tag}
             </span>
           ))}
@@ -116,7 +116,7 @@ export default function ChangelogCard({
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-bronze transition-colors"
+          className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-vital transition-colors"
         >
           Read More
           <ArrowRight className="w-4 h-4" />

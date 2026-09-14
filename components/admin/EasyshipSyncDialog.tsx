@@ -117,7 +117,7 @@ export default function EasyshipSyncDialog({ onClose, onApplied }: Props) {
       <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl max-h-[90vh] flex flex-col">
         <div className="flex items-center justify-between px-6 py-4 border-b border-line flex-shrink-0">
           <h2 className="text-base font-bold text-ink inline-flex items-center gap-2">
-            <RefreshCw className="w-4 h-4 text-bronze" /> Sync Easyship shipments
+            <RefreshCw className="w-4 h-4 text-vital" /> Sync Easyship shipments
           </h2>
           <button
             onClick={onClose}
@@ -153,7 +153,7 @@ export default function EasyshipSyncDialog({ onClose, onApplied }: Props) {
                   value={date}
                   max={todayStr()}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full sm:w-auto px-3 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full sm:w-auto px-3 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 <p className="mt-1.5 text-xs text-ink-muted">Defaults to today.</p>
               </div>
@@ -171,11 +171,11 @@ export default function EasyshipSyncDialog({ onClose, onApplied }: Props) {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-sm font-semibold text-ink inline-flex items-center gap-1.5">
-                      <Package className="w-4 h-4 text-bronze" /> Matched ({matches.length})
+                      <Package className="w-4 h-4 text-vital" /> Matched ({matches.length})
                     </h3>
                     <button
                       onClick={toggleAll}
-                      className="text-xs text-bronze hover:underline"
+                      className="text-xs text-vital hover:underline"
                     >
                       {allChecked ? 'Deselect all' : 'Select all'}
                     </button>
@@ -187,7 +187,7 @@ export default function EasyshipSyncDialog({ onClose, onApplied }: Props) {
                           type="checkbox"
                           checked={checked.has(m.shipmentId)}
                           onChange={() => toggle(m.shipmentId)}
-                          className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                          className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                           aria-label={`Attach shipment to ${m.invoiceNumber ?? m.invoiceName}`}
                         />
                         <div className="min-w-0 flex-1">

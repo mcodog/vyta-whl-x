@@ -35,7 +35,7 @@ export interface Guide {
 
 /* ------------------------------------------------------------------ */
 /* Prose primitives — a tiny, palette-consistent typography kit so every
-   guide reads the same. Color stays on ink / bronze / surface; no filled
+   guide reads the same. Color stays on ink / vital / surface; no filled
    color boxes. */
 /* ------------------------------------------------------------------ */
 
@@ -58,20 +58,20 @@ function UL({ children }: { children: React.ReactNode }) {
 function LI({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex gap-2.5 text-sm md:text-[15px] leading-relaxed text-ink/80">
-      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-bronze" aria-hidden />
+      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-vital" aria-hidden />
       <span>{children}</span>
     </li>
   );
 }
 
-/** Numbered steps with bronze index badges. */
+/** Numbered steps with vital index badges. */
 function Steps({ children }: { children: React.ReactNode }) {
   const items = React.Children.toArray(children);
   return (
     <ol className="mb-6 space-y-4">
       {items.map((child, i) => (
         <li key={i} className="flex gap-3.5">
-          <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-bronze/12 text-bronze text-sm font-bold tabular-nums">
+          <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-vital/12 text-vital text-sm font-bold tabular-nums">
             {i + 1}
           </span>
           <div className="min-w-0 flex-1 pt-0.5">{child}</div>
@@ -89,12 +89,12 @@ function StepBody({ children }: { children: React.ReactNode }) {
   return <div className="text-sm leading-relaxed text-ink/75">{children}</div>;
 }
 
-/** Subtle callout — surface background, bronze accent rail + icon. */
+/** Subtle callout — surface background, vital accent rail + icon. */
 function Note({ title, children }: { title?: string; children: React.ReactNode }) {
   return (
-    <div className="my-6 rounded-lg border border-line bg-surface/70 border-l-2 border-l-bronze p-4">
+    <div className="my-6 rounded-lg border border-line bg-surface/70 border-l-2 border-l-vital p-4">
       <div className="flex gap-3">
-        <Info className="mt-0.5 h-4 w-4 shrink-0 text-bronze" />
+        <Info className="mt-0.5 h-4 w-4 shrink-0 text-vital" />
         <div className="min-w-0">
           {title && <div className="text-sm font-semibold text-ink mb-1">{title}</div>}
           <div className="text-sm leading-relaxed text-ink/75">{children}</div>
@@ -115,7 +115,7 @@ function Path({ children }: { children: React.ReactNode }) {
 
 function InternalLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="font-medium text-bronze underline decoration-bronze/30 underline-offset-2 hover:decoration-bronze">
+    <Link href={href} className="font-medium text-vital underline decoration-vital/30 underline-offset-2 hover:decoration-vital">
       {children}
     </Link>
   );
@@ -136,7 +136,7 @@ function CompareTable({
           <tr className="border-b border-line bg-surface">
             <th className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-ink-muted">{columns[0]}</th>
             <th className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-ink">{columns[1]}</th>
-            <th className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-bronze">{columns[2]}</th>
+            <th className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-vital">{columns[2]}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-line/60">

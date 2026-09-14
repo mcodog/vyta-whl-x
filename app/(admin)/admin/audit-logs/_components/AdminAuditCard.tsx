@@ -26,7 +26,7 @@ export default function AdminAuditCard({ card }: { card: AuditCard }) {
     <div className="flex flex-col rounded-xl border border-line bg-white shadow-sm overflow-hidden">
       {/* Identity header */}
       <div className="flex items-center gap-3 p-4 border-b border-line/70">
-        <div className="flex items-center justify-center w-11 h-11 rounded-full bg-bronze/15 text-bronze-dark font-semibold text-sm shrink-0">
+        <div className="flex items-center justify-center w-11 h-11 rounded-full bg-vital/15 text-vital-dark font-semibold text-sm shrink-0">
           {actorInitials(card.actor)}
         </div>
         <div className="min-w-0 flex-1">
@@ -41,7 +41,7 @@ export default function AdminAuditCard({ card }: { card: AuditCard }) {
       {/* Today's activity count */}
       <div className="flex items-center justify-between px-4 py-3 bg-surface/50">
         <div className="flex items-center gap-2">
-          <Activity className="w-4 h-4 text-bronze" />
+          <Activity className="w-4 h-4 text-vital" />
           <span className="text-xs text-ink-muted">Actions today</span>
         </div>
         <span className="text-2xl font-bold text-ink tabular-nums leading-none">
@@ -82,7 +82,7 @@ export default function AdminAuditCard({ card }: { card: AuditCard }) {
         <span className="text-xs">
           <span className="font-semibold text-ink tabular-nums">{card.total_actions}</span> total
         </span>
-        <span className="inline-flex items-center gap-1 font-medium text-bronze-dark">
+        <span className="inline-flex items-center gap-1 font-medium text-vital-dark">
           Show more <ArrowRight className="w-3.5 h-3.5" />
         </span>
       </Link>

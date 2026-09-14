@@ -17,7 +17,7 @@ export default function GuidesStrip() {
   return (
     <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-xl border border-line bg-white px-4 py-2">
       <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink">
-        <BookOpen className="h-3.5 w-3.5 text-bronze" /> Guides
+        <BookOpen className="h-3.5 w-3.5 text-vital" /> Guides
       </span>
       <span className="hidden h-4 w-px bg-line sm:block" aria-hidden />
       {guides.map((g) => {
@@ -35,7 +35,7 @@ export default function GuidesStrip() {
       })}
       <Link
         href="/admin/guides"
-        className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-bronze transition-colors hover:text-bronze-dark"
+        className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-vital transition-colors hover:text-vital-dark"
       >
         All guides <ArrowRight className="h-3.5 w-3.5" />
       </Link>

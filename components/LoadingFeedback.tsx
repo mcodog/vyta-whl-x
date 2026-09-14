@@ -9,12 +9,12 @@ import { AlertCircle, RefreshCw } from 'lucide-react';
  */
 export function SlowLoadingNotice({ onReload }: { onReload: () => void }) {
   return (
-    <div className="flex items-center justify-center gap-2 mb-4 px-4 py-3 bg-bronze/10 border border-bronze/20 rounded-xl text-sm text-ink">
-      <RefreshCw className="w-4 h-4 text-bronze animate-spin" />
+    <div className="flex items-center justify-center gap-2 mb-4 px-4 py-3 bg-vital/10 border border-vital/20 rounded-xl text-sm text-ink">
+      <RefreshCw className="w-4 h-4 text-vital animate-spin" />
       <span className="text-ink-muted">This is taking a while.</span>
       <button
         onClick={onReload}
-        className="font-semibold text-bronze hover:text-ink underline-offset-2 hover:underline transition-colors"
+        className="font-semibold text-vital hover:text-ink underline-offset-2 hover:underline transition-colors"
       >
         Click here to reload
       </button>

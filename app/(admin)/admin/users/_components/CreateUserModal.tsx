@@ -100,7 +100,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="Jane"
               />
             </div>
@@ -110,7 +110,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="Doe"
               />
             </div>
@@ -122,7 +122,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               placeholder="user@example.com"
             />
           </div>
@@ -133,7 +133,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               placeholder="+1 234 567 8900"
             />
           </div>
@@ -143,7 +143,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
             <select
               value={role}
               onChange={(e) => setRole(e.target.value as UserRole)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             >
               <option value="customer">Customer</option>
               <option value="warehouse">Warehouse</option>
@@ -161,7 +161,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
                   placeholder="Enter or generate password"
                 />
                 <button
@@ -185,7 +185,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
             <button
               type="button"
               onClick={handleGeneratePassword}
-              className="inline-flex items-center gap-1.5 text-xs text-bronze hover:text-bronze/80 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-vital hover:text-vital/80 transition-colors"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               Generate secure password
@@ -198,7 +198,7 @@ export default function CreateUserModal({ onClose, onCreated }: Props) {
               id="active-create"
               checked={active}
               onChange={(e) => setActive(e.target.checked)}
-              className="rounded border-line accent-bronze"
+              className="rounded border-line accent-vital"
             />
             <label htmlFor="active-create" className="text-sm text-ink">Active (can log in)</label>
           </div>

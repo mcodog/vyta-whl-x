@@ -47,7 +47,7 @@ export default function WarehouseTail() {
   return (
     <div className="flex flex-col overflow-hidden rounded-xl border border-line bg-white">
       <header className="flex items-center gap-2 border-b border-line px-4 py-3">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-bronze/10 text-bronze">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-vital/10 text-vital">
           <PackageCheck className="h-4 w-4" />
         </span>
         <div className="min-w-0 flex-1">
@@ -88,7 +88,7 @@ export default function WarehouseTail() {
               const ref = l.invoice_number || l.order_number;
               return (
                 <li key={`${l.at}-${i}`} className="flex items-center gap-2.5 px-4 py-2.5">
-                  <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-bronze" aria-hidden />
+                  <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-vital" aria-hidden />
                   <div className="min-w-0 flex-1">
                     <div className="truncate text-sm text-ink">
                       <span className="font-medium">{l.actor_name}</span>{' '}

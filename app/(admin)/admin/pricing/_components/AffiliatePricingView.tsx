@@ -44,7 +44,7 @@ function ModeBadge({ mode }: { mode: 'template' | 'dedicated' }) {
     <span
       title={mode === 'template' ? 'Prices are a copy of an applied price list' : 'Prices are hand-managed for this customer'}
       className={`inline-flex px-1.5 py-0.5 rounded text-[10px] font-semibold ${
-        mode === 'dedicated' ? 'bg-bronze/10 text-bronze' : 'bg-emerald-500/10 text-emerald-600'
+        mode === 'dedicated' ? 'bg-vital/10 text-vital' : 'bg-emerald-500/10 text-emerald-600'
       }`}
     >
       {mode === 'dedicated' ? 'Dedicated' : 'Template'}
@@ -173,7 +173,7 @@ export default function AffiliatePricingView() {
             placeholder="Search affiliates, referral codes, or their customers…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
       </div>
@@ -225,7 +225,7 @@ export default function AffiliatePricingView() {
                   {g.own && <ModeBadge mode={g.own.pricing_mode} />}
                   <span className="tabular-nums">{ownCount} custom price{ownCount !== 1 ? 's' : ''}</span>
                   {g.own?.applied_pricelist && (
-                    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-bronze/10 text-bronze font-medium">
+                    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-vital/10 text-vital font-medium">
                       {g.own.applied_pricelist.name}
                     </span>
                   )}
@@ -258,7 +258,7 @@ export default function AffiliatePricingView() {
                           </div>
                           <Link
                             href={`/admin/pricing/customer/${c.id}`}
-                            className="inline-flex items-center gap-1 text-[11px] font-medium text-bronze hover:text-bronze/80 whitespace-nowrap"
+                            className="inline-flex items-center gap-1 text-[11px] font-medium text-vital hover:text-vital/80 whitespace-nowrap"
                           >
                             Edit <ChevronRight className="w-3.5 h-3.5" />
                           </Link>

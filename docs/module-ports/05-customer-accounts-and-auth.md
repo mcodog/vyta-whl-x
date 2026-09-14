@@ -189,7 +189,7 @@ Login/signup/set-password wrap content in `<Suspense>` (they use `useSearchParam
 
 ## UI/UX specification
 
-Design tokens (Tailwind): `ink` (near-black primary), `ink-muted`, `surface` (light gray field bg), `line` (border), `bronze` (accent), plus emerald/red/amber for status. Cards: `bg-white rounded-xl border border-line shadow-sm`. Primary button: `bg-ink hover:bg-ink/90 text-white font-semibold rounded-lg`. Inputs: `bg-surface rounded-lg border border-line focus:ring-2 focus:ring-bronze/40`. Icons from `lucide-react`. Animations via `framer-motion` (cards fade/slide in: `initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}`).
+Design tokens (Tailwind): `ink` (near-black primary), `ink-muted`, `surface` (light gray field bg), `line` (border), `vital` (accent), plus emerald/red/amber for status. Cards: `bg-white rounded-xl border border-line shadow-sm`. Primary button: `bg-ink hover:bg-ink/90 text-white font-semibold rounded-lg`. Inputs: `bg-surface rounded-lg border border-line focus:ring-2 focus:ring-vital/40`. Icons from `lucide-react`. Animations via `framer-motion` (cards fade/slide in: `initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}`).
 
 ### Login page (`/login`)
 - Centered card, max-w-md. Header: `Beaker` icon in an `bg-ink` rounded square; **"Welcome Back"** heading; subtext **"Sign in to your account"**.

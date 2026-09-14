@@ -112,7 +112,7 @@ export default function AdminAuditLogs() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl font-bold text-ink flex items-center gap-2">
-            <ShieldCheck className="w-6 h-6 text-bronze" />
+            <ShieldCheck className="w-6 h-6 text-vital" />
             Audit Logs
           </h1>
           <p className="text-sm text-ink-muted mt-1">
@@ -143,7 +143,7 @@ export default function AdminAuditLogs() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by admin, action, or entity…"
-            className="w-full pl-10 pr-9 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink"
+            className="w-full pl-10 pr-9 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink"
           />
           {search && (
             <button
@@ -161,7 +161,7 @@ export default function AdminAuditLogs() {
             <select
               value={actorId}
               onChange={(e) => setActorId(e.target.value)}
-              className="w-full pl-10 pr-8 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink appearance-none"
+              className="w-full pl-10 pr-8 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink appearance-none"
             >
               <option value="all">All admins</option>
               {cards.map((c) => (
@@ -233,10 +233,10 @@ export default function AdminAuditLogs() {
                                 href={`/admin/audit-logs/${e.actor_id ?? ''}`}
                                 className="inline-flex items-center gap-2 group"
                               >
-                                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-bronze/15 text-bronze-dark text-[11px] font-semibold shrink-0">
+                                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-vital/15 text-vital-dark text-[11px] font-semibold shrink-0">
                                   {actorInitials(e.actor)}
                                 </span>
-                                <span className="text-ink group-hover:text-bronze-dark truncate max-w-[160px]">
+                                <span className="text-ink group-hover:text-vital-dark truncate max-w-[160px]">
                                   {actorName(e.actor)}
                                 </span>
                               </Link>

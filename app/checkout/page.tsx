@@ -21,6 +21,7 @@ import {
 } from "@/lib/paymentMethod";
 import { useCart, cartLineKey } from "@/contexts/CartContext";
 import PriceAmount from "@/components/PriceAmount";
+import { VytaMark } from "@/components/VytaLogo";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { useToast } from "@/contexts/ToastContext";
@@ -160,7 +161,7 @@ function CourierOptions({
           key={r.courierId}
           className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
             selectedCourierId === r.courierId
-              ? "border-bronze bg-bronze/5"
+              ? "border-vital bg-vital/5"
               : "border-line hover:border-ink-muted/30"
           }`}
         >
@@ -169,7 +170,7 @@ function CourierOptions({
             name="courier"
             checked={selectedCourierId === r.courierId}
             onChange={() => onSelect(r.courierId)}
-            className="accent-bronze"
+            className="accent-vital"
           />
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-ink truncate">{r.courier}</p>
@@ -599,12 +600,8 @@ function CryptoCheckoutContent() {
           {/* Header */}
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                <div className="relative w-10 h-10 bg-ink rounded-xl flex items-center justify-center">
-                  <Beaker className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <span className="text-lg font-bold text-ink">Aminocan-Clone</span>
+              <VytaMark size={38} />
+              <span className="font-display text-lg font-semibold tracking-[0.28em] text-ink">VYTA</span>
             </Link>
           </div>
 
@@ -626,7 +623,7 @@ function CryptoCheckoutContent() {
               <p className="text-green-600 text-xs font-medium mb-4">
                 You can safely close this page.
               </p>
-              <Loader2 className="w-5 h-5 text-bronze animate-spin mx-auto" />
+              <Loader2 className="w-5 h-5 text-vital animate-spin mx-auto" />
             </div>
           ) : paymentStatus === "received" ? (
             <div className="bg-white rounded-2xl border border-line overflow-hidden">
@@ -844,7 +841,7 @@ function CryptoCheckoutContent() {
               <div className="mt-6 text-center">
                 <Link
                   href="/products"
-                  className="text-ink-muted hover:text-bronze transition-colors text-sm"
+                  className="text-ink-muted hover:text-vital transition-colors text-sm"
                 >
                   &larr; Continue Shopping
                 </Link>
@@ -863,22 +860,18 @@ function CryptoCheckoutContent() {
         <div className="max-w-5xl mx-auto px-5 sm:px-8 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                <div className="relative w-10 h-10 bg-ink rounded-xl flex items-center justify-center">
-                  <Beaker className="w-5 h-5 text-white" />
-                </div>
-              </div>
+              <VytaMark size={38} />
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-ink tracking-tight leading-none">
-                  Aminocan
+                <span className="font-display text-lg font-semibold tracking-[0.28em] text-ink leading-none">
+                  VYTA
                 </span>
-                <span className="text-[10px] text-bronze tracking-[0.15em] font-medium uppercase mt-0.5">
+                <span className="text-[10px] text-vital tracking-[0.15em] font-medium uppercase mt-0.5">
                   Secure Checkout
                 </span>
               </div>
             </Link>
             <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-surface rounded-full border border-line flex-shrink-0">
-              <Lock className="w-4 h-4 text-bronze" />
+              <Lock className="w-4 h-4 text-vital" />
               <span className="text-xs sm:text-sm font-medium text-ink-muted">
                 SSL Encrypted
               </span>
@@ -920,7 +913,7 @@ function CryptoCheckoutContent() {
                         Already have an account?{" "}
                         <Link
                           href="/login?redirect=/checkout"
-                          className="text-bronze hover:underline font-medium"
+                          className="text-vital hover:underline font-medium"
                         >
                           Sign in
                         </Link>{" "}
@@ -951,7 +944,7 @@ function CryptoCheckoutContent() {
                         name="firstName"
                         value={shippingData.firstName}
                         onChange={handleShippingChange}
-                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                         placeholder="John"
                       />
                     </div>
@@ -964,7 +957,7 @@ function CryptoCheckoutContent() {
                         name="lastName"
                         value={shippingData.lastName}
                         onChange={handleShippingChange}
-                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                         placeholder="Doe"
                       />
                     </div>
@@ -977,7 +970,7 @@ function CryptoCheckoutContent() {
                         name="email"
                         value={shippingData.email}
                         onChange={handleShippingChange}
-                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -990,7 +983,7 @@ function CryptoCheckoutContent() {
                         name="phone"
                         value={shippingData.phone}
                         onChange={handleShippingChange}
-                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                        className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
@@ -1017,7 +1010,7 @@ function CryptoCheckoutContent() {
                         value={shippingData.address}
                         onChange={(street) => setShippingData((d) => ({ ...d, address: street }))}
                         onSelect={applyParsedAddress}
-                        className="w-full px-4 py-3 pr-10 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                        className="w-full px-4 py-3 pr-10 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                         placeholder="Start typing your address…"
                       />
                     </div>
@@ -1031,7 +1024,7 @@ function CryptoCheckoutContent() {
                           name="city"
                           value={shippingData.city}
                           onChange={handleShippingChange}
-                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                           placeholder="Toronto"
                         />
                       </div>
@@ -1044,7 +1037,7 @@ function CryptoCheckoutContent() {
                           name="state"
                           value={shippingData.state}
                           onChange={handleShippingChange}
-                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                           placeholder="ON"
                         />
                       </div>
@@ -1059,7 +1052,7 @@ function CryptoCheckoutContent() {
                           name="postalCode"
                           value={shippingData.postalCode}
                           onChange={handleShippingChange}
-                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted"
                           placeholder="M5V 1A1"
                         />
                       </div>
@@ -1071,7 +1064,7 @@ function CryptoCheckoutContent() {
                           name="country"
                           value={shippingData.country}
                           onChange={handleShippingChange}
-                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink"
+                          className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink"
                         >
                           <option value="CA">Canada</option>
                         </select>
@@ -1103,7 +1096,7 @@ function CryptoCheckoutContent() {
                         onClick={() => setSelectedCrypto(option.value)}
                         className={`relative p-3 sm:p-4 rounded-xl border-2 transition-all text-center ${
                           selectedCrypto === option.value
-                            ? "border-bronze bg-bronze/5"
+                            ? "border-vital bg-vital/5"
                             : "border-line bg-white hover:border-ink-muted/30"
                         }`}
                       >
@@ -1115,7 +1108,7 @@ function CryptoCheckoutContent() {
                           {option.label}
                         </div>
                         {selectedCrypto === option.value && (
-                          <div className="absolute top-2 right-2 w-5 h-5 bg-bronze rounded-full flex items-center justify-center">
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-vital rounded-full flex items-center justify-center">
                             <Check className="w-3 h-3 text-white" />
                           </div>
                         )}
@@ -1154,7 +1147,7 @@ function CryptoCheckoutContent() {
                           ? "border-green-500 bg-green-50 text-green-700"
                           : validationError
                             ? "border-red-500 bg-red-50 text-red-700"
-                            : "border-line bg-white text-ink focus:border-bronze/40"
+                            : "border-line bg-white text-ink focus:border-vital/40"
                       }`}
                     />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
@@ -1371,11 +1364,11 @@ function CryptoCheckoutContent() {
                     {/* Trust badges */}
                     <div className="flex items-center justify-center gap-6 mt-5 pt-5 border-t border-line">
                       <div className="flex items-center gap-2 text-ink-muted">
-                        <ShieldCheck className="w-4 h-4 text-bronze" />
+                        <ShieldCheck className="w-4 h-4 text-vital" />
                         <span className="text-xs">Secure Checkout</span>
                       </div>
                       <div className="flex items-center gap-2 text-ink-muted">
-                        <Lock className="w-4 h-4 text-bronze" />
+                        <Lock className="w-4 h-4 text-vital" />
                         <span className="text-xs">SSL Encrypted</span>
                       </div>
                     </div>
@@ -1389,9 +1382,9 @@ function CryptoCheckoutContent() {
           <div className="mt-8 text-center">
             <Link
               href="/"
-              className="text-ink-muted hover:text-bronze transition-colors text-sm"
+              className="text-ink-muted hover:text-vital transition-colors text-sm"
             >
-              &larr; Back to Aminocan Peptides
+              &larr; Back to VYTA Biosciences
             </Link>
           </div>
         </div>
@@ -1647,7 +1640,7 @@ function EmailCheckoutContent() {
 
   // Shared input styling that turns red on a field error.
   const inputCls = (name: string) =>
-    `w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted ${
+    `w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted ${
       fieldErrors[name] ? "border-red-400" : "border-line"
     }`;
   const fieldError = (name: string) =>
@@ -1759,7 +1752,7 @@ function EmailCheckoutContent() {
   if (!confirmation && confirmationLoading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <Loader2 className="w-6 h-6 text-bronze animate-spin" />
+        <Loader2 className="w-6 h-6 text-vital animate-spin" />
       </div>
     );
   }
@@ -1770,10 +1763,8 @@ function EmailCheckoutContent() {
         <div className="max-w-lg mx-auto">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10 bg-ink rounded-xl flex items-center justify-center">
-                <Beaker className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold text-ink">Aminocan</span>
+              <VytaMark size={38} />
+              <span className="font-display text-lg font-semibold tracking-[0.28em] text-ink">VYTA</span>
             </Link>
           </div>
           <div className="bg-white rounded-2xl border border-line p-8 text-center">
@@ -1787,15 +1778,15 @@ function EmailCheckoutContent() {
               <p className="font-bold text-ink font-mono text-lg">{confirmation.orderNumber}</p>
               <p className="text-[11px] text-ink-muted mt-2">Save this number — you can return to this page any time to see your order.</p>
             </div>
-            <div className="bg-bronze-50 border border-bronze/20 rounded-xl p-4 mb-6">
+            <div className="bg-vital-50 border border-vital/20 rounded-xl p-4 mb-6">
               <div className="flex items-start gap-3">
                 {confirmation.fulfillmentType === "pickup" ? (
-                  <Store className="w-5 h-5 text-bronze flex-shrink-0 mt-0.5" />
+                  <Store className="w-5 h-5 text-vital flex-shrink-0 mt-0.5" />
                 ) : (
-                  <Mail className="w-5 h-5 text-bronze flex-shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-vital flex-shrink-0 mt-0.5" />
                 )}
                 <div className="text-left">
-                  <p className="text-sm font-semibold text-bronze mb-1">
+                  <p className="text-sm font-semibold text-vital mb-1">
                     {confirmation.fulfillmentType === "pickup" ? "Local Pickup" : "Interac e-Transfer"}
                   </p>
                   <p className="text-xs text-ink-muted">
@@ -1828,16 +1819,14 @@ function EmailCheckoutContent() {
         <div className="max-w-5xl mx-auto px-5 sm:px-8 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 bg-ink rounded-xl flex items-center justify-center">
-                <Beaker className="w-5 h-5 text-white" />
-              </div>
+              <VytaMark size={38} />
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-ink tracking-tight leading-none">Aminocan</span>
-                <span className="text-[10px] text-bronze tracking-[0.15em] font-medium uppercase mt-0.5">Secure Checkout</span>
+                <span className="font-display text-lg font-semibold tracking-[0.28em] text-ink leading-none">VYTA</span>
+                <span className="text-[10px] text-vital tracking-[0.15em] font-medium uppercase mt-0.5">Secure Checkout</span>
               </div>
             </Link>
             <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-surface rounded-full border border-line flex-shrink-0">
-              <Lock className="w-4 h-4 text-bronze" />
+              <Lock className="w-4 h-4 text-vital" />
               <span className="text-xs sm:text-sm font-medium text-ink-muted">SSL Encrypted</span>
             </div>
           </div>
@@ -1865,7 +1854,7 @@ function EmailCheckoutContent() {
                   <div className="bg-surface rounded-2xl p-4 border border-line">
                     <p className="text-xs text-ink-muted">
                       Already have an account?{" "}
-                      <Link href="/login?redirect=/checkout" className="text-bronze hover:underline font-medium">
+                      <Link href="/login?redirect=/checkout" className="text-vital hover:underline font-medium">
                         Sign in
                       </Link>{" "}
                       for order tracking
@@ -1924,7 +1913,7 @@ function EmailCheckoutContent() {
                             setShippingData((d) => ({ ...d, address: street }));
                           }}
                           onSelect={applyParsedAddress}
-                          className={`w-full px-4 py-3 pr-10 border rounded-xl focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted ${fieldErrors.address ? "border-red-400" : "border-line"}`}
+                          className={`w-full px-4 py-3 pr-10 border rounded-xl focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm bg-white text-ink placeholder-ink-muted ${fieldErrors.address ? "border-red-400" : "border-line"}`}
                           placeholder="Start typing your address…"
                         />
                         {fieldError("address")}
@@ -2021,7 +2010,7 @@ function EmailCheckoutContent() {
                     </div>
                     <div className="bg-surface rounded-xl p-4 border border-line">
                       <div className="flex items-start gap-3">
-                        <User className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                        <User className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                         <div>
                           <p className="text-sm font-medium text-ink">
                             Please contact your sales person to arrange your pickup.
@@ -2055,7 +2044,7 @@ function EmailCheckoutContent() {
                         <label
                           key={m.id}
                           className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                            selected ? "border-bronze bg-bronze/5" : "border-line hover:border-ink-muted/30"
+                            selected ? "border-vital bg-vital/5" : "border-line hover:border-ink-muted/30"
                           }`}
                         >
                           <input
@@ -2067,9 +2056,9 @@ function EmailCheckoutContent() {
                           />
                           <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-line flex-shrink-0">
                             {m.id === "btc" ? (
-                              <span className="text-lg font-bold text-bronze">&#8383;</span>
+                              <span className="text-lg font-bold text-vital">&#8383;</span>
                             ) : (
-                              <Mail className="w-5 h-5 text-bronze" />
+                              <Mail className="w-5 h-5 text-vital" />
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -2077,7 +2066,7 @@ function EmailCheckoutContent() {
                             <p className="text-xs text-ink-muted mt-0.5">{m.description}</p>
                           </div>
                           {selected && (
-                            <div className="w-5 h-5 bg-bronze rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-5 h-5 bg-vital rounded-full flex items-center justify-center flex-shrink-0">
                               <Check className="w-3 h-3 text-white" />
                             </div>
                           )}
@@ -2130,7 +2119,7 @@ function EmailCheckoutContent() {
                     </p>
                   )}
                   <div className="relative">
-                    <input type="text" value={referralCode} onChange={(e) => handleReferralCodeChange(e.target.value)} maxLength={8} placeholder="Enter 8-character code (optional)" className={`w-full px-4 py-3 pr-12 border-2 rounded-xl focus:outline-none transition-colors uppercase font-mono text-sm tracking-wider ${validatedCode ? "border-green-500 bg-green-50 text-green-700" : validationError ? "border-red-500 bg-red-50 text-red-700" : "border-line bg-white text-ink focus:border-bronze/40"}`} />
+                    <input type="text" value={referralCode} onChange={(e) => handleReferralCodeChange(e.target.value)} maxLength={8} placeholder="Enter 8-character code (optional)" className={`w-full px-4 py-3 pr-12 border-2 rounded-xl focus:outline-none transition-colors uppercase font-mono text-sm tracking-wider ${validatedCode ? "border-green-500 bg-green-50 text-green-700" : validationError ? "border-red-500 bg-red-50 text-red-700" : "border-line bg-white text-ink focus:border-vital/40"}`} />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
                       {isValidating ? <Loader2 className="w-5 h-5 text-ink-muted animate-spin" /> : validatedCode ? <Check className="w-5 h-5 text-green-500" /> : validationError ? <X className="w-5 h-5 text-red-500" /> : null}
                     </div>
@@ -2264,16 +2253,16 @@ function EmailCheckoutContent() {
                     {fulfillmentType === "shipping" && !shippingDetailsComplete && (
                       <p className="text-xs text-red-600 text-center mt-3">Please fill out the shipping address and phone number to submit your order</p>
                     )}
-                    <div className="bg-bronze-50 border border-bronze/20 rounded-xl p-3 mt-4">
-                      <p className="text-xs text-bronze-800 text-center">You'll receive your order by email — Interac e-Transfer payment instructions will follow shortly</p>
+                    <div className="bg-vital-50 border border-vital/20 rounded-xl p-3 mt-4">
+                      <p className="text-xs text-vital-800 text-center">You'll receive your order by email — Interac e-Transfer payment instructions will follow shortly</p>
                     </div>
                     <div className="flex items-center justify-center gap-6 mt-5 pt-5 border-t border-line">
                       <div className="flex items-center gap-2 text-ink-muted">
-                        <ShieldCheck className="w-4 h-4 text-bronze" />
+                        <ShieldCheck className="w-4 h-4 text-vital" />
                         <span className="text-xs">Secure Checkout</span>
                       </div>
                       <div className="flex items-center gap-2 text-ink-muted">
-                        <Lock className="w-4 h-4 text-bronze" />
+                        <Lock className="w-4 h-4 text-vital" />
                         <span className="text-xs">SSL Encrypted</span>
                       </div>
                     </div>
@@ -2284,8 +2273,8 @@ function EmailCheckoutContent() {
           )}
 
           <div className="mt-8 text-center">
-            <Link href="/" className="text-ink-muted hover:text-bronze transition-colors text-sm">
-              &larr; Back to Aminocan Peptides
+            <Link href="/" className="text-ink-muted hover:text-vital transition-colors text-sm">
+              &larr; Back to VYTA Biosciences
             </Link>
           </div>
         </div>
@@ -2863,7 +2852,7 @@ function PuramassCheckoutContent({
       <div className="min-h-screen bg-white flex items-center justify-center px-5">
         <div className="max-w-md w-full bg-white rounded-2xl border border-line p-8 text-center">
           <div className="w-16 h-16 bg-surface rounded-full flex items-center justify-center mx-auto mb-4 border border-line">
-            <CheckCircle className="w-8 h-8 text-bronze" />
+            <CheckCircle className="w-8 h-8 text-vital" />
           </div>
           <h2 className="text-xl font-bold text-ink mb-2">Order placed</h2>
           <p className="text-ink-muted text-sm mb-4">
@@ -2929,16 +2918,14 @@ function PuramassCheckoutContent({
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-3 mb-4">
-            <div className="relative w-10 h-10 bg-ink rounded-xl flex items-center justify-center">
-              <Beaker className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-ink">Aminocan</span>
+            <VytaMark size={38} />
+            <span className="font-display text-lg font-semibold tracking-[0.28em] text-ink">VYTA</span>
           </Link>
           <h1 className="text-2xl font-bold text-ink">Secure Checkout</h1>
         </div>
 
         <div className="flex items-start gap-3 bg-surface border border-line rounded-xl p-4 mb-6">
-          <ShieldCheck className="w-5 h-5 text-bronze flex-shrink-0 mt-0.5" />
+          <ShieldCheck className="w-5 h-5 text-vital flex-shrink-0 mt-0.5" />
           <p className="text-sm text-ink-muted">
             {customerCheckoutEnabled ? (
               payByInvoice ? (
@@ -2990,7 +2977,7 @@ function PuramassCheckoutContent({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                   autoComplete="email"
                 />
                 <p className="text-xs text-ink-muted mt-1">
@@ -3009,7 +2996,7 @@ function PuramassCheckoutContent({
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="given-name"
                   />
                 </div>
@@ -3022,7 +3009,7 @@ function PuramassCheckoutContent({
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="family-name"
                   />
                 </div>
@@ -3038,7 +3025,7 @@ function PuramassCheckoutContent({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="For courier delivery updates"
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="tel"
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3087,7 +3074,7 @@ function PuramassCheckoutContent({
                     key={id}
                     className={`flex items-start gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
                       fulfillment === id
-                        ? "border-bronze bg-bronze/5"
+                        ? "border-vital bg-vital/5"
                         : "border-line hover:border-ink-muted/30"
                     }`}
                   >
@@ -3096,7 +3083,7 @@ function PuramassCheckoutContent({
                       name="puramass-fulfillment"
                       checked={fulfillment === id}
                       onChange={() => setFulfillment(id)}
-                      className="mt-0.5 accent-bronze"
+                      className="mt-0.5 accent-vital"
                     />
                     <Icon className="w-4 h-4 text-ink mt-0.5 flex-shrink-0" />
                     <div className="min-w-0">
@@ -3133,7 +3120,7 @@ function PuramassCheckoutContent({
                         key={id}
                         className={`flex items-start gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
                           payWith === id
-                            ? "border-bronze bg-bronze/5"
+                            ? "border-vital bg-vital/5"
                             : "border-line hover:border-ink-muted/30"
                         }`}
                       >
@@ -3142,7 +3129,7 @@ function PuramassCheckoutContent({
                           name="puramass-payment"
                           checked={payWith === id}
                           onChange={() => setPayWith(id)}
-                          className="mt-0.5 accent-bronze"
+                          className="mt-0.5 accent-vital"
                         />
                         {id === "btc" ? (
                           <span className="text-base leading-5 font-bold text-ink flex-shrink-0">
@@ -3181,7 +3168,7 @@ function PuramassCheckoutContent({
               </div>
               <div className="bg-surface rounded-xl p-4 border border-line">
                 <div className="flex items-start gap-3">
-                  <User className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <User className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-ink">
                       Please contact your sales person to arrange your pickup.
@@ -3226,7 +3213,7 @@ function PuramassCheckoutContent({
                       })
                     }
                     placeholder="Start typing your address…"
-                    className="w-full px-4 py-2.5 pr-10 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 pr-10 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                   />
                 </div>
                 <div>
@@ -3239,7 +3226,7 @@ function PuramassCheckoutContent({
                     onChange={(e) =>
                       setAddress((a) => ({ ...a, city: e.target.value }))
                     }
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="address-level2"
                   />
                 </div>
@@ -3253,7 +3240,7 @@ function PuramassCheckoutContent({
                     onChange={(e) =>
                       setAddress((a) => ({ ...a, state: e.target.value }))
                     }
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="address-level1"
                   />
                 </div>
@@ -3267,7 +3254,7 @@ function PuramassCheckoutContent({
                     onChange={(e) =>
                       setAddress((a) => ({ ...a, postalCode: e.target.value }))
                     }
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="postal-code"
                   />
                 </div>
@@ -3281,7 +3268,7 @@ function PuramassCheckoutContent({
                     onChange={(e) =>
                       setAddress((a) => ({ ...a, country: e.target.value }))
                     }
-                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-bronze focus:outline-none text-sm"
+                    className="w-full px-4 py-2.5 rounded-xl border border-line focus:border-vital focus:outline-none text-sm"
                     autoComplete="country"
                   />
                 </div>
@@ -3335,7 +3322,7 @@ function PuramassCheckoutContent({
                         key={r.courierId}
                         className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
                           courierId === r.courierId
-                            ? "border-bronze bg-bronze/5"
+                            ? "border-vital bg-vital/5"
                             : "border-line hover:border-ink-muted/30"
                         }`}
                       >
@@ -3344,7 +3331,7 @@ function PuramassCheckoutContent({
                           name="puramass-courier"
                           checked={courierId === r.courierId}
                           onChange={() => setCourierId(r.courierId)}
-                          className="accent-bronze"
+                          className="accent-vital"
                         />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-ink truncate">
@@ -3466,7 +3453,7 @@ function PuramassCheckoutContent({
         {addons.length > 0 && (
           <div className="mt-6 rounded-2xl border border-line bg-white overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-line bg-surface">
-              <Sparkles className="w-4 h-4 text-bronze" />
+              <Sparkles className="w-4 h-4 text-vital" />
               <h3 className="text-sm font-semibold text-ink">Complete your order</h3>
             </div>
             <div className="p-4">
@@ -3562,7 +3549,7 @@ function PuramassCheckoutContent({
         <div className="mt-6 text-center">
           <Link
             href="/cart"
-            className="text-ink-muted hover:text-bronze transition-colors text-sm"
+            className="text-ink-muted hover:text-vital transition-colors text-sm"
           >
             &larr; Back to cart
           </Link>

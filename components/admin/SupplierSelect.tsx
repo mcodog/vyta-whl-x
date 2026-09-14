@@ -26,7 +26,7 @@ interface MenuPos {
  * A custom (non-native) supplier picker used per line item on a prepaid invoice.
  * Shows the chosen supplier + its unit cost, a "Cheapest" badge, lead time, and
  * flags when the pick isn't the cheapest option. Matches the admin design system
- * (ink/bronze/line/surface tokens) and closes on outside-click / Escape.
+ * (ink/vital/line/surface tokens) and closes on outside-click / Escape.
  *
  * The options menu renders in a portal with fixed positioning so it is never
  * clipped by the `overflow-hidden` cards/tables it sits inside.
@@ -121,11 +121,11 @@ export default function SupplierSelect({
                   type="button"
                   onClick={() => { onChange(o.supplier_id); setOpen(false); }}
                   className={`w-full flex items-center justify-between gap-3 px-3 py-2 text-sm text-left hover:bg-surface transition-colors ${
-                    active ? 'bg-bronze/5' : ''
+                    active ? 'bg-vital/5' : ''
                   }`}
                 >
                   <span className="flex items-center gap-2 min-w-0">
-                    <span className={`w-4 flex-shrink-0 ${active ? 'text-bronze' : 'text-transparent'}`}>
+                    <span className={`w-4 flex-shrink-0 ${active ? 'text-vital' : 'text-transparent'}`}>
                       <Check className="w-4 h-4" />
                     </span>
                     <span className="min-w-0">
@@ -176,7 +176,7 @@ export default function SupplierSelect({
         }`}
       >
         <span className="flex items-center gap-2 min-w-0">
-          <Building2 className={`w-4 h-4 flex-shrink-0 ${selected ? 'text-bronze' : 'text-amber-500'}`} />
+          <Building2 className={`w-4 h-4 flex-shrink-0 ${selected ? 'text-vital' : 'text-amber-500'}`} />
           <span className="min-w-0">
             {selected ? (
               <span className="flex items-center gap-1.5 min-w-0">

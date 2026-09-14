@@ -574,7 +574,7 @@ export default function CustomerOverridesView() {
             </button>
             <button
               onClick={openBulkFlow}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-bronze text-white rounded-lg hover:bg-bronze/90 transition-all font-medium text-sm"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-vital text-white rounded-lg hover:bg-vital/90 transition-all font-medium text-sm"
             >
               <Users className="w-4 h-4" />
               Bulk Edit Pricing
@@ -624,7 +624,7 @@ export default function CustomerOverridesView() {
             placeholder="Search by customer or product..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
+            className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
           />
         </div>
       </div>
@@ -700,7 +700,7 @@ export default function CustomerOverridesView() {
                         <div className="text-sm font-semibold text-ink truncate">{getCustomerName(g.customer)}</div>
                         <div className="text-xs text-ink-muted truncate">{g.customer.email}</div>
                       </div>
-                      <span className="flex-shrink-0 text-[11px] font-medium px-2 py-1 rounded-full bg-bronze/10 text-bronze">
+                      <span className="flex-shrink-0 text-[11px] font-medium px-2 py-1 rounded-full bg-vital/10 text-vital">
                         {g.overrides.length} override{g.overrides.length !== 1 ? 's' : ''}
                       </span>
                     </div>
@@ -714,7 +714,7 @@ export default function CustomerOverridesView() {
                               <span className="text-ink truncate">{o.products.name}</span>
                               <span className="flex items-center gap-2 flex-shrink-0 tabular-nums">
                                 <span className="text-ink-muted line-through text-xs">${o.products.price.toFixed(2)}</span>
-                                <span className="font-semibold text-bronze">${o.override_price.toFixed(2)}</span>
+                                <span className="font-semibold text-vital">${o.override_price.toFixed(2)}</span>
                               </span>
                             </div>
                           ))}
@@ -777,7 +777,7 @@ export default function CustomerOverridesView() {
                         <div className="text-sm font-semibold text-ink truncate">{g.product.name}</div>
                         <div className="text-xs text-ink-muted tabular-nums">Default ${g.product.price.toFixed(2)}</div>
                       </div>
-                      <span className="flex-shrink-0 text-[11px] font-medium px-2 py-1 rounded-full bg-bronze/10 text-bronze">
+                      <span className="flex-shrink-0 text-[11px] font-medium px-2 py-1 rounded-full bg-vital/10 text-vital">
                         {g.overrides.length} customer{g.overrides.length !== 1 ? 's' : ''}
                       </span>
                     </div>
@@ -791,7 +791,7 @@ export default function CustomerOverridesView() {
                               <span className={`text-xs ${d > 0 ? 'text-emerald-600' : d < 0 ? 'text-red-600' : 'text-ink-muted'}`}>
                                 {d > 0 ? '-' : d < 0 ? '+' : ''}{Math.abs(d).toFixed(0)}%
                               </span>
-                              <span className="font-semibold text-bronze">${o.override_price.toFixed(2)}</span>
+                              <span className="font-semibold text-vital">${o.override_price.toFixed(2)}</span>
                             </span>
                           </div>
                         );
@@ -976,7 +976,7 @@ export default function CustomerOverridesView() {
                     <button
                       onClick={proceedToBulkStep2}
                       disabled={selectedCustomersForBulk.length === 0}
-                      className="flex-1 px-4 py-2.5 bg-bronze text-white rounded-lg hover:bg-bronze/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 px-4 py-2.5 bg-vital text-white rounded-lg hover:bg-vital/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next: Set Prices
                       <ArrowRight className="w-4 h-4" />
@@ -1096,7 +1096,7 @@ export default function CustomerOverridesView() {
                   <button
                     onClick={proceedToBulkStep3}
                     disabled={Object.keys(bulkPrices).length === 0}
-                    className="flex-1 px-4 py-2.5 bg-bronze text-white rounded-lg hover:bg-bronze/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 px-4 py-2.5 bg-vital text-white rounded-lg hover:bg-vital/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Next: Review
                     <ArrowRight className="w-4 h-4" />
@@ -1137,7 +1137,7 @@ export default function CustomerOverridesView() {
                     {bulkSelectedCustomers.map((c) => (
                       <span
                         key={c.id}
-                        className="inline-flex items-center gap-1 px-2 py-1 bg-bronze/10 text-bronze text-xs rounded-md"
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-vital/10 text-vital text-xs rounded-md"
                       >
                         {getCustomerName(c)}
                         <span
@@ -1179,7 +1179,7 @@ export default function CustomerOverridesView() {
                         bulkSummaryByProduct.map((row) => (
                           <tr key={row.product?.id ?? row.price}>
                             <td className="px-4 py-3 text-sm text-ink">{row.product?.name ?? 'Product'}</td>
-                            <td className="px-4 py-3 text-sm font-semibold text-bronze tabular-nums">
+                            <td className="px-4 py-3 text-sm font-semibold text-vital tabular-nums">
                               ${row.price.toFixed(2)}
                             </td>
                             <td className="px-4 py-3 text-sm text-ink-muted text-right tabular-nums">{row.count}</td>
@@ -1206,7 +1206,7 @@ export default function CustomerOverridesView() {
                   <button
                     onClick={handleBulkSave}
                     disabled={savingBulk || bulkUpdates.length === 0}
-                    className="flex-1 px-4 py-2.5 bg-bronze text-white rounded-lg hover:bg-bronze/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 px-4 py-2.5 bg-vital text-white rounded-lg hover:bg-vital/90 transition-all font-medium text-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {savingBulk ? (
                       <>Saving...</>

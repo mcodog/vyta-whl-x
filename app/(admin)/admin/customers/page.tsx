@@ -464,7 +464,7 @@ function AdminCustomers() {
               placeholder="Search by name or email…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
           <button
@@ -523,7 +523,7 @@ function AdminCustomers() {
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
-                className="pl-8 pr-8 py-2 bg-white border border-line rounded-lg text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="pl-8 pr-8 py-2 bg-white border border-line rounded-lg text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               >
                 {(Object.keys(SORT_LABELS) as SortKey[]).map((k) => (
                   <option key={k} value={k}>{SORT_LABELS[k]}</option>
@@ -573,25 +573,25 @@ function AdminCustomers() {
                     <tr
                       key={customer.id}
                       onClick={() => openCustomer(customer.id)}
-                      className={`group cursor-pointer transition-colors ${marked ? 'bg-bronze/5' : 'hover:bg-surface'}`}
+                      className={`group cursor-pointer transition-colors ${marked ? 'bg-vital/5' : 'hover:bg-surface'}`}
                     >
                       {/* Customer */}
                       <td className="px-5 py-3.5 relative">
                         {/* Hover hint tooltip (white + shadow) */}
                         <span className="pointer-events-none absolute left-14 -top-1 z-20 -translate-y-full whitespace-nowrap rounded-lg border border-line bg-white px-2.5 py-1.5 text-xs font-medium text-ink shadow-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100">
                           <span className="inline-flex items-center gap-1.5">
-                            <MousePointerClick className="w-3.5 h-3.5 text-bronze" />
+                            <MousePointerClick className="w-3.5 h-3.5 text-vital" />
                             Click to view customer information
                           </span>
                           <span className="absolute left-5 top-full h-2 w-2 -translate-y-1 rotate-45 border-b border-r border-line bg-white" />
                         </span>
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-9 h-9 rounded-full bg-bronze/10 text-bronze flex items-center justify-center text-xs font-bold shrink-0">
+                          <div className="w-9 h-9 rounded-full bg-vital/10 text-vital flex items-center justify-center text-xs font-bold shrink-0">
                             {initials(customer)}
                           </div>
                           <div className="min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-medium text-ink text-sm whitespace-nowrap group-hover:text-bronze transition-colors">
+                              <span className="font-medium text-ink text-sm whitespace-nowrap group-hover:text-vital transition-colors">
                                 {nameOf(customer)}
                               </span>
                               {role !== 'customer' && (
@@ -674,7 +674,7 @@ function AdminCustomers() {
                           return (
                             <div className="flex flex-col gap-0.5 max-w-[220px]">
                               <span className="inline-flex items-center gap-1 text-sm font-medium text-ink whitespace-nowrap">
-                                <Users className="w-3.5 h-3.5 text-bronze" />
+                                <Users className="w-3.5 h-3.5 text-vital" />
                                 {count} client{count === 1 ? '' : 's'}
                               </span>
                               {names.length > 0 && (
@@ -755,7 +755,7 @@ function AdminCustomers() {
                               <Trash2 className="w-4 h-4" />
                             </button>
                           )}
-                          <ChevronRight className="w-4 h-4 text-ink-light group-hover:text-bronze transition-colors" />
+                          <ChevronRight className="w-4 h-4 text-ink-light group-hover:text-vital transition-colors" />
                         </div>
                       </td>
                     </tr>
@@ -811,10 +811,10 @@ function AdminCustomers() {
                   <li
                     key={customer.id}
                     onClick={() => openCustomer(customer.id)}
-                    className={`px-4 py-3.5 cursor-pointer transition-colors ${marked ? 'bg-bronze/5' : 'active:bg-surface'}`}
+                    className={`px-4 py-3.5 cursor-pointer transition-colors ${marked ? 'bg-vital/5' : 'active:bg-surface'}`}
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-full bg-bronze/10 text-bronze flex items-center justify-center text-xs font-bold shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-vital/10 text-vital flex items-center justify-center text-xs font-bold shrink-0">
                         {initials(customer)}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -872,7 +872,7 @@ function AdminCustomers() {
 
                         {clientCount > 0 && (
                           <div className="mt-1.5 inline-flex items-center gap-1 text-xs text-ink">
-                            <Users className="w-3.5 h-3.5 text-bronze" />
+                            <Users className="w-3.5 h-3.5 text-vital" />
                             {clientCount} ship-to client{clientCount === 1 ? '' : 's'}
                           </div>
                         )}

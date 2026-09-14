@@ -1,5 +1,46 @@
 import type { Config } from 'tailwindcss';
 
+/**
+ * VYTA Biosciences design tokens.
+ * ---------------------------------------------------------------------------
+ * Brand Identity Guidelines v1.0 — "Premium bioscience. Human vitality.
+ * Clinical credibility."
+ *
+ * Midnight Navy is the anchor; Vital Blue, Bio Teal and Aqua carry vitality;
+ * Mist and Cloud create the breathing room the guidelines ask for. The named
+ * brand swatches below are the canonical values — every other scale in this
+ * file is interpolated from them so a `-500` or `-700` step always lands on,
+ * or between, two real brand colors.
+ */
+const brand = {
+  navy: '#07203A',   // Midnight Navy — anchor
+  ocean: '#0E3F5F',  // Deep Ocean
+  vital: '#1B5D83',  // Vital Blue
+  teal: '#438B9E',   // Bio Teal
+  aqua: '#6EB2B8',   // Aqua
+  mist: '#BBD6D6',   // Mist
+  cloud: '#F7FAFB',  // Cloud — page ground
+} as const;
+
+/**
+ * The single brand ramp. Light steps breathe (Cloud/Mist), mid steps carry the
+ * vitality accents (Aqua/Bio Teal) and dark steps anchor (Vital Blue → Deep
+ * Ocean → Midnight Navy). `vital`, `primary` and `accent` all share it so an
+ * accent swap is a one-line change here.
+ */
+const ramp = {
+  50: '#F2F8F9',
+  100: '#E1EFF1',
+  200: '#C9DFE2',
+  300: '#9CC8CE',
+  400: brand.aqua,
+  500: brand.teal,
+  600: '#34718A',
+  700: brand.vital,
+  800: brand.ocean,
+  900: brand.navy,
+};
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,52 +50,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // PURA Color System
+        // Named brand swatches, straight from the guidelines.
+        navy: brand.navy,
+        ocean: brand.ocean,
+        teal: { ...ramp, DEFAULT: brand.teal },
+        aqua: brand.aqua,
+        mist: brand.mist,
+        cloud: brand.cloud,
+
+        // Ink — body copy and dark surfaces. Anchored on Midnight Navy, with
+        // two cooled-down steps for secondary and tertiary text.
         ink: {
-          DEFAULT: '#1A1A1A',
-          muted: '#6E6E6E',
-          light: '#8A8A8A',
+          DEFAULT: brand.navy,
+          muted: '#4E6E85',
+          light: '#7E99AB',
         },
-        bronze: {
-          DEFAULT: '#9C8B5A',
-          light: '#B8A876',
-          dark: '#7D6F48',
-          50: '#FAF8F3',
-          100: '#F2EEE3',
+        // Vital — the accent that replaces the old vital. Bio Teal leads,
+        // Aqua lifts it on dark grounds, Vital Blue grounds it on light ones.
+        vital: {
+          ...ramp,
+          DEFAULT: brand.teal,
+          light: brand.aqua,
+          dark: brand.vital,
         },
         surface: {
-          DEFAULT: '#F7F7F7',
-          2: '#F2F2F2',
+          DEFAULT: brand.cloud,
+          2: '#EFF5F7',
         },
-        line: '#C9CCD1',
-        // Keep primary/accent for backwards compatibility during transition
-        primary: {
-          50: '#FAF8F3',
-          100: '#F2EEE3',
-          200: '#E5DCC7',
-          300: '#D4C9A8',
-          400: '#B8A876',
-          500: '#9C8B5A',
-          600: '#7D6F48',
-          700: '#5E5336',
-          800: '#3F3824',
-          900: '#1A1A1A',
-        },
-        accent: {
-          50: '#FAF8F3',
-          100: '#F2EEE3',
-          200: '#E5DCC7',
-          300: '#D4C9A8',
-          400: '#B8A876',
-          500: '#9C8B5A',
-          600: '#7D6F48',
-          700: '#5E5336',
-          800: '#3F3824',
-          900: '#1A1A1A',
-        },
+        line: '#D5E2E7',
+        primary: ramp,
+        accent: ramp,
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+        // Inter for body copy, UI, specifications and long-form text.
+        sans: ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+        // Inter Display for headings, product names and campaigns. Same family,
+        // driven to its display optical size by the `.font-display` utility.
+        display: ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+      },
+      backgroundImage: {
+        // Soft gradients, per the design language. `brand` is the navy → aqua
+        // sweep used on rules, buttons and hero washes.
+        'brand': `linear-gradient(90deg, ${brand.navy} 0%, ${brand.ocean} 35%, ${brand.teal} 75%, ${brand.aqua} 100%)`,
+        'brand-diagonal': `linear-gradient(135deg, ${brand.navy} 0%, ${brand.vital} 55%, ${brand.teal} 100%)`,
+        'brand-soft': `linear-gradient(180deg, ${brand.cloud} 0%, #FFFFFF 60%, ${brand.cloud} 100%)`,
       },
       animation: {
         'fade-in': 'fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',

@@ -167,25 +167,25 @@ export async function GET(request: NextRequest) {
   @page { size: A4; margin: 16mm; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         color: #1A1A1A; margin: 0; padding: 28px; background: #fff; }
+         color: #07203A; margin: 0; padding: 28px; background: #fff; }
   .wrap { max-width: 820px; margin: 0 auto; }
   h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: 0.02em; }
-  .sub { font-size: 12px; color: #6E6E6E; margin: 0 0 18px; }
-  .filters { background: #F7F7F7; border-radius: 8px; padding: 12px 16px; font-size: 12px; margin-bottom: 18px; }
-  .filters strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6E6E6E; margin-right: 6px; }
-  .filters span { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #fff; border: 1px solid #E5E7EB; margin-right: 6px; }
+  .sub { font-size: 12px; color: #4E6E85; margin: 0 0 18px; }
+  .filters { background: #F7FAFB; border-radius: 8px; padding: 12px 16px; font-size: 12px; margin-bottom: 18px; }
+  .filters strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4E6E85; margin-right: 6px; }
+  .filters span { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #fff; border: 1px solid #DCE7EB; margin-right: 6px; }
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 22px; }
-  .stat { padding: 14px; border: 1px solid #E5E7EB; border-radius: 10px; }
-  .stat .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6E6E6E; margin-bottom: 6px; }
+  .stat { padding: 14px; border: 1px solid #DCE7EB; border-radius: 10px; }
+  .stat .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4E6E85; margin-bottom: 6px; }
   .stat .value { font-size: 18px; font-weight: 700; }
   .stat.pending .value { color: #B45309; }
   .stat.paid .value { color: #047857; }
-  .stat.total .value { color: #1A1A1A; }
-  .stat .meta { font-size: 11px; color: #6E6E6E; margin-top: 2px; }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #6E6E6E; margin: 24px 0 8px; }
+  .stat.total .value { color: #07203A; }
+  .stat .meta { font-size: 11px; color: #4E6E85; margin-top: 2px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #4E6E85; margin: 24px 0 8px; }
   table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #6E6E6E; padding: 8px 6px; border-bottom: 1px solid #C9CCD1; }
-  td { padding: 8px 6px; border-bottom: 1px solid #F2F2F2; vertical-align: top; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #4E6E85; padding: 8px 6px; border-bottom: 1px solid #D5E2E7; }
+  td { padding: 8px 6px; border-bottom: 1px solid #EFF5F7; vertical-align: top; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; }
   .pill.aff { background: #DBEAFE; color: #1E40AF; }
@@ -193,15 +193,15 @@ export async function GET(request: NextRequest) {
   .pill.pending { background: #FEF3C7; color: #92400E; }
   .pill.paid { background: #D1FAE5; color: #065F46; }
   .pill.cancelled { background: #FEE2E2; color: #991B1B; }
-  .empty { padding: 24px; text-align: center; color: #6E6E6E; font-size: 12px; }
-  .foot { margin-top: 32px; padding-top: 12px; border-top: 1px solid #C9CCD1; font-size: 10px; color: #6E6E6E; display: flex; justify-content: space-between; }
+  .empty { padding: 24px; text-align: center; color: #4E6E85; font-size: 12px; }
+  .foot { margin-top: 32px; padding-top: 12px; border-top: 1px solid #D5E2E7; font-size: 10px; color: #4E6E85; display: flex; justify-content: space-between; }
   @media print { body { padding: 0; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Commissions Report</h1>
-  <p class="sub">PuraMass · Generated ${escape(new Date().toLocaleString())}</p>
+  <p class="sub">VYTA Biosciences · Generated ${escape(new Date().toLocaleString())}</p>
 
   <div class="filters">
     <strong>Filters</strong>
@@ -275,7 +275,7 @@ export async function GET(request: NextRequest) {
       ${rows.map((r) => `
         <tr>
           <td>${escape(new Date(r.created_at).toLocaleDateString())}</td>
-          <td>${escape(r.recipient_name)}${r.recipient_email ? `<div style="font-size: 10px; color: #6E6E6E;">${escape(r.recipient_email)}</div>` : ''}</td>
+          <td>${escape(r.recipient_name)}${r.recipient_email ? `<div style="font-size: 10px; color: #4E6E85;">${escape(r.recipient_email)}</div>` : ''}</td>
           <td><span class="pill ${r.source === 'affiliate' ? 'aff' : 'sales'}">${r.source === 'affiliate' ? 'Affiliate' : 'Sales'}</span></td>
           <td style="font-family: ui-monospace, Menlo, Consolas, monospace;">${escape(r.reference)}</td>
           <td class="num">${money(r.total)}</td>
@@ -288,7 +288,7 @@ export async function GET(request: NextRequest) {
   `}
 
   <div class="foot">
-    <span>PuraMass · Commissions Report</span>
+    <span>VYTA Biosciences · Commissions Report</span>
     <span>${rows.length} row${rows.length === 1 ? '' : 's'}</span>
   </div>
 </div>

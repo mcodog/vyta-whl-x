@@ -141,10 +141,10 @@ export default function PrepaidLineSuppliers({
 
   return (
     <div className="bg-white rounded-xl border border-line overflow-hidden">
-      <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-line bg-gradient-to-r from-bronze/5 to-transparent">
+      <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-line bg-gradient-to-r from-vital/5 to-transparent">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-bronze/10 flex items-center justify-center">
-            <PackageSearch className="w-4 h-4 text-bronze" />
+          <div className="w-8 h-8 rounded-lg bg-vital/10 flex items-center justify-center">
+            <PackageSearch className="w-4 h-4 text-vital" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-ink">Supplier routing</h3>
@@ -232,7 +232,7 @@ export default function PrepaidLineSuppliers({
                       <div key={g.supplier_id} className="border border-line rounded-lg p-3.5 bg-surface/40">
                         <div className="flex items-center justify-between gap-2">
                           <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
-                            <Building2 className="w-4 h-4 text-bronze" /> {g.supplier_name}
+                            <Building2 className="w-4 h-4 text-vital" /> {g.supplier_name}
                           </span>
                           {g.lead != null && (
                             <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted">
@@ -262,7 +262,7 @@ export default function PrepaidLineSuppliers({
                 </>
               ) : (
                 <>
-                  <Info className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <Info className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <span>
                     <Sparkles className="w-3 h-3 inline -mt-0.5 text-emerald-600" /> Cheapest supplier auto-selected.
                     Save the invoice, then generate these purchase orders from the invoice page (downloadable as

@@ -220,7 +220,7 @@ admin/assistant. App routes use the service-role client and re-check role.
 - **`/admin/purchase-orders/new`** + **`PurchaseOrderForm.tsx`** — supplier picker, line builder
   (supplier-price aware), discount/shipping/tax; **prefills from `?backorder=<id>`**.
 - **`PurchaseOrderReceiving.tsx`** — per-line receive panel; `canReceivePo` + fully-received guard;
-  "fill remaining" helper; progress bar (emerald when fully received, bronze otherwise) → POSTs to
+  "fill remaining" helper; progress bar (emerald when fully received, vital otherwise) → POSTs to
   `/receipts`.
 - **`/admin/backorders`** — Open/Fulfilled tabs; each open row has a **Fulfill** button →
   `/admin/purchase-orders/new?backorder=<id>`.
@@ -230,18 +230,18 @@ admin/assistant. App routes use the service-role client and re-check role.
 
 ## 4. UI/UX design overview
 
-Shared admin theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surface #F7F7F7`,
-`line #C9CCD1`. Icons `lucide-react` (`PackageX` backorders, `PackageCheck` receiving, `Building2`
+Shared admin theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`, `surface #F7FAFB`,
+`line #D5E2E7`. Icons `lucide-react` (`PackageX` backorders, `PackageCheck` receiving, `Building2`
 suppliers, `Wrench` fulfill).
 
 - **PO status badges** (`PO_STATUS_META`): pending `amber`, partially_fulfilled `blue`, fulfilled
   `violet`, paid `emerald`, cancelled `red` (PDF reuses the matching hexes).
-- **Receiving panel:** progress bar `bg-emerald-500` when fully received else `bg-bronze`; per-line
+- **Receiving panel:** progress bar `bg-emerald-500` when fully received else `bg-vital`; per-line
   Ordered / Received / Receive inputs; disabled when `!canReceivePo` or fully received.
-- **Backorders:** `PackageX` bronze heading; Open/Fulfilled tabs; Fulfill button (`Wrench`) deep-links
+- **Backorders:** `PackageX` vital heading; Open/Fulfilled tabs; Fulfill button (`Wrench`) deep-links
   the PO draft.
 - Standard admin recipes for cards (`bg-white rounded-xl border border-line`), primary buttons
-  (`bg-ink`), inputs (`bg-surface … focus:ring-bronze/40`).
+  (`bg-ink`), inputs (`bg-surface … focus:ring-vital/40`).
 
 ---
 

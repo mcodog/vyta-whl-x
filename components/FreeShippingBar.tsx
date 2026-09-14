@@ -31,7 +31,7 @@ export default function FreeShippingBar({ subtotalCad }: { subtotalCad: number }
         {qualified ? (
           <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
         ) : (
-          <Truck className="w-4 h-4 text-bronze flex-shrink-0" />
+          <Truck className="w-4 h-4 text-vital flex-shrink-0" />
         )}
         <p className="text-xs text-ink">
           {qualified ? (
@@ -52,7 +52,7 @@ export default function FreeShippingBar({ subtotalCad }: { subtotalCad: number }
       <div className="h-2 w-full rounded-full bg-line overflow-hidden">
         <div
           className={`h-full rounded-full transition-all duration-500 ${
-            qualified ? 'bg-emerald-500' : 'bg-bronze'
+            qualified ? 'bg-emerald-500' : 'bg-vital'
           }`}
           style={{ width: `${pct}%` }}
         />

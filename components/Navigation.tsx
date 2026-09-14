@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useCart } from "@/contexts/CartContext";
 import { useCustomer } from "@/contexts/CustomerContext";
-import { useSiteConfig } from "@/contexts/SiteConfigContext";
 import {
   Menu,
   X,
@@ -24,9 +23,9 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import PeptideLoader from "./PeptideLoader";
+import SiteBrand from "./SiteBrand";
 
 export default function Navigation() {
-  const { config: siteConfig } = useSiteConfig();
   const [isOpen, setIsOpen] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -120,41 +119,10 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center h-[72px]">
-            {/* Logo — store logo + name come from the editable site branding. */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                {siteConfig.logo_url ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={siteConfig.logo_url}
-                    alt={siteConfig.store_name}
-                    className="relative w-10 h-10 rounded-xl object-contain"
-                  />
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-bronze/10 rounded-xl blur-lg group-hover:bg-bronze/20 transition-all duration-300" />
-                    <div
-                      className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-                        overlay
-                          ? "bg-white/10 border border-white/20 backdrop-blur-md"
-                          : "bg-ink"
-                      }`}
-                    >
-                      <Beaker className="w-5 h-5 text-white" />
-                    </div>
-                  </>
-                )}
-              </div>
-              <div className="flex flex-col">
-                <span className={`text-lg font-bold tracking-tight leading-none ${overlay ? "text-white" : "text-ink"}`}>
-                  {siteConfig.store_name}
-                </span>
-                {siteConfig.store_tagline && (
-                  <span className="text-[10px] text-bronze tracking-[0.15em] font-medium uppercase mt-0.5">
-                    {siteConfig.store_tagline}
-                  </span>
-                )}
-              </div>
+            {/* Logo — the VYTA lockup, or the editable site branding when the
+                store has its own logo/name configured. */}
+            <Link href="/" className="flex items-center group" aria-label="VYTA Biosciences home">
+              <SiteBrand tone={overlay ? 'light' : 'dark'} size={38} className="transition-opacity duration-300 group-hover:opacity-80" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -212,30 +180,30 @@ export default function Navigation() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                       className="absolute left-0 top-full pt-2 w-64 z-[100]"
                     >
-                      <div className="bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-slate-200">
+                      <div className="bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-vital-200">
                         <div className="p-2">
                           <div className="flex items-center gap-3 px-3 py-3 rounded-xl cursor-not-allowed opacity-50">
-                            <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
-                              <Users className="w-5 h-5 text-slate-400" />
+                            <div className="w-10 h-10 rounded-xl bg-vital-100 flex items-center justify-center">
+                              <Users className="w-5 h-5 text-ink-light" />
                             </div>
                             <div>
-                              <p className="text-sm font-semibold text-slate-400">
+                              <p className="text-sm font-semibold text-ink-light">
                                 About Us
                               </p>
-                              <p className="text-xs text-slate-400">
+                              <p className="text-xs text-ink-light">
                                 Coming Soon
                               </p>
                             </div>
                           </div>
                           <div className="flex items-center gap-3 px-3 py-3 rounded-xl cursor-not-allowed opacity-50">
-                            <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
-                              <Microscope className="w-5 h-5 text-slate-400" />
+                            <div className="w-10 h-10 rounded-xl bg-vital-100 flex items-center justify-center">
+                              <Microscope className="w-5 h-5 text-ink-light" />
                             </div>
                             <div>
-                              <p className="text-sm font-semibold text-slate-400">
+                              <p className="text-sm font-semibold text-ink-light">
                                 Certifications
                               </p>
-                              <p className="text-xs text-slate-400">
+                              <p className="text-xs text-ink-light">
                                 Coming Soon
                               </p>
                             </div>
@@ -258,8 +226,8 @@ export default function Navigation() {
                 href={affiliateHref}
                 className={`px-4 py-2 rounded-lg transition-all text-sm font-medium ${
                   overlay
-                    ? "text-bronze-light hover:bg-white/10"
-                    : "text-bronze hover:text-bronze-dark hover:bg-bronze-50"
+                    ? "text-vital-light hover:bg-white/10"
+                    : "text-vital hover:text-vital-dark hover:bg-vital-50"
                 }`}
               >
                 {affiliateLabel}
@@ -351,15 +319,15 @@ export default function Navigation() {
                         transition={{ duration: 0.15, ease: "easeOut" }}
                         className="absolute right-0 top-full pt-2 w-52 z-[100]"
                       >
-                        <div className="bg-white rounded-xl shadow-2xl shadow-black/20 overflow-hidden border border-slate-200">
+                        <div className="bg-white rounded-xl shadow-2xl shadow-black/20 overflow-hidden border border-vital-200">
                           <div className="p-2">
                             {isStaff && (
                               <Link
                                 href="/admin"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
-                                <LayoutDashboard className="w-4 h-4 text-bronze" />
+                                <LayoutDashboard className="w-4 h-4 text-vital" />
                                 <span className="text-sm font-medium">
                                   Admin Dashboard
                                 </span>
@@ -368,7 +336,7 @@ export default function Navigation() {
                             {isAdmin && (
                               <Link
                                 href="/warehouse"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 <PackageCheck className="w-4 h-4 text-indigo-500" />
@@ -380,7 +348,7 @@ export default function Navigation() {
                             {isWarehouse && (
                               <Link
                                 href="/warehouse"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 <PackageCheck className="w-4 h-4 text-indigo-500" />
@@ -391,19 +359,19 @@ export default function Navigation() {
                             )}
                             <Link
                               href="/account/dashboard"
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <Package className="w-4 h-4 text-slate-500" />
+                              <Package className="w-4 h-4 text-ink-muted" />
                               <span className="text-sm font-medium">
                                 My Orders
                               </span>
                             </Link>
                           </div>
-                          <div className="border-t border-slate-100 p-2">
+                          <div className="border-t border-vital-100 p-2">
                             <button
                               onClick={handleLogout}
-                              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-colors text-slate-700 hover:text-red-600"
+                              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-colors text-vital-800 hover:text-red-600"
                             >
                               <LogOut className="w-4 h-4" />
                               <span className="text-sm font-medium">
@@ -481,7 +449,7 @@ export default function Navigation() {
           >
             <Beaker
               className={`w-3 h-3 flex-shrink-0 ${
-                overlay ? "text-bronze-light" : "text-bronze"
+                overlay ? "text-vital-light" : "text-vital"
               }`}
             />
             <span>Research Only</span>
@@ -560,7 +528,7 @@ export default function Navigation() {
 
               <Link
                 href={affiliateHref}
-                className="block px-4 py-3 text-bronze hover:bg-bronze-50 rounded-xl transition-colors text-sm font-medium"
+                className="block px-4 py-3 text-vital hover:bg-vital-50 rounded-xl transition-colors text-sm font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {isAffiliate ? 'Client Portal' : 'Affiliate Program'}
@@ -581,7 +549,7 @@ export default function Navigation() {
                       {isStaff && (
                         <Link
                           href="/admin"
-                          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-bronze text-white text-sm font-semibold rounded-xl"
+                          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-vital text-white text-sm font-semibold rounded-xl"
                           onClick={() => setIsOpen(false)}
                         >
                           <LayoutDashboard className="w-4 h-4" />

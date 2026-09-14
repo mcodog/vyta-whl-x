@@ -74,8 +74,8 @@ function NewPurchaseOrderContent() {
       </div>
 
       {backorderId && invoiceNumber && (
-        <div className="mb-5 flex items-start gap-2 p-3 bg-bronze/10 border border-bronze/30 rounded-lg text-sm text-ink">
-          <PackageX className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+        <div className="mb-5 flex items-start gap-2 p-3 bg-vital/10 border border-vital/30 rounded-lg text-sm text-ink">
+          <PackageX className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
           <span>
             Fulfilling the backorder for invoice{' '}
             <span className="font-mono font-medium">{invoiceNumber}</span>. The backordered

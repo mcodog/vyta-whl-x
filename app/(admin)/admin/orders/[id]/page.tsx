@@ -14,7 +14,7 @@ import AutoShipmentReport from './_components/AutoShipmentReport';
 
 const statusColors: Record<string, string> = {
   pending: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  received: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
+  received: 'bg-vital-500/10 text-vital-400 border-vital-500/20',
   confirmed: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
   processing: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
   shipped: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
@@ -202,7 +202,7 @@ export default function OrderDetailPage() {
     return (
       <div className="text-center py-20">
         <p className="text-ink-muted mb-4">Order not found</p>
-        <Link href="/admin/orders" className="text-bronze hover:text-bronze/80 text-sm">Back to Orders</Link>
+        <Link href="/admin/orders" className="text-vital hover:text-vital/80 text-sm">Back to Orders</Link>
       </div>
     );
   }
@@ -235,7 +235,7 @@ export default function OrderDetailPage() {
               {sourceLabel(order.source)}
             </span>
           )}
-          <span className={`inline-flex px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[order.status] || 'bg-gray-500/10 text-ink-muted border-gray-500/20'}`}>
+          <span className={`inline-flex px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[order.status] || 'bg-ink-light/10 text-ink-muted border-ink-light/20'}`}>
             {order.status}
           </span>
         </div>
@@ -255,7 +255,7 @@ export default function OrderDetailPage() {
                   }`}>
                     {i <= currentStepIndex ? <Check className="w-4 h-4" /> : i + 1}
                   </div>
-                  <span className={`text-[10px] uppercase tracking-wider ${i <= currentStepIndex ? 'text-bronze' : 'text-ink-muted'}`}>
+                  <span className={`text-[10px] uppercase tracking-wider ${i <= currentStepIndex ? 'text-vital' : 'text-ink-muted'}`}>
                     {step}
                   </span>
                 </div>
@@ -295,7 +295,7 @@ export default function OrderDetailPage() {
                           className={`inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide ${
                             item.price_type === 'vial'
                               ? 'bg-indigo-500/10 text-indigo-600'
-                              : 'bg-bronze/10 text-bronze'
+                              : 'bg-vital/10 text-vital'
                           }`}
                           title={item.price_type === 'vial' ? 'Sold at the single-vial price' : 'Sold at the pack-of-10 (box) price'}
                         >
@@ -433,13 +433,13 @@ export default function OrderDetailPage() {
           {(commission || order.referral_code) && (
             <div className="bg-white rounded-xl border border-line p-5">
               <div className="flex items-center gap-2 mb-4">
-                <Tag className="w-4 h-4 text-bronze" />
+                <Tag className="w-4 h-4 text-vital" />
                 <h2 className="font-semibold text-ink">Affiliate Commission</h2>
               </div>
               {order.referral_code && (
                 <div className="mb-3">
                   <p className="text-ink-muted text-sm mb-1">Referral Code Used</p>
-                  <span className="font-mono text-bronze bg-bronze/10 px-2 py-0.5 rounded text-sm">{order.referral_code}</span>
+                  <span className="font-mono text-vital bg-vital/10 px-2 py-0.5 rounded text-sm">{order.referral_code}</span>
                 </div>
               )}
               {commission && (
@@ -542,12 +542,12 @@ export default function OrderDetailPage() {
                 value={trackingInput}
                 onChange={(e) => setTrackingInput(e.target.value)}
                 placeholder="Enter tracking number"
-                className="flex-1 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="flex-1 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
               <button
                 onClick={handleSaveTracking}
                 disabled={savingTracking}
-                className="px-3 py-2 bg-bronze/10 border border-bronze/20 text-bronze rounded-lg text-sm hover:bg-bronze/20 transition-colors disabled:opacity-50"
+                className="px-3 py-2 bg-vital/10 border border-vital/20 text-vital rounded-lg text-sm hover:bg-vital/20 transition-colors disabled:opacity-50"
               >
                 {savingTracking ? '...' : <Save className="w-4 h-4" />}
               </button>
@@ -571,7 +571,7 @@ export default function OrderDetailPage() {
               value={order.status}
               onChange={(e) => handleStatusChange(e.target.value)}
               disabled={updating}
-              className="w-full px-3 py-2.5 bg-surface border border-line text-ink rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-50"
+              className="w-full px-3 py-2.5 bg-surface border border-line text-ink rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-50"
             >
               <option value="pending">Pending</option>
               <option value="received">Payment Received</option>
@@ -639,7 +639,7 @@ export default function OrderDetailPage() {
                 <select
                   value={payMethod}
                   onChange={(e) => setPayMethod(e.target.value as RecordedPaymentMethod)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 >
                   {RECORDED_PAYMENT_METHODS.map((m) => (
                     <option key={m.value} value={m.value}>{m.label}</option>
@@ -654,7 +654,7 @@ export default function OrderDetailPage() {
                   type="date"
                   value={payReceivedAt}
                   onChange={(e) => setPayReceivedAt(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
 
@@ -691,7 +691,7 @@ export default function OrderDetailPage() {
                     value={payAmount}
                     onChange={(e) => setPayAmount(e.target.value)}
                     placeholder={totals.total.toFixed(2)}
-                    className="w-full mt-2 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="w-full mt-2 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                 )}
                 {!payFull && (

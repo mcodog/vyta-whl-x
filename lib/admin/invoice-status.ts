@@ -21,7 +21,7 @@ export const INVOICE_STATUS_META: Record<InvoiceStatus, InvoiceStatusMeta> = {
   draft: {
     label: "Draft",
     badge: "bg-gray-500/10 text-gray-600",
-    pdfBg: "#F3F4F6",
+    pdfBg: "#EFF5F7",
     pdfFg: "#4B5563",
   },
   // Raised by a hosted checkout, waiting on the customer to pay at the gateway.
@@ -59,8 +59,8 @@ export const INVOICE_STATUS_META: Record<InvoiceStatus, InvoiceStatusMeta> = {
   cancelled: {
     label: "Cancelled",
     badge: "bg-gray-500/10 text-gray-500 line-through",
-    pdfBg: "#F3F4F6",
-    pdfFg: "#6B7280",
+    pdfBg: "#EFF5F7",
+    pdfFg: "#5B7A8C",
   },
 };
 
@@ -93,7 +93,7 @@ export const INVOICE_SOURCE_META: Record<InvoiceSource, InvoiceSourceMeta> = {
   admin: {
     key: "admin",
     label: "Admin",
-    badge: "bg-bronze/10 text-bronze",
+    badge: "bg-vital/10 text-vital",
     description: "Entered by an admin or assistant in the back office",
   },
   client: {

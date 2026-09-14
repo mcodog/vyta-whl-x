@@ -575,10 +575,10 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
   return (
     <div className={wrapperClass}>
       <div className="flex items-center gap-2 mb-3">
-        <ListChecks className="w-4 h-4 text-bronze" />
+        <ListChecks className="w-4 h-4 text-vital" />
         <h3 className="text-sm font-semibold text-ink">Price List</h3>
         {appliedList && (
-          <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-bronze/10 text-bronze">
+          <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-vital/10 text-vital">
             Applied: {appliedList.name}
           </span>
         )}
@@ -595,7 +595,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
             </span>
             <Link
               href={`/admin/pricing/customer/${customer.id}`}
-              className="inline-flex items-center gap-1 text-bronze hover:text-bronze/80 font-medium"
+              className="inline-flex items-center gap-1 text-vital hover:text-vital/80 font-medium"
             >
               Edit individually <ExternalLink className="w-3 h-3" />
             </Link>
@@ -615,7 +615,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                 placeholder="Search by product or SKU..."
                 value={prodSearch}
                 onChange={(e) => setProdSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 bg-surface border border-line rounded-lg text-xs text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full pl-8 pr-3 py-2 bg-surface border border-line rounded-lg text-xs text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
             <div className="border border-line rounded-lg overflow-hidden">
@@ -643,7 +643,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                       <tr><td colSpan={hasTemplateColumn ? 6 : 5} className="px-3 py-6 text-center text-xs text-ink-muted">No products found</td></tr>
                     ) : (
                       prodPageRows.map((r) => (
-                        <tr key={r.id} className={r.hasOverride || r.hasVialOverride ? 'bg-bronze/5' : ''}>
+                        <tr key={r.id} className={r.hasOverride || r.hasVialOverride ? 'bg-vital/5' : ''}>
                           <td className="px-3 py-1.5">
                             <div className="flex items-center gap-1.5">
                               <span className="text-xs text-ink truncate max-w-[150px]">{r.name}</span>
@@ -662,7 +662,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                             </td>
                           )}
                           <td className="px-3 py-1.5 text-right tabular-nums">
-                            <span className={`text-xs font-semibold ${r.hasOverride ? 'text-bronze' : 'text-ink-muted'}`}>
+                            <span className={`text-xs font-semibold ${r.hasOverride ? 'text-vital' : 'text-ink-muted'}`}>
                               ${r.appliedPrice.toFixed(2)}
                             </span>
                           </td>
@@ -684,7 +684,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                 {prodPageRows.length === 0 ? (
                   <li className="px-3 py-6 text-center text-xs text-ink-muted">No products found</li>
                 ) : prodPageRows.map((r) => (
-                  <li key={r.id} className={`px-3 py-2.5 ${r.hasOverride || r.hasVialOverride ? 'bg-bronze/5' : ''}`}>
+                  <li key={r.id} className={`px-3 py-2.5 ${r.hasOverride || r.hasVialOverride ? 'bg-vital/5' : ''}`}>
                     <div className="flex items-center gap-1.5">
                       <span className="text-xs text-ink font-medium">{r.name}</span>
                       {r.hidden && (
@@ -701,7 +701,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                         {hasTemplateColumn && (
                           <div className="flex justify-between gap-2"><span className="text-ink-muted">Template</span><span className="tabular-nums text-ink-muted">{r.templatePrice != null ? `$${r.templatePrice.toFixed(2)}` : '—'}</span></div>
                         )}
-                        <div className="flex justify-between gap-2"><span className="text-ink-muted">Applied</span><span className={`font-semibold tabular-nums ${r.hasOverride ? 'text-bronze' : 'text-ink'}`}>${r.appliedPrice.toFixed(2)}</span></div>
+                        <div className="flex justify-between gap-2"><span className="text-ink-muted">Applied</span><span className={`font-semibold tabular-nums ${r.hasOverride ? 'text-vital' : 'text-ink'}`}>${r.appliedPrice.toFixed(2)}</span></div>
                       </div>
                       <div className="space-y-0.5">
                         <div className="text-[9px] font-semibold uppercase tracking-wider text-indigo-500">Vial</div>
@@ -770,7 +770,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                 <select
                   value={selectedId}
                   onChange={(e) => setSelectedId(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 >
                   <option value="">Select a price list…</option>
                   {lists.map((l) => (
@@ -788,7 +788,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                 <select
                   value={sourceCustomerId}
                   onChange={(e) => setSourceCustomerId(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 >
                   <option value="">Select a customer to copy from…</option>
                   {customers.map((c) => (
@@ -831,7 +831,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                         inputMode="decimal"
                         value={rateInput}
                         onChange={(e) => { if (e.target.value === '' || /^\d*\.?\d*$/.test(e.target.value)) setRateInput(e.target.value); }}
-                        className="w-24 px-2.5 py-1.5 bg-surface border border-line rounded-lg text-sm text-ink tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                        className="w-24 px-2.5 py-1.5 bg-surface border border-line rounded-lg text-sm text-ink tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40"
                       />
                       <span className="text-[11px] text-ink-muted">USD = CAD ÷ {cadPerUsd || DEFAULT_CAD_PER_USD}</span>
                     </div>
@@ -922,7 +922,7 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                           type="button"
                           onClick={() => setMode(opt.value)}
                           className={`text-left px-3 py-2 rounded-lg border text-xs transition-colors ${
-                            active ? 'border-bronze bg-white ring-1 ring-bronze/30' : 'border-line bg-white/60 hover:border-ink/20'
+                            active ? 'border-vital bg-white ring-1 ring-vital/30' : 'border-line bg-white/60 hover:border-ink/20'
                           }`}
                         >
                           <div className="font-semibold text-ink flex items-center gap-1.5">
@@ -973,14 +973,14 @@ export default function CustomerPricingPanel({ customer, onApplied, variant = 'c
                           <tr><td colSpan={5} className="px-3 py-6 text-center text-xs text-ink-muted">This source has no products.</td></tr>
                         ) : (
                           preview.map((r) => (
-                            <tr key={r.id} className={r.willApply ? 'bg-bronze/5' : 'opacity-60'}>
+                            <tr key={r.id} className={r.willApply ? 'bg-vital/5' : 'opacity-60'}>
                               <td className="px-3 py-1.5 text-xs text-ink">{r.name}</td>
                               <td className="px-3 py-1.5 text-xs text-ink-muted text-right tabular-nums">
                                 {r.current !== null ? `$${r.current.toFixed(2)}` : <span className="text-ink-muted/60">${r.defaultPrice.toFixed(2)}</span>}
                               </td>
                               <td className="px-3 py-1.5 text-xs text-right tabular-nums">
                                 {r.boxChanged ? (
-                                  <span className="inline-flex items-center gap-1 font-semibold text-bronze">
+                                  <span className="inline-flex items-center gap-1 font-semibold text-vital">
                                     <ArrowRight className="w-3 h-3" />${r.next.toFixed(2)}
                                   </span>
                                 ) : (

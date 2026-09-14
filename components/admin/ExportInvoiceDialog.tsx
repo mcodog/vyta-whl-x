@@ -114,7 +114,7 @@ export default function ExportInvoiceDialog({ invoiceIds, onClose, onDone }: Pro
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-line">
           <div className="flex items-center gap-2">
-            <ExternalLink className="w-5 h-5 text-bronze" />
+            <ExternalLink className="w-5 h-5 text-vital" />
             <h2 className="text-lg font-semibold text-ink">{title}</h2>
           </div>
           <button onClick={onClose} className="text-ink-muted hover:text-ink">
@@ -156,7 +156,7 @@ export default function ExportInvoiceDialog({ invoiceIds, onClose, onDone }: Pro
                     <select
                       value={destId}
                       onChange={(e) => setDestId(e.target.value)}
-                      className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                      className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                     >
                       <option value="">Select a site…</option>
                       {destinations.map((d) => (
@@ -263,7 +263,7 @@ export default function ExportInvoiceDialog({ invoiceIds, onClose, onDone }: Pro
                   <button
                     onClick={runSend}
                     disabled={busy || !destId}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-bronze hover:bg-bronze/90 text-white rounded-lg text-sm font-medium disabled:opacity-50"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-vital hover:bg-vital/90 text-white rounded-lg text-sm font-medium disabled:opacity-50"
                   >
                     {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     {step === 'preview' ? 'Confirm & send' : 'Send now'}

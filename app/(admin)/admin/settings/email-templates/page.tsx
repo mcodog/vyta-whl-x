@@ -253,7 +253,7 @@ export default function EmailTemplatesPage() {
               value={subject}
               onChange={(e) => onSubjectChange(e.target.value)}
               disabled={isReadOnly}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-50"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-50"
             />
           </div>
 
@@ -267,7 +267,7 @@ export default function EmailTemplatesPage() {
               onChange={(e) => onBodyChange(e.target.value)}
               disabled={isReadOnly}
               rows={16}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-50"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-50"
             />
             <p className="text-xs text-ink-muted mt-1">
               Use {'{{merge_vars}}'} below. The PDF is attached automatically.

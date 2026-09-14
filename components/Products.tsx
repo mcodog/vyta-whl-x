@@ -90,7 +90,7 @@ export default function Products() {
 
   if (error) {
     return (
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <LoadingError onRetry={reload} />
         </div>
@@ -100,7 +100,7 @@ export default function Products() {
 
   if (loading) {
     return (
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="mb-10">
             <div className="h-8 bg-surface rounded w-48 mb-2 animate-pulse" />
@@ -125,16 +125,17 @@ export default function Products() {
 
   return (
     <>
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/10 border border-bronze/20 rounded-full mb-3">
-              <Beaker className="w-3.5 h-3.5 text-bronze" />
-              <span className="text-xs font-medium text-bronze">Featured Compounds</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-vital/10 border border-vital/20 rounded-full mb-3">
+              <Beaker className="w-3.5 h-3.5 text-vital" />
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-vital-dark">Featured Compounds</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-2">Popular Research Peptides</h2>
+            <h2 className="font-display text-3xl sm:text-4xl font-semibold text-ink mb-3">Popular Research Peptides</h2>
+            <div className="brand-rule h-[3px] w-20 rounded-full mb-4" aria-hidden="true" />
             <p className="text-ink-muted">High-purity compounds for scientific research</p>
           </div>
           <Link
@@ -203,7 +204,7 @@ export default function Products() {
                   {/* Purity Badge - Bronze accent */}
                   {product.purity && product.purity.trim() && (
                     <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
-                      <span className="text-[8px] sm:text-[10px] font-semibold text-bronze bg-bronze-50 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full border border-bronze/20">
+                      <span className="text-[8px] sm:text-[10px] font-semibold text-vital bg-vital-50 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full border border-vital/20">
                         {product.purity}
                       </span>
                     </div>
@@ -240,7 +241,7 @@ export default function Products() {
                           const first = product.coa_url?.[0];
                           if (first) window.open(first, '_blank', 'noopener,noreferrer');
                         }}
-                        className="flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 border border-bronze/40 text-bronze hover:bg-bronze hover:text-white text-xs font-medium rounded-lg transition-all"
+                        className="flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 border border-vital/40 text-vital hover:bg-vital hover:text-white text-xs font-medium rounded-lg transition-all"
                         title={
                           product.coa_url.length > 1
                             ? `View Certificate of Analysis (${product.coa_url.length} available)`

@@ -245,7 +245,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
         type={opts.type || 'text'}
         value={form?.[key] ?? ''}
         onChange={(e) => setForm((f) => (f ? { ...f, [key]: e.target.value } : f))}
-        className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+        className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
       />
     </div>
   );
@@ -337,7 +337,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
           </div>
           <div className="h-1.5 bg-surface rounded-full overflow-hidden mb-4">
             <div
-              className={`h-full transition-all ${ready ? 'bg-emerald-500' : 'bg-bronze'}`}
+              className={`h-full transition-all ${ready ? 'bg-emerald-500' : 'bg-vital'}`}
               style={{ width: `${(passed / Math.max(checks.length, 1)) * 100}%` }}
             />
           </div>
@@ -353,7 +353,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
             {settingsFailing && (
               <Link
                 href="/admin/settings"
-                className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-bronze hover:text-bronze/80"
+                className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-vital hover:text-vital/80"
               >
                 <Settings className="w-3.5 h-3.5" /> Open Shipping settings
               </Link>
@@ -372,14 +372,14 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
                     <button
                       onClick={() => { startEdit(); smartFill(); }}
                       title="Fill blank fields from the customer on file"
-                      className="text-xs text-bronze hover:text-bronze/80 inline-flex items-center gap-1"
+                      className="text-xs text-vital hover:text-vital/80 inline-flex items-center gap-1"
                     >
                       <Wand2 className="w-3 h-3" /> Smart fill
                     </button>
                   )}
                   <button
                     onClick={startEdit}
-                    className="text-xs text-bronze hover:text-bronze/80 inline-flex items-center gap-1"
+                    className="text-xs text-vital hover:text-vital/80 inline-flex items-center gap-1"
                   >
                     <Pencil className="w-3 h-3" /> Edit
                   </button>
@@ -409,7 +409,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
                     <select
                       value={form?.country ?? 'CA'}
                       onChange={(e) => setForm((f) => (f ? { ...f, country: e.target.value } : f))}
-                      className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                      className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                     >
                       {COUNTRIES.map((c) => (
                         <option key={c.code} value={c.code}>
@@ -423,7 +423,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
                   <button
                     onClick={smartFill}
                     type="button"
-                    className="mt-3 w-full px-3 py-2 bg-bronze/10 border border-bronze/20 text-bronze rounded-lg text-sm font-medium hover:bg-bronze/20 transition-colors inline-flex items-center justify-center gap-2"
+                    className="mt-3 w-full px-3 py-2 bg-vital/10 border border-vital/20 text-vital rounded-lg text-sm font-medium hover:bg-vital/20 transition-colors inline-flex items-center justify-center gap-2"
                   >
                     <Wand2 className="w-4 h-4" /> Smart fill from customer
                   </button>
@@ -472,7 +472,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
               <select
                 value={selectedCourierId}
                 onChange={(e) => setSelectedCourierId(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               >
                 <option value="">Select a courier…</option>
                 {rates.map((r) => (
@@ -503,7 +503,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
                   onClick={() => setHandover(opt.value)}
                   className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                     handover === opt.value
-                      ? 'bg-bronze/5 text-ink border-bronze/40'
+                      ? 'bg-vital/5 text-ink border-vital/40'
                       : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                   }`}
                 >
@@ -521,12 +521,12 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
             onClick={() => setInsured((v) => !v)}
             className={`w-full mb-3 flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               insured
-                ? 'bg-bronze/5 text-ink border-bronze/40'
+                ? 'bg-vital/5 text-ink border-vital/40'
                 : 'bg-surface text-ink-muted border-line hover:border-ink/20'
             }`}
           >
             <span className="flex items-center gap-2 text-left">
-              <Package className={`w-4 h-4 flex-shrink-0 ${insured ? 'text-bronze' : 'text-ink-muted'}`} />
+              <Package className={`w-4 h-4 flex-shrink-0 ${insured ? 'text-vital' : 'text-ink-muted'}`} />
               <span>
                 Insure shipment
                 <span className="block text-[11px] font-normal text-ink-muted">
@@ -536,7 +536,7 @@ export default function ShippingLabelPanel({ orderId, onChanged }: Props) {
             </span>
             <span
               className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                insured ? 'bg-bronze' : 'bg-line'
+                insured ? 'bg-vital' : 'bg-line'
               }`}
             >
               <span

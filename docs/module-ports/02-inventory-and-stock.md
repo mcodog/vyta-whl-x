@@ -173,14 +173,14 @@ State management is **local React state** (`useState`/`useEffect`) plus the shar
 
 ## UI/UX specification
 
-Design tokens (Tailwind custom colors): `ink` (near-black text), `ink-muted` (grey), `bronze` (accent ~`#9C8B5A`), `surface` (very light grey bg), `line` (border `#C9CCD1`), `white`. Cards are `bg-white rounded-xl border border-line`. Tables are wrapped in an overflow-x-auto container; headers `text-xs font-semibold text-ink-muted uppercase tracking-wider`.
+Design tokens (Tailwind custom colors): `ink` (near-black text), `ink-muted` (grey), `vital` (accent ~`#438B9E`), `surface` (very light grey bg), `line` (border `#D5E2E7`), `white`. Cards are `bg-white rounded-xl border border-line`. Tables are wrapped in an overflow-x-auto container; headers `text-xs font-semibold text-ink-muted uppercase tracking-wider`.
 
 ### Backorders page (`/admin/backorders`)
 
-- **Header:** `<PackageX>` bronze icon + "Backorders" (text-xl/2xl bold). Subtitle: "Invoice line items ordered beyond available stock."
-- **Tabs:** underline tabs `Open` and `History` (the `'fulfilled'` tab labelled **History**). Active tab `border-bronze text-bronze`.
+- **Header:** `<PackageX>` vital icon + "Backorders" (text-xl/2xl bold). Subtitle: "Invoice line items ordered beyond available stock."
+- **Tabs:** underline tabs `Open` and `History` (the `'fulfilled'` tab labelled **History**). Active tab `border-vital text-vital`.
 - **Table** (`min-w-[820px]`) columns: `Invoice`, `Customer`, `Backordered items`, `Invoice total`, `Invoice status`, then `Created` (Open tab) or `Fulfilled` (History tab), then an unlabeled action column.
-  - Invoice: monospace `invoice_number` link to `/admin/invoices/{id}` (hover bronze), or `—`.
+  - Invoice: monospace `invoice_number` link to `/admin/invoices/{id}` (hover vital), or `—`.
   - Customer: name + email (muted, break-all), or `—`.
   - Backordered items: "`N items · M units`" (pluralized) and a muted comma-joined summary `description ×qty_backordered`.
   - Invoice total: `$0.00` bold tabular, or `—`.
@@ -192,11 +192,11 @@ Design tokens (Tailwind custom colors): `ink` (near-black text), `ink-muted` (gr
 
 ### Stock Requests page (`/admin/stock-requests`)
 
-- **Header:** `<Bell>` bronze + "Stock Requests". Subtitle: "Products customers are waiting on. Most-requested first — restock a product and everyone on its list is emailed automatically."
+- **Header:** `<Bell>` vital + "Stock Requests". Subtitle: "Products customers are waiting on. Most-requested first — restock a product and everyone on its list is emailed automatically."
 - **Two summary cards** (2-col grid, shown when not loading/erroring): big number `products.length` "Products with requests"; big number `totalRequests` "Total people waiting".
 - **Table** (`min-w-[700px]`) columns: `Product`, `Waiting`, `Current Stock`, `Latest Request`, (right) unlabeled.
   - Product: 40px image thumbnail (or `<Beaker>` placeholder), name (fallback "Unknown product"), `$price` muted.
-  - Waiting: pill `bg-bronze/10 text-bronze` with `<Bell>` + count.
+  - Waiting: pill `bg-vital/10 text-vital` with `<Bell>` + count.
   - Current Stock: `{n} in stock` (emerald) if `stock_quantity > 0`, else "Out of stock" (red).
   - Latest Request: `toLocaleDateString()`.
   - Action: right-aligned link to `/admin/products` — `<Package>` "Restock" `<ArrowRight>`.
@@ -214,14 +214,14 @@ Two adjacent table cells per product (only editable when `canEdit`, i.e. admin):
 ### Restock confirmation modal (Products page)
 
 Shown when a save would take a product from out-of-stock to in-stock **and** there is a non-empty waitlist (both inline-edit and modal-edit paths trigger it). z-index `z-[60]`, `bg-black/50` backdrop, white `rounded-xl max-w-md`.
-- Header: bronze `<Bell>` tile, title **"Notify waitlist?"**, subtitle = product name. Close `<X>` (disabled while saving).
+- Header: vital `<Bell>` tile, title **"Notify waitlist?"**, subtitle = product name. Close `<X>` (disabled while saving).
 - Body copy: "Restocking this product will email **N** person/people who asked to be notified:" (pluralized), followed by a scrollable (`max-h-48`) bordered list of the emails.
 - Footer: **Cancel** (surface) and **Confirm & notify** (dark, `<Bell>` icon; shows `<Loader2>` "Saving..." while running). Confirm runs the queued save and closes.
 
 ### NotifyMeButton dialog (storefront)
 
-- **Trigger button:** `variant='full'` → full-width surface button with bronze `<Bell>` and label **"Notify me when back in stock"**. `variant='compact'` → small pill `<Bell>` + "Notify me" (text hidden→"Notify" on mobile).
-- **Dialog:** centered modal, `bg-ink/40 backdrop-blur-sm`, white `rounded-2xl max-w-md`, `role="dialog" aria-modal`. Header: bronze `<Bell>` tile, title **"Restock alerts"**, subtitle = product name (line-clamped), close `<X>` (aria-label "Close").
+- **Trigger button:** `variant='full'` → full-width surface button with vital `<Bell>` and label **"Notify me when back in stock"**. `variant='compact'` → small pill `<Bell>` + "Notify me" (text hidden→"Notify" on mobile).
+- **Dialog:** centered modal, `bg-ink/40 backdrop-blur-sm`, white `rounded-2xl max-w-md`, `role="dialog" aria-modal`. Header: vital `<Bell>` tile, title **"Restock alerts"**, subtitle = product name (line-clamped), close `<X>` (aria-label "Close").
 - **States:**
   - `checking`: centered spinner.
   - **Subscribed:** emerald `<Check>` circle, heading "You're on the list" (just subscribed) or "Alert is active", body "We'll email **{email}** as soon as {productName} is back in stock." Buttons: **"Remove alert"** (`<BellOff>`, hover red; shows spinner while removing) and **"Done"** (dark).

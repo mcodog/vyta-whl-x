@@ -19,6 +19,7 @@ import { useCustomer } from "@/contexts/CustomerContext";
 import PeptideLoader from "@/components/PeptideLoader";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { VytaMark } from '@/components/VytaLogo';
 
 function LoginContent() {
   const router = useRouter();
@@ -114,9 +115,7 @@ function LoginContent() {
         >
           <div className="bg-white rounded-xl p-5 sm:p-6 md:p-8 border border-line shadow-sm">
             <div className="text-center mb-5 sm:mb-6">
-              <div className="w-12 sm:w-14 h-12 sm:h-14 bg-ink rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Beaker className="w-6 sm:w-7 h-6 sm:h-7 text-white" />
-              </div>
+              <VytaMark size={56} className="block mx-auto mb-3 sm:mb-4" title="VYTA Biosciences" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-1.5 sm:mb-2">
                 Welcome Back
               </h2>
@@ -143,7 +142,7 @@ function LoginContent() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -156,7 +155,7 @@ function LoginContent() {
                   </label>
                   <Link
                     href="/forgot-password"
-                    className="text-[11px] sm:text-xs text-bronze hover:text-bronze-dark font-medium"
+                    className="text-[11px] sm:text-xs text-vital hover:text-vital-dark font-medium"
                   >
                     Forgot password?
                   </Link>
@@ -167,7 +166,7 @@ function LoginContent() {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="Enter your password"
                   />
                   <button
@@ -207,7 +206,7 @@ function LoginContent() {
                 Don&apos;t have an account?{" "}
                 <Link
                   href="/signup"
-                  className="text-bronze hover:text-bronze-dark font-medium"
+                  className="text-vital hover:text-vital-dark font-medium"
                 >
                   Create one
                 </Link>
@@ -217,7 +216,7 @@ function LoginContent() {
             <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-line text-center">
               <p className="text-[10px] sm:text-xs text-ink-muted">
                 Looking for affiliate login?{" "}
-                <Link href="/affiliate/login" className="text-bronze">
+                <Link href="/affiliate/login" className="text-vital">
                   Click here
                 </Link>
               </p>

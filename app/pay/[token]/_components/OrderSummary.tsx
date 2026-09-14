@@ -22,7 +22,7 @@ export default function OrderSummary({ invoice }: { invoice: PayView['invoice'] 
     <section className="bg-white rounded-2xl border border-line overflow-hidden">
       <header className="px-5 sm:px-6 py-4 border-b border-line flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 min-w-0">
-          <Receipt className="w-4 h-4 text-bronze flex-shrink-0" />
+          <Receipt className="w-4 h-4 text-vital flex-shrink-0" />
           <h2 className="text-sm font-semibold text-ink truncate">
             Invoice {invoice.invoice_number}
           </h2>

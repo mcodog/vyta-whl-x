@@ -26,7 +26,7 @@ export default function CTA() {
               Your Research?
             </h2>
             <p className="text-lg text-neutral-400 mb-10 leading-relaxed">
-              Join thousands of researchers worldwide who trust Aminocan
+              Join thousands of researchers worldwide who trust VYTA
               for their peptide research needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

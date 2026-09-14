@@ -183,7 +183,7 @@ export default function AnalyticsPage() {
         <p className="text-ink-muted text-sm">Could not load analytics.</p>
         <button
           onClick={load}
-          className="mt-3 inline-flex items-center gap-2 text-bronze hover:text-bronze-dark text-sm"
+          className="mt-3 inline-flex items-center gap-2 text-vital hover:text-vital-dark text-sm"
         >
           <RefreshCw className="w-3.5 h-3.5" /> Try again
         </button>
@@ -203,7 +203,7 @@ export default function AnalyticsPage() {
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-            <TrendingUp className="w-6 h-6 text-bronze" /> Analytics
+            <TrendingUp className="w-6 h-6 text-vital" /> Analytics
           </h1>
           <p className="text-sm text-ink-muted mt-1">
             Revenue, inventory, and who&apos;s driving the numbers — at a glance.
@@ -255,7 +255,7 @@ export default function AnalyticsPage() {
           <div className="bg-white rounded-xl max-w-lg w-full p-6 my-8">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5 text-bronze" /> Customize Report
+                <SlidersHorizontal className="w-5 h-5 text-vital" /> Customize Report
               </h2>
               <button
                 onClick={() => setShowReportModal(false)}
@@ -279,7 +279,7 @@ export default function AnalyticsPage() {
                     <button
                       type="button"
                       onClick={() => setReportSections(allSectionsSelected(true))}
-                      className="text-bronze hover:underline"
+                      className="text-vital hover:underline"
                     >
                       All
                     </button>
@@ -304,7 +304,7 @@ export default function AnalyticsPage() {
                         onChange={(e) =>
                           setReportSections((prev) => ({ ...prev, [s.key]: e.target.checked }))
                         }
-                        className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                        className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                       />
                       <span>
                         <span className="block text-sm font-medium text-ink">{s.label}</span>
@@ -334,7 +334,7 @@ export default function AnalyticsPage() {
                     checked={reportDrafts}
                     disabled={!reportSections.invoices}
                     onChange={(e) => setReportDrafts(e.target.checked)}
-                    className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                    className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                   />
                   <span className="text-sm text-ink">
                     Include draft invoices
@@ -386,7 +386,7 @@ export default function AnalyticsPage() {
                 onClick={() => scrollTo(s.id)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                   active
-                    ? 'bg-bronze/10 text-bronze'
+                    ? 'bg-vital/10 text-vital'
                     : 'text-ink-muted hover:text-ink hover:bg-white'
                 }`}
               >
@@ -419,7 +419,7 @@ export default function AnalyticsPage() {
             value={fmtCurrency(revenue.paid)}
             sub={`${revenue.paid_invoice_count} paid invoice${revenue.paid_invoice_count !== 1 ? 's' : ''}`}
             icon={DollarSign}
-            tint="bronze"
+            tint="vital"
           />
           <KpiCard
             label="Outstanding"
@@ -435,7 +435,7 @@ export default function AnalyticsPage() {
       <Section id="revenue" title="Revenue" icon={DollarSign}>
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Paid vs outstanding donut */}
-          <Card title="Collection" icon={PieChart} tint="bronze">
+          <Card title="Collection" icon={PieChart} tint="vital">
             <div className="flex items-center gap-5">
               <Donut
                 segments={[
@@ -460,7 +460,7 @@ export default function AnalyticsPage() {
           <DetailCard
             title="Revenue"
             icon={DollarSign}
-            tint="bronze"
+            tint="vital"
             rows={[
               { label: 'Invoiced', value: fmtCurrency(revenue.invoiced) },
               { label: 'Paid', value: fmtCurrency(revenue.paid), accent: 'emerald' },
@@ -478,7 +478,7 @@ export default function AnalyticsPage() {
           />
 
           {/* Currency split (CAD/USD tracked separately, never converted) */}
-          <Card title="By Currency" icon={DollarSign} tint="bronze">
+          <Card title="By Currency" icon={DollarSign} tint="vital">
             <div className="space-y-4">
               {(['CAD', 'USD'] as const).map((cur) => {
                 const c = revenue.by_currency[cur];
@@ -519,7 +519,7 @@ export default function AnalyticsPage() {
       <Section id="shipping" title="Shipping" icon={Truck}>
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Collected vs still owed on the shipping line */}
-          <Card title="Shipping Collection" icon={PieChart} tint="bronze">
+          <Card title="Shipping Collection" icon={PieChart} tint="vital">
             {shipping.charged > 0 ? (
               <div className="flex items-center gap-5">
                 <Donut
@@ -550,7 +550,7 @@ export default function AnalyticsPage() {
           <DetailCard
             title="Shipping Earnings"
             icon={Truck}
-            tint="bronze"
+            tint="vital"
             rows={[
               { label: 'Billed', value: fmtCurrency(shipping.charged) },
               { label: 'Collected', value: fmtCurrency(shipping.collected), accent: 'emerald' },
@@ -573,7 +573,7 @@ export default function AnalyticsPage() {
           />
 
           {/* Currency split (CAD/USD tracked separately, never converted) */}
-          <Card title="By Currency" icon={DollarSign} tint="bronze">
+          <Card title="By Currency" icon={DollarSign} tint="vital">
             <div className="space-y-4">
               {(['CAD', 'USD'] as const).map((cur) => {
                 const c = shipping.by_currency[cur];
@@ -601,7 +601,7 @@ export default function AnalyticsPage() {
 
         {/* Month-by-month shipping billed vs collected */}
         <div className="mt-6">
-          <Card title="Shipping by Month" icon={BarChart3} tint="bronze">
+          <Card title="Shipping by Month" icon={BarChart3} tint="vital">
             <ShippingMonthlyBars rows={shipping.monthly} />
           </Card>
         </div>
@@ -650,7 +650,7 @@ export default function AnalyticsPage() {
         {/* Open Purchase Orders detail */}
         <div className="bg-white rounded-xl border border-line overflow-hidden">
           <div className="px-5 py-4 border-b border-line flex items-center gap-2">
-            <ClipboardList className="w-4 h-4 text-bronze" />
+            <ClipboardList className="w-4 h-4 text-vital" />
             <h3 className="text-sm font-semibold text-ink">Open Purchase Orders</h3>
           </div>
           {incoming.pos.length === 0 ? (
@@ -677,7 +677,7 @@ export default function AnalyticsPage() {
                         <td className="px-5 py-3">
                           <Link
                             href={`/admin/purchase-orders/${po.id}`}
-                            className="font-mono text-ink hover:text-bronze inline-flex items-center gap-1"
+                            className="font-mono text-ink hover:text-vital inline-flex items-center gap-1"
                           >
                             <FileText className="w-3.5 h-3.5" /> {po.po_number}
                           </Link>
@@ -706,7 +706,7 @@ export default function AnalyticsPage() {
                 return (
                   <li key={po.id} className="px-4 py-3.5">
                     <div className="flex items-start justify-between gap-2">
-                      <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-bronze inline-flex items-center gap-1">
+                      <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-vital inline-flex items-center gap-1">
                         <FileText className="w-3.5 h-3.5" /> {po.po_number}
                       </Link>
                       <span className={`inline-flex shrink-0 px-2 py-0.5 rounded text-xs font-medium ${meta.badge}`}>{meta.label}</span>
@@ -744,7 +744,7 @@ export default function AnalyticsPage() {
           <Leaderboard
             title="Top Customers"
             icon={Users}
-            tint="bronze"
+            tint="vital"
             entries={performance.top_customers}
             emptyLabel="No customer revenue yet."
             metric={(e) => `${e.invoice_count} inv.`}
@@ -795,7 +795,7 @@ function Section({
   return (
     <section id={id} className="scroll-mt-24 mb-10">
       <div className="flex items-center gap-2 mb-4">
-        <Icon className="w-4 h-4 text-bronze" />
+        <Icon className="w-4 h-4 text-vital" />
         <h2 className="text-sm font-bold text-ink uppercase tracking-wider">{title}</h2>
       </div>
       {children}
@@ -803,12 +803,12 @@ function Section({
   );
 }
 
-type Tint = 'emerald' | 'blue' | 'bronze' | 'amber' | 'neutral';
+type Tint = 'emerald' | 'blue' | 'vital' | 'amber' | 'neutral';
 
 const TINTS: Record<Tint, { fg: string; bg: string }> = {
   emerald: { fg: 'text-emerald-700', bg: 'bg-emerald-100' },
   blue:    { fg: 'text-blue-700',    bg: 'bg-blue-100' },
-  bronze:  { fg: 'text-bronze',      bg: 'bg-bronze/10' },
+  vital:  { fg: 'text-vital',      bg: 'bg-vital/10' },
   amber:   { fg: 'text-amber-700',   bg: 'bg-amber-100' },
   neutral: { fg: 'text-ink',         bg: 'bg-surface' },
 };
@@ -903,7 +903,7 @@ function DetailCard({
         })}
       </div>
       <div className="px-5 pb-4 pt-3 border-t border-line">
-        <Link href={link.href} className="text-xs text-bronze hover:text-bronze-dark">
+        <Link href={link.href} className="text-xs text-vital hover:text-vital-dark">
           {link.label}
         </Link>
       </div>
@@ -1095,7 +1095,7 @@ function Leaderboard({
   const barColor =
     tint === 'emerald' ? 'bg-emerald-500/10' :
     tint === 'blue' ? 'bg-blue-500/10' :
-    'bg-bronze/10';
+    'bg-vital/10';
   return (
     <div className="bg-white rounded-xl border border-line overflow-hidden flex flex-col">
       <div className="p-5 border-b border-line flex items-center gap-2">
@@ -1132,7 +1132,7 @@ function Leaderboard({
         )}
       </div>
       <div className="px-5 pb-4 pt-3 border-t border-line">
-        <Link href={link.href} className="text-xs text-bronze hover:text-bronze-dark">
+        <Link href={link.href} className="text-xs text-vital hover:text-vital-dark">
           {link.label}
         </Link>
       </div>
@@ -1215,7 +1215,7 @@ function RevenueInvoicesTable({
     <div className="mt-6 bg-white rounded-xl border border-line overflow-hidden">
       <div className="px-5 py-4 border-b border-line flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center gap-2">
-          <Receipt className="w-4 h-4 text-bronze" />
+          <Receipt className="w-4 h-4 text-vital" />
           <h3 className="text-sm font-semibold text-ink">Invoices in Computation</h3>
           <span className="text-xs text-ink-muted">
             {hasRange ? 'in the selected range' : 'all time'} · {invoices.length.toLocaleString()}
@@ -1289,7 +1289,7 @@ function RevenueInvoicesTable({
                       <td className="px-5 py-3">
                         <Link
                           href={`/admin/invoices/${inv.id}`}
-                          className="font-mono text-ink hover:text-bronze inline-flex items-center gap-1"
+                          className="font-mono text-ink hover:text-vital inline-flex items-center gap-1"
                         >
                           <FileText className="w-3.5 h-3.5" /> {inv.invoice_number}
                         </Link>
@@ -1371,7 +1371,7 @@ function RevenueInvoicesTable({
                 return (
                   <li key={inv.id} className="px-4 py-3.5">
                     <div className="flex items-start justify-between gap-2">
-                      <Link href={`/admin/invoices/${inv.id}`} className="font-mono text-sm text-ink hover:text-bronze inline-flex items-center gap-1">
+                      <Link href={`/admin/invoices/${inv.id}`} className="font-mono text-sm text-ink hover:text-vital inline-flex items-center gap-1">
                         <FileText className="w-3.5 h-3.5" /> {inv.invoice_number}
                       </Link>
                       <span className={`inline-flex shrink-0 px-2 py-0.5 rounded text-xs font-medium ${meta.badge}`}>{meta.label}</span>
@@ -1442,7 +1442,7 @@ function FilterChip({
     <button
       onClick={onClick}
       className={`px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
-        active ? 'bg-bronze/10 text-bronze' : 'text-ink-muted hover:text-ink hover:bg-surface'
+        active ? 'bg-vital/10 text-vital' : 'text-ink-muted hover:text-ink hover:bg-surface'
       }`}
     >
       {label}

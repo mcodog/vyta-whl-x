@@ -86,7 +86,7 @@ export default function OrderDetailPage() {
       <main className="min-h-screen bg-white">
         <Navigation showTicker={false} />
         <div className="pt-28 sm:pt-32 md:pt-44 pb-16 sm:pb-20 text-center">
-          <div className="animate-pulse text-slate-500 text-xs sm:text-sm">Loading...</div>
+          <div className="animate-pulse text-ink-muted text-xs sm:text-sm">Loading...</div>
         </div>
       </main>
     );
@@ -98,14 +98,14 @@ export default function OrderDetailPage() {
         <Navigation showTicker={false} />
         <div className="pt-28 sm:pt-32 md:pt-44 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-8">
           <div className="max-w-md mx-auto text-center">
-            <div className="w-12 sm:w-14 h-12 sm:h-14 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <Beaker className="w-6 sm:w-7 h-6 sm:h-7 text-slate-400" />
+            <div className="w-12 sm:w-14 h-12 sm:h-14 bg-vital-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <Beaker className="w-6 sm:w-7 h-6 sm:h-7 text-ink-light" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">Order Not Found</h1>
-            <p className="text-slate-500 text-xs sm:text-sm mb-4 sm:mb-6">This order doesn&apos;t exist or you don&apos;t have access to it.</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-ink mb-2 sm:mb-3">Order Not Found</h1>
+            <p className="text-ink-muted text-xs sm:text-sm mb-4 sm:mb-6">This order doesn&apos;t exist or you don&apos;t have access to it.</p>
             <Link
               href="/account/dashboard"
-              className="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold text-xs sm:text-sm"
+              className="inline-flex items-center gap-2 text-vital-600 hover:text-vital-700 font-semibold text-xs sm:text-sm"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Dashboard
@@ -129,7 +129,7 @@ export default function OrderDetailPage() {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-4 sm:mb-6">
             <Link
               href="/account/dashboard"
-              className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-xs sm:text-sm"
+              className="inline-flex items-center gap-2 text-ink-muted hover:text-ink transition-colors text-xs sm:text-sm"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Dashboard
@@ -140,15 +140,15 @@ export default function OrderDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 md:p-6 mb-4 sm:mb-5 md:mb-6"
+            className="bg-white rounded-xl border border-vital-200 p-4 sm:p-5 md:p-6 mb-4 sm:mb-5 md:mb-6"
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
               <div>
-                <span className="text-[10px] sm:text-xs font-semibold text-cyan-600 uppercase tracking-[0.2em] mb-1 sm:mb-2 block">
+                <span className="text-[10px] sm:text-xs font-semibold text-vital-600 uppercase tracking-[0.2em] mb-1 sm:mb-2 block">
                   Order Details
                 </span>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 break-all">#{order.order_number}</h1>
-                <p className="text-slate-500 text-[10px] sm:text-xs md:text-sm mt-1">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-ink break-all">#{order.order_number}</h1>
+                <p className="text-ink-muted text-[10px] sm:text-xs md:text-sm mt-1">
                   Placed on{' '}
                   {new Date(order.created_at).toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -166,9 +166,9 @@ export default function OrderDetailPage() {
             </div>
 
             {order.tracking_number && (
-              <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100">
-                <p className="text-xs sm:text-sm text-slate-500 break-all">
-                  <span className="font-medium text-slate-700">Tracking Number:</span>{' '}
+              <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-vital-100">
+                <p className="text-xs sm:text-sm text-ink-muted break-all">
+                  <span className="font-medium text-vital-800">Tracking Number:</span>{' '}
                   <span className="font-mono">{order.tracking_number}</span>
                 </p>
               </div>
@@ -183,18 +183,18 @@ export default function OrderDetailPage() {
               transition={{ delay: 0.1 }}
               className="md:col-span-2"
             >
-              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                <div className="p-4 sm:p-5 md:p-6 border-b border-slate-100">
-                  <h2 className="text-sm sm:text-base font-bold text-slate-900">Order Items</h2>
+              <div className="bg-white rounded-xl border border-vital-200 overflow-hidden">
+                <div className="p-4 sm:p-5 md:p-6 border-b border-vital-100">
+                  <h2 className="text-sm sm:text-base font-bold text-ink">Order Items</h2>
                 </div>
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-vital-100">
                   {items.map((item, index) => (
                     <div key={item.id} className="p-3 sm:p-4 md:p-5 flex items-center gap-3 sm:gap-4">
-                      <div className="w-12 sm:w-14 h-12 sm:h-14 bg-slate-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Beaker className="w-5 sm:w-6 h-5 sm:h-6 text-cyan-500" />
+                      <div className="w-12 sm:w-14 h-12 sm:h-14 bg-vital-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Beaker className="w-5 sm:w-6 h-5 sm:h-6 text-vital-500" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-slate-900 text-xs sm:text-sm flex items-center gap-2 flex-wrap">
+                        <h3 className="font-semibold text-ink text-xs sm:text-sm flex items-center gap-2 flex-wrap">
                           {item.product_name || `Product ${index + 1}`}
                           {(item.price_type === 'vial' || item.price_type === 'box') && (
                             <span
@@ -209,15 +209,15 @@ export default function OrderDetailPage() {
                           )}
                         </h3>
                         {item.product_strength && (
-                          <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5">{item.product_strength}</p>
+                          <p className="text-[10px] sm:text-xs text-ink-muted mt-0.5">{item.product_strength}</p>
                         )}
-                        <p className="text-[10px] sm:text-xs text-slate-400 mt-1">Qty: {item.quantity}</p>
+                        <p className="text-[10px] sm:text-xs text-ink-light mt-1">Qty: {item.quantity}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-slate-900 text-xs sm:text-sm tabular-nums">
+                        <p className="font-bold text-ink text-xs sm:text-sm tabular-nums">
                           ${(item.price_at_time * item.quantity).toFixed(2)}
                         </p>
-                        <p className="text-[10px] sm:text-xs text-slate-500 tabular-nums">${item.price_at_time.toFixed(2)} each</p>
+                        <p className="text-[10px] sm:text-xs text-ink-muted tabular-nums">${item.price_at_time.toFixed(2)} each</p>
                       </div>
                     </div>
                   ))}
@@ -245,10 +245,10 @@ export default function OrderDetailPage() {
                   Number((order.total - (itemsSubtotal - discount)).toFixed(2)),
                 );
                 return (
-                  <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 md:p-6">
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-3 sm:mb-4">Order Summary</h3>
+                  <div className="bg-white rounded-xl border border-vital-200 p-4 sm:p-5 md:p-6">
+                    <h3 className="text-sm sm:text-base font-bold text-ink mb-3 sm:mb-4">Order Summary</h3>
                     <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                      <div className="flex justify-between text-slate-500">
+                      <div className="flex justify-between text-ink-muted">
                         <span>Subtotal</span>
                         <span className="tabular-nums">${itemsSubtotal.toFixed(2)}</span>
                       </div>
@@ -258,16 +258,16 @@ export default function OrderDetailPage() {
                           <span className="tabular-nums">-${discount.toFixed(2)}</span>
                         </div>
                       )}
-                      <div className="flex justify-between text-slate-500">
+                      <div className="flex justify-between text-ink-muted">
                         <span>Shipping</span>
                         <span className="tabular-nums">
                           {shipping > 0 ? `$${shipping.toFixed(2)}` : <span className="text-emerald-600 font-medium">Free</span>}
                         </span>
                       </div>
-                      <div className="border-t border-slate-100 pt-2 sm:pt-3">
+                      <div className="border-t border-vital-100 pt-2 sm:pt-3">
                         <div className="flex justify-between">
-                          <span className="font-bold text-slate-900">Total</span>
-                          <span className="font-bold text-base sm:text-lg text-slate-900 tabular-nums">
+                          <span className="font-bold text-ink">Total</span>
+                          <span className="font-bold text-base sm:text-lg text-ink tabular-nums">
                             ${order.total.toFixed(2)}
                           </span>
                         </div>
@@ -277,7 +277,7 @@ export default function OrderDetailPage() {
                     <button
                       onClick={handleViewInvoice}
                       disabled={invoiceLoading}
-                      className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs sm:text-sm font-semibold transition-colors disabled:opacity-50"
+                      className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-ink hover:bg-vital-800 text-white rounded-xl text-xs sm:text-sm font-semibold transition-colors disabled:opacity-50"
                     >
                       <FileText className="w-4 h-4" />
                       {invoiceLoading ? 'Preparing invoice…' : 'Download Invoice'}
@@ -288,12 +288,12 @@ export default function OrderDetailPage() {
 
               {/* Shipping Address */}
               {order.shipping_address && (
-                <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 md:p-6">
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2 mb-3 sm:mb-4">
-                    <MapPin className="w-4 h-4 text-cyan-600" />
+                <div className="bg-white rounded-xl border border-vital-200 p-4 sm:p-5 md:p-6">
+                  <h3 className="text-sm sm:text-base font-bold text-ink flex items-center gap-2 mb-3 sm:mb-4">
+                    <MapPin className="w-4 h-4 text-vital-600" />
                     Shipping Address
                   </h3>
-                  <div className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                  <div className="text-ink-muted text-xs sm:text-sm leading-relaxed">
                     {typeof order.shipping_address === 'string' ? (
                       <p className="whitespace-pre-line">{order.shipping_address}</p>
                     ) : (

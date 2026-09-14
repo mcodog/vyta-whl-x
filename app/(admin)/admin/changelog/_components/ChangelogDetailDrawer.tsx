@@ -153,7 +153,7 @@ export default function ChangelogDetailDrawer({
               </h3>
               <div className="flex flex-wrap gap-1.5">
                 {entry.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-bronze bg-bronze/10 px-2.5 py-1 rounded-full">
+                  <span key={tag} className="text-xs text-vital bg-vital/10 px-2.5 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -175,7 +175,7 @@ export default function ChangelogDetailDrawer({
                       href={safe}
                       target={safe.startsWith('http') ? '_blank' : undefined}
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-bronze hover:text-bronze-dark underline underline-offset-2 w-fit"
+                      className="inline-flex items-center gap-1.5 text-sm text-vital hover:text-vital-dark underline underline-offset-2 w-fit"
                     >
                       <LinkIcon className="w-3.5 h-3.5" />
                       {link.label}

@@ -134,7 +134,7 @@ export default function CheckoutAddons() {
   return (
     <div className="rounded-xl border border-line bg-white overflow-hidden">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-line bg-surface">
-        <Sparkles className="w-4 h-4 text-bronze" />
+        <Sparkles className="w-4 h-4 text-vital" />
         <h3 className="text-sm font-semibold text-ink">Complete your order</h3>
       </div>
 

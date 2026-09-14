@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Check, Minus } from 'lucide-react';
 
 /**
- * A custom checkbox that matches the admin design system (bronze accent, rounded
+ * A custom checkbox that matches the admin design system (vital accent, rounded
  * square, soft focus ring) with a small framer-motion pop on the check mark.
  * Supports an indeterminate ("mixed") state for the header "select all" control.
  */
@@ -31,10 +31,10 @@ export default function Checkbox({
       aria-label={ariaLabel}
       disabled={disabled}
       onClick={onChange}
-      className={`relative flex items-center justify-center w-[18px] h-[18px] rounded-[6px] border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze/40 disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`relative flex items-center justify-center w-[18px] h-[18px] rounded-[6px] border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-vital/40 disabled:opacity-50 disabled:cursor-not-allowed ${
         on
-          ? 'bg-bronze border-bronze'
-          : 'bg-white border-line hover:border-bronze/60'
+          ? 'bg-vital border-vital'
+          : 'bg-white border-line hover:border-vital/60'
       }`}
     >
       {on && (

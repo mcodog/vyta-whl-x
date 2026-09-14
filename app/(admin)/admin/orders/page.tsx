@@ -456,7 +456,7 @@ function OrdersView() {
             placeholder="Search orders, customers..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
         <div className="relative">
@@ -464,7 +464,7 @@ function OrdersView() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full sm:w-auto pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+            className="w-full sm:w-auto pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
           >
             <option value="all">All Statuses</option>
             <option value="pending">Pending</option>
@@ -480,7 +480,7 @@ function OrdersView() {
           <select
             value={sourceFilter}
             onChange={(e) => setSourceFilter(e.target.value)}
-            className="w-full sm:w-auto pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+            className="w-full sm:w-auto pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
           >
             <option value="all">All Sources</option>
             {sources.map((s) => (
@@ -501,7 +501,7 @@ function OrdersView() {
       {/* Summary */}
       <div className="flex flex-wrap items-center gap-4 mb-6 text-sm">
         <span className="text-ink-muted">{filteredOrders.length} order{filteredOrders.length !== 1 ? 's' : ''}</span>
-        <span className="text-bronze">{filteredOrders.filter(o => o.status === 'pending').length} pending</span>
+        <span className="text-vital">{filteredOrders.filter(o => o.status === 'pending').length} pending</span>
         <span className="text-blue-400">{filteredOrders.filter(o => o.status === 'paid').length} paid</span>
       </div>
 
@@ -598,7 +598,7 @@ function OrdersView() {
                       aria-label="Select all on this page"
                       checked={allPageSelected}
                       onChange={toggleSelectAllPage}
-                      className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                      className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                     />
                   </th>
                 )}
@@ -641,7 +641,7 @@ function OrdersView() {
                           aria-label={`Select order ${order.order_number}`}
                           checked={selected.has(order.id)}
                           onChange={() => toggleSelect(order.id)}
-                          className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                          className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                         />
                       </td>
                     )}
@@ -651,7 +651,7 @@ function OrdersView() {
                           {order.order_number}
                         </Link>
                         {isNewOrder(order) && (
-                          <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-bronze/15 text-bronze">
+                          <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-vital/15 text-vital">
                             <Sparkles className="w-2.5 h-2.5" /> New
                           </span>
                         )}
@@ -678,7 +678,7 @@ function OrdersView() {
                     </td>
                     <td className="px-3 py-3">
                       {rowBusy[order.id] ? (
-                        <span className="inline-flex items-center gap-1.5 text-xs text-bronze font-medium">
+                        <span className="inline-flex items-center gap-1.5 text-xs text-vital font-medium">
                           <Loader2 className="w-3.5 h-3.5 animate-spin" />
                           {rowBusy[order.id]}
                         </span>
@@ -706,7 +706,7 @@ function OrdersView() {
                             value={order.status}
                             onChange={(e) => handleStatusChange(order.id, e.target.value)}
                             disabled={updating === order.id}
-                            className="text-sm bg-surface border border-line text-ink rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                            className="text-sm bg-surface border border-line text-ink rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-vital/40"
                           >
                             <option value="pending">Pending</option>
                             <option value="paid">Paid</option>
@@ -795,7 +795,7 @@ function OrdersView() {
                           aria-label={`Select all orders on ${group.label}`}
                           checked={groupAllSelected}
                           onChange={() => toggleSelectDay(groupIds, groupAllSelected)}
-                          className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                          className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                         />
                       )}
                       <CalendarDays className="w-3.5 h-3.5 text-ink-muted" />
@@ -822,7 +822,7 @@ function OrdersView() {
                                     aria-label={`Select order ${order.order_number}`}
                                     checked={selected.has(order.id)}
                                     onChange={() => toggleSelect(order.id)}
-                                    className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                                    className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                                   />
                                 </div>
                               )}
@@ -831,7 +831,7 @@ function OrdersView() {
                                   <div className="flex items-center gap-2 flex-wrap min-w-0">
                                     <span className="font-mono text-sm text-ink">{order.order_number}</span>
                                     {isNewOrder(order) && (
-                                      <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-bronze/15 text-bronze">
+                                      <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-vital/15 text-vital">
                                         <Sparkles className="w-2.5 h-2.5" /> New
                                       </span>
                                     )}
@@ -854,7 +854,7 @@ function OrdersView() {
                                     </span>
                                   )}
                                   {rowBusy[order.id] ? (
-                                    <span className="inline-flex items-center gap-1.5 text-xs text-bronze font-medium">
+                                    <span className="inline-flex items-center gap-1.5 text-xs text-vital font-medium">
                                       <Loader2 className="w-3.5 h-3.5 animate-spin" /> {rowBusy[order.id]}
                                     </span>
                                   ) : (
@@ -876,7 +876,7 @@ function OrdersView() {
                                       value={order.status}
                                       onChange={(e) => handleStatusChange(order.id, e.target.value)}
                                       disabled={updating === order.id}
-                                      className="text-sm bg-surface border border-line text-ink rounded-lg px-2 py-2 focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                                      className="text-sm bg-surface border border-line text-ink rounded-lg px-2 py-2 focus:outline-none focus:ring-2 focus:ring-vital/40"
                                     >
                                       <option value="pending">Pending</option>
                                       <option value="paid">Paid</option>

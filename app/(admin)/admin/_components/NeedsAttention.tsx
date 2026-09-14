@@ -99,7 +99,7 @@ export default function NeedsAttention() {
           Needs attention
         </h2>
         {total > 0 && (
-          <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-bronze/12 text-bronze text-[11px] font-bold leading-none tabular-nums">
+          <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-vital/12 text-vital text-[11px] font-bold leading-none tabular-nums">
             {total}
           </span>
         )}

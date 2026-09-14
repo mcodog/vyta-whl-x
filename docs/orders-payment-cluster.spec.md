@@ -245,13 +245,13 @@ casts `order_items.product_id::uuid`; the invoice RPC uses `invoice_line_items.p
 
 ## 4. UI/UX design overview
 
-Shared theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surface #F7F7F7`, `line #C9CCD1`;
+Shared theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`, `surface #F7FAFB`, `line #D5E2E7`;
 status accents emerald/amber/red/blue. Icons `lucide-react`.
 
 - **Cart/checkout cards:** `bg-white rounded-xl border border-line`; headings `font-bold text-ink`;
   primary action `bg-ink hover:bg-ink/90 text-white rounded-lg`.
 - **Courier selector:** radio rows (`name="courier"`) highlighting the selected `courierId`
-  (`border-bronze`/selected vs `border-line`), each showing courier name + cost.
+  (`border-vital`/selected vs `border-line`), each showing courier name + cost.
 - **Status badges** (admin orders / track): payment status via the order `status` string; shipping
   state via `shippingBadgeClasses` (emerald=shipment created, amber=needs shipment, neutral=pickup);
   source via `sourceBadgeClasses` (emerald for Claude Agent). Payment-method label via

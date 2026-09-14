@@ -112,7 +112,7 @@ export default function ChangelogCalendar({
               {hasEntries && (
                 <span
                   className={`absolute bottom-1 w-1 h-1 rounded-full ${
-                    isSelected ? 'bg-white' : 'bg-bronze'
+                    isSelected ? 'bg-white' : 'bg-vital'
                   }`}
                 />
               )}
@@ -125,7 +125,7 @@ export default function ChangelogCalendar({
         <button
           type="button"
           onClick={() => onSelectDay(null)}
-          className="mt-3 w-full text-center text-xs text-bronze hover:text-bronze-dark font-medium"
+          className="mt-3 w-full text-center text-xs text-vital hover:text-vital-dark font-medium"
         >
           Clear date filter
         </button>

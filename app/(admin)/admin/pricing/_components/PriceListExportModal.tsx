@@ -82,7 +82,7 @@ export default function PriceListExportModal({
         <div className="flex items-start justify-between gap-4 mb-6">
           <div className="min-w-0">
             <h2 className="text-xl font-bold text-ink inline-flex items-center gap-2">
-              <Settings2 className="w-5 h-5 text-bronze" /> Customize download
+              <Settings2 className="w-5 h-5 text-vital" /> Customize download
             </h2>
             <p className="text-sm text-ink-muted mt-1 truncate">{name}</p>
           </div>
@@ -126,7 +126,7 @@ export default function PriceListExportModal({
               <Columns3 className="w-3.5 h-3.5" /> Columns
             </span>
             <div className="flex items-center gap-3 text-xs">
-              <button type="button" onClick={() => setColumns([...ALL_PRICELIST_COLUMNS])} className="text-bronze hover:underline">
+              <button type="button" onClick={() => setColumns([...ALL_PRICELIST_COLUMNS])} className="text-vital hover:underline">
                 All
               </button>
               <button type="button" onClick={() => setColumns([])} className="text-ink-muted hover:text-ink hover:underline">
@@ -144,7 +144,7 @@ export default function PriceListExportModal({
                   type="checkbox"
                   checked={selected.has(col.key)}
                   onChange={() => toggleColumn(col.key)}
-                  className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                  className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                 />
                 <span>
                   <span className="block text-sm font-medium text-ink">{col.name}</span>
@@ -178,7 +178,7 @@ export default function PriceListExportModal({
                   type="checkbox"
                   checked={prefs[t.key]}
                   onChange={(e) => setPrefs((p) => ({ ...p, [t.key]: e.target.checked }))}
-                  className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                  className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                 />
                 <span>
                   <span className="block text-sm font-medium text-ink">{t.label}</span>

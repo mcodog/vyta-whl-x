@@ -73,7 +73,7 @@ export default function ChangelogReportModal({
       <div className="bg-white rounded-xl shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white flex items-center justify-between px-6 py-4 border-b border-line">
           <h2 className="text-base font-bold text-ink flex items-center gap-2">
-            <FileText className="w-4 h-4 text-bronze" /> Create Report
+            <FileText className="w-4 h-4 text-vital" /> Create Report
           </h2>
           <button onClick={onClose} className="text-ink-muted hover:text-ink transition-colors">
             <X className="w-5 h-5" />
@@ -133,7 +133,7 @@ export default function ChangelogReportModal({
                   <ul className="bg-surface border border-line rounded-lg divide-y divide-line/70">
                     {dayEntries.map((e) => (
                       <li key={e.id} className="flex items-start gap-2 px-3 py-2 text-sm text-ink">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-bronze shrink-0" />
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-vital shrink-0" />
                         <span className="min-w-0">
                           <span className="font-medium">{e.title}</span>
                           <span className="ml-2 text-xs text-ink-muted">{categoryLabel(e.category)}</span>
@@ -154,7 +154,7 @@ export default function ChangelogReportModal({
                     readOnly
                     value={link}
                     onFocus={(e) => e.currentTarget.select()}
-                    className="flex-1 min-w-0 px-3 py-2 bg-surface border border-line rounded-lg text-xs text-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="flex-1 min-w-0 px-3 py-2 bg-surface border border-line rounded-lg text-xs text-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                   <button
                     type="button"

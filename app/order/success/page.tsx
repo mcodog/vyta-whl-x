@@ -62,7 +62,7 @@ function OrderSuccessContent() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-10 sm:h-12 w-10 sm:w-12 border-4 border-bronze border-t-transparent mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-10 sm:h-12 w-10 sm:w-12 border-4 border-vital border-t-transparent mx-auto mb-4"></div>
           <p className="text-ink-muted text-xs sm:text-sm">Loading order details...</p>
         </div>
       </div>
@@ -222,15 +222,15 @@ function OrderSuccessContent() {
           <h3 className="font-semibold text-ink mb-3 sm:mb-4 text-sm sm:text-base">What&apos;s Next?</h3>
           <div className="space-y-2 sm:space-y-3 text-[10px] sm:text-sm text-ink-muted">
             <div className="flex items-start gap-2 sm:gap-3">
-              <Mail className="w-4 sm:w-5 h-4 sm:h-5 text-bronze flex-shrink-0 mt-0.5" />
+              <Mail className="w-4 sm:w-5 h-4 sm:h-5 text-vital flex-shrink-0 mt-0.5" />
               <p>You&apos;ll receive an email confirmation shortly with your order details.</p>
             </div>
             <div className="flex items-start gap-2 sm:gap-3">
-              <Package className="w-4 sm:w-5 h-4 sm:h-5 text-bronze flex-shrink-0 mt-0.5" />
+              <Package className="w-4 sm:w-5 h-4 sm:h-5 text-vital flex-shrink-0 mt-0.5" />
               <p>Our team will process your order within 1-2 business days.</p>
             </div>
             <div className="flex items-start gap-2 sm:gap-3">
-              <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-bronze flex-shrink-0 mt-0.5" />
+              <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-vital flex-shrink-0 mt-0.5" />
               <p>Once shipped, you&apos;ll receive tracking information via email.</p>
             </div>
           </div>

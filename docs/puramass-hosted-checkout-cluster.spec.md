@@ -478,11 +478,11 @@ existing admin-page permission check (admin/assistant only).
 
 | Token (class) | Hex | Use |
 | --- | --- | --- |
-| `ink` | `#1A1A1A` | primary text, primary buttons |
-| `ink-muted` | `#6E6E6E` | secondary text |
-| `bronze` | `#9C8B5A` | accent, links, selected state |
-| `surface` | `#F7F7F7` | subtle panels, table header |
-| `line` | `#C9CCD1` | borders / dividers |
+| `ink` | `#07203A` | primary text, primary buttons |
+| `ink-muted` | `#4E6E85` | secondary text |
+| `vital` | `#438B9E` | accent, links, selected state |
+| `surface` | `#F7FAFB` | subtle panels, table header |
+| `line` | `#D5E2E7` | borders / dividers |
 | radius | `rounded-xl` (0.75rem) / `rounded-2xl` (1rem) | cards, inputs, buttons |
 | font | system sans (`-apple-system`, SF Pro, Segoe UI, Roboto) | all |
 
@@ -496,7 +496,7 @@ existing admin-page permission check (admin/assistant only).
   header + a grid of add-on tiles (image, name, "from $X / form", a `+` button).
   A tile opens `AddToCartModal`; only fulfillable forms are shown.
 - **Admin settings card / ledger table:** standard admin card (`bg-white`,
-  `border-line`, `rounded-xl`); toggle = two bordered buttons with a `bronze`
+  `border-line`, `rounded-xl`); toggle = two bordered buttons with a `vital`
   selected border + a check; status banner green/amber; ledger is an
   `overflow-x-auto` table with a `surface` header and prev/next pagination.
 

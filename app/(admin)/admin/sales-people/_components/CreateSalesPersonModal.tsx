@@ -89,7 +89,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="Jane"
               />
             </div>
@@ -99,7 +99,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="Doe"
               />
             </div>
@@ -111,7 +111,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               placeholder="sales@example.com"
             />
           </div>
@@ -123,7 +123,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="555-123-4567"
               />
             </div>
@@ -136,7 +136,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                 max="100"
                 value={commissionRate}
                 onChange={(e) => setCommissionRate(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                   max="100"
                   value={boxDiscount}
                   onChange={(e) => setBoxDiscount(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 <p className="text-[11px] text-ink-muted mt-1">Box (pack-of-10) lines</p>
               </div>
@@ -164,7 +164,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
                   max="100"
                   value={vialDiscount}
                   onChange={(e) => setVialDiscount(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 <p className="text-[11px] text-ink-muted mt-1">Single-vial lines</p>
               </div>
@@ -180,7 +180,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={2}
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               placeholder="Optional notes"
             />
           </div>
@@ -191,7 +191,7 @@ export default function CreateSalesPersonModal({ onClose, onCreated }: Props) {
               id="active-create"
               checked={active}
               onChange={(e) => setActive(e.target.checked)}
-              className="rounded border-line accent-bronze"
+              className="rounded border-line accent-vital"
             />
             <label htmlFor="active-create" className="text-sm text-ink">Active</label>
           </div>

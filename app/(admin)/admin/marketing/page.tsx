@@ -114,14 +114,14 @@ export default function AdminMarketingPage() {
   };
 
   const inputCls =
-    'w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60';
+    'w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60';
 
   return (
     <>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-            <Megaphone className="w-6 h-6 text-bronze" /> Marketing
+            <Megaphone className="w-6 h-6 text-vital" /> Marketing
           </h1>
           <p className="text-sm text-ink-muted mt-1 max-w-2xl">
             Storefront branding and web analytics. Controls the site name, logo and favicon,
@@ -159,7 +159,7 @@ export default function AdminMarketingPage() {
           {/* Branding */}
           <section className="bg-white rounded-xl border border-line p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-4">
-              <ImageIcon className="w-4 h-4 text-bronze" />
+              <ImageIcon className="w-4 h-4 text-vital" />
               <h2 className="text-base font-bold text-ink">Store branding</h2>
             </div>
 
@@ -171,7 +171,7 @@ export default function AdminMarketingPage() {
                   disabled={readOnly}
                   onChange={(e) => set('store_name', e.target.value)}
                   className={inputCls}
-                  placeholder="Aminocan Peptides"
+                  placeholder="VYTA Biosciences"
                 />
               </div>
               <div>
@@ -215,7 +215,7 @@ export default function AdminMarketingPage() {
           {/* Tracking & consent */}
           <section className="bg-white rounded-xl border border-line p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-1">
-              <BarChart3 className="w-4 h-4 text-bronze" />
+              <BarChart3 className="w-4 h-4 text-vital" />
               <h2 className="text-base font-bold text-ink">Tracking &amp; consent</h2>
             </div>
             <p className="text-xs text-ink-muted mb-4">
@@ -251,7 +251,7 @@ export default function AdminMarketingPage() {
                 checked={form.tracking_consent_required}
                 disabled={readOnly}
                 onChange={(e) => set('tracking_consent_required', e.target.checked)}
-                className="mt-0.5 rounded border-line accent-bronze"
+                className="mt-0.5 rounded border-line accent-vital"
               />
               <span className="text-sm text-ink">
                 <span className="font-medium flex items-center gap-1.5">

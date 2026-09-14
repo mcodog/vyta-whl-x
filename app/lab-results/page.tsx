@@ -74,7 +74,7 @@ function parseCompounds(s: string | null): string[] {
 function purityTone(pct: number | null): string {
   if (pct == null) return 'text-ink';
   if (pct >= 99) return 'text-emerald-600';
-  if (pct >= 97) return 'text-bronze-dark';
+  if (pct >= 97) return 'text-vital-dark';
   return 'text-amber-600';
 }
 
@@ -150,9 +150,9 @@ export default function LabResultsPage() {
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="lab-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1.5" fill="#1A1A1A" />
-                <circle cx="0" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="60" r="1" fill="#1A1A1A" />
+                <circle cx="30" cy="30" r="1.5" fill="#07203A" />
+                <circle cx="0" cy="0" r="1" fill="#07203A" />
+                <circle cx="60" cy="60" r="1" fill="#07203A" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#lab-grid)" />
@@ -165,9 +165,9 @@ export default function LabResultsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/10 border border-bronze/20 rounded-full mb-4">
-              <FlaskConical className="w-3.5 h-3.5 text-bronze" />
-              <span className="text-xs font-medium text-bronze">Third-Party Verified</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-vital/10 border border-vital/20 rounded-full mb-4">
+              <FlaskConical className="w-3.5 h-3.5 text-vital" />
+              <span className="text-xs font-medium text-vital">Third-Party Verified</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ink">
               Lab Results
@@ -200,7 +200,7 @@ export default function LabResultsPage() {
                   <div className="text-xs sm:text-sm text-ink-muted">Reports</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-bronze tabular-nums">
+                  <div className="text-2xl sm:text-3xl font-bold text-vital tabular-nums">
                     {stats.avg != null ? (
                       <CountUp value={stats.avg} decimals={1} suffix="%" />
                     ) : (
@@ -233,7 +233,7 @@ export default function LabResultsPage() {
                 placeholder="Search by product, compound, or sample ID…"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
+                className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
               />
             </div>
             {!loading && !error && (
@@ -248,7 +248,7 @@ export default function LabResultsPage() {
           {!loading && !error && compoundOptions.length > 0 && (
             <div className="flex flex-wrap items-center gap-2 mb-8">
               <span className="inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted mr-1">
-                <Beaker className="w-3.5 h-3.5 text-bronze" />
+                <Beaker className="w-3.5 h-3.5 text-vital" />
                 Compound
               </span>
               <button
@@ -348,7 +348,7 @@ export default function LabResultsPage() {
                         )}
                         {/* Lab badge */}
                         <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-ink bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-line shadow-sm">
-                          <ShieldCheck className="w-3.5 h-3.5 text-bronze" />
+                          <ShieldCheck className="w-3.5 h-3.5 text-vital" />
                           {r.lab}
                         </div>
                         {/* Purity badge — some COAs (e.g. HCG) are
@@ -369,7 +369,7 @@ export default function LabResultsPage() {
                             title="This certificate confirms identity against a reference standard; it does not report a purity percentage."
                             className="absolute top-3 right-3 inline-flex items-center gap-1.5 text-[11px] font-semibold text-ink bg-white/90 backdrop-blur px-2.5 py-1.5 rounded-xl border border-line shadow-sm"
                           >
-                            <BadgeCheck className="w-3.5 h-3.5 text-bronze" />
+                            <BadgeCheck className="w-3.5 h-3.5 text-vital" />
                             Identity verified
                           </div>
                         )}
@@ -425,7 +425,7 @@ export default function LabResultsPage() {
                             <Link
                               key={p.id}
                               href={`/products/${p.slug}`}
-                              className="inline-flex items-center gap-1 text-xs font-medium text-ink bg-surface hover:bg-bronze-50 hover:text-bronze-dark px-2.5 py-1.5 rounded-lg border border-line transition-all"
+                              className="inline-flex items-center gap-1 text-xs font-medium text-ink bg-surface hover:bg-vital-50 hover:text-vital-dark px-2.5 py-1.5 rounded-lg border border-line transition-all"
                             >
                               {p.name}
                               <ChevronRight className="w-3 h-3" />
@@ -479,7 +479,7 @@ export default function LabResultsPage() {
           <div className="bg-ink rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <FlaskConical className="w-5 h-5 text-bronze" />
+                <FlaskConical className="w-5 h-5 text-vital" />
               </div>
               <div>
                 <p className="text-white font-semibold">Independently tested by accredited labs</p>

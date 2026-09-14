@@ -70,7 +70,7 @@ export default function Features() {
           className="max-w-2xl mx-auto text-center mb-16 sm:mb-20"
         >
           <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 text-sm font-medium rounded-full mb-6">
-            Why Aminocan
+            Why VYTA
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-neutral-900 tracking-tight mb-6">
             Excellence in Every Detail

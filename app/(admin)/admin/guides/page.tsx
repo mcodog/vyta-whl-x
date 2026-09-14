@@ -7,7 +7,7 @@ import { guides, type Guide } from '@/lib/admin/guides';
 
 /**
  * Guides index — the internal how-to wiki. Lists every guide as a card,
- * grouped by category. Palette-consistent: white cards on surface, bronze as
+ * grouped by category. Palette-consistent: white cards on surface, vital as
  * the single accent, no color-filled boxes.
  */
 export default function GuidesIndexPage() {
@@ -21,7 +21,7 @@ export default function GuidesIndexPage() {
     <>
       {/* Header */}
       <div className="mb-8 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-bronze/10 text-bronze">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-vital/10 text-vital">
           <BookOpen className="h-5 w-5" />
         </div>
         <div>
@@ -53,13 +53,13 @@ function GuideCard({ guide }: { guide: Guide }) {
   return (
     <Link
       href={`/admin/guides/${guide.slug}`}
-      className="group flex flex-col rounded-xl border border-line bg-white p-5 transition-all hover:border-bronze/40 hover:shadow-sm"
+      className="group flex flex-col rounded-xl border border-line bg-white p-5 transition-all hover:border-vital/40 hover:shadow-sm"
     >
       <div className="mb-3 flex items-center justify-between">
-        <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-bronze/10 text-bronze">
+        <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-vital/10 text-vital">
           <Icon className="h-5 w-5" />
         </span>
-        <ArrowRight className="h-4 w-4 text-ink-light transition-colors group-hover:text-bronze" />
+        <ArrowRight className="h-4 w-4 text-ink-light transition-colors group-hover:text-vital" />
       </div>
       <h3 className="text-base font-bold text-ink">{guide.title}</h3>
       <p className="mt-1 flex-1 text-sm leading-relaxed text-ink-muted">{guide.summary}</p>

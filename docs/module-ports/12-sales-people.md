@@ -158,7 +158,7 @@ Both use the **service-role** client; `getRole(request)` reads the Bearer token 
   - **Rate:** `{commission_rate}%` (tabular-nums).
   - **Invoices:** `{invoice_count}` (tabular-nums).
   - **Paid:** `${paid_earnings.toFixed(2)}` in **emerald**, bold tabular-nums.
-  - **Pending:** `${pending_earnings.toFixed(2)}` in **bronze**, bold tabular-nums.
+  - **Pending:** `${pending_earnings.toFixed(2)}` in **vital**, bold tabular-nums.
   - **Status badge:** "Active" = `bg-emerald-500/10 text-emerald-400`; "Inactive" = `bg-red-500/10 text-red-400`.
   - **Actions** (icon buttons): **Edit** (`Pencil`, opens edit modal) and **Activate/Deactivate** (`Power` — amber when active→"Deactivate sales person", emerald when inactive→"Activate sales person"; disabled while toggling) shown if `canEdit`; **Delete** (`Trash2`, red) shown if `canDelete`.
 - **Empty state row** (`colSpan` 8 or 7): "No sales people match your filters" when filtered, else "No sales people yet".
@@ -169,7 +169,7 @@ Header "Add Sales Person" / "Edit Sales Person" + close `X`. Form fields:
 - **Email** (`type=email`, placeholder "sales@example.com" on create).
 - **Phone** (placeholder "555-123-4567") / **Commission Rate (%)** (`type=number`, `step=0.01`, `min=0`, `max=100`) in a 2-col grid.
 - **Notes** (textarea, `rows=2`, placeholder "Optional notes" on create).
-- **Active** checkbox (bronze accent), default checked on create / current value on edit.
+- **Active** checkbox (vital accent), default checked on create / current value on edit.
 - Footer: **Cancel** (surface) + submit button — create: "Create Sales Person" / "Creating..."; edit: "Save Changes" / "Saving...".
 - **Validation** (client, shown in a red `AlertCircle` banner at top of form): "First and last name are required." and "Commission rate must be between 0 and 100." (`rate < 0 || rate > 100 || NaN`). Server errors surface in the same banner.
 

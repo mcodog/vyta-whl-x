@@ -1820,7 +1820,7 @@ function ProductsManagementPage() {
                       disabled={downloading}
                       className="flex-1 flex items-start gap-2.5 text-left px-2.5 py-2 rounded-lg hover:bg-surface transition-colors disabled:opacity-50"
                     >
-                      <FileText className="w-4 h-4 text-bronze mt-0.5 flex-shrink-0" />
+                      <FileText className="w-4 h-4 text-vital mt-0.5 flex-shrink-0" />
                       <span className="min-w-0">
                         <span className="block text-sm font-medium text-ink">Products Report</span>
                         <span className="block text-xs text-ink-muted">Catalog, inventory & pricing</span>
@@ -1843,7 +1843,7 @@ function ProductsManagementPage() {
                       disabled={downloadingStock}
                       className="flex-1 flex items-start gap-2.5 text-left px-2.5 py-2 rounded-lg hover:bg-surface transition-colors disabled:opacity-50"
                     >
-                      <Package className="w-4 h-4 text-bronze mt-0.5 flex-shrink-0" />
+                      <Package className="w-4 h-4 text-vital mt-0.5 flex-shrink-0" />
                       <span className="min-w-0">
                         <span className="block text-sm font-medium text-ink">Stock Report</span>
                         <span className="block text-xs text-ink-muted">On-hand & reorder levels</span>
@@ -1867,7 +1867,7 @@ function ProductsManagementPage() {
                     disabled={downloadingCustomerStock}
                     className="w-full flex items-start gap-2.5 text-left px-2.5 py-2 rounded-lg hover:bg-surface transition-colors disabled:opacity-50"
                   >
-                    <Users className="w-4 h-4 text-bronze mt-0.5 flex-shrink-0" />
+                    <Users className="w-4 h-4 text-vital mt-0.5 flex-shrink-0" />
                     <span className="min-w-0">
                       <span className="block text-sm font-medium text-ink">Customer Stock Report</span>
                       <span className="block text-xs text-ink-muted">
@@ -1881,7 +1881,7 @@ function ProductsManagementPage() {
                     onClick={() => { setShowReportsMenu(false); setShowChangeReportModal(true); }}
                     className="w-full flex items-start gap-2.5 text-left px-2.5 py-2 rounded-lg hover:bg-surface transition-colors"
                   >
-                    <TrendingUp className="w-4 h-4 text-bronze mt-0.5 flex-shrink-0" />
+                    <TrendingUp className="w-4 h-4 text-vital mt-0.5 flex-shrink-0" />
                     <span className="min-w-0">
                       <span className="block text-sm font-medium text-ink">Stock Changes</span>
                       <span className="block text-xs text-ink-muted">Movement over a date range</span>
@@ -1937,7 +1937,7 @@ function ProductsManagementPage() {
             placeholder="Search products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
+            className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
           />
         </div>
         {/* View mode: the full catalog table, or the bulk price/stock grid. */}
@@ -2034,7 +2034,7 @@ function ProductsManagementPage() {
                         }`}
                       >
                         {opt.label}
-                        {active && <Check className="w-4 h-4 text-bronze shrink-0" />}
+                        {active && <Check className="w-4 h-4 text-vital shrink-0" />}
                       </button>
                       {opt.divideAfter && <div className="my-1 border-t border-line" />}
                     </React.Fragment>
@@ -2082,7 +2082,7 @@ function ProductsManagementPage() {
                       onChange={(e) =>
                         setVisibleColumns((prev) => ({ ...prev, [col.key]: e.target.checked }))
                       }
-                      className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                      className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                     />
                     {col.label}
                   </label>
@@ -2113,7 +2113,7 @@ function ProductsManagementPage() {
       {viewMode === 'cells' ? (
         loading ? (
           <div className="bg-white rounded-xl border border-line p-12 flex flex-col items-center justify-center gap-3">
-            <div className="w-8 h-8 rounded-full border-b-2 border-bronze animate-spin" />
+            <div className="w-8 h-8 rounded-full border-b-2 border-vital animate-spin" />
             <span className="text-sm text-ink-muted">Loading catalog…</span>
           </div>
         ) : (
@@ -2247,7 +2247,7 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-24 px-2 py-1 border border-bronze/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                            className="w-24 px-2 py-1 border border-vital/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                           />
                         ) : (
                           <button
@@ -2262,7 +2262,7 @@ function ProductsManagementPage() {
                             disabled={!canEdit}
                             className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-left ${
                               canEdit
-                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze hover:text-bronze transition-colors'
+                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital hover:text-vital transition-colors'
                                 : ''
                             }`}
                             title={canEdit ? (priceCurrency === 'USD' ? 'Click to set a USD price (blank = auto)' : 'Click to edit price') : undefined}
@@ -2275,7 +2275,7 @@ function ProductsManagementPage() {
                               <span className="font-normal text-ink-muted">${productUsdPrice(product, usdRate).toFixed(2)} <span className="text-[10px]">auto</span></span>
                             )}
                             {canEdit && (
-                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />
                             )}
                           </button>
                         )}
@@ -2301,7 +2301,7 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-20 px-2 py-0.5 border border-bronze/60 rounded text-xs focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                            className="w-20 px-2 py-0.5 border border-vital/60 rounded text-xs focus:outline-none focus:ring-2 focus:ring-vital/40"
                           />
                         ) : (
                           <button
@@ -2310,7 +2310,7 @@ function ProductsManagementPage() {
                             disabled={!canEdit}
                             className={`group inline-flex items-center gap-1 rounded px-1 py-0.5 -mx-1 text-[11px] font-normal text-ink-muted ${
                               canEdit
-                                ? 'cursor-text border-b border-dashed border-ink-muted/30 hover:bg-bronze/5 hover:border-bronze hover:text-bronze transition-colors'
+                                ? 'cursor-text border-b border-dashed border-ink-muted/30 hover:bg-vital/5 hover:border-vital hover:text-vital transition-colors'
                                 : ''
                             }`}
                             title={canEdit ? 'Click to edit single-vial price' : undefined}
@@ -2321,7 +2321,7 @@ function ProductsManagementPage() {
                               <span>Vial ${(product.price / 10).toFixed(2)} <span className="text-[9px]">auto</span></span>
                             )}
                             {canEdit && (
-                              <Pencil className="w-2.5 h-2.5 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                              <Pencil className="w-2.5 h-2.5 text-ink-muted/40 group-hover:text-vital transition-colors" />
                             )}
                           </button>
                         )}
@@ -2339,7 +2339,7 @@ function ProductsManagementPage() {
                           onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                           onBlur={handleInlineSave}
                           onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                          className="w-20 px-2 py-1 border border-bronze/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-20 px-2 py-1 border border-vital/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                       ) : (
                         <div>
@@ -2349,7 +2349,7 @@ function ProductsManagementPage() {
                             disabled={!canEdit}
                             className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${
                               canEdit
-                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors'
+                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors'
                                 : ''
                             } ${
                               product.stock_quantity > 10
@@ -2362,7 +2362,7 @@ function ProductsManagementPage() {
                           >
                             <span>{product.stock_quantity}</span>
                             {canEdit && (
-                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />
                             )}
                           </button>
                           <div className="mt-0.5 text-[10px] text-ink-muted tabular-nums">
@@ -2384,7 +2384,7 @@ function ProductsManagementPage() {
                           onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                           onBlur={handleInlineSave}
                           onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                          className="w-20 px-2 py-1 border border-bronze/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-20 px-2 py-1 border border-vital/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                       ) : (
                         <div>
@@ -2394,14 +2394,14 @@ function ProductsManagementPage() {
                             disabled={!canEdit}
                             className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${
                               canEdit
-                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors'
+                                ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors'
                                 : ''
                             }`}
                             title={canEdit ? `Click to edit stock in boxes (× ${product.vials_per_box ?? 10} vials/box)` : undefined}
                           >
                             <span>{vialsToBoxes(product.stock_quantity, product.vials_per_box ?? 10)}</span>
                             {canEdit && (
-                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                              <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />
                             )}
                           </button>
                           <div className="mt-0.5 text-[10px] text-ink-muted tabular-nums">
@@ -2423,7 +2423,7 @@ function ProductsManagementPage() {
                           onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                           onBlur={handleInlineSave}
                           onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                          className="w-20 px-2 py-1 border border-bronze/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-20 px-2 py-1 border border-vital/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                       ) : (
                         <button
@@ -2432,14 +2432,14 @@ function ProductsManagementPage() {
                           disabled={!canEdit}
                           className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${
                             canEdit
-                              ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors'
+                              ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors'
                               : ''
                           }`}
                           title={canEdit ? 'Vials per box — used to convert received boxes into vials' : undefined}
                         >
                           <span>{product.vials_per_box ?? 10}</span>
                           {canEdit && (
-                            <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                            <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />
                           )}
                         </button>
                       )}
@@ -2456,7 +2456,7 @@ function ProductsManagementPage() {
                           onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                           onBlur={handleInlineSave}
                           onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                          className="w-20 px-2 py-1 border border-bronze/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-20 px-2 py-1 border border-vital/60 rounded text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                       ) : (
                         <button
@@ -2465,7 +2465,7 @@ function ProductsManagementPage() {
                           disabled={!canEdit}
                           className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${
                             canEdit
-                              ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors'
+                              ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors'
                               : ''
                           } ${
                             product.stock_quantity <= (product.low_stock_threshold ?? 10)
@@ -2476,7 +2476,7 @@ function ProductsManagementPage() {
                         >
                           <span>≤ {product.low_stock_threshold ?? 10}</span>
                           {canEdit && (
-                            <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />
+                            <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />
                           )}
                         </button>
                       )}
@@ -2487,13 +2487,13 @@ function ProductsManagementPage() {
                         className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${
                           product.active
                             ? 'bg-emerald-500/10 text-emerald-600'
-                            : 'bg-gray-500/10 text-ink-muted'
+                            : 'bg-ink-light/10 text-ink-muted'
                         }`}
                       >
                         {product.active ? 'Active' : 'Inactive'}
                       </span>
                       {product.featured && (
-                        <span className="ml-2 inline-flex px-2 py-0.5 rounded text-xs font-medium bg-bronze/10 text-bronze">
+                        <span className="ml-2 inline-flex px-2 py-0.5 rounded text-xs font-medium bg-vital/10 text-vital">
                           Featured
                         </span>
                       )}
@@ -2502,7 +2502,7 @@ function ProductsManagementPage() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => openHistory(product)}
-                          className="p-2 hover:bg-surface rounded-lg transition-colors text-ink-muted hover:text-bronze"
+                          className="p-2 hover:bg-surface rounded-lg transition-colors text-ink-muted hover:text-vital"
                           title="Price & stock history"
                         >
                           <History className="w-4 h-4" />
@@ -2579,7 +2579,7 @@ function ProductsManagementPage() {
                           {product.slug && <div className="text-xs text-ink-muted break-all">{product.slug}</div>}
                         </div>
                         <div className="flex items-center gap-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
-                          <button onClick={() => openHistory(product)} className="w-10 h-10 flex items-center justify-center hover:bg-surface rounded-lg transition-colors text-ink-muted hover:text-bronze" title="Price & stock history" aria-label="History">
+                          <button onClick={() => openHistory(product)} className="w-10 h-10 flex items-center justify-center hover:bg-surface rounded-lg transition-colors text-ink-muted hover:text-vital" title="Price & stock history" aria-label="History">
                             <History className="w-4 h-4" />
                           </button>
                           {canEditDescriptors && (
@@ -2597,10 +2597,10 @@ function ProductsManagementPage() {
                         </div>
                       </div>
                       <div className="mt-1 flex items-center gap-2 flex-wrap">
-                        <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${product.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-500/10 text-ink-muted'}`}>
+                        <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${product.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'}`}>
                           {product.active ? 'Active' : 'Inactive'}
                         </span>
-                        {product.featured && <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-bronze/10 text-bronze">Featured</span>}
+                        {product.featured && <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-vital/10 text-vital">Featured</span>}
                       </div>
                     </div>
                   </div>
@@ -2616,16 +2616,16 @@ function ProductsManagementPage() {
                               onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                               onBlur={handleInlineSave}
                               onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                              className="w-24 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                              className="w-24 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                           ) : (
                             <button type="button"
                               onClick={() => canEdit && setInlineEdit({ id: product.id, field: boxField, value: priceCurrency === 'USD' ? (product.price_usd != null ? product.price_usd.toString() : '') : product.price.toString() })}
                               disabled={!canEdit}
-                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-semibold text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze hover:text-bronze transition-colors' : ''}`}>
+                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-semibold text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital hover:text-vital transition-colors' : ''}`}>
                               {priceCurrency === 'CAD' ? <span>${product.price.toFixed(2)}</span>
                                 : product.price_usd != null ? <span>${product.price_usd.toFixed(2)}</span>
                                   : <span className="font-normal text-ink-muted">${productUsdPrice(product, usdRate).toFixed(2)} <span className="text-[10px]">auto</span></span>}
-                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                             </button>
                           )}
                           {priceCurrency === 'USD' ? (
@@ -2637,14 +2637,14 @@ function ProductsManagementPage() {
                               onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                               onBlur={handleInlineSave}
                               onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                              className="w-20 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                              className="w-20 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                           ) : (
                             <button type="button"
                               onClick={() => canEdit && setInlineEdit({ id: product.id, field: 'vial_price', value: product.vial_price != null ? product.vial_price.toString() : '' })}
                               disabled={!canEdit}
-                              className={`group inline-flex items-center gap-1 rounded px-1 py-0.5 -mx-1 text-[11px] font-normal text-ink-muted ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/30 hover:bg-bronze/5 hover:border-bronze hover:text-bronze transition-colors' : ''}`}>
+                              className={`group inline-flex items-center gap-1 rounded px-1 py-0.5 -mx-1 text-[11px] font-normal text-ink-muted ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/30 hover:bg-vital/5 hover:border-vital hover:text-vital transition-colors' : ''}`}>
                               {product.vial_price != null ? <span>Vial ${product.vial_price.toFixed(2)}</span> : <span>Vial ${(product.price / 10).toFixed(2)} <span className="text-[9px]">auto</span></span>}
-                              {canEdit && <Pencil className="w-2.5 h-2.5 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                              {canEdit && <Pencil className="w-2.5 h-2.5 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                             </button>
                           )}
                         </div>
@@ -2658,15 +2658,15 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-20 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                            className="w-20 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                         ) : (
                           <div>
                             <button type="button"
                               onClick={() => canEdit && setInlineEdit({ id: product.id, field: 'stock_quantity', value: product.stock_quantity.toString() })}
                               disabled={!canEdit}
-                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors' : ''} ${product.stock_quantity > 10 ? 'text-emerald-600' : product.stock_quantity > 0 ? 'text-amber-600' : 'text-red-600'}`}>
+                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors' : ''} ${product.stock_quantity > 10 ? 'text-emerald-600' : product.stock_quantity > 0 ? 'text-amber-600' : 'text-red-600'}`}>
                               <span>{product.stock_quantity}</span>
-                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                             </button>
                             <div className="mt-0.5 text-[10px] text-ink-muted tabular-nums">{formatBoxes(product.stock_quantity, product.vials_per_box ?? 10)}</div>
                           </div>
@@ -2681,15 +2681,15 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-20 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                            className="w-20 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                         ) : (
                           <div>
                             <button type="button"
                               onClick={() => canEdit && setInlineEdit({ id: product.id, field: 'stock_boxes', value: vialsToBoxes(product.stock_quantity, product.vials_per_box ?? 10) })}
                               disabled={!canEdit}
-                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors' : ''}`}>
+                              className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors' : ''}`}>
                               <span>{vialsToBoxes(product.stock_quantity, product.vials_per_box ?? 10)}</span>
-                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                              {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                             </button>
                             <div className="mt-0.5 text-[10px] text-ink-muted tabular-nums">{product.stock_quantity} vial{product.stock_quantity === 1 ? '' : 's'}</div>
                           </div>
@@ -2704,14 +2704,14 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-20 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                            className="w-20 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                         ) : (
                           <button type="button"
                             onClick={() => canEdit && setInlineEdit({ id: product.id, field: 'vials_per_box', value: (product.vials_per_box ?? 10).toString() })}
                             disabled={!canEdit}
-                            className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors' : ''}`}>
+                            className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium text-ink ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors' : ''}`}>
                             <span>{product.vials_per_box ?? 10}</span>
-                            {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                            {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                           </button>
                         )}
                       </div>
@@ -2724,14 +2724,14 @@ function ProductsManagementPage() {
                             onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
                             onBlur={handleInlineSave}
                             onKeyDown={(e) => { if (e.key === 'Enter') handleInlineSave(); if (e.key === 'Escape') setInlineEdit(null); }}
-                            className="w-20 px-2 py-1 border border-bronze/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+                            className="w-20 px-2 py-1 border border-vital/60 rounded text-base focus:outline-none focus:ring-2 focus:ring-vital/40" />
                         ) : (
                           <button type="button"
                             onClick={() => canEdit && setInlineEdit({ id: product.id, field: 'low_stock_threshold', value: (product.low_stock_threshold ?? 10).toString() })}
                             disabled={!canEdit}
-                            className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-bronze/5 hover:border-bronze transition-colors' : ''} ${product.stock_quantity <= (product.low_stock_threshold ?? 10) ? 'text-amber-600' : 'text-ink-muted'}`}>
+                            className={`group inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 -mx-1.5 text-sm font-medium ${canEdit ? 'cursor-text border-b border-dashed border-ink-muted/40 hover:bg-vital/5 hover:border-vital transition-colors' : ''} ${product.stock_quantity <= (product.low_stock_threshold ?? 10) ? 'text-amber-600' : 'text-ink-muted'}`}>
                             <span>≤ {product.low_stock_threshold ?? 10}</span>
-                            {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-bronze transition-colors" />}
+                            {canEdit && <Pencil className="w-3 h-3 text-ink-muted/40 group-hover:text-vital transition-colors" />}
                           </button>
                         )}
                       </div>
@@ -2801,7 +2801,7 @@ function ProductsManagementPage() {
                 onClick={() => setModalTab('details')}
                 className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
                   modalTab === 'details'
-                    ? 'border-bronze text-bronze'
+                    ? 'border-vital text-vital'
                     : 'border-transparent text-ink-muted hover:text-ink'
                 }`}
               >
@@ -2813,14 +2813,14 @@ function ProductsManagementPage() {
                 onClick={() => setModalTab('images')}
                 className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
                   modalTab === 'images'
-                    ? 'border-bronze text-bronze'
+                    ? 'border-vital text-vital'
                     : 'border-transparent text-ink-muted hover:text-ink'
                 }`}
               >
                 <ImageIcon className="w-4 h-4" />
                 Images &amp; Files
                 {imageCount > 0 && (
-                  <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-bronze/10 text-bronze text-[10px] font-semibold">
+                  <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-vital/10 text-vital text-[10px] font-semibold">
                     {imageCount}
                   </span>
                 )}
@@ -2873,7 +2873,7 @@ function ProductsManagementPage() {
                     >
                       {uploading ? (
                         <div className="text-center">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-bronze mx-auto mb-2" />
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-vital mx-auto mb-2" />
                           <p className="text-sm text-ink-muted">Uploading...</p>
                         </div>
                       ) : (
@@ -2927,7 +2927,7 @@ function ProductsManagementPage() {
                     >
                       {uploading ? (
                         <div className="text-center">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-bronze mx-auto mb-2" />
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-vital mx-auto mb-2" />
                           <p className="text-sm text-ink-muted">Uploading...</p>
                         </div>
                       ) : (
@@ -2957,7 +2957,7 @@ function ProductsManagementPage() {
                     type="checkbox"
                     checked={formData.box_image_first}
                     onChange={(e) => setFormData({ ...formData, box_image_first: e.target.checked })}
-                    className="mt-0.5 w-4 h-4 text-bronze bg-surface border-line rounded focus:ring-bronze/40"
+                    className="mt-0.5 w-4 h-4 text-vital bg-surface border-line rounded focus:ring-vital/40"
                   />
                   <span className="text-sm">
                     <span className="font-medium text-ink">Show box image first on storefront cards</span>
@@ -2992,7 +2992,7 @@ function ProductsManagementPage() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs text-bronze hover:underline"
+                            className="text-xs text-vital hover:underline"
                           >
                             View
                           </a>
@@ -3025,7 +3025,7 @@ function ProductsManagementPage() {
                   >
                     {uploading ? (
                       <div className="text-center">
-                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-bronze mx-auto mb-2" />
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-vital mx-auto mb-2" />
                         <p className="text-sm text-ink-muted">Uploading...</p>
                       </div>
                     ) : (
@@ -3056,7 +3056,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="Product name"
                   />
                 </div>
@@ -3066,7 +3066,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.slug}
                     onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="product-slug (auto-generated if empty)"
                   />
                 </div>
@@ -3086,7 +3086,7 @@ function ProductsManagementPage() {
                     min="0"
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="0.00"
                   />
                   <p className="text-xs text-ink-muted mt-1">Pack of 10 (box) price, in CAD.</p>
@@ -3101,7 +3101,7 @@ function ProductsManagementPage() {
                     min="0"
                     value={formData.price_usd}
                     onChange={(e) => setFormData({ ...formData, price_usd: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder={formData.price ? (parseFloat(formData.price) * usdRate || 0).toFixed(2) : '0.00'}
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3118,7 +3118,7 @@ function ProductsManagementPage() {
                     min="0"
                     value={formData.vial_price}
                     onChange={(e) => setFormData({ ...formData, vial_price: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder={formData.price ? (parseFloat(formData.price) / 10 || 0).toFixed(2) : '0.00'}
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3136,7 +3136,7 @@ function ProductsManagementPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, stock_quantity: e.target.value })
                     }
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="0"
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3155,7 +3155,7 @@ function ProductsManagementPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, vials_per_box: e.target.value })
                     }
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="10"
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3173,7 +3173,7 @@ function ProductsManagementPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, low_stock_threshold: e.target.value })
                     }
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="10"
                   />
                   <p className="text-xs text-ink-muted mt-1">
@@ -3191,7 +3191,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="e.g., Peptides"
                   />
                 </div>
@@ -3201,7 +3201,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.strength}
                     onChange={(e) => setFormData({ ...formData, strength: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="e.g., 5mg"
                   />
                 </div>
@@ -3214,7 +3214,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.purity}
                     onChange={(e) => setFormData({ ...formData, purity: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="e.g., 99%"
                   />
                 </div>
@@ -3224,7 +3224,7 @@ function ProductsManagementPage() {
                     type="text"
                     value={formData.form}
                     onChange={(e) => setFormData({ ...formData, form: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     placeholder="e.g., Lyophilized Powder"
                   />
                 </div>
@@ -3241,7 +3241,7 @@ function ProductsManagementPage() {
                     setFormData({ ...formData, description_short: e.target.value })
                   }
                   rows={2}
-                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm resize-none"
+                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm resize-none"
                   placeholder="Brief product description"
                 />
               </div>
@@ -3255,7 +3255,7 @@ function ProductsManagementPage() {
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={3}
-                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm resize-none"
+                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm resize-none"
                   placeholder="Detailed product description"
                 />
               </div>
@@ -3267,7 +3267,7 @@ function ProductsManagementPage() {
                   value={formData.benefits}
                   onChange={(e) => setFormData({ ...formData, benefits: e.target.value })}
                   rows={2}
-                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm resize-none"
+                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm resize-none"
                   placeholder="Product benefits"
                 />
               </div>
@@ -3279,7 +3279,7 @@ function ProductsManagementPage() {
                   value={formData.mechanism}
                   onChange={(e) => setFormData({ ...formData, mechanism: e.target.value })}
                   rows={2}
-                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm resize-none"
+                  className="w-full px-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm resize-none"
                   placeholder="How it works"
                 />
               </div>
@@ -3295,7 +3295,7 @@ function ProductsManagementPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, featured: e.target.checked })
                     }
-                    className="w-4 h-4 text-bronze bg-surface border-line rounded focus:ring-bronze/40"
+                    className="w-4 h-4 text-vital bg-surface border-line rounded focus:ring-vital/40"
                   />
                   <span className="text-sm font-medium text-ink">Featured Product</span>
                 </label>
@@ -3304,7 +3304,7 @@ function ProductsManagementPage() {
                     type="checkbox"
                     checked={formData.active}
                     onChange={(e) => setFormData({ ...formData, active: e.target.checked })}
-                    className="w-4 h-4 text-bronze bg-surface border-line rounded focus:ring-bronze/40"
+                    className="w-4 h-4 text-vital bg-surface border-line rounded focus:ring-vital/40"
                   />
                   <span className="text-sm font-medium text-ink">Active</span>
                 </label>
@@ -3313,7 +3313,7 @@ function ProductsManagementPage() {
                     type="checkbox"
                     checked={formData.is_checkout_addon}
                     onChange={(e) => setFormData({ ...formData, is_checkout_addon: e.target.checked })}
-                    className="w-4 h-4 text-bronze bg-surface border-line rounded focus:ring-bronze/40"
+                    className="w-4 h-4 text-vital bg-surface border-line rounded focus:ring-vital/40"
                   />
                   <span className="text-sm font-medium text-ink">Checkout add-on</span>
                 </label>
@@ -3410,8 +3410,8 @@ function ProductsManagementPage() {
           <div className="bg-white rounded-xl max-w-md w-full overflow-hidden">
             <div className="flex items-start justify-between p-6 border-b border-line">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-bronze/10 rounded-lg flex items-center justify-center shrink-0">
-                  <Bell className="w-5 h-5 text-bronze" />
+                <div className="w-10 h-10 bg-vital/10 rounded-lg flex items-center justify-center shrink-0">
+                  <Bell className="w-5 h-5 text-vital" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-ink leading-tight">Notify waitlist?</h2>
@@ -3504,8 +3504,8 @@ function ProductsManagementPage() {
               {/* Header */}
               <div className="flex items-start justify-between p-5 sm:p-6 border-b border-line">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 bg-bronze/10 rounded-lg flex items-center justify-center shrink-0">
-                    <History className="w-5 h-5 text-bronze" />
+                  <div className="w-10 h-10 bg-vital/10 rounded-lg flex items-center justify-center shrink-0">
+                    <History className="w-5 h-5 text-vital" />
                   </div>
                   <div className="min-w-0">
                     <h2 className="text-lg font-bold text-ink leading-tight">Change History</h2>
@@ -3537,7 +3537,7 @@ function ProductsManagementPage() {
                       onClick={() => setHistoryTab(t.key)}
                       className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
                         active
-                          ? 'border-bronze text-bronze'
+                          ? 'border-vital text-vital'
                           : 'border-transparent text-ink-muted hover:text-ink'
                       }`}
                     >
@@ -3584,7 +3584,7 @@ function ProductsManagementPage() {
                         <li key={entry.id} className="ml-5 mb-6 last:mb-0">
                           <span
                             className={`absolute -left-[7px] w-3.5 h-3.5 rounded-full border-2 border-white ${
-                              isCurrent ? 'bg-bronze' : 'bg-line'
+                              isCurrent ? 'bg-vital' : 'bg-line'
                             }`}
                           />
                           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -3597,7 +3597,7 @@ function ProductsManagementPage() {
                               </span>
                             )}
                             {isCurrent && (
-                              <span className="inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium bg-bronze/10 text-bronze uppercase tracking-wide">
+                              <span className="inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium bg-vital/10 text-vital uppercase tracking-wide">
                                 Current
                               </span>
                             )}
@@ -3620,7 +3620,7 @@ function ProductsManagementPage() {
                             <button
                               onClick={() => revertChange(entry)}
                               disabled={revertingId !== null}
-                              className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-line text-xs font-medium text-ink-muted hover:text-bronze hover:border-bronze/50 transition-colors disabled:opacity-50"
+                              className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-line text-xs font-medium text-ink-muted hover:text-vital hover:border-vital/50 transition-colors disabled:opacity-50"
                               title={`Set ${currentLabel} back to ${fmt(entry.new_value)}`}
                             >
                               {revertingId === entry.id ? (
@@ -3674,7 +3674,7 @@ function ProductsManagementPage() {
               >
                 {importFile ? (
                   <>
-                    <FileUp className="w-8 h-8 text-bronze mb-2" />
+                    <FileUp className="w-8 h-8 text-vital mb-2" />
                     <p className="text-sm font-medium text-ink">{importFile.name}</p>
                     <p className="text-xs text-ink-muted mt-1">
                       {(importFile.size / 1024).toFixed(1)} KB — click to change
@@ -3738,7 +3738,7 @@ function ProductsManagementPage() {
                 <Plus className="w-3.5 h-3.5" />
                 {importPreview.newProducts.length} New
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-bronze/10 text-bronze text-sm font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-vital/10 text-vital text-sm font-medium">
                 <Edit2 className="w-3.5 h-3.5" />
                 {importPreview.updateProducts.length} Updates
               </span>
@@ -3785,7 +3785,7 @@ function ProductsManagementPage() {
                               New
                             </span>
                           ) : (
-                            <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-bronze/10 text-bronze">
+                            <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-vital/10 text-vital">
                               Update
                             </span>
                           )}
@@ -3843,7 +3843,7 @@ function ProductsManagementPage() {
           <div className="bg-white rounded-xl max-w-lg w-full p-6 my-8">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-                <Mail className="w-5 h-5 text-bronze" /> Stock Report Email
+                <Mail className="w-5 h-5 text-vital" /> Stock Report Email
               </h2>
               <button
                 onClick={() => !scheduleSaving && !scheduleSending && setShowScheduleModal(false)}
@@ -3868,7 +3868,7 @@ function ProductsManagementPage() {
                     type="checkbox"
                     checked={schedule.enabled}
                     onChange={(e) => setSchedule({ ...schedule, enabled: e.target.checked })}
-                    className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                    className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                   />
                   <span>
                     <span className="block text-sm font-medium text-ink">Enable scheduled email</span>
@@ -3886,7 +3886,7 @@ function ProductsManagementPage() {
                     value={schedule.recipients}
                     onChange={(e) => setSchedule({ ...schedule, recipients: e.target.value })}
                     placeholder="warehouse@aminocan.com, buyer@aminocan.com"
-                    className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                   <p className="mt-1 text-xs text-ink-muted">Separate multiple addresses with commas.</p>
                 </div>
@@ -3956,7 +3956,7 @@ function ProductsManagementPage() {
           <div className="bg-white rounded-xl max-w-lg w-full p-6 my-8">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5 text-bronze" /> Customize Report
+                <SlidersHorizontal className="w-5 h-5 text-vital" /> Customize Report
               </h2>
               <button
                 onClick={() => setShowReportModal(false)}
@@ -4017,14 +4017,14 @@ function ProductsManagementPage() {
                       type="button"
                       onClick={() => setReportPricelistId('')}
                       className={`flex items-start justify-between gap-2.5 p-3 rounded-lg border text-left transition-colors ${
-                        reportPricelistId === '' ? 'border-bronze bg-bronze-50' : 'border-line hover:bg-surface'
+                        reportPricelistId === '' ? 'border-vital bg-vital-50' : 'border-line hover:bg-surface'
                       }`}
                     >
                       <span className="min-w-0">
                         <span className="block text-sm font-medium text-ink">Default catalog prices</span>
                         <span className="block text-xs text-ink-muted">Each product&apos;s own price</span>
                       </span>
-                      {reportPricelistId === '' && <Check className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />}
+                      {reportPricelistId === '' && <Check className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />}
                     </button>
                     {reportPricelists.map((pl) => {
                       const selected = reportPricelistId === pl.id;
@@ -4034,7 +4034,7 @@ function ProductsManagementPage() {
                           type="button"
                           onClick={() => setReportPricelistId(pl.id)}
                           className={`flex items-start justify-between gap-2.5 p-3 rounded-lg border text-left transition-colors ${
-                            selected ? 'border-bronze bg-bronze-50' : 'border-line hover:bg-surface'
+                            selected ? 'border-vital bg-vital-50' : 'border-line hover:bg-surface'
                           }`}
                         >
                           <span className="min-w-0">
@@ -4055,7 +4055,7 @@ function ProductsManagementPage() {
                             <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface border border-line text-ink-muted">
                               {pl.currency === 'USD' ? 'USD' : 'CAD'}
                             </span>
-                            {selected && <Check className="w-4 h-4 text-bronze" />}
+                            {selected && <Check className="w-4 h-4 text-vital" />}
                           </span>
                         </button>
                       );
@@ -4075,7 +4075,7 @@ function ProductsManagementPage() {
                         value={pricingCustomerSearch}
                         onChange={(e) => setPricingCustomerSearch(e.target.value)}
                         placeholder="Search customers…"
-                        className="w-full pl-9 pr-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                        className="w-full pl-9 pr-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
                       />
                     </div>
                     <div className="max-h-56 overflow-y-auto grid grid-cols-1 gap-2 pr-1">
@@ -4088,7 +4088,7 @@ function ProductsManagementPage() {
                             type="button"
                             onClick={() => setReportCustomerId(c.id)}
                             className={`flex items-start justify-between gap-2.5 p-3 rounded-lg border text-left transition-colors ${
-                              selected ? 'border-bronze bg-bronze-50' : 'border-line hover:bg-surface'
+                              selected ? 'border-vital bg-vital-50' : 'border-line hover:bg-surface'
                             }`}
                           >
                             <span className="min-w-0">
@@ -4101,7 +4101,7 @@ function ProductsManagementPage() {
                               <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface border border-line text-ink-muted">
                                 {c.price_currency === 'USD' ? 'USD' : 'CAD'}
                               </span>
-                              {selected && <Check className="w-4 h-4 text-bronze" />}
+                              {selected && <Check className="w-4 h-4 text-vital" />}
                             </span>
                           </button>
                         );
@@ -4127,7 +4127,7 @@ function ProductsManagementPage() {
                         value={pricingAffiliateSearch}
                         onChange={(e) => setPricingAffiliateSearch(e.target.value)}
                         placeholder="Search affiliates…"
-                        className="w-full pl-9 pr-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                        className="w-full pl-9 pr-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
                       />
                     </div>
                     <div className="max-h-56 overflow-y-auto grid grid-cols-1 gap-2 pr-1">
@@ -4140,7 +4140,7 @@ function ProductsManagementPage() {
                             type="button"
                             onClick={() => setReportAffiliateId(a.id)}
                             className={`flex items-start justify-between gap-2.5 p-3 rounded-lg border text-left transition-colors ${
-                              selected ? 'border-bronze bg-bronze-50' : 'border-line hover:bg-surface'
+                              selected ? 'border-vital bg-vital-50' : 'border-line hover:bg-surface'
                             }`}
                           >
                             <span className="min-w-0">
@@ -4155,7 +4155,7 @@ function ProductsManagementPage() {
                               <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface border border-line text-ink-muted">
                                 {a.price_currency === 'USD' ? 'USD' : 'CAD'}
                               </span>
-                              {selected && <Check className="w-4 h-4 text-bronze" />}
+                              {selected && <Check className="w-4 h-4 text-vital" />}
                             </span>
                           </button>
                         );
@@ -4183,7 +4183,7 @@ function ProductsManagementPage() {
                     <button
                       type="button"
                       onClick={() => setReportGroups(allGroupsSelected(true))}
-                      className="text-bronze hover:underline"
+                      className="text-vital hover:underline"
                     >
                       All
                     </button>
@@ -4208,7 +4208,7 @@ function ProductsManagementPage() {
                         onChange={(e) =>
                           setReportGroups((prev) => ({ ...prev, [g.key]: e.target.checked }))
                         }
-                        className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                        className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                       />
                       <span>
                         <span className="block text-sm font-medium text-ink">{g.label}</span>
@@ -4236,7 +4236,7 @@ function ProductsManagementPage() {
                       key={opt.value}
                       className={`flex items-start gap-2.5 p-2.5 rounded-lg border cursor-pointer transition-colors ${
                         reportStockStatus === opt.value
-                          ? 'border-bronze bg-bronze-50'
+                          ? 'border-vital bg-vital-50'
                           : 'border-line hover:bg-surface'
                       }`}
                     >
@@ -4245,7 +4245,7 @@ function ProductsManagementPage() {
                         name="reportStockStatus"
                         checked={reportStockStatus === opt.value}
                         onChange={() => setReportStockStatus(opt.value)}
-                        className="mt-0.5 w-4 h-4 border-line text-bronze focus:ring-bronze/40"
+                        className="mt-0.5 w-4 h-4 border-line text-vital focus:ring-vital/40"
                       />
                       <span>
                         <span className="block text-sm font-medium text-ink">{opt.label}</span>
@@ -4271,7 +4271,7 @@ function ProductsManagementPage() {
                       key={opt.value}
                       className={`flex items-start gap-2.5 p-2.5 rounded-lg border cursor-pointer transition-colors ${
                         stockUnit === opt.value
-                          ? 'border-bronze bg-bronze-50'
+                          ? 'border-vital bg-vital-50'
                           : 'border-line hover:bg-surface'
                       }`}
                     >
@@ -4280,7 +4280,7 @@ function ProductsManagementPage() {
                         name="stockUnit"
                         checked={stockUnit === opt.value}
                         onChange={() => setStockUnit(opt.value)}
-                        className="mt-0.5 w-4 h-4 border-line text-bronze focus:ring-bronze/40"
+                        className="mt-0.5 w-4 h-4 border-line text-vital focus:ring-vital/40"
                       />
                       <span>
                         <span className="block text-sm font-medium text-ink">{opt.label}</span>
@@ -4301,7 +4301,7 @@ function ProductsManagementPage() {
                     checked={showRemainder}
                     disabled={stockUnit !== 'boxes'}
                     onChange={(e) => setShowRemainder(e.target.checked)}
-                    className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                    className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                   />
                   <span className="text-sm text-ink">
                     Show leftover vials in parentheses
@@ -4350,7 +4350,7 @@ function ProductsManagementPage() {
           <div className="bg-white rounded-xl max-w-md w-full p-6 my-8">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-                <Package className="w-5 h-5 text-bronze" /> Customize Stock Report
+                <Package className="w-5 h-5 text-vital" /> Customize Stock Report
               </h2>
               <button
                 onClick={() => setShowStockReportModal(false)}
@@ -4381,7 +4381,7 @@ function ProductsManagementPage() {
                     key={opt.value}
                     className={`flex items-start gap-2.5 p-2.5 rounded-lg border cursor-pointer transition-colors ${
                       stockUnit === opt.value
-                        ? 'border-bronze bg-bronze-50'
+                        ? 'border-vital bg-vital-50'
                         : 'border-line hover:bg-surface'
                     }`}
                   >
@@ -4390,7 +4390,7 @@ function ProductsManagementPage() {
                       name="stockReportUnit"
                       checked={stockUnit === opt.value}
                       onChange={() => setStockUnit(opt.value)}
-                      className="mt-0.5 w-4 h-4 border-line text-bronze focus:ring-bronze/40"
+                      className="mt-0.5 w-4 h-4 border-line text-vital focus:ring-vital/40"
                     />
                     <span>
                       <span className="block text-sm font-medium text-ink">{opt.label}</span>
@@ -4411,7 +4411,7 @@ function ProductsManagementPage() {
                   checked={showRemainder}
                   disabled={stockUnit !== 'boxes'}
                   onChange={(e) => setShowRemainder(e.target.checked)}
-                  className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                  className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                 />
                 <span className="text-sm text-ink">
                   Show leftover vials in parentheses
@@ -4426,7 +4426,7 @@ function ProductsManagementPage() {
                   type="checkbox"
                   checked={stockShowCards}
                   onChange={(e) => setStockShowCards(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                  className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                 />
                 <span>
                   <span className="block text-sm font-medium text-ink">Summary cards</span>
@@ -4440,7 +4440,7 @@ function ProductsManagementPage() {
                   type="checkbox"
                   checked={stockShowOnOrder}
                   onChange={(e) => setStockShowOnOrder(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                  className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                 />
                 <span>
                   <span className="block text-sm font-medium text-ink">"On Order" explanation footer</span>
@@ -4459,7 +4459,7 @@ function ProductsManagementPage() {
                   <button
                     type="button"
                     onClick={() => setStockColumns(allStockColumnsSelected(true))}
-                    className="text-bronze hover:underline"
+                    className="text-vital hover:underline"
                   >
                     All
                   </button>
@@ -4484,7 +4484,7 @@ function ProductsManagementPage() {
                       onChange={(e) =>
                         setStockColumns((prev) => ({ ...prev, [col.key]: e.target.checked }))
                       }
-                      className="mt-0.5 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                      className="mt-0.5 w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                     />
                     <span>
                       <span className="block text-sm font-medium text-ink">{col.label}</span>
@@ -4545,7 +4545,7 @@ function ProductsManagementPage() {
           <div className="bg-white rounded-xl max-w-md w-full p-6 my-8">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-bronze" /> Stock Change Report
+                <TrendingUp className="w-5 h-5 text-vital" /> Stock Change Report
               </h2>
               <button
                 onClick={() => setShowChangeReportModal(false)}
@@ -4568,7 +4568,7 @@ function ProductsManagementPage() {
                   value={changeRange.from}
                   max={changeRange.to}
                   onChange={(e) => setChangeRange((r) => ({ ...r, from: e.target.value }))}
-                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
               <div>
@@ -4578,7 +4578,7 @@ function ProductsManagementPage() {
                   value={changeRange.to}
                   min={changeRange.from}
                   onChange={(e) => setChangeRange((r) => ({ ...r, to: e.target.value }))}
-                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
             </div>

@@ -89,16 +89,16 @@ function toAffiliate(d: DetailData): Affiliate {
 
 function InvoiceStatusBadge({ status }: { status: string }) {
   const meta = INVOICE_STATUS_META[status as keyof typeof INVOICE_STATUS_META];
-  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-gray-500/10 text-ink-muted'}`}>{meta?.label ?? status}</span>;
+  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-ink-light/10 text-ink-muted'}`}>{meta?.label ?? status}</span>;
 }
 
 function CommStatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
     paid: 'bg-emerald-500/10 text-emerald-600',
     pending: 'bg-amber-500/10 text-amber-600',
-    cancelled: 'bg-gray-500/10 text-ink-muted line-through',
+    cancelled: 'bg-ink-light/10 text-ink-muted line-through',
   };
-  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${map[status] ?? 'bg-gray-500/10 text-ink-muted'}`}>{status}</span>;
+  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${map[status] ?? 'bg-ink-light/10 text-ink-muted'}`}>{status}</span>;
 }
 
 function Card({ title, icon: Icon, action, children }: { title: string; icon: any; action?: React.ReactNode; children: React.ReactNode }) {
@@ -169,11 +169,11 @@ function PromoteModal({ data, onClose, onDone }: { data: DetailData; onClose: ()
           {error && <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2"><AlertCircle className="w-4 h-4 text-red-500 shrink-0" /><span className="text-red-700 text-xs">{error}</span></div>}
           <div>
             <label className="block text-xs font-medium text-ink-muted mb-1">Login email <span className="text-red-500">*</span></label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40" />
           </div>
           <div>
             <label className="block text-xs font-medium text-ink-muted mb-1">Payout wallet (optional)</label>
-            <input value={wallet} onChange={(e) => setWallet(e.target.value)} placeholder="0x…" className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40" />
+            <input value={wallet} onChange={(e) => setWallet(e.target.value)} placeholder="0x…" className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40" />
           </div>
           <div className="flex justify-end gap-2 pt-1">
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-lg border border-line text-sm text-ink-muted hover:text-ink hover:bg-surface">Cancel</button>
@@ -322,8 +322,8 @@ export default function SalesPersonDetailPage() {
       {/* Header */}
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-12 h-12 rounded-xl bg-bronze/10 flex items-center justify-center shrink-0">
-            {isAff ? <Network className="w-6 h-6 text-bronze" /> : <Briefcase className="w-6 h-6 text-bronze" />}
+          <div className="w-12 h-12 rounded-xl bg-vital/10 flex items-center justify-center shrink-0">
+            {isAff ? <Network className="w-6 h-6 text-vital" /> : <Briefcase className="w-6 h-6 text-vital" />}
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
@@ -385,7 +385,7 @@ export default function SalesPersonDetailPage() {
         <div className="rounded-xl border border-line bg-white p-4">
           <div className="flex items-center gap-2 mb-1"><DollarSign className="w-4 h-4 text-ink-muted" /><span className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Invoice earned</span></div>
           <p className="text-lg font-bold text-emerald-600 tabular-nums">${data.stats.paid_earnings.toFixed(2)}</p>
-          <p className="text-[11px] text-bronze tabular-nums">${data.stats.pending_earnings.toFixed(2)} pending</p>
+          <p className="text-[11px] text-vital tabular-nums">${data.stats.pending_earnings.toFixed(2)} pending</p>
         </div>
         <div className={`rounded-xl border p-4 ${isAff ? 'border-line bg-white' : 'border-line bg-surface/40'}`}>
           <div className="flex items-center gap-2 mb-1"><Users className="w-4 h-4 text-ink-muted" /><span className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Customers</span></div>
@@ -395,7 +395,7 @@ export default function SalesPersonDetailPage() {
         <div className={`rounded-xl border p-4 ${isAff ? 'border-line bg-white' : 'border-line bg-surface/40'}`}>
           <div className="flex items-center gap-2 mb-1"><CircleDollarSign className="w-4 h-4 text-ink-muted" /><span className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Referral earned</span></div>
           <p className="text-lg font-bold text-emerald-600 tabular-nums">{isAff ? `$${(data.affiliate?.referral_paid ?? 0).toFixed(2)}` : '—'}</p>
-          <p className="text-[11px] text-bronze tabular-nums">{isAff ? `$${(data.affiliate?.referral_pending ?? 0).toFixed(2)} pending` : ''}</p>
+          <p className="text-[11px] text-vital tabular-nums">{isAff ? `$${(data.affiliate?.referral_pending ?? 0).toFixed(2)} pending` : ''}</p>
         </div>
         <div className={`rounded-xl border p-4 ${isAff ? 'border-line bg-white' : 'border-line bg-surface/40'}`}>
           <div className="flex items-center gap-2 mb-1"><Network className="w-4 h-4 text-ink-muted" /><span className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Referrals</span></div>
@@ -413,9 +413,9 @@ export default function SalesPersonDetailPage() {
             const count = t.key === 'customers' ? data.customers.length : t.key === 'invoices' ? data.invoices.length : t.key === 'commissions' ? data.commissions.sales.length + data.commissions.referral.length : null;
             if ((t.key === 'customers' || t.key === 'pricing') && !isAff) return null;
             return (
-              <button key={t.key} onClick={() => setTab(t.key)} className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${active ? 'border-bronze text-ink' : 'border-transparent text-ink-muted hover:text-ink'}`}>
+              <button key={t.key} onClick={() => setTab(t.key)} className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${active ? 'border-vital text-ink' : 'border-transparent text-ink-muted hover:text-ink'}`}>
                 <Icon className="w-4 h-4" /> {t.label}
-                {count != null && count > 0 && <span className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold ${active ? 'bg-bronze/15 text-bronze' : 'bg-surface text-ink-muted'}`}>{count}</span>}
+                {count != null && count > 0 && <span className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold ${active ? 'bg-vital/15 text-vital' : 'bg-surface text-ink-muted'}`}>{count}</span>}
               </button>
             );
           })}
@@ -427,8 +427,8 @@ export default function SalesPersonDetailPage() {
         <div className="grid lg:grid-cols-2 gap-6">
           <Card title="Profile" icon={Briefcase}>
             <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-3"><Mail className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />{sp.email ? <a href={`mailto:${sp.email}`} className="text-bronze font-medium break-all hover:underline">{sp.email}</a> : <span className="text-ink-muted">No email</span>}</div>
-              <div className="flex items-start gap-3"><Phone className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />{sp.phone ? <a href={`tel:${sp.phone}`} className="text-bronze font-medium hover:underline">{sp.phone}</a> : <span className="text-ink-muted">No phone</span>}</div>
+              <div className="flex items-start gap-3"><Mail className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />{sp.email ? <a href={`mailto:${sp.email}`} className="text-vital font-medium break-all hover:underline">{sp.email}</a> : <span className="text-ink-muted">No email</span>}</div>
+              <div className="flex items-start gap-3"><Phone className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />{sp.phone ? <a href={`tel:${sp.phone}`} className="text-vital font-medium hover:underline">{sp.phone}</a> : <span className="text-ink-muted">No phone</span>}</div>
               <div className="flex items-start gap-3"><Calendar className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" /><span className="text-ink">Added {dateShort(sp.created_at)}</span></div>
               {isAff && (
                 <>
@@ -445,7 +445,7 @@ export default function SalesPersonDetailPage() {
                 <span className="text-ink-muted">Invoice commission rate</span>
                 {editingRate ? (
                   <span className="inline-flex items-center gap-1">
-                    <input type="number" step="0.01" min="0" max="100" value={rateValue} onChange={(e) => setRateValue(e.target.value)} className="w-20 px-2 py-1 bg-surface border border-line rounded text-sm text-ink text-right focus:outline-none focus:ring-2 focus:ring-bronze/40" autoFocus />
+                    <input type="number" step="0.01" min="0" max="100" value={rateValue} onChange={(e) => setRateValue(e.target.value)} className="w-20 px-2 py-1 bg-surface border border-line rounded text-sm text-ink text-right focus:outline-none focus:ring-2 focus:ring-vital/40" autoFocus />
                     <span className="text-ink-muted">%</span>
                     <button onClick={saveRate} className="w-7 h-7 inline-flex items-center justify-center rounded border border-line text-emerald-600 hover:bg-emerald-50"><Check className="w-4 h-4" /></button>
                     <button onClick={() => setEditingRate(false)} className="w-7 h-7 inline-flex items-center justify-center rounded border border-line text-ink-muted hover:bg-surface"><X className="w-4 h-4" /></button>
@@ -453,7 +453,7 @@ export default function SalesPersonDetailPage() {
                 ) : (
                   <span className="inline-flex items-center gap-2">
                     <span className="font-semibold text-ink tabular-nums">{sp.commission_rate}%</span>
-                    {mayEdit && <button onClick={() => { setRateValue(String(sp.commission_rate)); setEditingRate(true); }} className="text-bronze hover:underline text-xs">Edit</button>}
+                    {mayEdit && <button onClick={() => { setRateValue(String(sp.commission_rate)); setEditingRate(true); }} className="text-vital hover:underline text-xs">Edit</button>}
                   </span>
                 )}
               </div>
@@ -468,7 +468,7 @@ export default function SalesPersonDetailPage() {
                   <span className="text-ink-muted">Billing currency</span>
                   <span className="inline-flex items-center gap-2">
                     <span className="font-semibold text-ink">{data.affiliate?.price_currency ?? 'CAD'}</span>
-                    {mayEdit && <button onClick={() => setEditAff(true)} className="text-bronze hover:underline text-xs">Edit</button>}
+                    {mayEdit && <button onClick={() => setEditAff(true)} className="text-vital hover:underline text-xs">Edit</button>}
                   </span>
                 </div>
               )}
@@ -483,18 +483,18 @@ export default function SalesPersonDetailPage() {
                 <span className="text-xs text-ink-muted">{data.affiliate.referral_uses} uses</span>
               </div>
               {referralLink && (
-                <button onClick={() => { navigator.clipboard?.writeText(referralLink); toast.success('Referral link copied'); }} className="inline-flex items-center gap-2 text-sm text-bronze hover:underline break-all">
+                <button onClick={() => { navigator.clipboard?.writeText(referralLink); toast.success('Referral link copied'); }} className="inline-flex items-center gap-2 text-sm text-vital hover:underline break-all">
                   <Copy className="w-3.5 h-3.5 shrink-0" /> {referralLink}
                 </button>
               )}
             </Card>
           )}
 
-          <Card title="Recent invoices" icon={FileText} action={data.invoices.length > 5 ? <button onClick={() => setTab('invoices')} className="text-xs text-bronze hover:underline">View all</button> : undefined}>
+          <Card title="Recent invoices" icon={FileText} action={data.invoices.length > 5 ? <button onClick={() => setTab('invoices')} className="text-xs text-vital hover:underline">View all</button> : undefined}>
             {data.invoices.length === 0 ? <p className="text-sm text-ink-muted">No invoices yet.</p> : (
               <div className="space-y-2">
                 {data.invoices.slice(0, 5).map((inv) => (
-                  <Link key={inv.id} href={`/admin/invoices/${inv.id}`} className="flex items-center justify-between gap-3 p-2.5 bg-surface rounded-lg border border-line hover:border-bronze/40 transition-colors">
+                  <Link key={inv.id} href={`/admin/invoices/${inv.id}`} className="flex items-center justify-between gap-3 p-2.5 bg-surface rounded-lg border border-line hover:border-vital/40 transition-colors">
                     <div className="min-w-0"><div className="flex items-center gap-2"><span className="text-sm font-medium text-ink truncate">{inv.invoice_number}</span><InvoiceStatusBadge status={inv.status_effective} /></div><p className="text-[11px] text-ink-muted">{dateShort(inv.issue_date)}</p></div>
                     <div className="text-sm font-semibold text-ink tabular-nums shrink-0">{money(inv.total, inv.currency)}</div>
                   </Link>
@@ -570,7 +570,7 @@ export default function SalesPersonDetailPage() {
                 <tbody className="divide-y divide-line/50">
                   {data.invoices.map((inv) => (
                     <tr key={inv.id} className="hover:bg-surface transition-colors">
-                      <td className="px-5 py-3"><Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-bronze">{inv.invoice_number}</Link></td>
+                      <td className="px-5 py-3"><Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-vital">{inv.invoice_number}</Link></td>
                       <td className="px-5 py-3 text-sm text-ink-muted whitespace-nowrap">{dateShort(inv.issue_date)}</td>
                       <td className="px-5 py-3"><InvoiceStatusBadge status={inv.status_effective} /></td>
                       <td className="px-5 py-3 text-right text-sm font-semibold text-ink tabular-nums whitespace-nowrap">{money(inv.total, inv.currency)}</td>
@@ -586,7 +586,7 @@ export default function SalesPersonDetailPage() {
               {data.invoices.map((inv) => (
                 <li key={inv.id} className="px-4 py-3.5">
                   <div className="flex items-start justify-between gap-2">
-                    <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-bronze">{inv.invoice_number}</Link>
+                    <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-vital">{inv.invoice_number}</Link>
                     <InvoiceStatusBadge status={inv.status_effective} />
                   </div>
                   <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink-muted">
@@ -659,7 +659,7 @@ function CommissionTable({ title, rows, source, mayMark, markingId, onMark, refL
               {rows.map((r) => (
                 <tr key={r.id} className="hover:bg-surface transition-colors">
                   <td className="px-5 py-3 text-sm text-ink-muted whitespace-nowrap">{dateShort(r.created_at)}</td>
-                  <td className="px-5 py-3 text-sm text-ink">{r.invoice_id ? <Link href={`/admin/invoices/${r.invoice_id}`} className="hover:text-bronze">{r.reference || '—'}</Link> : (r.reference || '—')}</td>
+                  <td className="px-5 py-3 text-sm text-ink">{r.invoice_id ? <Link href={`/admin/invoices/${r.invoice_id}`} className="hover:text-vital">{r.reference || '—'}</Link> : (r.reference || '—')}</td>
                   <td className="px-5 py-3 text-right text-sm text-ink-muted tabular-nums">${r.base.toFixed(2)}</td>
                   <td className="px-5 py-3 text-right text-sm font-semibold text-ink tabular-nums whitespace-nowrap">${r.amount.toFixed(2)} <span className="text-ink-muted font-normal">({r.commission_rate}%)</span></td>
                   <td className="px-5 py-3"><CommStatusBadge status={r.status} /></td>
@@ -682,7 +682,7 @@ function CommissionTable({ title, rows, source, mayMark, markingId, onMark, refL
             <li key={r.id} className="px-4 py-3.5">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0 text-sm text-ink">
-                  {r.invoice_id ? <Link href={`/admin/invoices/${r.invoice_id}`} className="hover:text-bronze">{r.reference || '—'}</Link> : (r.reference || '—')}
+                  {r.invoice_id ? <Link href={`/admin/invoices/${r.invoice_id}`} className="hover:text-vital">{r.reference || '—'}</Link> : (r.reference || '—')}
                   <div className="text-xs text-ink-muted mt-0.5">{dateShort(r.created_at)}</div>
                 </div>
                 <CommStatusBadge status={r.status} />

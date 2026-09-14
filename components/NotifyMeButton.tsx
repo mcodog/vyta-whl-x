@@ -129,16 +129,16 @@ export default function NotifyMeButton({
           onClick={() => setOpen(true)}
           className={`w-full font-semibold py-3 sm:py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm bg-surface text-ink border border-line hover:border-ink/30 ${className}`}
         >
-          <Bell className="w-5 h-5 text-bronze" />
+          <Bell className="w-5 h-5 text-vital" />
           <span>Notify me when back in stock</span>
         </button>
       ) : (
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className={`flex items-center gap-1.5 px-3 py-2 bg-surface hover:bg-white text-ink text-xs font-medium rounded-lg border border-line hover:border-bronze/40 transition-all ${className}`}
+          className={`flex items-center gap-1.5 px-3 py-2 bg-surface hover:bg-white text-ink text-xs font-medium rounded-lg border border-line hover:border-vital/40 transition-all ${className}`}
         >
-          <Bell className="w-3.5 h-3.5 text-bronze" />
+          <Bell className="w-3.5 h-3.5 text-vital" />
           <span className="hidden sm:inline">Notify me</span>
           <span className="sm:hidden">Notify</span>
         </button>
@@ -158,8 +158,8 @@ export default function NotifyMeButton({
             {/* Header */}
             <div className="flex items-start justify-between p-5 sm:p-6 border-b border-line">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-bronze/10 rounded-lg flex items-center justify-center shrink-0">
-                  <Bell className="w-5 h-5 text-bronze" />
+                <div className="w-10 h-10 bg-vital/10 rounded-lg flex items-center justify-center shrink-0">
+                  <Bell className="w-5 h-5 text-vital" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-ink leading-tight">Restock alerts</h3>
@@ -240,7 +240,7 @@ export default function NotifyMeButton({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
+                  className="w-full px-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
                 />
 
                 {errorMsg && <p className="text-xs text-red-600 mt-2">{errorMsg}</p>}

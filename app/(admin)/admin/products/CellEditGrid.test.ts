@@ -282,7 +282,7 @@ describe("buildPrintHtml", () => {
     expect(html).toContain("<col style=\"width:");
     // A row on auto keeps its badge; nothing branded creeps in.
     expect(html).toContain('<span class="auto">auto</span>');
-    expect(html).not.toContain("PURAMASS");
+    expect(html).not.toContain("VYTA");
     expect(html).not.toContain("pill");
   });
 

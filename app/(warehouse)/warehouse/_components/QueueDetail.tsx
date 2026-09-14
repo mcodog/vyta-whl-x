@@ -364,7 +364,7 @@ export default function QueueDetail({ item, canSendEmails, onAdvance, onNotify, 
               )}
               <span
                 className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                  item.with_labels ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'
+                  item.with_labels ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'
                 }`}
                 title={
                   item.with_labels
@@ -570,7 +570,7 @@ export default function QueueDetail({ item, canSendEmails, onAdvance, onNotify, 
           </div>
           <span
             className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-              item.with_labels ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'
+              item.with_labels ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'
             }`}
           >
             <Tags className="w-3 h-3" />
@@ -602,7 +602,7 @@ export default function QueueDetail({ item, canSendEmails, onAdvance, onNotify, 
                       <span className="text-[11px] text-ink-muted tabular-nums">Ordered ×{li.qty}</span>
                       {li.price_type === 'box' ? (
                         <span
-                          className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-slate-500/10 text-slate-600 tabular-nums"
+                          className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-ink-muted/10 text-ink-muted tabular-nums"
                           title={`Sold by the box — ${li.vials_per_box} vials per box`}
                         >
                           <Box className="w-2.5 h-2.5" /> Box · {li.vials_per_box}/box · {li.qty * li.vials_per_box} vials

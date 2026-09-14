@@ -29,7 +29,7 @@ function getTransporter() {
   return transporter;
 }
 
-const fromEmail = `${process.env.SMTP_FROM_NAME || 'PuraMass'} <${process.env.SMTP_FROM_EMAIL || 'noreply@aminocan.com'}>`;
+const fromEmail = `${process.env.SMTP_FROM_NAME || 'VYTA Biosciences'} <${process.env.SMTP_FROM_EMAIL || 'noreply@aminocan.com'}>`;
 
 /**
  * Send invoice email to customer (for email checkout) - SMTP Version
@@ -75,14 +75,14 @@ export async function sendCustomerInvoiceSMTP(data: {
       })
         .trim()
         .replace(/\n/g, '<br/>')
-    : `<strong style="color: #1A1A1A;">Payment — Bitcoin (BTC):</strong><br/>
+    : `<strong style="color: #07203A;">Payment — Bitcoin (BTC):</strong><br/>
             Amount due: $${total.toFixed(2)} ${currency}.<br/>
             We will email you the deposit address for your payment shortly.<br/>
             Your order will be processed once payment is received.`;
   const paymentInstructions =
     paymentMethod === 'btc'
       ? btcInstructions
-      : `<strong style="color: #1A1A1A;">Payment — Interac e-Transfer:</strong><br/>
+      : `<strong style="color: #07203A;">Payment — Interac e-Transfer:</strong><br/>
             We will send you instructions for your payment shortly.<br/>
             Your order will be processed once payment is received.`;
 
@@ -90,12 +90,12 @@ export async function sendCustomerInvoiceSMTP(data: {
     .map(
       (item) =>
         `<tr>
-          <td style="padding: 12px 0; border-bottom: 1px solid #E5E7EB; font-size: 14px; color: #1A1A1A;">
+          <td style="padding: 12px 0; border-bottom: 1px solid #DCE7EB; font-size: 14px; color: #07203A;">
             ${item.name}${item.strength ? ` - ${item.strength}` : ''}
           </td>
-          <td style="padding: 12px 0; border-bottom: 1px solid #E5E7EB; font-size: 14px; color: #6B7280; text-align: center;">${item.quantity}</td>
-          <td style="padding: 12px 0; border-bottom: 1px solid #E5E7EB; font-size: 14px; color: #1A1A1A; text-align: right;">$${item.price.toFixed(2)}</td>
-          <td style="padding: 12px 0; border-bottom: 1px solid #E5E7EB; font-size: 14px; color: #1A1A1A; text-align: right; font-weight: 600;">$${(item.price * item.quantity).toFixed(2)}</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #DCE7EB; font-size: 14px; color: #5B7A8C; text-align: center;">${item.quantity}</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #DCE7EB; font-size: 14px; color: #07203A; text-align: right;">$${item.price.toFixed(2)}</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #DCE7EB; font-size: 14px; color: #07203A; text-align: right; font-weight: 600;">$${(item.price * item.quantity).toFixed(2)}</td>
         </tr>`
     )
     .join('');
@@ -103,36 +103,36 @@ export async function sendCustomerInvoiceSMTP(data: {
   const html = `
     <div style="max-width: 650px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
       <!-- Header -->
-      <div style="padding: 40px 32px; text-align: center; border-bottom: 1px solid #E5E7EB; background: #FFFFFF;">
-        <h1 style="font-size: 28px; font-weight: 700; color: #1A1A1A; margin: 0 0 4px; letter-spacing: -0.02em;">PURAMASS</h1>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #9C8B5A; margin: 0; text-transform: uppercase; font-weight: 600;">Canadian Peptides</p>
+      <div style="padding: 40px 32px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
+        <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
+        <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
       </div>
 
       <!-- Invoice Title -->
       <div style="padding: 32px 32px 24px; background: #FFFFFF;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h2 style="font-size: 24px; font-weight: 700; color: #1A1A1A; margin: 0 0 8px;">INVOICE</h2>
-          <p style="font-size: 14px; color: #6B7280; margin: 0;">
+          <h2 style="font-size: 24px; font-weight: 700; color: #07203A; margin: 0 0 8px;">INVOICE</h2>
+          <p style="font-size: 14px; color: #5B7A8C; margin: 0;">
             Thank you for your order, ${customerName}
           </p>
         </div>
 
         <!-- Order Number Badge -->
-        <div style="background: #FAFAF9; border: 2px solid #9C8B5A; border-radius: 12px; padding: 20px; margin-bottom: 32px; text-align: center;">
-          <p style="font-size: 11px; color: #6B7280; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Order Number</p>
-          <p style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0; font-family: monospace; letter-spacing: 0.05em;">${orderNumber}</p>
+        <div style="background: #F7FAFB; border: 2px solid #438B9E; border-radius: 12px; padding: 20px; margin-bottom: 32px; text-align: center;">
+          <p style="font-size: 11px; color: #5B7A8C; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Order Number</p>
+          <p style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0; font-family: monospace; letter-spacing: 0.05em;">${orderNumber}</p>
         </div>
 
         <!-- Fulfillment Address -->
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #E5E7EB;">
-          <p style="font-size: 11px; color: #9C8B5A; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">${isPickup ? 'Pickup Location' : 'Ship To'}</p>
-          <p style="font-size: 14px; color: #1A1A1A; margin: 0; line-height: 1.6;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #DCE7EB;">
+          <p style="font-size: 11px; color: #438B9E; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">${isPickup ? 'Pickup Location' : 'Ship To'}</p>
+          <p style="font-size: 14px; color: #07203A; margin: 0; line-height: 1.6;">
             ${isPickup ? '' : `<strong>${customerName}</strong><br/>`}
             ${shippingAddress.address}<br/>
             ${[shippingAddress.city, shippingAddress.state, shippingAddress.postalCode].filter(Boolean).join(', ')}${[shippingAddress.city, shippingAddress.state, shippingAddress.postalCode].filter(Boolean).length ? '<br/>' : ''}
             ${shippingAddress.country === 'CA' ? 'Canada' : shippingAddress.country}
           </p>
-          ${isPickup ? '<p style="font-size: 12px; color: #6B7280; margin: 12px 0 0;">We\'ll contact you to arrange a pickup time once payment is received.</p>' : ''}
+          ${isPickup ? '<p style="font-size: 12px; color: #5B7A8C; margin: 12px 0 0;">We\'ll contact you to arrange a pickup time once payment is received.</p>' : ''}
         </div>
 
         ${referralCode ? `
@@ -144,13 +144,13 @@ export async function sendCustomerInvoiceSMTP(data: {
         ` : ''}
 
         <!-- Items Table -->
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #E5E7EB;">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #DCE7EB;">
           <thead>
-            <tr style="background: #FAFAFA; border-bottom: 2px solid #E5E7EB;">
-              <th style="text-align: left; padding: 14px 16px; font-size: 11px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Item</th>
-              <th style="text-align: center; padding: 14px 16px; font-size: 11px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Qty</th>
-              <th style="text-align: right; padding: 14px 16px; font-size: 11px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Price</th>
-              <th style="text-align: right; padding: 14px 16px; font-size: 11px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Total</th>
+            <tr style="background: #F7FAFB; border-bottom: 2px solid #DCE7EB;">
+              <th style="text-align: left; padding: 14px 16px; font-size: 11px; color: #5B7A8C; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Item</th>
+              <th style="text-align: center; padding: 14px 16px; font-size: 11px; color: #5B7A8C; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Qty</th>
+              <th style="text-align: right; padding: 14px 16px; font-size: 11px; color: #5B7A8C; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Price</th>
+              <th style="text-align: right; padding: 14px 16px; font-size: 11px; color: #5B7A8C; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -159,20 +159,20 @@ export async function sendCustomerInvoiceSMTP(data: {
         </table>
 
         <!-- Totals -->
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 24px; border: 1px solid #E5E7EB;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 24px; border: 1px solid #DCE7EB;">
           <table style="width: 100%;">
             <tr>
-              <td style="font-size: 14px; color: #6B7280; padding: 8px 0;">Subtotal</td>
-              <td style="font-size: 14px; color: #1A1A1A; text-align: right; padding: 8px 0; font-weight: 500;">$${subtotal.toFixed(2)}</td>
+              <td style="font-size: 14px; color: #5B7A8C; padding: 8px 0;">Subtotal</td>
+              <td style="font-size: 14px; color: #07203A; text-align: right; padding: 8px 0; font-weight: 500;">$${subtotal.toFixed(2)}</td>
             </tr>
             <tr>
-              <td style="font-size: 14px; color: #6B7280; padding: 8px 0;">${isPickup ? 'Pickup' : 'Shipping'}</td>
-              <td style="font-size: 14px; color: #1A1A1A; text-align: right; padding: 8px 0; font-weight: 500;">${isPickup ? 'Free' : `$${shipping.toFixed(2)}`}</td>
+              <td style="font-size: 14px; color: #5B7A8C; padding: 8px 0;">${isPickup ? 'Pickup' : 'Shipping'}</td>
+              <td style="font-size: 14px; color: #07203A; text-align: right; padding: 8px 0; font-weight: 500;">${isPickup ? 'Free' : `$${shipping.toFixed(2)}`}</td>
             </tr>
-            <tr style="border-top: 2px solid #E5E7EB;">
-              <td style="font-size: 18px; font-weight: 700; color: #1A1A1A; padding: 16px 0 0;">Total</td>
-              <td style="font-size: 20px; font-weight: 700; color: #1A1A1A; text-align: right; padding: 16px 0 0;">
-                $${total.toFixed(2)} <span style="font-size: 14px; color: #9C8B5A;">${currency}</span>
+            <tr style="border-top: 2px solid #DCE7EB;">
+              <td style="font-size: 18px; font-weight: 700; color: #07203A; padding: 16px 0 0;">Total</td>
+              <td style="font-size: 20px; font-weight: 700; color: #07203A; text-align: right; padding: 16px 0 0;">
+                $${total.toFixed(2)} <span style="font-size: 14px; color: #438B9E;">${currency}</span>
               </td>
             </tr>
           </table>
@@ -180,18 +180,18 @@ export async function sendCustomerInvoiceSMTP(data: {
 
         <!-- Payment Instructions -->
         <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 20px; margin-top: 24px; text-align: center;">
-          <p style="font-size: 12px; color: #78716C; margin: 0; line-height: 1.6;">
+          <p style="font-size: 12px; color: #5B7A8C; margin: 0; line-height: 1.6;">
             ${paymentInstructions}
           </p>
         </div>
       </div>
 
       <!-- Footer -->
-      <div style="padding: 32px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 12px; color: #6B7280; margin: 0 0 8px;">
-          PuraMass Peptides &bull; Premium Research Compounds &bull; Canada
+      <div style="padding: 32px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 12px; color: #5B7A8C; margin: 0 0 8px;">
+          VYTA Biosciences &bull; Premium Research Compounds &bull; Canada
         </p>
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
           Questions? Reply to this email or contact us at ${process.env.SMTP_FROM_EMAIL}
         </p>
       </div>
@@ -202,7 +202,7 @@ export async function sendCustomerInvoiceSMTP(data: {
     const mailOptions = {
       from: fromEmail,
       to,
-      subject: `Invoice ${orderNumber} - PuraMass Peptides`,
+      subject: `Invoice ${orderNumber} - VYTA Biosciences`,
       html,
     };
 
@@ -230,26 +230,26 @@ export async function sendPaymentReceivedSMTP(data: {
   const greeting = customerName ? `Hi ${customerName},` : 'Hi there,';
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #E5E7EB;">
-        <h1 style="font-size: 24px; font-weight: 700; color: #1A1A1A; margin: 0;">PURAMASS</h1>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #9C8B5A; margin: 4px 0 0; text-transform: uppercase;">Canadian Peptides</p>
+      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB;">
+        <h1 style="font-size: 24px; font-weight: 700; color: #07203A; margin: 0; letter-spacing: 0.28em;">VYTA</h1>
+        <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
       </div>
       <div style="padding: 32px 24px; text-align: center;">
         <div style="width: 48px; height: 48px; background: #ECFDF5; border-radius: 50%; margin: 0 auto 16px; line-height: 48px; font-size: 24px;">&#10003;</div>
-        <h2 style="font-size: 20px; font-weight: 600; color: #1A1A1A; margin: 0 0 8px;">Payment Received</h2>
-        <p style="font-size: 14px; color: #6B7280; margin: 0 0 24px;">
+        <h2 style="font-size: 20px; font-weight: 600; color: #07203A; margin: 0 0 8px;">Payment Received</h2>
+        <p style="font-size: 14px; color: #5B7A8C; margin: 0 0 24px;">
           ${greeting} we&rsquo;ve received your Interac e-Transfer for order
           <strong>${orderNumber}</strong>. Your order is now being processed and
           we&rsquo;ll email your tracking details as soon as it ships.
         </p>
-        <div style="background: #F7F7F7; border-radius: 8px; padding: 16px; margin-bottom: 8px;">
-          <p style="font-size: 12px; color: #6B7280; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.05em;">Order Number</p>
-          <p style="font-size: 16px; font-weight: 600; color: #1A1A1A; margin: 0; font-family: monospace;">${orderNumber}</p>
+        <div style="background: #F7FAFB; border-radius: 8px; padding: 16px; margin-bottom: 8px;">
+          <p style="font-size: 12px; color: #5B7A8C; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.05em;">Order Number</p>
+          <p style="font-size: 16px; font-weight: 600; color: #07203A; margin: 0; font-family: monospace;">${orderNumber}</p>
         </div>
       </div>
-      <div style="padding: 24px; text-align: center; background: #F7F7F7; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
-          PuraMass Peptides &bull; Canada<br/>Questions? Reply to this email or contact us at ${process.env.SMTP_FROM_EMAIL}
+      <div style="padding: 24px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
+          VYTA Biosciences &bull; Canada<br/>Questions? Reply to this email or contact us at ${process.env.SMTP_FROM_EMAIL}
         </p>
       </div>
     </div>
@@ -299,61 +299,62 @@ export async function sendAdminInvoiceNotificationSMTP(data: {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://puramass.com';
 
   const itemList = items
-    .map(i => `<li style="font-size: 14px; color: #1A1A1A; padding: 6px 0; border-bottom: 1px solid #E5E7EB;">
+    .map(i => `<li style="font-size: 14px; color: #07203A; padding: 6px 0; border-bottom: 1px solid #DCE7EB;">
       <strong>${i.name}</strong>${i.strength ? ` - ${i.strength}` : ''} × ${i.quantity}
-      <span style="float: right; color: #6B7280;">$${(i.price * i.quantity).toFixed(2)}</span>
+      <span style="float: right; color: #5B7A8C;">$${(i.price * i.quantity).toFixed(2)}</span>
     </li>`)
     .join('');
 
   const html = `
     <div style="max-width: 650px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
       <!-- Header -->
-      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #E5E7EB; background: #FFFFFF;">
-        <h1 style="font-size: 28px; font-weight: 700; color: #1A1A1A; margin: 0 0 4px;">PURAMASS</h1>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #9C8B5A; margin: 0; text-transform: uppercase; font-weight: 600;">New Order Notification</p>
+      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
+        <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
+        <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #6EB2B8; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">New Order Notification</p>
       </div>
 
       <!-- Alert -->
       <div style="padding: 32px 24px; background: #FFFFFF;">
-        <div style="background: #FAFAF9; border: 2px solid #9C8B5A; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center;">
-          <h2 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0;">New Order Received</h2>
+        <div style="background: #F7FAFB; border: 2px solid #438B9E; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center;">
+          <h2 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0;">New Order Received</h2>
         </div>
 
         <!-- Order Details -->
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #E5E7EB;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #DCE7EB;">
           <table style="width: 100%;">
             <tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Order Number</td>
-              <td style="font-size: 14px; font-weight: 700; color: #1A1A1A; padding: 8px 0; text-align: right; font-family: monospace;">${orderNumber}</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Order Number</td>
+              <td style="font-size: 14px; font-weight: 700; color: #07203A; padding: 8px 0; text-align: right; font-family: monospace;">${orderNumber}</td>
             </tr>
             <tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Customer</td>
-              <td style="font-size: 14px; font-weight: 600; color: #1A1A1A; padding: 8px 0; text-align: right;">${customerName}</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Customer</td>
+              <td style="font-size: 14px; font-weight: 600; color: #07203A; padding: 8px 0; text-align: right;">${customerName}</td>
             </tr>
             <tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Email</td>
-              <td style="font-size: 14px; color: #1A1A1A; padding: 8px 0; text-align: right;">${customerEmail}</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Email</td>
+              <td style="font-size: 14px; color: #07203A; padding: 8px 0; text-align: right;">${customerEmail}</td>
             </tr>
             <tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Payment Method</td>
-              <td style="font-size: 14px; font-weight: 600; color: #1A1A1A; padding: 8px 0; text-align: right;">${paymentLabel}</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Payment Method</td>
+              <td style="font-size: 14px; font-weight: 600; color: #07203A; padding: 8px 0; text-align: right;">${paymentLabel}</td>
             </tr>
             <tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Total</td>
-              <td style="font-size: 18px; font-weight: 700; color: #9C8B5A; padding: 8px 0; text-align: right;">$${total.toFixed(2)} ${currency}</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Total</td>
+              <td style="font-size: 18px; font-weight: 700; color: #438B9E; padding: 8px 0; text-align: right;">$${total.toFixed(2)} ${currency}</td>
             </tr>
             ${referralCode ? `<tr>
-              <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Referral Code</td>
+              <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Referral Code</td>
               <td style="font-size: 14px; font-weight: 700; color: #15803D; padding: 8px 0; text-align: right; font-family: monospace;">${referralCode}</td>
             </tr>` : ''}
           </table>
         </div>
 
         <!-- Fulfillment -->
-        <div style="background: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-          <p style="font-size: 11px; color: #9C8B5A; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">${isPickup ? 'Fulfillment — Local Pickup' : 'Shipping Address'}</p>
-          ${isPickup ? '<p style="display: inline-block; font-size: 11px; font-weight: 700; color: #FFFFFF; background: #1A1A1A; padding: 3px 10px; border-radius: 6px; letter-spacing: 0.08em; margin: 0 0 12px;">PICKUP</p>' : ''}
-          <p style="font-size: 14px; color: #1A1A1A; margin: 0; line-height: 1.7;">
+        <div style="background: #F7FAFB; border: 1px solid #DCE7EB; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+          <p style="font-size: 11px; color: #438B9E; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">${isPickup ? 'Fulfillment — Local Pickup' : 'Shipping Address'}</p>
+          ${isPickup ? '<p style="display: inline-block; font-size: 11px; font-weight: 700; color: #FFFFFF; background: #07203A; padding: 3px 10px; border-radius: 6px; letter-spacing: 0.08em; margin: 0 0 12px;">PICKUP</p>' : ''}
+          <p style="font-size: 14px; color: #07203A; margin: 0; line-height: 1.7;">
             ${shippingAddress.address}<br/>
             ${[shippingAddress.city, shippingAddress.state, shippingAddress.postalCode].filter(Boolean).join(', ')}${[shippingAddress.city, shippingAddress.state, shippingAddress.postalCode].filter(Boolean).length ? '<br/>' : ''}
             ${shippingAddress.country === 'CA' ? 'Canada' : shippingAddress.country}
@@ -362,26 +363,26 @@ export async function sendAdminInvoiceNotificationSMTP(data: {
 
         <!-- Order Items -->
         <div style="margin-bottom: 24px;">
-          <p style="font-size: 12px; color: #6B7280; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Order Items</p>
-          <ul style="margin: 0; padding: 0; list-style: none; background: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px;">
+          <p style="font-size: 12px; color: #5B7A8C; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Order Items</p>
+          <ul style="margin: 0; padding: 0; list-style: none; background: #F7FAFB; border: 1px solid #DCE7EB; border-radius: 12px; padding: 16px;">
             ${itemList}
           </ul>
         </div>
 
         <!-- Totals -->
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #E5E7EB;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #DCE7EB;">
           <table style="width: 100%;">
             <tr>
-              <td style="font-size: 14px; color: #6B7280; padding: 6px 0;">Subtotal</td>
-              <td style="font-size: 14px; color: #1A1A1A; text-align: right; padding: 6px 0; font-weight: 500;">$${subtotal.toFixed(2)}</td>
+              <td style="font-size: 14px; color: #5B7A8C; padding: 6px 0;">Subtotal</td>
+              <td style="font-size: 14px; color: #07203A; text-align: right; padding: 6px 0; font-weight: 500;">$${subtotal.toFixed(2)}</td>
             </tr>
             <tr>
-              <td style="font-size: 14px; color: #6B7280; padding: 6px 0;">${isPickup ? 'Pickup' : 'Shipping'}</td>
-              <td style="font-size: 14px; color: #1A1A1A; text-align: right; padding: 6px 0; font-weight: 500;">${isPickup ? 'Free' : `$${shipping.toFixed(2)}`}</td>
+              <td style="font-size: 14px; color: #5B7A8C; padding: 6px 0;">${isPickup ? 'Pickup' : 'Shipping'}</td>
+              <td style="font-size: 14px; color: #07203A; text-align: right; padding: 6px 0; font-weight: 500;">${isPickup ? 'Free' : `$${shipping.toFixed(2)}`}</td>
             </tr>
-            <tr style="border-top: 2px solid #E5E7EB;">
-              <td style="font-size: 16px; font-weight: 700; color: #1A1A1A; padding: 12px 0 0;">Total</td>
-              <td style="font-size: 18px; font-weight: 700; color: #9C8B5A; text-align: right; padding: 12px 0 0;">$${total.toFixed(2)} ${currency}</td>
+            <tr style="border-top: 2px solid #DCE7EB;">
+              <td style="font-size: 16px; font-weight: 700; color: #07203A; padding: 12px 0 0;">Total</td>
+              <td style="font-size: 18px; font-weight: 700; color: #438B9E; text-align: right; padding: 12px 0 0;">$${total.toFixed(2)} ${currency}</td>
             </tr>
           </table>
         </div>
@@ -389,9 +390,9 @@ export async function sendAdminInvoiceNotificationSMTP(data: {
         ${paymentMethod === 'etransfer' ? `
         <!-- Action Needed -->
         <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 16px; margin-bottom: 24px; text-align: center;">
-          <p style="font-size: 12px; color: #78716C; margin: 0; line-height: 1.6;">
-            <strong style="color: #1A1A1A;">Action needed:</strong> Send Interac e-Transfer payment instructions to
-            <a href="mailto:${customerEmail}" style="color: #9C8B5A; font-weight: 600;">${customerEmail}</a>.
+          <p style="font-size: 12px; color: #5B7A8C; margin: 0; line-height: 1.6;">
+            <strong style="color: #07203A;">Action needed:</strong> Send Interac e-Transfer payment instructions to
+            <a href="mailto:${customerEmail}" style="color: #438B9E; font-weight: 600;">${customerEmail}</a>.
             The customer has been told instructions will follow shortly.
           </p>
         </div>
@@ -399,16 +400,16 @@ export async function sendAdminInvoiceNotificationSMTP(data: {
 
         <!-- Action Button -->
         <div style="text-align: center;">
-          <a href="${baseUrl}/admin/orders" style="display: inline-block; padding: 14px 32px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
+          <a href="${baseUrl}/admin/orders" style="display: inline-block; padding: 14px 32px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
             View in Admin Dashboard
           </a>
         </div>
       </div>
 
       <!-- Footer -->
-      <div style="padding: 24px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
-          This is an automated notification from PuraMass Admin System
+      <div style="padding: 24px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
+          This is an automated notification from VYTA Admin System
         </p>
       </div>
     </div>
@@ -480,39 +481,39 @@ export async function sendBackInStockNotification(data: {
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
       <!-- Header -->
-      <div style="padding: 32px; text-align: center; border-bottom: 1px solid #E5E7EB;">
-        <h1 style="font-size: 22px; font-weight: 700; color: #1A1A1A; margin: 0;">Back in Stock</h1>
-        <p style="font-size: 13px; color: #6B7280; margin: 8px 0 0;">A compound from your watchlist is available again</p>
+      <div style="padding: 32px; text-align: center; border-bottom: 1px solid #DCE7EB;">
+        <h1 style="font-size: 22px; font-weight: 700; color: #07203A; margin: 0;">Back in Stock</h1>
+        <p style="font-size: 13px; color: #5B7A8C; margin: 8px 0 0;">A compound from your watchlist is available again</p>
       </div>
 
       <!-- Body -->
       <div style="padding: 32px;">
-        <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 16px;">
-          ${imageUrl ? `<img src="${imageUrl}" alt="${productName}" width="72" height="72" style="width: 72px; height: 72px; object-fit: contain; border-radius: 8px; background: #FAFAFA;" />` : ''}
+        <div style="border: 1px solid #DCE7EB; border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 16px;">
+          ${imageUrl ? `<img src="${imageUrl}" alt="${productName}" width="72" height="72" style="width: 72px; height: 72px; object-fit: contain; border-radius: 8px; background: #F7FAFB;" />` : ''}
           <div>
-            <p style="font-size: 16px; font-weight: 600; color: #1A1A1A; margin: 0 0 4px;">${productName}</p>
-            ${strength ? `<p style="font-size: 13px; color: #6B7280; margin: 0 0 4px;">${strength}</p>` : ''}
-            ${price ? `<p style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">$${price}</p>` : ''}
+            <p style="font-size: 16px; font-weight: 600; color: #07203A; margin: 0 0 4px;">${productName}</p>
+            ${strength ? `<p style="font-size: 13px; color: #5B7A8C; margin: 0 0 4px;">${strength}</p>` : ''}
+            ${price ? `<p style="font-size: 15px; font-weight: 700; color: #07203A; margin: 0;">$${price}</p>` : ''}
           </div>
         </div>
 
-        <p style="font-size: 14px; line-height: 1.6; color: #1A1A1A; margin: 24px 0;">
+        <p style="font-size: 14px; line-height: 1.6; color: #07203A; margin: 24px 0;">
           Good news — <strong>${productName}</strong> is back in stock. Quantities can be limited, so order soon to secure yours.
         </p>
 
         <div style="text-align: center; margin: 28px 0;">
-          <a href="${productUrl}" style="display: inline-block; padding: 12px 28px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">
+          <a href="${productUrl}" style="display: inline-block; padding: 12px 28px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">
             View Product
           </a>
         </div>
       </div>
 
       <!-- Footer -->
-      <div style="padding: 32px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 12px; color: #6B7280; margin: 0 0 8px;">
-          PuraMass Peptides &bull; Premium Research Compounds &bull; Canada
+      <div style="padding: 32px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 12px; color: #5B7A8C; margin: 0 0 8px;">
+          VYTA Biosciences &bull; Premium Research Compounds &bull; Canada
         </p>
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
           You received this because you asked to be notified when this product was restocked.
         </p>
       </div>
@@ -555,47 +556,47 @@ export async function sendLowStockAlert(data: {
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
       <!-- Header -->
-      <div style="padding: 32px; text-align: center; border-bottom: 1px solid #E5E7EB;">
+      <div style="padding: 32px; text-align: center; border-bottom: 1px solid #DCE7EB;">
         <h1 style="font-size: 22px; font-weight: 700; color: ${isOut ? '#B91C1C' : '#B45309'}; margin: 0;">
           ${isOut ? 'Out of Stock' : 'Low Stock Alert'}
         </h1>
-        <p style="font-size: 13px; color: #6B7280; margin: 8px 0 0;">A product needs restocking</p>
+        <p style="font-size: 13px; color: #5B7A8C; margin: 8px 0 0;">A product needs restocking</p>
       </div>
 
       <!-- Body -->
       <div style="padding: 32px;">
-        <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px;">
-          <p style="font-size: 16px; font-weight: 600; color: #1A1A1A; margin: 0 0 4px;">${productName}</p>
-          ${strength ? `<p style="font-size: 13px; color: #6B7280; margin: 0 0 12px;">${strength}</p>` : ''}
-          <table style="width: 100%; font-size: 14px; color: #1A1A1A; border-collapse: collapse;">
+        <div style="border: 1px solid #DCE7EB; border-radius: 12px; padding: 20px;">
+          <p style="font-size: 16px; font-weight: 600; color: #07203A; margin: 0 0 4px;">${productName}</p>
+          ${strength ? `<p style="font-size: 13px; color: #5B7A8C; margin: 0 0 12px;">${strength}</p>` : ''}
+          <table style="width: 100%; font-size: 14px; color: #07203A; border-collapse: collapse;">
             <tr>
-              <td style="padding: 6px 0; color: #6B7280;">Current stock</td>
+              <td style="padding: 6px 0; color: #5B7A8C;">Current stock</td>
               <td style="padding: 6px 0; text-align: right; font-weight: 700; color: ${isOut ? '#B91C1C' : '#B45309'};">${currentStock}</td>
             </tr>
             <tr>
-              <td style="padding: 6px 0; color: #6B7280;">Alert threshold</td>
+              <td style="padding: 6px 0; color: #5B7A8C;">Alert threshold</td>
               <td style="padding: 6px 0; text-align: right; font-weight: 600;">${threshold}</td>
             </tr>
           </table>
         </div>
 
-        <p style="font-size: 14px; line-height: 1.6; color: #1A1A1A; margin: 24px 0;">
+        <p style="font-size: 14px; line-height: 1.6; color: #07203A; margin: 24px 0;">
           <strong>${productName}</strong> has ${isOut ? 'sold out' : `dropped to ${currentStock} unit${currentStock === 1 ? '' : 's'}`}.
           Restock soon to avoid backorders.
         </p>
 
         <div style="text-align: center; margin: 28px 0;">
-          <a href="${productsUrl}" style="display: inline-block; padding: 12px 28px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">
+          <a href="${productsUrl}" style="display: inline-block; padding: 12px 28px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">
             Manage Products
           </a>
         </div>
-        ${productSlug ? `<p style="font-size: 12px; color: #9CA3AF; text-align: center; margin: 0;">${baseUrl}/products/${productSlug}</p>` : ''}
+        ${productSlug ? `<p style="font-size: 12px; color: #8FA9B6; text-align: center; margin: 0;">${baseUrl}/products/${productSlug}</p>` : ''}
       </div>
 
       <!-- Footer -->
-      <div style="padding: 24px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
-          This is an automated notification from PuraMass Admin System
+      <div style="padding: 24px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
+          This is an automated notification from VYTA Admin System
         </p>
       </div>
     </div>
@@ -651,17 +652,17 @@ export async function sendAffiliateRequestAdminNotification(data: {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://puramass.com';
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-      <div style="padding: 28px 32px; border-bottom: 1px solid #E5E7EB;">
-        <h1 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0;">New affiliate request</h1>
+      <div style="padding: 28px 32px; border-bottom: 1px solid #DCE7EB;">
+        <h1 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0;">New affiliate request</h1>
       </div>
       <div style="padding: 28px 32px;">
-        <p style="font-size: 14px; color: #1A1A1A; margin: 0 0 16px;">
+        <p style="font-size: 14px; color: #07203A; margin: 0 0 16px;">
           <strong>${applicantName}</strong> (${applicantEmail}) has requested to become an affiliate.
         </p>
-        ${walletAddress ? `<p style="font-size: 13px; color: #6B7280; margin: 0 0 8px;">Wallet: ${walletAddress}</p>` : ''}
-        ${message ? `<div style="font-size: 13px; color: #1A1A1A; background: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; white-space: pre-wrap;">${message}</div>` : ''}
+        ${walletAddress ? `<p style="font-size: 13px; color: #5B7A8C; margin: 0 0 8px;">Wallet: ${walletAddress}</p>` : ''}
+        ${message ? `<div style="font-size: 13px; color: #07203A; background: #F7FAFB; border: 1px solid #DCE7EB; border-radius: 8px; padding: 12px; white-space: pre-wrap;">${message}</div>` : ''}
         <div style="text-align: center; margin: 28px 0 4px;">
-          <a href="${baseUrl}/admin/affiliates" style="display: inline-block; padding: 12px 28px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">Review request</a>
+          <a href="${baseUrl}/admin/affiliates" style="display: inline-block; padding: 12px 28px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">Review request</a>
         </div>
       </div>
     </div>
@@ -709,29 +710,30 @@ export async function sendNewCustomerAdminNotification(data: {
 
   const row = (label: string, value: string) => `
     <tr>
-      <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">${label}</td>
-      <td style="font-size: 14px; font-weight: 600; color: #1A1A1A; padding: 8px 0; text-align: right;">${value}</td>
+      <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">${label}</td>
+      <td style="font-size: 14px; font-weight: 600; color: #07203A; padding: 8px 0; text-align: right;">${value}</td>
     </tr>`;
 
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
       <!-- Header -->
-      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #E5E7EB; background: #FFFFFF;">
-        <h1 style="font-size: 28px; font-weight: 700; color: #1A1A1A; margin: 0 0 4px;">PURAMASS</h1>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #9C8B5A; margin: 0; text-transform: uppercase; font-weight: 600;">New Customer Registration</p>
+      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
+        <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
+        <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #5B7A8C; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">New Customer Registration</p>
       </div>
 
       <div style="padding: 32px 24px; background: #FFFFFF;">
-        <div style="background: #FAFAF9; border: 2px solid #9C8B5A; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center;">
-          <h2 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0;">New Customer Registered</h2>
+        <div style="background: #F7FAFB; border: 2px solid #438B9E; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center;">
+          <h2 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0;">New Customer Registered</h2>
         </div>
 
         <!-- Customer Details -->
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #E5E7EB;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #DCE7EB;">
           <table style="width: 100%;">
             ${row('Name', customerName)}
-            ${row('Email', `<a href="mailto:${customerEmail}" style="color: #9C8B5A; font-weight: 600; text-decoration: none;">${customerEmail}</a>`)}
-            ${phone ? row('Phone', `<a href="tel:${phone}" style="color: #9C8B5A; font-weight: 600; text-decoration: none;">${phone}</a>`) : row('Phone', '—')}
+            ${row('Email', `<a href="mailto:${customerEmail}" style="color: #438B9E; font-weight: 600; text-decoration: none;">${customerEmail}</a>`)}
+            ${phone ? row('Phone', `<a href="tel:${phone}" style="color: #438B9E; font-weight: 600; text-decoration: none;">${phone}</a>`) : row('Phone', '—')}
             ${referredBy ? row('Referred By', referredBy) : ''}
             ${registeredLabel ? row('Registered', registeredLabel) : ''}
           </table>
@@ -739,20 +741,20 @@ export async function sendNewCustomerAdminNotification(data: {
 
         <!-- Action Buttons -->
         <div style="text-align: center;">
-          ${customerId ? `<a href="${baseUrl}/admin/customers/${customerId}/takeover" style="display: inline-block; padding: 14px 32px; background: #9C8B5A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 12px;">
+          ${customerId ? `<a href="${baseUrl}/admin/customers/${customerId}/takeover" style="display: inline-block; padding: 14px 32px; background: #438B9E; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 12px;">
             Take over &amp; contact this customer
           </a><br>` : ''}
-          <a href="${baseUrl}/admin/customers" style="display: inline-block; padding: 12px 28px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em;">
+          <a href="${baseUrl}/admin/customers" style="display: inline-block; padding: 12px 28px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em;">
             View in Admin Dashboard
           </a>
         </div>
-        ${customerId ? `<p style="text-align: center; font-size: 11px; color: #9CA3AF; margin: 16px 0 0;">On the takeover page you can see their orders, cart, and claim them for contacting.</p>` : ''}
+        ${customerId ? `<p style="text-align: center; font-size: 11px; color: #8FA9B6; margin: 16px 0 0;">On the takeover page you can see their orders, cart, and claim them for contacting.</p>` : ''}
       </div>
 
       <!-- Footer -->
-      <div style="padding: 24px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
-          This is an automated notification from PuraMass Admin System
+      <div style="padding: 24px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
+          This is an automated notification from VYTA Admin System
         </p>
       </div>
     </div>
@@ -812,43 +814,44 @@ export async function sendInactiveCustomerAdminNotification(data: {
 
   const row = (label: string, value: string) => `
     <tr>
-      <td style="font-size: 12px; color: #6B7280; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">${label}</td>
-      <td style="font-size: 14px; font-weight: 600; color: #1A1A1A; padding: 8px 0; text-align: right;">${value}</td>
+      <td style="font-size: 12px; color: #5B7A8C; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">${label}</td>
+      <td style="font-size: 14px; font-weight: 600; color: #07203A; padding: 8px 0; text-align: right;">${value}</td>
     </tr>`;
 
   const html = `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFFFF;">
-      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #E5E7EB; background: #FFFFFF;">
-        <h1 style="font-size: 28px; font-weight: 700; color: #1A1A1A; margin: 0 0 4px;">PURAMASS</h1>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #9C8B5A; margin: 0; text-transform: uppercase; font-weight: 600;">Inactive Customer Alert</p>
+      <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
+        <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
+        <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #5B7A8C; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">Inactive Customer Alert</p>
       </div>
 
       <div style="padding: 32px 24px; background: #FFFFFF;">
         <div style="background: #FFF7ED; border: 2px solid #F59E0B; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center;">
-          <h2 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0 0 4px;">No order after ${daysSinceRegistration} day${daysSinceRegistration === 1 ? '' : 's'}</h2>
+          <h2 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0 0 4px;">No order after ${daysSinceRegistration} day${daysSinceRegistration === 1 ? '' : 's'}</h2>
           <p style="font-size: 13px; color: #92400E; margin: 0;">This customer registered but still hasn't placed an order.</p>
         </div>
 
-        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #E5E7EB;">
+        <div style="background: #F7FAFB; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #DCE7EB;">
           <table style="width: 100%;">
             ${row('Name', customerName)}
-            ${row('Email', `<a href="mailto:${customerEmail}" style="color: #9C8B5A; font-weight: 600; text-decoration: none;">${customerEmail}</a>`)}
-            ${phone ? row('Phone', `<a href="tel:${phone}" style="color: #9C8B5A; font-weight: 600; text-decoration: none;">${phone}</a>`) : row('Phone', '—')}
+            ${row('Email', `<a href="mailto:${customerEmail}" style="color: #438B9E; font-weight: 600; text-decoration: none;">${customerEmail}</a>`)}
+            ${phone ? row('Phone', `<a href="tel:${phone}" style="color: #438B9E; font-weight: 600; text-decoration: none;">${phone}</a>`) : row('Phone', '—')}
             ${registeredLabel ? row('Registered', registeredLabel) : ''}
             ${row('In cart', hasCartItems ? 'Yes — has items waiting' : 'No')}
           </table>
         </div>
 
         <div style="text-align: center;">
-          ${customerId ? `<a href="${baseUrl}/admin/customers/${customerId}/takeover" style="display: inline-block; padding: 14px 32px; background: #9C8B5A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
+          ${customerId ? `<a href="${baseUrl}/admin/customers/${customerId}/takeover" style="display: inline-block; padding: 14px 32px; background: #438B9E; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
             Take over &amp; contact this customer
-          </a>` : `<a href="${baseUrl}/admin/customers" style="display: inline-block; padding: 14px 32px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600;">View in Admin Dashboard</a>`}
+          </a>` : `<a href="${baseUrl}/admin/customers" style="display: inline-block; padding: 14px 32px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: 600;">View in Admin Dashboard</a>`}
         </div>
       </div>
 
-      <div style="padding: 24px; text-align: center; background: #FAFAFA; border-top: 1px solid #E5E7EB;">
-        <p style="font-size: 11px; color: #9CA3AF; margin: 0;">
-          This is an automated notification from PuraMass Admin System
+      <div style="padding: 24px; text-align: center; background: #F7FAFB; border-top: 1px solid #DCE7EB;">
+        <p style="font-size: 11px; color: #8FA9B6; margin: 0;">
+          This is an automated notification from VYTA Admin System
         </p>
       </div>
     </div>
@@ -893,27 +896,27 @@ export async function sendAffiliateRequestDecision(data: {
   const html = approved
     ? `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-      <div style="padding: 28px 32px; border-bottom: 1px solid #E5E7EB;">
-        <h1 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0;">You're a PuraMass affiliate 🎉</h1>
+      <div style="padding: 28px 32px; border-bottom: 1px solid #DCE7EB;">
+        <h1 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0;">You're a VYTA affiliate 🎉</h1>
       </div>
       <div style="padding: 28px 32px;">
-        <p style="font-size: 14px; line-height: 1.6; color: #1A1A1A; margin: 0 0 16px;">
+        <p style="font-size: 14px; line-height: 1.6; color: #07203A; margin: 0 0 16px;">
           Hi ${applicantName}, your affiliate request has been approved. Sign in to access your affiliate portal.
         </p>
-        ${referralCode ? `<p style="font-size: 14px; color: #1A1A1A; margin: 0 0 16px;">Your referral code: <strong style="font-family: monospace;">${referralCode}</strong></p>` : ''}
+        ${referralCode ? `<p style="font-size: 14px; color: #07203A; margin: 0 0 16px;">Your referral code: <strong style="font-family: monospace;">${referralCode}</strong></p>` : ''}
         <div style="text-align: center; margin: 28px 0 4px;">
-          <a href="${baseUrl}/admin" style="display: inline-block; padding: 12px 28px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">Open affiliate portal</a>
+          <a href="${baseUrl}/admin" style="display: inline-block; padding: 12px 28px; background: #07203A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600;">Open affiliate portal</a>
         </div>
       </div>
     </div>`
     : `
     <div style="max-width: 600px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-      <div style="padding: 28px 32px; border-bottom: 1px solid #E5E7EB;">
-        <h1 style="font-size: 20px; font-weight: 700; color: #1A1A1A; margin: 0;">Affiliate request update</h1>
+      <div style="padding: 28px 32px; border-bottom: 1px solid #DCE7EB;">
+        <h1 style="font-size: 20px; font-weight: 700; color: #07203A; margin: 0;">Affiliate request update</h1>
       </div>
       <div style="padding: 28px 32px;">
-        <p style="font-size: 14px; line-height: 1.6; color: #1A1A1A; margin: 0;">
-          Hi ${applicantName}, thanks for your interest in the PuraMass affiliate program. We're unable to approve your request at this time. If you have questions, just reply to this email.
+        <p style="font-size: 14px; line-height: 1.6; color: #07203A; margin: 0;">
+          Hi ${applicantName}, thanks for your interest in the VYTA affiliate program. We're unable to approve your request at this time. If you have questions, just reply to this email.
         </p>
       </div>
     </div>`;
@@ -922,7 +925,7 @@ export async function sendAffiliateRequestDecision(data: {
     const info = await getTransporter().sendMail({
       from: fromEmail,
       to,
-      subject: approved ? "You're now a PuraMass affiliate" : 'Your affiliate request',
+      subject: approved ? "You're now a VYTA affiliate" : 'Your affiliate request',
       html,
     });
     return { success: true, id: info.messageId };

@@ -180,7 +180,7 @@ export default function AdminLabResultsPage() {
       <div className="mb-6 sm:mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <FlaskConical className="w-5 h-5 text-bronze" />
+            <FlaskConical className="w-5 h-5 text-vital" />
             <h1 className="text-xl sm:text-2xl font-bold text-ink">Lab Results</h1>
           </div>
           <p className="text-sm text-ink-muted max-w-2xl">
@@ -205,7 +205,7 @@ export default function AdminLabResultsPage() {
           <StatCard label="Total reports" value={stats.total} />
           <StatCard label="Visible" value={stats.visible} tone="emerald" />
           <StatCard label="Hidden" value={stats.hidden} tone="muted" />
-          <StatCard label="Avg. purity" value={stats.avg != null ? `${stats.avg.toFixed(1)}%` : '—'} tone="bronze" />
+          <StatCard label="Avg. purity" value={stats.avg != null ? `${stats.avg.toFixed(1)}%` : '—'} tone="vital" />
         </div>
       )}
 
@@ -217,7 +217,7 @@ export default function AdminLabResultsPage() {
           placeholder="Search by product, compound, sample ID…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-11 pr-4 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-ink placeholder-ink-muted text-sm"
+          className="w-full pl-11 pr-4 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-ink placeholder-ink-muted text-sm"
         />
       </div>
 
@@ -299,9 +299,9 @@ export default function AdminLabResultsPage() {
   );
 }
 
-function StatCard({ label, value, tone = 'ink' }: { label: string; value: string | number; tone?: 'ink' | 'emerald' | 'muted' | 'bronze' }) {
+function StatCard({ label, value, tone = 'ink' }: { label: string; value: string | number; tone?: 'ink' | 'emerald' | 'muted' | 'vital' }) {
   const toneClass =
-    tone === 'emerald' ? 'text-emerald-600' : tone === 'bronze' ? 'text-bronze' : tone === 'muted' ? 'text-ink-muted' : 'text-ink';
+    tone === 'emerald' ? 'text-emerald-600' : tone === 'vital' ? 'text-vital' : tone === 'muted' ? 'text-ink-muted' : 'text-ink';
   return (
     <div className="bg-white rounded-xl p-4 sm:p-5 border border-line">
       <p className={`text-2xl md:text-3xl font-bold tabular-nums ${toneClass}`}>{value}</p>
@@ -352,7 +352,7 @@ function LabResultRow({
           )}
         </div>
         <div className="flex items-center gap-1.5 text-xs text-ink-muted mt-0.5">
-          <ShieldCheck className="w-3.5 h-3.5 text-bronze" />
+          <ShieldCheck className="w-3.5 h-3.5 text-vital" />
           {r.lab}
           {r.compound && <span className="truncate">· {r.compound}</span>}
         </div>
@@ -581,7 +581,7 @@ function LabResultModal({
 }
 
 const inputCls =
-  'w-full px-3 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink placeholder-ink-muted';
+  'w-full px-3 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink placeholder-ink-muted';
 
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (

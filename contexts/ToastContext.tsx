@@ -74,12 +74,12 @@ const variants: Record<
   info: {
     icon: <Info className="w-5 h-5" />,
     ring: 'border-line',
-    iconColor: 'text-bronze',
+    iconColor: 'text-vital',
   },
   loading: {
     icon: <Loader2 className="w-5 h-5 animate-spin" />,
     ring: 'border-line',
-    iconColor: 'text-bronze',
+    iconColor: 'text-vital',
   },
 };
 
@@ -190,7 +190,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               toast.action!.onClick();
               dismiss(toast.id);
             }}
-            className="flex-shrink-0 text-sm font-semibold text-bronze hover:text-bronze/80 transition-colors -my-0.5 px-2 py-0.5 rounded-md hover:bg-bronze/10"
+            className="flex-shrink-0 text-sm font-semibold text-vital hover:text-vital/80 transition-colors -my-0.5 px-2 py-0.5 rounded-md hover:bg-vital/10"
           >
             {toast.action.label}
           </button>

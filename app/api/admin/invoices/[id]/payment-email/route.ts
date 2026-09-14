@@ -78,7 +78,7 @@ function buildTransport() {
 }
 
 function buildFrom() {
-  const name = process.env.SMTP_FROM_NAME || 'PuraMass';
+  const name = process.env.SMTP_FROM_NAME || 'VYTA Biosciences';
   const addr = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || 'info@aminocan.com';
   return `${name} <${addr}>`;
 }

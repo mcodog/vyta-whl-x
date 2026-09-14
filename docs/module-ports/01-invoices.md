@@ -299,7 +299,7 @@ Idempotent helper (not an HTTP route) used by order-confirm flows: short-circuit
 
 ## UI/UX specification
 
-Design tokens (Tailwind theme): `ink` (near-black text), `ink-muted`, `bronze` (accent gold `#9C8B5A`-ish), `surface` (light bg), `line` (border). Status badge colors come from `INVOICE_STATUS_META` (`lib/admin/invoice-status.ts`).
+Design tokens (Tailwind theme): `ink` (near-black text), `ink-muted`, `vital` (accent gold `#438B9E`-ish), `surface` (light bg), `line` (border). Status badge colors come from `INVOICE_STATUS_META` (`lib/admin/invoice-status.ts`).
 
 ### Status badges (`INVOICE_STATUS_META`)
 | Status | Label | Badge classes | PDF bg / fg |
@@ -313,9 +313,9 @@ Design tokens (Tailwind theme): `ink` (near-black text), `ink-muted`, `bronze` (
 `effectiveStatus(status, due_date)`: if status is `sent` or `partial` and `due_date < today` → renders as `overdue` (virtual, computed client- and server-side; the row's effective status drives the badge and the red "Due" date).
 
 ### List page (`/admin/invoices`)
-- **Tabs** at top (bottom-border style): **Invoices** (FileText icon) and **Pricelists** (Tag icon). Active tab uses `border-bronze text-bronze`.
-- **Header:** `Invoices` (FileText, bronze) + sub-line `"{n} invoice(s)"`. Right side buttons: **Aging** toggle (BarChart2 icon; active state `bg-bronze/10 border-bronze text-bronze`) and **New Invoice** (Plus, dark `bg-ink` button) linking to `/admin/invoices/new`.
-- **Stats cards** (grid, 2 cols mobile / 4 desktop): **Total** (count), **Outstanding** (`$x.xx`, bronze highlight border), **Overdue** (count; red when > 0), **Paid** (count).
+- **Tabs** at top (bottom-border style): **Invoices** (FileText icon) and **Pricelists** (Tag icon). Active tab uses `border-vital text-vital`.
+- **Header:** `Invoices` (FileText, vital) + sub-line `"{n} invoice(s)"`. Right side buttons: **Aging** toggle (BarChart2 icon; active state `bg-vital/10 border-vital text-vital`) and **New Invoice** (Plus, dark `bg-ink` button) linking to `/admin/invoices/new`.
+- **Stats cards** (grid, 2 cols mobile / 4 desktop): **Total** (count), **Outstanding** (`$x.xx`, vital highlight border), **Overdue** (count; red when > 0), **Paid** (count).
 - **Aging panel** (toggled): heading **"Accounts Receivable Aging"**; 5 cells (`current`, `1-30`, `31-60`, `61-90`, `90+`) each showing `$total` and `"{n} inv."`; a right-aligned **"Grand total: $x.xx"**.
 - **Toolbar:** search input (Search icon) `"Search by invoice # or customer..."`; status `<select>` (Filter icon) with `All Statuses` + each status label.
 - **Table** (min-width 720px, horizontal scroll on mobile): columns **Invoice, Customer, Issue, Due, Total, Status, (actions)**.
@@ -330,11 +330,11 @@ Design tokens (Tailwind theme): `ink` (near-black text), `ink-muted`, `bronze` (
 - **Pagination footer** (when not loading and total > 0): `"Showing X–Y of Z"`, `"Page p of n"`, **Prev** (ChevronLeft) / **Next** (ChevronRight) buttons (disabled at ends, `opacity-40`). `PAGE_SIZE = 20`.
 
 ### New / Edit (`InvoiceForm`)
-Two-column layout (left = 2/3, right = 1/3). Field input class: `bg-surface border border-line rounded-lg ... focus:ring-bronze/40`.
+Two-column layout (left = 2/3, right = 1/3). Field input class: `bg-surface border border-line rounded-lg ... focus:ring-vital/40`.
 
 **Left column cards:**
 - **Invoice Details** (User icon):
-  - *Customer* picker: if linked, a bronze-tinted chip with avatar, name, email, an `emerald` "Linked" pill, and a **Change** button. If not linked, a search input `"Search customers or type a name for a guest invoice..."` with a dropdown of matches; the bottom row offers **`Create new customer "<query>"`** (UserPlus, bronze). When a query is typed with no selection, a hint shows: *`"<query>" will be saved as the customer name (guest invoice).`*
+  - *Customer* picker: if linked, a vital-tinted chip with avatar, name, email, an `emerald` "Linked" pill, and a **Change** button. If not linked, a search input `"Search customers or type a name for a guest invoice..."` with a dropdown of matches; the bottom row offers **`Create new customer "<query>"`** (UserPlus, vital). When a query is typed with no selection, a hint shows: *`"<query>" will be saved as the customer name (guest invoice).`*
   - *Issue Date* / *Due Date* date inputs (Due defaults to today + 30 days).
 - **Sales Person** (Briefcase icon): if selected, a purple chip showing name + `"Commission $x.xx (r%)"` and a **Change** button. Otherwise a search `"Search salespeople..."` with results (name, email · rate%) and a **`Create new salesperson "<query>"`** option (purple). Below: **Commission %** input and a read-only **Commission $** display.
 - **Line Items** (no icon): a helper line — if an active pricelist exists: *`Prices default from active pricelist <name> (editable per line).`*; else *`No active pricelist — using product default prices.`* Each line is a bordered `surface` card with a 12-col grid:
@@ -363,8 +363,8 @@ Two-column layout (left = 2/3, right = 1/3). Field input class: `bg-surface bord
 - **Backorder confirmation** (emerald): shown when submitting a "sent" (or editing a non-draft) invoice while a line exceeds stock. Copy: *`One or more line items exceed available stock. Sending this invoice now will create a backorder.`* + an amber list of `"<desc> — Only N in stock — will backorder"`. Button **Send and backorder** (dark). Drafts skip this (drafts always allow over-stock). On a real split, the user is redirected to `/admin/backorders`.
 
 ### Detail page (`/admin/invoices/[id]`)
-- **Header:** back arrow, mono invoice number, `"Issued <date> · Due <date>"`. Action buttons (when viewable): **View PDF** (FileText), **Download** (Download), **Edit** (Edit2 → edit page), **Send Email** (bronze, Send icon — admin only), **Record Payment** (emerald, DollarSign — admin only, hidden when paid).
-- **Left:** line-items table (Description, Qty, Unit $, Disc, Total) with a footer: Subtotal, `Tax (r%)`, Shipping, **Total**, `Paid` (− amount, when any), **Amount Due** (bronze). Below: **Payment History** card (method, optional `· reference`, timestamp, green amount) when payments exist. Bottom: **Delete invoice** (admin only) — inline confirm copy `"Delete this invoice and its line items + payments?"` with **Confirm delete** (red) / **Cancel**.
+- **Header:** back arrow, mono invoice number, `"Issued <date> · Due <date>"`. Action buttons (when viewable): **View PDF** (FileText), **Download** (Download), **Edit** (Edit2 → edit page), **Send Email** (vital, Send icon — admin only), **Record Payment** (emerald, DollarSign — admin only, hidden when paid).
+- **Left:** line-items table (Description, Qty, Unit $, Disc, Total) with a footer: Subtotal, `Tax (r%)`, Shipping, **Total**, `Paid` (− amount, when any), **Amount Due** (vital). Below: **Payment History** card (method, optional `· reference`, timestamp, green amount) when payments exist. Bottom: **Delete invoice** (admin only) — inline confirm copy `"Delete this invoice and its line items + payments?"` with **Confirm delete** (red) / **Cancel**.
 - **Right (SideCards):**
   - **Status** card: badge + Pencil to edit; editing shows a `<select>` (all status labels) + check (apply) / X (cancel). If applying `paid` will decrement stock, an amber note: *`Marking this paid will reduce stock for N product(s).`* Success toast (inline emerald box): *`Status updated — product stock has been reduced.`* or *`Status updated.`* (auto-clears after 5 s); error → red box.
   - **Customer** card (name/email/phone).
@@ -373,16 +373,16 @@ Two-column layout (left = 2/3, right = 1/3). Field input class: `bg-surface bord
   - **Dates** card (Issue / Due; Due red when overdue).
   - **Notes** card (when present, preserves whitespace).
 - **Mark-paid stock confirm modal:** title **"Confirm payment & stock update"** (AlertCircle amber); lists each stock-affected line with `− qty`; copy *`Marking <invoice_number> as paid will reduce inventory for the following product(s):`*; buttons **Cancel** / **Mark paid & reduce stock** (emerald).
-- **Send email modal:** title **"Send invoice email"** (Send, bronze).
+- **Send email modal:** title **"Send invoice email"** (Send, vital).
   - **To** input (prefilled from customer email; editable — supports a one-off recipient).
   - **"Also send a copy to (BCC)"**: lists configured copy recipients as checkboxes (all checked by default); ad-hoc additions are tagged **`one-off`** with an X to remove. If none configured: *`No admin copy recipients configured. Add some or paste one below to send just for this email.`* A row to **Add another email (won't be saved)** (Enter or **Add** button); errors `"Invalid email format"` / `"Already in the list"`. Helper: *`Configured under Settings → Invoice Emails. Adding here only affects this send.`*
   - **Template preview** (rendered with this invoice's merge vars): a card showing Subject, the body (whitespace-preserved, scrollable), and a footer `📎 <invoice_number>.pdf (attached)`. While loading: *`Loading template…`*. Helper link: *`Edit the template under Settings → Email templates.`*
-  - Error (red) / success (green: `"Sent to <to> (+N copy)"`) boxes; **Cancel** / **Send** (bronze). Modal auto-closes ~1.2 s after success.
+  - Error (red) / success (green: `"Sent to <to> (+N copy)"`) boxes; **Cancel** / **Send** (vital). Modal auto-closes ~1.2 s after success.
 - **Payment modal:** title **"Record Payment"** (emerald). **Amount** (number, prefilled to amount due, placeholder = due, helper `"Outstanding: $x.xx"`), **Method** select (Card / E-Transfer / Cash / Other), **Reference (optional)** (`"Txn ID / cheque #"`). Validation `"Enter a payment amount"`; server overpayment error surfaces in the red box. **Cancel** / **Record Payment** (emerald).
 
 ### PDF / printable invoice
-- **HTML route** (`buildInvoiceHtml`) is the on-screen "View PDF"/print page: A4, brand `AMINOCAN` + `aminocan.com · info@aminocan.com`, right-side `Invoice` + mono number + status pill (uses `pdfBg`/`pdfFg`), **Bill To** + optional **Sales Person**, a dates strip (Issue / Due / Invoice #), an items table (Description, Qty, Unit Price, Disc %, Total), totals (Subtotal, `Tax (r%)`, Shipping, **Total**, optional `Paid − $`, **Amount Due** in bronze), optional **Payment History**, optional **Notes**, footer `"Thank you for your business."` + `"Generated <datetime>"`. When `?download=1`, JS auto-calls `window.print()`.
-- **True PDF** (`renderInvoicePdf`, pdfkit) mirrors that layout (A4, 50pt margins, Helvetica/Courier fonts, bronze `#9C8B5A` amount-due, status pill via rounded rect) and is what's attached to emails.
+- **HTML route** (`buildInvoiceHtml`) is the on-screen "View PDF"/print page: A4, brand `VYTA` + `aminocan.com · info@aminocan.com`, right-side `Invoice` + mono number + status pill (uses `pdfBg`/`pdfFg`), **Bill To** + optional **Sales Person**, a dates strip (Issue / Due / Invoice #), an items table (Description, Qty, Unit Price, Disc %, Total), totals (Subtotal, `Tax (r%)`, Shipping, **Total**, optional `Paid − $`, **Amount Due** in vital), optional **Payment History**, optional **Notes**, footer `"Thank you for your business."` + `"Generated <datetime>"`. When `?download=1`, JS auto-calls `window.print()`.
+- **True PDF** (`renderInvoicePdf`, pdfkit) mirrors that layout (A4, 50pt margins, Helvetica/Courier fonts, vital `#438B9E` amount-due, status pill via rounded rect) and is what's attached to emails.
 
 ### Email templates & merge vars (`lib/invoice-email-templates.ts`)
 Defaults (also seeded in DB):

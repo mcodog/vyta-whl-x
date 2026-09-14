@@ -82,8 +82,8 @@ export default function FulfillmentAlerts() {
       <CollapsibleAlert
         tone="indigo"
         icon={
-          <div className="w-9 h-9 bg-bronze/10 rounded-lg flex items-center justify-center shrink-0">
-            <PackageCheck className="w-5 h-5 text-bronze" />
+          <div className="w-9 h-9 bg-vital/10 rounded-lg flex items-center justify-center shrink-0">
+            <PackageCheck className="w-5 h-5 text-vital" />
           </div>
         }
         title={<h2 className="text-base font-bold text-ink">Fulfillment activity</h2>}

@@ -1,8 +1,9 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
+import { VytaMark } from './VytaLogo';
 
-interface PuraLoaderProps {
+interface VytaLoaderProps {
   /**
    * Wordmark shown above the trace. Defaults to the internal-panel brand so it
    * reads the same as the admin sidebar.
@@ -29,11 +30,11 @@ const H_GRID = [24, 48];
 
 const EASE: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
-export default function PuraLoader({
-  brand = 'PURAMASS',
+export default function VytaLoader({
+  brand = 'VYTA',
   label = 'Admin Panel',
   message,
-}: PuraLoaderProps) {
+}: VytaLoaderProps) {
   const reduce = useReducedMotion();
 
   // One shared draw/hold/fade cycle so the trace, glow and scan line stay in
@@ -60,20 +61,21 @@ export default function PuraLoader({
       aria-live="polite"
       className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white px-6"
     >
-      {/* Soft bronze halo so the white panel still feels branded. */}
+      {/* Soft vital halo so the white panel still feels branded. */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(60% 55% at 50% 42%, rgba(156, 139, 90, 0.08), transparent 70%)',
+            'radial-gradient(60% 55% at 50% 42%, rgba(67, 139, 158, 0.08), transparent 70%)',
         }}
       />
 
       <div className="relative flex flex-col items-center">
-        {/* Wordmark with a bronze light-sweep across the letters. */}
-        <div className="text-2xl sm:text-3xl font-bold tracking-[0.18em] select-none">
-          <span className="animate-pura-shimmer">{brand}</span>
+        {/* The mark, then the wordmark with an aqua light-sweep across it. */}
+        <VytaMark size={56} className="mb-5" />
+        <div className="font-display text-2xl sm:text-3xl font-semibold tracking-[0.3em] select-none pl-[0.3em]">
+          <span className="animate-vyta-shimmer">{brand}</span>
         </div>
 
         {/* Purity-scan chromatogram. */}
@@ -91,7 +93,7 @@ export default function PuraLoader({
               y1={8}
               x2={x}
               y2={84}
-              stroke="#1A1A1A"
+              stroke="#07203A"
               strokeOpacity={0.05}
               strokeWidth={1}
             />
@@ -103,18 +105,18 @@ export default function PuraLoader({
               y1={y}
               x2={240}
               y2={y}
-              stroke="#1A1A1A"
+              stroke="#07203A"
               strokeOpacity={0.05}
               strokeWidth={1}
             />
           ))}
           {/* Baseline */}
-          <line x1={0} y1={72} x2={240} y2={72} stroke="#1A1A1A" strokeOpacity={0.12} strokeWidth={1} />
+          <line x1={0} y1={72} x2={240} y2={72} stroke="#07203A" strokeOpacity={0.12} strokeWidth={1} />
 
-          {/* Blurred bronze underglow */}
+          {/* Blurred vital underglow */}
           <motion.path
             d={TRACE_D}
-            stroke="#B8A876"
+            stroke="#6EB2B8"
             strokeWidth={6}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -123,10 +125,10 @@ export default function PuraLoader({
             animate={reduce ? { pathLength: 1, opacity: 0.35 } : { pathLength: [0, 1, 1], opacity: [0.45, 0.45, 0] }}
             transition={traceTransition}
           />
-          {/* Crisp bronze trace */}
+          {/* Crisp vital trace */}
           <motion.path
             d={TRACE_D}
-            stroke="#9C8B5A"
+            stroke="#438B9E"
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -141,7 +143,7 @@ export default function PuraLoader({
               y1={8}
               x2={0}
               y2={84}
-              stroke="#9C8B5A"
+              stroke="#438B9E"
               strokeWidth={1.5}
               strokeOpacity={0.5}
               initial={{ x: 0, opacity: 0 }}
@@ -153,7 +155,7 @@ export default function PuraLoader({
 
         {/* Caption */}
         {label && (
-          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze">
+          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-vital">
             {label}
           </p>
         )}

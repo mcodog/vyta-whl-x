@@ -117,12 +117,12 @@ A `shape(data)` helper normalizes the response: missing values default to `check
 **Card: Checkout Type** (`CreditCard` icon, "Select which checkout system to use for customer orders"). Two selectable cards in a 2-col grid:
 - **Email Invoice** (`Send` icon) — "Send invoices via email and process payments manually".
 - **Cryptocurrency** (`CreditCard` icon) — "Accept Bitcoin, Ethereum, and Solana payments".
-- Selected card: bronze border + `bg-bronze/5` + a bronze check circle (top-right). Disabled/dimmed while saving or read-only.
+- Selected card: vital border + `bg-vital/5` + a vital check circle (top-right). Disabled/dimmed while saving or read-only.
 
 **Card: Admin Email Notifications** (`Mail` icon, "Add email addresses that will receive order notifications and low-stock alerts").
 - Input (`type=email`, placeholder `admin@example.com`) + **Add** button (`Plus`). Enter key adds. Inline red error under the input (`Email cannot be empty` / `Invalid email format` / `Email already added`).
 - Empty state: "No admin emails configured. Add at least one email address."
-- List: each row = bronze mail-icon chip + the email (break-all) + a trash button (hover red) to remove.
+- List: each row = vital mail-icon chip + the email (break-all) + a trash button (hover red) to remove.
 
 **Card: Invoice Emails** (`FileText` icon). Copy: "When an admin sends an invoice from the invoice page, a copy (BCC, hidden from the customer) goes to every address below."
 - Input (placeholder `finance@example.com`) + **Add** button; same validation errors as above.
@@ -136,7 +136,7 @@ A `shape(data)` helper normalizes the response: missing values default to `check
 **Card: Guest Checkout** (`Users` icon, "Allow customers to checkout without creating an account"). Two selectable cards:
 - **Enabled** (`ToggleRight`) — "Anyone can checkout without an account".
 - **Disabled** (`ToggleLeft`) — "Customers must sign in to place an order".
-- Same selected styling (bronze border + check circle).
+- Same selected styling (vital border + check circle).
 
 **Info box** (blue `bg-blue-50 border-blue-200`, `AlertCircle`), "Important Notes:" bulleted list:
 - "Changes to checkout type take effect immediately"

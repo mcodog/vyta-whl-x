@@ -32,7 +32,7 @@ export default function ProductTicker() {
   if (products.length === 0) return null;
 
   return (
-    <div className="bg-gray-900 border-t border-white/[0.06] overflow-hidden">
+    <div className="bg-ink border-t border-white/[0.06] overflow-hidden">
       <div className="relative py-2.5">
         <div className="flex animate-ticker whitespace-nowrap">
           {products.map((product, index) => (

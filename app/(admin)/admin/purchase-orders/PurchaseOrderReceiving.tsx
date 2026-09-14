@@ -104,7 +104,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
       <div className="bg-white rounded-xl border border-line p-5">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
-            <PackageCheck className="w-4 h-4 text-bronze" /> Receiving
+            <PackageCheck className="w-4 h-4 text-vital" /> Receiving
           </h3>
           <span className="text-sm font-semibold text-ink tabular-nums">
             {totals.pct}% complete
@@ -113,7 +113,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
 
         <div className="h-2 w-full rounded-full bg-surface overflow-hidden">
           <div
-            className={`h-full rounded-full transition-all ${fullyReceived ? 'bg-emerald-500' : 'bg-bronze'}`}
+            className={`h-full rounded-full transition-all ${fullyReceived ? 'bg-emerald-500' : 'bg-vital'}`}
             style={{ width: `${totals.pct}%` }}
           />
         </div>
@@ -162,7 +162,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
                     <td className="py-2 pl-4">
                       <div className="h-1.5 w-full rounded-full bg-surface overflow-hidden">
                         <div
-                          className={`h-full rounded-full ${remaining <= 0 ? 'bg-emerald-500' : 'bg-bronze'}`}
+                          className={`h-full rounded-full ${remaining <= 0 ? 'bg-emerald-500' : 'bg-vital'}`}
                           style={{ width: `${pct}%` }}
                         />
                       </div>
@@ -193,7 +193,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
                   <span>Remaining <span className={`tabular-nums ${remaining > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>{remaining}</span></span>
                 </div>
                 <div className="mt-1.5 h-1.5 w-full rounded-full bg-surface overflow-hidden">
-                  <div className={`h-full rounded-full ${remaining <= 0 ? 'bg-emerald-500' : 'bg-bronze'}`} style={{ width: `${pct}%` }} />
+                  <div className={`h-full rounded-full ${remaining <= 0 ? 'bg-emerald-500' : 'bg-vital'}`} style={{ width: `${pct}%` }} />
                 </div>
               </li>
             );
@@ -226,7 +226,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
 
       {/* Receive form */}
       {open && (
-        <div className="bg-white rounded-xl border border-bronze/40 p-5">
+        <div className="bg-white rounded-xl border border-vital/40 p-5">
           <h3 className="text-sm font-semibold text-ink mb-3">Record a receipt</h3>
           {/* Desktop table (≥lg) / mobile cards — ADR 0007. */}
           <div className="hidden lg:block overflow-x-auto">
@@ -262,7 +262,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
                           value={draft[i.id] ?? ''}
                           onChange={(e) => setDraft((d) => ({ ...d, [i.id]: e.target.value }))}
                           placeholder="0"
-                          className="w-24 text-right bg-surface border border-line rounded-lg px-3 py-1.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-40"
+                          className="w-24 text-right bg-surface border border-line rounded-lg px-3 py-1.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-40"
                         />
                         {showVials && (
                           <div className="mt-1 text-xs text-ink-muted tabular-nums">
@@ -300,7 +300,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
                         value={draft[i.id] ?? ''}
                         onChange={(e) => setDraft((d) => ({ ...d, [i.id]: e.target.value }))}
                         placeholder="0"
-                        className="w-24 text-right bg-surface border border-line rounded-lg px-3 py-2 text-base text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-40"
+                        className="w-24 text-right bg-surface border border-line rounded-lg px-3 py-2 text-base text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-40"
                       />
                       {showVials && <div className="mt-1 text-xs text-ink-muted tabular-nums">adds {toVials(i, drafted)} vials</div>}
                     </div>
@@ -317,7 +317,7 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
               value={note}
               onChange={(e) => setNote(e.target.value)}
               placeholder="e.g. Partial delivery, 2 boxes damaged"
-              className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
 
@@ -351,12 +351,12 @@ export default function PurchaseOrderReceiving({ po, onChanged }: Props) {
       {receipts.length > 0 && (
         <div className="bg-white rounded-xl border border-line p-5">
           <h3 className="text-sm font-semibold text-ink flex items-center gap-2 mb-3">
-            <History className="w-4 h-4 text-bronze" /> Process History
+            <History className="w-4 h-4 text-vital" /> Process History
           </h3>
           <ol className="space-y-3">
             {receipts.map((r) => (
               <li key={r.id} className="relative pl-5 border-l border-line">
-                <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-bronze" />
+                <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-vital" />
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="text-sm font-medium text-ink">
                     {new Date(r.created_at).toLocaleString()}

@@ -458,9 +458,9 @@ export default function DeletionReviewModal({
 
               {/* Guest preview */}
               {needsGuest && (
-                <div className="rounded-xl border border-bronze/30 bg-bronze/5 p-4">
+                <div className="rounded-xl border border-vital/30 bg-vital/5 p-4">
                   <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-bronze/10 text-bronze">
+                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-vital/10 text-vital">
                       <UserPlus className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -474,7 +474,7 @@ export default function DeletionReviewModal({
                         value={plan.guestName ?? ''}
                         onChange={(e) => setPlan((p) => ({ ...p, guestName: e.target.value }))}
                         placeholder={review.name || 'Guest name'}
-                        className="mt-2.5 w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-ink-light focus:border-bronze focus:outline-none"
+                        className="mt-2.5 w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-ink-light focus:border-vital focus:outline-none"
                       />
                     </div>
                   </div>
@@ -488,7 +488,7 @@ export default function DeletionReviewModal({
                     type="checkbox"
                     checked={plan.snapshot}
                     onChange={(e) => setPlan((p) => ({ ...p, snapshot: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 rounded border-line text-bronze focus:ring-bronze"
+                    className="mt-0.5 h-4 w-4 rounded border-line text-vital focus:ring-vital"
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">

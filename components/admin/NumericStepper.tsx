@@ -83,7 +83,7 @@ export default function NumericStepper({
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           disabled={disabled}
-          className="w-full pl-10 pr-4 py-2.5 bg-surface border-y border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:z-10 text-ink text-sm disabled:opacity-50 disabled:cursor-not-allowed text-center font-semibold tabular-nums"
+          className="w-full pl-10 pr-4 py-2.5 bg-surface border-y border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:z-10 text-ink text-sm disabled:opacity-50 disabled:cursor-not-allowed text-center font-semibold tabular-nums"
         />
       </div>
 

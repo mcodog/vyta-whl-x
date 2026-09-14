@@ -20,17 +20,17 @@ export default function ChatBubble() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.15 }}
-            className="absolute bottom-16 sm:bottom-20 right-0 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl shadow-slate-900/20 border border-slate-200 overflow-hidden"
+            className="absolute bottom-16 sm:bottom-20 right-0 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-vital-200 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-slate-900 to-slate-950 px-5 py-4">
+            <div className="bg-brand-diagonal px-5 py-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-cyan-500/20 rounded-xl flex items-center justify-center">
-                  <Beaker className="w-5 h-5 text-cyan-400" />
+                <div className="w-10 h-10 bg-vital-500/20 rounded-xl flex items-center justify-center">
+                  <Beaker className="w-5 h-5 text-aqua" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold text-sm">Research Support</h3>
-                  <p className="text-slate-400 text-xs mt-0.5">We're here to help</p>
+                  <p className="text-mist/80 text-xs mt-0.5">We're here to help</p>
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@ export default function ChatBubble() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group border border-transparent hover:border-slate-100"
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-vital-50 transition-colors group border border-transparent hover:border-vital-100"
               >
                 <div className="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
                   <svg viewBox="0 0 24 24" className="w-5 h-5 text-green-600 fill-current">
@@ -50,8 +50,8 @@ export default function ChatBubble() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-slate-900">WhatsApp</p>
-                  <p className="text-xs text-slate-500">Quick response</p>
+                  <p className="text-sm font-semibold text-ink">WhatsApp</p>
+                  <p className="text-xs text-ink-muted">Quick response</p>
                 </div>
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               </a>
@@ -59,21 +59,21 @@ export default function ChatBubble() {
               {/* Email */}
               <a
                 href="mailto:support@aminocan.com"
-                className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group border border-transparent hover:border-slate-100"
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-vital-50 transition-colors group border border-transparent hover:border-vital-100"
               >
-                <div className="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                  <Mail className="w-5 h-5 text-cyan-600" />
+                <div className="w-10 h-10 bg-vital-500/10 rounded-xl flex items-center justify-center group-hover:bg-vital-500/20 transition-colors">
+                  <Mail className="w-5 h-5 text-vital-600" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-slate-900">Email Support</p>
-                  <p className="text-xs text-slate-500">support@aminocan.com</p>
+                  <p className="text-sm font-semibold text-ink">Email Support</p>
+                  <p className="text-xs text-ink-muted">support@aminocan.com</p>
                 </div>
               </a>
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-3 bg-slate-50 border-t border-slate-100">
-              <p className="text-[10px] text-slate-400 text-center">
+            <div className="px-4 py-3 bg-vital-50 border-t border-vital-100">
+              <p className="text-[10px] text-ink-light text-center">
                 Typical response time: Under 24 hours
               </p>
             </div>
@@ -86,8 +86,8 @@ export default function ChatBubble() {
         onClick={() => setIsOpen(!isOpen)}
         className={`w-12 sm:w-14 h-12 sm:h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-200 ${
           isOpen
-            ? 'bg-slate-900 hover:bg-slate-800'
-            : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-lg shadow-cyan-500/30'
+            ? 'bg-ink hover:bg-vital-800'
+            : 'bg-gradient-to-r from-vital-500 to-vital-700 hover:from-vital-600 hover:to-vital-800 shadow-lg shadow-vital-500/30'
         }`}
       >
         {isOpen ? (

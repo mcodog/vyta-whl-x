@@ -182,7 +182,7 @@ export default function InvoiceExportSettingsPage() {
 
           {items.map((d) =>
             editId === d.id ? (
-              <div key={d.id} className="bg-white rounded-xl border border-bronze/40 p-5 space-y-3">
+              <div key={d.id} className="bg-white rounded-xl border border-vital/40 p-5 space-y-3">
                 <DestinationFields draft={editDraft} setDraft={setEditDraft} secretPlaceholder="Leave blank to keep current secret" />
                 <div className="flex items-center gap-2 justify-end">
                   <button onClick={() => setEditId(null)} disabled={saving} className="px-3 py-2 text-sm text-ink-muted hover:text-ink disabled:opacity-50">Cancel</button>
@@ -196,7 +196,7 @@ export default function InvoiceExportSettingsPage() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-bronze flex-shrink-0" />
+                      <ExternalLink className="w-4 h-4 text-vital flex-shrink-0" />
                       <h3 className="font-semibold text-ink truncate">{d.label}</h3>
                       {!d.enabled && (
                         <span className="text-[11px] px-2 py-0.5 rounded-full bg-surface border border-line text-ink-muted">Disabled</span>
@@ -228,12 +228,12 @@ export default function InvoiceExportSettingsPage() {
           )}
 
           {adding ? (
-            <div className="bg-white rounded-xl border border-bronze/40 p-5 space-y-3">
+            <div className="bg-white rounded-xl border border-vital/40 p-5 space-y-3">
               <h3 className="font-semibold text-ink text-sm">New destination</h3>
               <DestinationFields draft={draft} setDraft={setDraft} secretPlaceholder="Shared secret (matches the EF's IMPORT_INVOICE_SECRET)" />
               <div className="flex items-center gap-2 justify-end">
                 <button onClick={() => { setAdding(false); setDraft(EMPTY_DRAFT); setError(''); }} disabled={saving} className="px-3 py-2 text-sm text-ink-muted hover:text-ink disabled:opacity-50">Cancel</button>
-                <button onClick={submitNew} disabled={saving} className="inline-flex items-center gap-2 px-4 py-2 bg-bronze text-white rounded-lg text-sm font-medium disabled:opacity-50">
+                <button onClick={submitNew} disabled={saving} className="inline-flex items-center gap-2 px-4 py-2 bg-vital text-white rounded-lg text-sm font-medium disabled:opacity-50">
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Add destination
                 </button>
               </div>
@@ -242,7 +242,7 @@ export default function InvoiceExportSettingsPage() {
             !isReadOnly && (
               <button
                 onClick={() => { setAdding(true); setError(''); }}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-dashed border-line hover:border-bronze/40 text-ink rounded-xl text-sm font-medium w-full justify-center"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-dashed border-line hover:border-vital/40 text-ink rounded-xl text-sm font-medium w-full justify-center"
               >
                 <Plus className="w-4 h-4" /> Add a destination
               </button>
@@ -269,7 +269,7 @@ function DestinationFields({
           value={draft.label}
           onChange={(e) => setDraft((s) => ({ ...s, label: e.target.value }))}
           placeholder="e.g. EU store"
-          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
         />
       </div>
       <div>
@@ -278,7 +278,7 @@ function DestinationFields({
           value={draft.edge_function_url}
           onChange={(e) => setDraft((s) => ({ ...s, edge_function_url: e.target.value }))}
           placeholder="https://<project>.supabase.co/functions/v1/import-invoice"
-          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
         />
       </div>
       <div>
@@ -289,7 +289,7 @@ function DestinationFields({
           onChange={(e) => setDraft((s) => ({ ...s, secret: e.target.value }))}
           placeholder={secretPlaceholder}
           autoComplete="new-password"
-          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
         />
       </div>
       <div>
@@ -298,7 +298,7 @@ function DestinationFields({
           value={draft.notes}
           onChange={(e) => setDraft((s) => ({ ...s, notes: e.target.value }))}
           placeholder="Anything worth remembering about this site"
-          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
         />
       </div>
     </>

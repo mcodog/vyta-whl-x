@@ -206,10 +206,10 @@ export default function PrepaidPurchaseOrders({
   // ------------------------------------------------------------------------
   return (
     <div className="bg-white rounded-xl border border-line overflow-hidden">
-      <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-line bg-gradient-to-r from-bronze/5 to-transparent">
+      <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-line bg-gradient-to-r from-vital/5 to-transparent">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-bronze/10 flex items-center justify-center">
-            <PackageSearch className="w-4 h-4 text-bronze" />
+          <div className="w-8 h-8 rounded-lg bg-vital/10 flex items-center justify-center">
+            <PackageSearch className="w-4 h-4 text-vital" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-ink">Supplier Purchase Orders</h3>
@@ -256,7 +256,7 @@ export default function PrepaidPurchaseOrders({
                         <div className="min-w-0">
                           <Link
                             href={`/admin/purchase-orders/${po.id}`}
-                            className="font-mono text-sm text-ink hover:text-bronze inline-flex items-center gap-1"
+                            className="font-mono text-sm text-ink hover:text-vital inline-flex items-center gap-1"
                           >
                             {po.po_number} <ExternalLink className="w-3 h-3" />
                           </Link>
@@ -378,7 +378,7 @@ export default function PrepaidPurchaseOrders({
                             <div key={g.supplier_id} className="border border-line rounded-lg p-3.5 bg-surface/40">
                               <div className="flex items-center justify-between gap-2">
                                 <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
-                                  <Building2 className="w-4 h-4 text-bronze" /> {g.supplier_name}
+                                  <Building2 className="w-4 h-4 text-vital" /> {g.supplier_name}
                                 </div>
                                 {supplier?.lead_time_days != null && (
                                   <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted">

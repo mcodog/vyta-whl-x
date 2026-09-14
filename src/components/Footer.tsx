@@ -47,7 +47,7 @@ export default function Footer() {
                 </span>
               </div>
               <span className="text-xl font-semibold tracking-tight">
-                Aminocan
+                VYTA
               </span>
             </Link>
             <p className="text-neutral-400 leading-relaxed mb-6 max-w-xs">
@@ -104,7 +104,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-neutral-500">
-              &copy; {new Date().getFullYear()} Aminocan. All rights reserved.
+              &copy; {new Date().getFullYear()} VYTA. All rights reserved.
             </p>
             <p className="text-xs text-neutral-600 text-center sm:text-right max-w-md">
               For research purposes only. Not intended for human consumption.

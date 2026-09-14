@@ -256,11 +256,11 @@ function ProductsPage() {
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="molecular-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1.5" fill="#1A1A1A" />
-                <circle cx="0" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="0" cy="60" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="60" r="1" fill="#1A1A1A" />
+                <circle cx="30" cy="30" r="1.5" fill="#07203A" />
+                <circle cx="0" cy="0" r="1" fill="#07203A" />
+                <circle cx="60" cy="0" r="1" fill="#07203A" />
+                <circle cx="0" cy="60" r="1" fill="#07203A" />
+                <circle cx="60" cy="60" r="1" fill="#07203A" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#molecular-grid)" />
@@ -273,9 +273,9 @@ function ProductsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/10 border border-bronze/20 rounded-full mb-4">
-              <Beaker className="w-3.5 h-3.5 text-bronze" />
-              <span className="text-xs font-medium text-bronze">Pharmaceutical Grade Quality</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-vital/10 border border-vital/20 rounded-full mb-4">
+              <Beaker className="w-3.5 h-3.5 text-vital" />
+              <span className="text-xs font-medium text-vital">Pharmaceutical Grade Quality</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ink">
               Research Compound Catalog
@@ -329,7 +329,7 @@ function ProductsPage() {
                 placeholder="Search compounds..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
+                className="w-full pl-11 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm"
               />
             </div>
 
@@ -344,7 +344,7 @@ function ProductsPage() {
                 className="flex items-center gap-2 text-sm select-none"
                 title="Show only compounds with a Certificate of Analysis"
               >
-                <span className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${showCoaOnly ? 'bg-bronze' : 'bg-line'}`}>
+                <span className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${showCoaOnly ? 'bg-vital' : 'bg-line'}`}>
                   <span
                     className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${showCoaOnly ? 'translate-x-6' : 'translate-x-1'}`}
                   />
@@ -475,7 +475,7 @@ function ProductsPage() {
                         {/* Purity Badge - Bronze accent */}
                         {product.purity && product.purity.trim() && (
                           <div className="absolute top-3 left-3">
-                            <span className="text-[10px] font-semibold text-bronze bg-bronze-50 px-2 py-1 rounded-full border border-bronze/20">
+                            <span className="text-[10px] font-semibold text-vital bg-vital-50 px-2 py-1 rounded-full border border-vital/20">
                               {product.purity}
                             </span>
                           </div>
@@ -520,7 +520,7 @@ function ProductsPage() {
                             href={product.coa_url[0]}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 border border-bronze/40 text-bronze hover:bg-bronze hover:text-white text-xs font-medium rounded-lg transition-all"
+                            className="flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 border border-vital/40 text-vital hover:bg-vital hover:text-white text-xs font-medium rounded-lg transition-all"
                             aria-label={
                               product.coa_url.length > 1
                                 ? `View Certificate of Analysis for ${product.name} (${product.coa_url.length} available)`
@@ -574,7 +574,7 @@ function ProductsPage() {
                   className="flex items-center justify-center py-10"
                 >
                   <div className="flex items-center gap-2 text-sm text-ink-muted">
-                    <div className="w-4 h-4 border-2 border-line border-t-bronze rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-line border-t-vital rounded-full animate-spin" />
                     Loading more compounds…
                   </div>
                 </div>
@@ -590,7 +590,7 @@ function ProductsPage() {
           <div className="bg-ink rounded-2xl p-6 sm:p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-bronze mb-1 tabular-nums">99%+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-vital mb-1 tabular-nums">99%+</div>
                 <div className="text-xs sm:text-sm text-white/60">Verified Purity</div>
               </div>
               <div className="text-center">

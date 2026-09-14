@@ -2,25 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===========================================================================
+   VYTA Biosciences — Brand Identity Guidelines v1.0
+   Midnight Navy anchors; Bio Teal and Aqua add vitality; Mist and Cloud
+   create breathing room. Keep these in sync with tailwind.config.ts.
+   =========================================================================== */
 :root {
-  /* PURA Color System */
-  --color-ink: #1A1A1A;
-  --color-ink-muted: #6E6E6E;
-  --color-bronze: #9C8B5A;
-  --color-bronze-light: #B8A876;
+  /* Core palette */
+  --color-navy: #07203A;   /* Midnight Navy */
+  --color-ocean: #0E3F5F;  /* Deep Ocean */
+  --color-vital-blue: #1B5D83;
+  --color-teal: #438B9E;   /* Bio Teal */
+  --color-aqua: #6EB2B8;
+  --color-mist: #BBD6D6;
+  --color-cloud: #F7FAFB;
+
+  /* Semantic tokens */
+  --color-ink: var(--color-navy);
+  --color-ink-muted: #4E6E85;
+  --color-vital: var(--color-teal);
+  --color-vital-light: var(--color-aqua);
   --color-bg: #FFFFFF;
-  --color-surface: #F7F7F7;
-  --color-surface-2: #F2F2F2;
-  --color-line: #C9CCD1;
+  --color-surface: var(--color-cloud);
+  --color-surface-2: #EFF5F7;
+  --color-line: #D5E2E7;
 
   /* Legacy mappings */
   --background: #ffffff;
-  --foreground: #1A1A1A;
-  --primary: #1A1A1A;
-  --primary-dark: #000000;
-  --secondary: #6E6E6E;
-  --accent: #9C8B5A;
-  --border: #C9CCD1;
+  --foreground: #07203A;
+  --primary: #07203A;
+  --primary-dark: #041524;
+  --secondary: #4E6E85;
+  --accent: #438B9E;
+  --border: #D5E2E7;
   --success: #22c55e;
 }
 
@@ -35,11 +49,13 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+  /* Cloud → white → Cloud: the generous, calm ground the guidelines ask for. */
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-cloud) 50%, #FFFFFF 100%);
   min-height: 100vh;
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
 }
 
 /* Global pointer cursor for all clickable elements */
@@ -66,17 +82,32 @@ select:disabled,
   cursor: not-allowed;
 }
 
+@layer base {
+  /* Headings / product names / campaigns run in Inter's display optical size,
+     tightened a touch so large type sets like the guideline specimens. */
+  h1, h2, h3, h4 {
+    font-variation-settings: 'opsz' 32;
+    letter-spacing: -0.02em;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Clean glass effect */
+  /* Inter Display: the display optical size, for headings and campaign type. */
+  .font-display {
+    font-variation-settings: 'opsz' 32;
+    letter-spacing: -0.02em;
+  }
+
+  /* Clean glass effect — a cool, Mist-tinted edge rather than a neutral one. */
   .glass {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(7, 32, 58, 0.06);
   }
 
   /* Tabular numbers for stats */
@@ -90,7 +121,13 @@ select:disabled,
   }
 
   .card-hover:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(7, 32, 58, 0.08);
+  }
+
+  /* The brand rule: the navy → aqua sweep used under section headers, on
+     dividers and as a top edge on key cards. */
+  .brand-rule {
+    background-image: linear-gradient(90deg, #07203A 0%, #0E3F5F 35%, #438B9E 75%, #6EB2B8 100%);
   }
 
   /* Hide scrollbar but allow scrolling */
@@ -133,27 +170,30 @@ select:disabled,
     }
   }
 
-  /* Pulls the purple-toned hero still toward ink/bronze. Tuned for
+  /* Pulls the purple-toned hero still into the Midnight Navy / Deep Ocean
+     range: desaturate first, then re-tint through sepia + hue-rotate so the
+     molecular cues come back as cool highlights rather than magenta. Tuned for
      /images/hero-bg.jpeg — re-tune (or drop) for a different image. */
   .hero-still-grade {
-    filter: saturate(0.4) sepia(0.45) hue-rotate(-10deg) brightness(0.62) contrast(1.08);
+    filter: grayscale(0.75) sepia(0.65) hue-rotate(195deg) saturate(2.6)
+      brightness(0.52) contrast(1.18);
   }
 
-  /* PURA wordmark light-sweep: a bronze highlight slides across the letters
-     via a clipped gradient, pausing off-screen at each end so it reads as a
-     periodic shine rather than a continuous scroll. Used by <PuraLoader>. */
-  @keyframes pura-shimmer {
+  /* VYTA wordmark light-sweep: an aqua highlight slides across the letters via
+     a clipped gradient, pausing off-screen at each end so it reads as a
+     periodic shine rather than a continuous scroll. Used by <VytaLoader>. */
+  @keyframes vyta-shimmer {
     0%, 18%   { background-position: 160% 0; }
     82%, 100% { background-position: -60% 0; }
   }
-  .animate-pura-shimmer {
+  .animate-vyta-shimmer {
     background-image: linear-gradient(
       105deg,
-      #1A1A1A 0%,
-      #1A1A1A 38%,
-      #B8A876 50%,
-      #1A1A1A 62%,
-      #1A1A1A 100%
+      #07203A 0%,
+      #07203A 38%,
+      #6EB2B8 50%,
+      #07203A 62%,
+      #07203A 100%
     );
     background-size: 260% 100%;
     background-position: 160% 0;
@@ -161,16 +201,16 @@ select:disabled,
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    animation: pura-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: vyta-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    /* Freeze to solid ink — no clipped gradient, no sweep. */
-    .animate-pura-shimmer {
+    /* Freeze to solid navy — no clipped gradient, no sweep. */
+    .animate-vyta-shimmer {
       animation: none;
       background-image: none;
-      color: #1A1A1A;
-      -webkit-text-fill-color: #1A1A1A;
+      color: #07203A;
+      -webkit-text-fill-color: #07203A;
     }
   }
 
@@ -196,9 +236,9 @@ select:disabled,
   }
 }
 
-/* Selection color - PURA bronze */
+/* Selection color — Bio Teal */
 ::selection {
-  background-color: rgba(156, 139, 90, 0.2);
+  background-color: rgba(67, 139, 158, 0.22);
   color: inherit;
 }
 
@@ -209,7 +249,7 @@ select:focus,
 button:focus-visible {
   outline: none;
   ring: 2px;
-  ring-color: rgba(156, 139, 90, 0.4);
+  ring-color: rgba(67, 139, 158, 0.4);
 }
 
 /* Container utility */

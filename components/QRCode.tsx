@@ -12,10 +12,10 @@ export default function QRCode({ value, size = 200, className = '' }: QRCodeProp
   if (!value) {
     return (
       <div
-        className={`bg-gray-100 rounded-lg flex items-center justify-center ${className}`}
+        className={`bg-vital-100 rounded-lg flex items-center justify-center ${className}`}
         style={{ width: size, height: size }}
       >
-        <span className="text-gray-400 text-sm">No address</span>
+        <span className="text-ink-light text-sm">No address</span>
       </div>
     );
   }

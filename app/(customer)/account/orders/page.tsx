@@ -50,7 +50,7 @@ export default function OrderHistoryPage() {
   if (customerLoading || (loading && customer)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
-        <Loader2 className="w-6 h-6 text-bronze animate-spin" />
+        <Loader2 className="w-6 h-6 text-vital animate-spin" />
       </div>
     );
   }
@@ -120,7 +120,7 @@ export default function OrderHistoryPage() {
                         </span>
                       );
                     })()}
-                    <ExternalLink className="w-4 h-4 text-ink-muted group-hover:text-bronze transition-colors" />
+                    <ExternalLink className="w-4 h-4 text-ink-muted group-hover:text-vital transition-colors" />
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 text-sm">

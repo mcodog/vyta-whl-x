@@ -42,7 +42,7 @@ export default function StockRequestsPage() {
       {/* Header */}
       <div className="mb-6 sm:mb-8">
         <div className="flex items-center gap-2 mb-1">
-          <Bell className="w-5 h-5 text-bronze" />
+          <Bell className="w-5 h-5 text-vital" />
           <h1 className="text-xl sm:text-2xl font-bold text-ink">Stock Requests</h1>
         </div>
         <p className="text-sm text-ink-muted">
@@ -129,7 +129,7 @@ export default function StockRequestsPage() {
                       </div>
                     </td>
                     <td className="px-5 py-4">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-bronze/10 text-bronze tabular-nums">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-vital/10 text-vital tabular-nums">
                         <Bell className="w-3.5 h-3.5" />
                         {p.count}
                       </span>
@@ -176,7 +176,7 @@ export default function StockRequestsPage() {
                     <div className="text-sm font-medium text-ink">{p.name || 'Unknown product'}</div>
                     {p.price != null && <div className="text-xs text-ink-muted tabular-nums">${p.price}</div>}
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-bronze/10 text-bronze tabular-nums shrink-0">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-vital/10 text-vital tabular-nums shrink-0">
                     <Bell className="w-3.5 h-3.5" />
                     {p.count}
                   </span>

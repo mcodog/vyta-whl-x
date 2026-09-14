@@ -33,7 +33,7 @@ export default function PaymentShell({
             )}
           </div>
           <div className="hidden sm:flex items-center gap-1.5 text-xs text-ink-muted">
-            <ShieldCheck className="w-4 h-4 text-bronze" />
+            <ShieldCheck className="w-4 h-4 text-vital" />
             Secure payment
           </div>
         </div>

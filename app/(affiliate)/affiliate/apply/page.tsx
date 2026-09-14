@@ -82,12 +82,12 @@ export default function AffiliateApplyPage() {
       <Navigation />
       <section className="max-w-2xl mx-auto px-5 sm:px-8 pt-36 pb-20">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-bronze/10 rounded-xl mb-4">
-            <Users className="w-6 h-6 text-bronze" />
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-vital/10 rounded-xl mb-4">
+            <Users className="w-6 h-6 text-vital" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-ink mb-2">Become an Affiliate</h1>
           <p className="text-ink-muted text-sm sm:text-base">
-            Earn commission on every customer you bring to Aminocan. Submit a request and our team will review it.
+            Earn commission on every customer you bring to VYTA. Submit a request and our team will review it.
           </p>
         </div>
 
@@ -136,7 +136,7 @@ export default function AffiliateApplyPage() {
                   value={wallet}
                   onChange={(e) => setWallet(e.target.value)}
                   placeholder="0x..."
-                  className="w-full pl-10 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-ink placeholder-ink-muted text-sm"
+                  className="w-full pl-10 pr-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-ink placeholder-ink-muted text-sm"
                 />
               </div>
             </div>
@@ -149,8 +149,8 @@ export default function AffiliateApplyPage() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
-                placeholder="How do you plan to promote Aminocan? Audience, channels, etc."
-                className="w-full px-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-ink placeholder-ink-muted text-sm resize-none"
+                placeholder="How do you plan to promote VYTA? Audience, channels, etc."
+                className="w-full px-4 py-3 bg-surface rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-ink placeholder-ink-muted text-sm resize-none"
               />
             </div>
 

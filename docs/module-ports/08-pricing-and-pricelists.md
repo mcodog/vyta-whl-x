@@ -156,7 +156,7 @@ Uses the `xlsx` package (`XLSX.read` / `sheet_to_json`). Service-role client wit
 
 ### Supporting components
 - **`components/admin/MultiSelectCustomer.tsx`** — chip-style multi-select with search, "Select All (N)", clear-all, per-chip remove; closes on outside click. Displays customer name (or email fallback).
-- **`components/admin/ProductToggleSelector.tsx`** — searchable single-select list of products showing name + `$price`; selected row highlighted bronze with a left border; footer `Selected: <name>`.
+- **`components/admin/ProductToggleSelector.tsx`** — searchable single-select list of products showing name + `$price`; selected row highlighted vital with a left border; footer `Selected: <name>`.
 - **`components/admin/NumericStepper.tsx`** — money input with − / + buttons (step default 1), `$` prefix icon, `inputMode="decimal"`, formats to 2 dp on blur, clamps to `min` (default 0). Value is a **string**.
 
 ### Active-pricelist consumption (cross-module)
@@ -166,14 +166,14 @@ Uses the `xlsx` package (`XLSX.read` / `sheet_to_json`). Service-role client wit
 
 ## UI/UX specification
 
-Same design tokens as the rest of admin: `ink`, `ink-muted`, `bronze`, `surface`, `line`.
+Same design tokens as the rest of admin: `ink`, `ink-muted`, `vital`, `surface`, `line`.
 
 ### Pricelists tab
-- **Header:** `Pricelists` (Tag, bronze) + sub-line *`The active pricelist sets default unit prices when adding invoice line items.`* Right: **New Pricelist** (Plus, dark `bg-ink`).
+- **Header:** `Pricelists` (Tag, vital) + sub-line *`The active pricelist sets default unit prices when adding invoice line items.`* Right: **New Pricelist** (Plus, dark `bg-ink`).
 - **Error** surfaces in a red box (AlertCircle).
-- **Create form** (toggled open by New Pricelist): heading *`Create a new pricelist`*; **Name** input (placeholder `e.g. Wholesale, Retail…`); **Seed prices from** select with options `Product default prices` and `Copy of: <name>` for each existing list. Buttons **Cancel** / **Create** (bronze; spinner while creating). Validation: `"Enter a name for the pricelist"`.
+- **Create form** (toggled open by New Pricelist): heading *`Create a new pricelist`*; **Name** input (placeholder `e.g. Wholesale, Retail…`); **Seed prices from** select with options `Product default prices` and `Copy of: <name>` for each existing list. Buttons **Cancel** / **Create** (vital; spinner while creating). Validation: `"Enter a name for the pricelist"`.
 - **Table** (min-width 560px): columns **Pricelist, Products, Status, (actions)**.
-  - Pricelist cell: name; a filled bronze **Star** prefixes the active list.
+  - Pricelist cell: name; a filled vital **Star** prefixes the active list.
   - Products: `item_count`.
   - Status: **Active** (emerald pill with Check) or **Inactive** (muted bordered pill).
   - Actions: **Set active** (border button with Star; only on inactive rows; spinner when busy), **Edit prices** (Pencil), **Delete** (Trash2). Delete uses a native `window.confirm`: `Delete pricelist "<name>"? This cannot be undone.`
@@ -181,11 +181,11 @@ Same design tokens as the rest of admin: `ink`, `ink-muted`, `bronze`, `surface`
 - **PriceEditor modal** (opened by Edit prices): title `Edit prices — <name>`, sub-line `N product(s)`. A product search (`Search products…`) filters by name/strength. Each product row shows name, `strength`, and `· default $x.xx`, with a `$` + number input (right-aligned, tabular). Empty filter → `No products match.` Footer: **Cancel** / **Save prices** (dark, Save icon; spinner while saving). Error → red box `Could not save prices`. Save sends all items to `PATCH /api/admin/pricelists/:id { items }`.
 
 ### Customer pricing page (`/admin/pricing`)
-- **Header:** `Customer Pricing` + *`Manage customer-specific price overrides`*. Right action cluster (when allowed to create): **Import CSV** (Upload, surface button), **Bulk Edit Pricing** (Users, bronze), **Add Price Override** (Plus, dark).
+- **Header:** `Customer Pricing` + *`Manage customer-specific price overrides`*. Right action cluster (when allowed to create): **Import CSV** (Upload, surface button), **Bulk Edit Pricing** (Users, vital), **Add Price Override** (Plus, dark).
 - **Alerts:** dismissible red error box and emerald success box (both with AlertCircle + X to close).
 - **Search bar:** `Search by customer or product...` (filters the table client-side by customer name/email/product name).
 - **Overrides table** (min-width 760px): columns **Customer, Product, Default Price, Override Price, Discount, Actions**.
-  - Customer: name + email. Product: name. Default Price: `$x.xx` (bold). Override Price: `$x.xx` (bronze, bold).
+  - Customer: name + email. Product: name. Default Price: `$x.xx` (bold). Override Price: `$x.xx` (vital, bold).
   - **Discount** column: `((default − override) / default) * 100`; shown as `-X.X%` (emerald) when override is cheaper, `+X.X%` (red) when more expensive, `0.0%` (muted) otherwise.
   - Actions: **Edit** (Edit2) and **Delete** (Trash2, red hover) when permitted; otherwise `View only`. Delete uses `window.confirm`: `Delete price override for <name>?`
   - **Loading:** `Loading...` row. **Empty:** `No price overrides found`.
@@ -196,14 +196,14 @@ Same design tokens as the rest of admin: `ink`, `ink-muted`, `bronze`, `surface`
   - On create, it POSTs once **per selected customer** (parallel). Result toasts: `Price override(s) created successfully`, partial `N override(s) created, M failed`, or full failure `Failed to create price overrides`. Edit success: `Price override updated successfully`. Delete success: `Price override deleted successfully`.
 
 - **Bulk Edit flow** (two steps, single modal):
-  - **Step 1 — Select Customers:** heading `Bulk Edit Pricing` / `Step 1: Select Customers`. `MultiSelectCustomer`; sub-count `N customer(s) selected`. **Cancel** / **Next: Set Prices** (bronze, ArrowRight; disabled with 0 selected). Validation `"Please select at least one customer"`.
-  - **Step 2 — Product Pricing Grid** (wide modal): heading `Step 2: Set Prices for N customer(s)`. A blue info banner: *`Enter override prices for products. Leave blank to skip. Changes will apply to all N selected customer(s).`* Grid columns **Product, SKU (shows `product.slug`), Default Price, Status, Override Price**. **Status** badge per product across the selected customers: `Mixed` (amber, customers have differing existing overrides), `Set` (blue, all share one), or `—` (none). Each Override Price cell is a `NumericStepper` (`Leave blank to skip`); editing applies the value to *all* selected customers for that product. Buttons **Back** (ArrowLeft) / **Save Price Overrides** (bronze, Save; disabled when no prices entered). Save collects only changed `{customer_id, product_id, override_price}` tuples and POSTs each in parallel. Messages: `No changes to save`, `Successfully saved N price override(s)`, partial / full-fail variants.
+  - **Step 1 — Select Customers:** heading `Bulk Edit Pricing` / `Step 1: Select Customers`. `MultiSelectCustomer`; sub-count `N customer(s) selected`. **Cancel** / **Next: Set Prices** (vital, ArrowRight; disabled with 0 selected). Validation `"Please select at least one customer"`.
+  - **Step 2 — Product Pricing Grid** (wide modal): heading `Step 2: Set Prices for N customer(s)`. A blue info banner: *`Enter override prices for products. Leave blank to skip. Changes will apply to all N selected customer(s).`* Grid columns **Product, SKU (shows `product.slug`), Default Price, Status, Override Price**. **Status** badge per product across the selected customers: `Mixed` (amber, customers have differing existing overrides), `Set` (blue, all share one), or `—` (none). Each Override Price cell is a `NumericStepper` (`Leave blank to skip`); editing applies the value to *all* selected customers for that product. Buttons **Back** (ArrowLeft) / **Save Price Overrides** (vital, Save; disabled when no prices entered). Save collects only changed `{customer_id, product_id, override_price}` tuples and POSTs each in parallel. Messages: `No changes to save`, `Successfully saved N price override(s)`, partial / full-fail variants.
 
-- **Import CSV modal** (`PriceListImportModal`): title **Import price list (CSV)** (Upload, bronze).
+- **Import CSV modal** (`PriceListImportModal`): title **Import price list (CSV)** (Upload, vital).
   - **Step 1: `1. Apply prices to which customers?`** — `MultiSelectCustomer` (`Search your customers...`).
   - **Step 2: `2. Upload your prices`** — buttons **Download template** (Download; builds a CSV `product_id,sku,name,current_price,your_price` from `GET .../import`, downloaded as `aminocan-price-list-template.csv`), **Choose CSV…** (file picker; shows the chosen filename), **Validate** (Check; calls `POST mode=preview`). Helper: *`The template is built from the current catalogue (product_id, sku, name). Fill the your_price column and upload it back.`*
   - **Error** box (red). **Preview** block: summary line `N valid` (+ `M with issues` in red) `of T rows`, then a scrollable table **Row / Product (name · sku) / Price / Status** — invalid rows tinted red with the error text; valid rows show emerald `OK` with a Check.
-  - **Footer:** `N customer(s) selected` + **Cancel** / **Apply prices** (bronze, Upload). **Apply prices** is enabled only when there's a preview with ≥1 valid row AND ≥1 customer selected AND not busy. On apply (`POST mode=apply`) the parent shows `Applied N price(s) to M customer(s).` and refreshes.
+  - **Footer:** `N customer(s) selected` + **Cancel** / **Apply prices** (vital, Upload). **Apply prices** is enabled only when there's a preview with ≥1 valid row AND ≥1 customer selected AND not busy. On apply (`POST mode=apply`) the parent shows `Applied N price(s) to M customer(s).` and refreshes.
 
 ---
 

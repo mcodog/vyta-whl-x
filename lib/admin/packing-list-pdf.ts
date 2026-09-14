@@ -8,13 +8,13 @@ import { drawInFooterStrip } from '@/lib/pdf-footer';
 // money column/section.
 
 const COLORS = {
-  ink: '#1A1A1A',
-  muted: '#6B7280',
-  faint: '#9CA3AF',
-  rule: '#C9CCD1',
-  rowRule: '#F2F2F2',
-  surface: '#F7F7F7',
-  bronze: '#9C8B5A',
+  ink: '#07203A',
+  muted: '#5B7A8C',
+  faint: '#8FA9B6',
+  rule: '#D5E2E7',
+  rowRule: '#EFF5F7',
+  surface: '#F7FAFB',
+  vital: '#438B9E',
 };
 
 export interface PackingListData {
@@ -60,7 +60,7 @@ function drawHeader(ctx: DrawContext): void {
     .fillColor(COLORS.ink)
     .font('Helvetica-Bold')
     .fontSize(22)
-    .text('PURAMASS', marginLeft, top, { lineBreak: false });
+    .text('VYTA', marginLeft, top, { lineBreak: false, characterSpacing: 4 });
   doc
     .fillColor(COLORS.muted)
     .font('Helvetica')
@@ -143,7 +143,7 @@ function drawShipTo(ctx: DrawContext): void {
     doc.font('Helvetica').fontSize(10);
   }
   if (t.url) {
-    doc.fillColor(COLORS.bronze).fontSize(9);
+    doc.fillColor(COLORS.vital).fontSize(9);
     doc.text(t.url, rightX, doc.y + 2, {
       width: colWidth,
       link: t.url,
@@ -277,7 +277,7 @@ export async function renderPackingListPdf(data: PackingListData): Promise<Buffe
     margins: { top: 50, bottom: 50, left: 50, right: 50 },
     info: {
       Title: `Packing List ${data.order_number || data.invoice_number}`,
-      Author: 'PuraMass',
+      Author: 'VYTA Biosciences',
     },
   });
 

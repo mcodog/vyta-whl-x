@@ -74,7 +74,7 @@ export default function AffiliateSettings() {
       <div className="pt-28 sm:pt-32 md:pt-44 pb-16 sm:pb-20 md:pb-28">
         <div className="max-w-xl mx-auto px-4 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8">
-            <span className="text-[10px] sm:text-xs font-semibold text-bronze uppercase tracking-[0.2em] mb-2 block">
+            <span className="text-[10px] sm:text-xs font-semibold text-vital uppercase tracking-[0.2em] mb-2 block">
               Settings
             </span>
             <h1 className="text-2xl sm:text-3xl font-bold text-ink">Profile Settings</h1>
@@ -107,7 +107,7 @@ export default function AffiliateSettings() {
                       type="text"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full pl-10 pr-3 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                      className="w-full pl-10 pr-3 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                     />
                   </div>
                   {errors.firstName && <p className="mt-1 text-[10px] text-red-600">{errors.firstName}</p>}
@@ -118,7 +118,7 @@ export default function AffiliateSettings() {
                     type="text"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm"
+                    className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm"
                   />
                   {errors.lastName && <p className="mt-1 text-[10px] text-red-600">{errors.lastName}</p>}
                 </div>
@@ -134,7 +134,7 @@ export default function AffiliateSettings() {
                     type="text"
                     value={formData.walletAddress}
                     onChange={(e) => setFormData({ ...formData, walletAddress: e.target.value })}
-                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink text-sm font-mono"
+                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink text-sm font-mono"
                     placeholder="0x..."
                   />
                 </div>
@@ -176,7 +176,7 @@ export default function AffiliateSettings() {
           <div className="mt-6 sm:mt-8 text-center">
             <Link
               href="/affiliate/dashboard"
-              className="text-bronze hover:text-bronze-dark transition-colors text-xs sm:text-sm font-medium"
+              className="text-vital hover:text-vital-dark transition-colors text-xs sm:text-sm font-medium"
             >
               Back to Dashboard
             </Link>
