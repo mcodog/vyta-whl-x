@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* PURA Color System */
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #6E6E6E;
+  --color-bronze: #9C8B5A;
+  --color-bronze-light: #B8A876;
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F7F7;
+  --color-surface-2: #F2F2F2;
+  --color-line: #C9CCD1;
+
+  /* Legacy mappings */
+  --background: #ffffff;
+  --foreground: #1A1A1A;
+  --primary: #1A1A1A;
+  --primary-dark: #000000;
+  --secondary: #6E6E6E;
+  --accent: #9C8B5A;
+  --border: #C9CCD1;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+  min-height: 100vh;
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global pointer cursor for all clickable elements */
+button,
+a,
+[role="button"],
+[onclick],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+label[for],
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Ensure disabled elements show not-allowed cursor */
+button:disabled,
+input:disabled,
+select:disabled,
+[disabled] {
+  cursor: not-allowed;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Clean glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  /* Tabular numbers for stats */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-ticker {
+    animation: ticker 12s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-ticker {
+      animation: ticker 30s linear infinite;
+    }
+  }
+
+  .animate-ticker:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ticker {
+      animation: none;
+    }
+    /* Freeze the chromatogram at its fully-drawn trace. */
+    .animate-chromatogram {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Pulls the purple-toned hero still toward ink/bronze. Tuned for
+     /images/hero-bg.jpeg — re-tune (or drop) for a different image. */
+  .hero-still-grade {
+    filter: saturate(0.4) sepia(0.45) hue-rotate(-10deg) brightness(0.62) contrast(1.08);
+  }
+
+  /* PURA wordmark light-sweep: a bronze highlight slides across the letters
+     via a clipped gradient, pausing off-screen at each end so it reads as a
+     periodic shine rather than a continuous scroll. Used by <PuraLoader>. */
+  @keyframes pura-shimmer {
+    0%, 18%   { background-position: 160% 0; }
+    82%, 100% { background-position: -60% 0; }
+  }
+  .animate-pura-shimmer {
+    background-image: linear-gradient(
+      105deg,
+      #1A1A1A 0%,
+      #1A1A1A 38%,
+      #B8A876 50%,
+      #1A1A1A 62%,
+      #1A1A1A 100%
+    );
+    background-size: 260% 100%;
+    background-position: 160% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: pura-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Freeze to solid ink — no clipped gradient, no sweep. */
+    .animate-pura-shimmer {
+      animation: none;
+      background-image: none;
+      color: #1A1A1A;
+      -webkit-text-fill-color: #1A1A1A;
+    }
+  }
+
+  /* HPLC trace drawing itself in the lab exhibit panel: draw, hold, fade,
+     restart. Paths use pathLength="1" so the dash math needs no measuring. */
+  @keyframes chromatogram-draw {
+    0%     { stroke-dashoffset: 1; opacity: 1; }
+    62%    { stroke-dashoffset: 0; opacity: 1; }
+    86%    { stroke-dashoffset: 0; opacity: 1; }
+    94%    { stroke-dashoffset: 0; opacity: 0; }
+    94.01% { stroke-dashoffset: 1; opacity: 0; }
+    100%   { stroke-dashoffset: 1; opacity: 1; }
+  }
+  .animate-chromatogram {
+    stroke-dasharray: 1;
+    animation: chromatogram-draw 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Selection color - PURA bronze */
+::selection {
+  background-color: rgba(156, 139, 90, 0.2);
+  color: inherit;
+}
+
+/* Smooth focus styles */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(156, 139, 90, 0.4);
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

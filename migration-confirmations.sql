@@ -1,0 +1,1 @@
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS payment_confirmations INTEGER DEFAULT 0;
