@@ -121,19 +121,19 @@ function daysSince(iso: string | null): number | null {
 
 const orderStatusColors: Record<string, string> = {
   pending: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
-  received: 'bg-cyan-500/10 text-cyan-600 border-cyan-500/20',
+  received: 'bg-vital-500/10 text-vital-600 border-vital-500/20',
   confirmed: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
   processing: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
   shipped: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20',
   delivered: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20',
   cancelled: 'bg-red-500/10 text-red-500 border-red-500/20',
-  expired: 'bg-gray-500/10 text-ink-muted border-line',
+  expired: 'bg-ink-light/10 text-ink-muted border-line',
 };
 
 function InvoiceStatusBadge({ status }: { status: string }) {
   const meta = INVOICE_STATUS_META[status as keyof typeof INVOICE_STATUS_META];
   return (
-    <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-gray-500/10 text-ink-muted'}`}>
+    <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-ink-light/10 text-ink-muted'}`}>
       {meta?.label ?? status}
     </span>
   );
@@ -156,7 +156,7 @@ function FulfillmentBadge({ status }: { status: string | null }) {
   const meta = status ? FULFILLMENT_META[status] : undefined;
   if (!meta) {
     return (
-      <span className="inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium bg-gray-500/10 text-ink-muted shrink-0">
+      <span className="inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium bg-ink-light/10 text-ink-muted shrink-0">
         Not shipped
       </span>
     );
@@ -1074,7 +1074,7 @@ export default function CustomerDetailPage() {
                       <p className="text-[11px] text-ink-muted">{dateShort(o.created_at)}</p>
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
-                      <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium border ${orderStatusColors[o.status] || 'bg-gray-500/10 text-ink-muted border-line'}`}>{o.status}</span>
+                      <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium border ${orderStatusColors[o.status] || 'bg-ink-light/10 text-ink-muted border-line'}`}>{o.status}</span>
                       <span className="text-sm font-semibold text-ink tabular-nums">{money(o.total)}</span>
                     </div>
                   </Link>

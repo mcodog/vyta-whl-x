@@ -89,16 +89,16 @@ function toAffiliate(d: DetailData): Affiliate {
 
 function InvoiceStatusBadge({ status }: { status: string }) {
   const meta = INVOICE_STATUS_META[status as keyof typeof INVOICE_STATUS_META];
-  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-gray-500/10 text-ink-muted'}`}>{meta?.label ?? status}</span>;
+  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${meta?.badge ?? 'bg-ink-light/10 text-ink-muted'}`}>{meta?.label ?? status}</span>;
 }
 
 function CommStatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
     paid: 'bg-emerald-500/10 text-emerald-600',
     pending: 'bg-amber-500/10 text-amber-600',
-    cancelled: 'bg-gray-500/10 text-ink-muted line-through',
+    cancelled: 'bg-ink-light/10 text-ink-muted line-through',
   };
-  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${map[status] ?? 'bg-gray-500/10 text-ink-muted'}`}>{status}</span>;
+  return <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium ${map[status] ?? 'bg-ink-light/10 text-ink-muted'}`}>{status}</span>;
 }
 
 function Card({ title, icon: Icon, action, children }: { title: string; icon: any; action?: React.ReactNode; children: React.ReactNode }) {

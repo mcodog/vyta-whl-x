@@ -180,30 +180,30 @@ export default function Navigation() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                       className="absolute left-0 top-full pt-2 w-64 z-[100]"
                     >
-                      <div className="bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-slate-200">
+                      <div className="bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-vital-200">
                         <div className="p-2">
                           <div className="flex items-center gap-3 px-3 py-3 rounded-xl cursor-not-allowed opacity-50">
-                            <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
-                              <Users className="w-5 h-5 text-slate-400" />
+                            <div className="w-10 h-10 rounded-xl bg-vital-100 flex items-center justify-center">
+                              <Users className="w-5 h-5 text-ink-light" />
                             </div>
                             <div>
-                              <p className="text-sm font-semibold text-slate-400">
+                              <p className="text-sm font-semibold text-ink-light">
                                 About Us
                               </p>
-                              <p className="text-xs text-slate-400">
+                              <p className="text-xs text-ink-light">
                                 Coming Soon
                               </p>
                             </div>
                           </div>
                           <div className="flex items-center gap-3 px-3 py-3 rounded-xl cursor-not-allowed opacity-50">
-                            <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
-                              <Microscope className="w-5 h-5 text-slate-400" />
+                            <div className="w-10 h-10 rounded-xl bg-vital-100 flex items-center justify-center">
+                              <Microscope className="w-5 h-5 text-ink-light" />
                             </div>
                             <div>
-                              <p className="text-sm font-semibold text-slate-400">
+                              <p className="text-sm font-semibold text-ink-light">
                                 Certifications
                               </p>
-                              <p className="text-xs text-slate-400">
+                              <p className="text-xs text-ink-light">
                                 Coming Soon
                               </p>
                             </div>
@@ -319,12 +319,12 @@ export default function Navigation() {
                         transition={{ duration: 0.15, ease: "easeOut" }}
                         className="absolute right-0 top-full pt-2 w-52 z-[100]"
                       >
-                        <div className="bg-white rounded-xl shadow-2xl shadow-black/20 overflow-hidden border border-slate-200">
+                        <div className="bg-white rounded-xl shadow-2xl shadow-black/20 overflow-hidden border border-vital-200">
                           <div className="p-2">
                             {isStaff && (
                               <Link
                                 href="/admin"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 <LayoutDashboard className="w-4 h-4 text-vital" />
@@ -336,7 +336,7 @@ export default function Navigation() {
                             {isAdmin && (
                               <Link
                                 href="/warehouse"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 <PackageCheck className="w-4 h-4 text-indigo-500" />
@@ -348,7 +348,7 @@ export default function Navigation() {
                             {isWarehouse && (
                               <Link
                                 href="/warehouse"
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 <PackageCheck className="w-4 h-4 text-indigo-500" />
@@ -359,19 +359,19 @@ export default function Navigation() {
                             )}
                             <Link
                               href="/account/dashboard"
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-vital-50 transition-colors text-vital-800"
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <Package className="w-4 h-4 text-slate-500" />
+                              <Package className="w-4 h-4 text-ink-muted" />
                               <span className="text-sm font-medium">
                                 My Orders
                               </span>
                             </Link>
                           </div>
-                          <div className="border-t border-slate-100 p-2">
+                          <div className="border-t border-vital-100 p-2">
                             <button
                               onClick={handleLogout}
-                              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-colors text-slate-700 hover:text-red-600"
+                              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-colors text-vital-800 hover:text-red-600"
                             >
                               <LogOut className="w-4 h-4" />
                               <span className="text-sm font-medium">

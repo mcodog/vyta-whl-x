@@ -14,7 +14,7 @@ import AutoShipmentReport from './_components/AutoShipmentReport';
 
 const statusColors: Record<string, string> = {
   pending: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  received: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
+  received: 'bg-vital-500/10 text-vital-400 border-vital-500/20',
   confirmed: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
   processing: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
   shipped: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
@@ -235,7 +235,7 @@ export default function OrderDetailPage() {
               {sourceLabel(order.source)}
             </span>
           )}
-          <span className={`inline-flex px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[order.status] || 'bg-gray-500/10 text-ink-muted border-gray-500/20'}`}>
+          <span className={`inline-flex px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[order.status] || 'bg-ink-light/10 text-ink-muted border-ink-light/20'}`}>
             {order.status}
           </span>
         </div>

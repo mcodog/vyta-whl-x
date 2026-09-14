@@ -313,7 +313,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
                     <div className="flex flex-wrap items-center gap-1.5 mt-1">
                       <span className="text-[11px] text-ink-muted tabular-nums">Ordered ×{li.qty}</span>
                       {li.price_type === 'box' ? (
-                        <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-slate-500/10 text-slate-600 tabular-nums">
+                        <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-ink-muted/10 text-ink-muted tabular-nums">
                           <Box className="w-2.5 h-2.5" /> Box · {li.vials_per_box}/box · {li.qty * li.vials_per_box} vials
                         </span>
                       ) : (

@@ -170,10 +170,13 @@ select:disabled,
     }
   }
 
-  /* Pulls the purple-toned hero still toward the VYTA navy/teal range. Tuned
-     for /images/hero-bg.jpeg — re-tune (or drop) for a different image. */
+  /* Pulls the purple-toned hero still into the Midnight Navy / Deep Ocean
+     range: desaturate first, then re-tint through sepia + hue-rotate so the
+     molecular cues come back as cool highlights rather than magenta. Tuned for
+     /images/hero-bg.jpeg — re-tune (or drop) for a different image. */
   .hero-still-grade {
-    filter: saturate(0.5) sepia(0.35) hue-rotate(150deg) brightness(0.58) contrast(1.1);
+    filter: grayscale(0.75) sepia(0.65) hue-rotate(195deg) saturate(2.6)
+      brightness(0.52) contrast(1.18);
   }
 
   /* VYTA wordmark light-sweep: an aqua highlight slides across the letters via

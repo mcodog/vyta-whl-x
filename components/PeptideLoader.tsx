@@ -102,7 +102,7 @@ export default function PeptideLoader({ message = 'Loading...', type = 'login' }
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="text-gray-600 font-medium"
+        className="text-ink-muted font-medium"
       >
         {message}
       </motion.p>

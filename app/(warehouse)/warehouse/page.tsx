@@ -465,7 +465,7 @@ function WarehouseDashboard() {
               Fulfillment Queue
               <span
                 className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                  live ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-400/10 text-ink-muted'
+                  live ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'
                 }`}
                 title={live ? 'Live updates on' : 'Connecting to live updates…'}
               >

@@ -22,11 +22,11 @@ interface ChangePasswordFormProps {
 const themes = {
   customer: {
     field:
-      'w-full pl-10 pr-11 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent',
-    icon: 'text-slate-400',
+      'w-full pl-10 pr-11 py-2.5 bg-vital-50 border border-vital-200 rounded-lg text-xs sm:text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital-500 focus:border-transparent',
+    icon: 'text-ink-light',
     button:
-      'w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2.5 rounded-lg text-xs sm:text-sm font-semibold hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 transition-all shadow-lg shadow-cyan-500/25',
-    link: 'text-cyan-600 hover:text-cyan-700',
+      'w-full bg-gradient-to-r from-vital-500 to-blue-500 text-white py-2.5 rounded-lg text-xs sm:text-sm font-semibold hover:from-vital-600 hover:to-blue-600 disabled:opacity-50 transition-all shadow-lg shadow-vital-500/25',
+    link: 'text-vital-600 hover:text-vital-700',
   },
   admin: {
     field:
@@ -192,7 +192,7 @@ export default function ChangePasswordForm({ email, variant = 'customer' }: Chan
         </button>
       </div>
 
-      <p className="text-[11px] text-slate-400">
+      <p className="text-[11px] text-ink-light">
         8+ characters with an uppercase letter, a lowercase letter, a number, and a symbol.
       </p>
 

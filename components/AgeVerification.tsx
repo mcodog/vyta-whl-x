@@ -54,7 +54,7 @@ export default function AgeVerification() {
             className="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl"
           >
             {/* Header */}
-            <div className="bg-gray-900 px-6 py-8 text-center">
+            <div className="bg-brand-diagonal px-6 py-8 text-center">
               <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-8 h-8 text-white" />
               </div>
@@ -76,11 +76,11 @@ export default function AgeVerification() {
                 </p>
               </div>
 
-              <p className="text-gray-900 text-center mb-2 font-semibold">
+              <p className="text-ink text-center mb-2 font-semibold">
                 Are you 19 years of age or older?
               </p>
 
-              <p className="text-gray-500 text-sm text-center mb-6 leading-relaxed">
+              <p className="text-ink-light text-sm text-center mb-6 leading-relaxed">
                 By selecting "Yes", you confirm you are of legal age and agree to our terms and conditions.
               </p>
 
@@ -88,13 +88,13 @@ export default function AgeVerification() {
               <div className="flex gap-3">
                 <button
                   onClick={handleDecline}
-                  className="flex-1 py-3.5 px-6 rounded-xl border border-stone-200 text-gray-700 font-medium hover:bg-stone-50 hover:border-stone-300 transition-colors"
+                  className="flex-1 py-3.5 px-6 rounded-xl border border-stone-200 text-ink-muted font-medium hover:bg-stone-50 hover:border-stone-300 transition-colors"
                 >
                   No, Exit
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 py-3.5 px-6 rounded-xl bg-gray-900 hover:bg-gray-800 text-white font-medium transition-colors"
+                  className="flex-1 py-3.5 px-6 rounded-xl bg-ink hover:bg-ink text-white font-medium transition-colors"
                 >
                   Yes, I Agree
                 </button>
@@ -103,7 +103,7 @@ export default function AgeVerification() {
 
             {/* Footer */}
             <div className="px-6 pb-6">
-              <p className="text-xs text-gray-400 text-center leading-relaxed">
+              <p className="text-xs text-ink-light text-center leading-relaxed">
                 This site is intended for adults 19 years of age or older in accordance with local laws.
               </p>
             </div>

@@ -296,7 +296,7 @@ export default function AdminCategoriesPage() {
                         disabled={readOnly}
                         title={d.active ? 'Visible in products filter' : 'Hidden from products filter'}
                         className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium transition-colors disabled:opacity-60 ${
-                          d.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-500/10 text-ink-muted'
+                          d.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'
                         }`}
                       >
                         {d.active ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
@@ -307,7 +307,7 @@ export default function AdminCategoriesPage() {
                         disabled={readOnly}
                         title={d.featured ? 'Shown on homepage grid' : 'Not on homepage grid'}
                         className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium transition-colors disabled:opacity-60 ${
-                          d.featured ? 'bg-vital/10 text-vital' : 'bg-gray-500/10 text-ink-muted'
+                          d.featured ? 'bg-vital/10 text-vital' : 'bg-ink-light/10 text-ink-muted'
                         }`}
                       >
                         <Star className={`w-3.5 h-3.5 ${d.featured ? 'fill-vital' : ''}`} />

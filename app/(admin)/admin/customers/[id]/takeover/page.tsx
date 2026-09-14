@@ -67,13 +67,13 @@ interface TakeoverData {
 
 const statusColors: Record<string, string> = {
   pending: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
-  received: 'bg-cyan-500/10 text-cyan-600 border-cyan-500/20',
+  received: 'bg-vital-500/10 text-vital-600 border-vital-500/20',
   confirmed: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
   processing: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
   shipped: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20',
   delivered: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20',
   cancelled: 'bg-red-500/10 text-red-500 border-red-500/20',
-  expired: 'bg-gray-500/10 text-ink-muted border-line',
+  expired: 'bg-ink-light/10 text-ink-muted border-line',
 };
 
 function money(n: number) {
@@ -423,7 +423,7 @@ export default function CustomerTakeoverPage() {
                   <p className="text-[11px] text-ink-muted">{dateLabel(o.created_at)}</p>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[o.status] || 'bg-gray-500/10 text-ink-muted border-line'}`}>
+                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[o.status] || 'bg-ink-light/10 text-ink-muted border-line'}`}>
                     {o.status}
                   </span>
                   <span className="text-sm font-semibold text-ink">{money(o.total)}</span>

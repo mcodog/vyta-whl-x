@@ -132,44 +132,44 @@ export default function AccountClients() {
   }
 
   return (
-    <div className="mt-4 sm:mt-6 md:mt-8 bg-white rounded-xl border border-slate-200 overflow-hidden">
-      <div className="p-4 sm:p-5 md:p-6 border-b border-slate-100">
-        <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
-          <Users className="w-4 sm:w-5 h-4 sm:h-5 text-cyan-600" />
+    <div className="mt-4 sm:mt-6 md:mt-8 bg-white rounded-xl border border-vital-200 overflow-hidden">
+      <div className="p-4 sm:p-5 md:p-6 border-b border-vital-100">
+        <h2 className="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
+          <Users className="w-4 sm:w-5 h-4 sm:h-5 text-vital-600" />
           Ship-to Clients
         </h2>
-        <p className="text-[11px] sm:text-xs text-slate-500 mt-1">
+        <p className="text-[11px] sm:text-xs text-ink-muted mt-1">
           Recipients your orders ship to, and the status of each shipment sent to them.
         </p>
       </div>
 
-      <div className="divide-y divide-slate-100">
+      <div className="divide-y divide-vital-100">
         {clients.map((client) => {
           const clientShipments = byClient.get(client.id) ?? [];
           return (
             <div key={client.id} className="p-3 sm:p-4 md:p-5">
               <div className="flex items-start gap-2 sm:gap-3">
-                <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-slate-500" />
+                <div className="w-8 h-8 rounded-lg bg-vital-100 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-ink-muted" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
-                    <p className="font-semibold text-slate-900 text-xs sm:text-sm truncate">
+                    <p className="font-semibold text-ink text-xs sm:text-sm truncate">
                       {clientName(client)}
                     </p>
                     {clientShipments.length > 0 && (
-                      <span className="text-[10px] sm:text-xs text-slate-400 flex-shrink-0 tabular-nums">
+                      <span className="text-[10px] sm:text-xs text-ink-light flex-shrink-0 tabular-nums">
                         {clientShipments.length} shipment{clientShipments.length === 1 ? '' : 's'}
                       </span>
                     )}
                   </div>
-                  <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5 truncate">
+                  <p className="text-[10px] sm:text-xs text-ink-muted mt-0.5 truncate">
                     {client.address}
                     {clientLocation(client) ? ` · ${clientLocation(client)}` : ''}
                   </p>
 
                   {clientShipments.length === 0 ? (
-                    <p className="text-[10px] sm:text-xs text-slate-400 mt-2">No shipments yet</p>
+                    <p className="text-[10px] sm:text-xs text-ink-light mt-2">No shipments yet</p>
                   ) : (
                     <div className="mt-2 sm:mt-3 space-y-2">
                       {clientShipments.map((s) => {
@@ -178,13 +178,13 @@ export default function AccountClients() {
                         return (
                           <div
                             key={s.id}
-                            className="flex items-center justify-between gap-2 sm:gap-3 rounded-lg border border-slate-100 bg-slate-50/50 px-2.5 sm:px-3 py-2"
+                            className="flex items-center justify-between gap-2 sm:gap-3 rounded-lg border border-vital-100 bg-vital-50/50 px-2.5 sm:px-3 py-2"
                           >
                             <div className="min-w-0">
-                              <p className="text-[11px] sm:text-xs font-medium text-slate-800 truncate">
+                              <p className="text-[11px] sm:text-xs font-medium text-vital-800 truncate">
                                 {s.invoice_number}
                               </p>
-                              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">
+                              <p className="text-[10px] sm:text-[11px] text-ink-light mt-0.5">
                                 {shipmentDate(s)}
                                 {s.tracking?.carrier ? ` · ${s.tracking.carrier}` : ''}
                               </p>
@@ -201,7 +201,7 @@ export default function AccountClients() {
                                   href={trackingUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-cyan-600 hover:text-cyan-700"
+                                  className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-vital-600 hover:text-vital-700"
                                 >
                                   Track
                                   <ExternalLink className="w-3 h-3" />

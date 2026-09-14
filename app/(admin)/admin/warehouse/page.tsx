@@ -152,7 +152,7 @@ export default function AdminWarehousePage() {
                         <div className="text-xs text-ink-muted truncate">{p.email}</div>
                       </div>
                       {!p.active && (
-                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-400/10 text-ink-muted shrink-0">
+                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-ink-light/10 text-ink-muted shrink-0">
                           Inactive
                         </span>
                       )}
@@ -215,7 +215,7 @@ export default function AdminWarehousePage() {
                           <td className="px-5 py-3">
                             <span
                               className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${
-                                a.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-400/10 text-ink-muted'
+                                a.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'
                               }`}
                             >
                               {a.active ? 'Active' : 'Inactive'}
@@ -278,7 +278,7 @@ export default function AdminWarehousePage() {
                         </div>
                         <span
                           className={`inline-flex shrink-0 items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${
-                            a.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-400/10 text-ink-muted'
+                            a.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'
                           }`}
                         >
                           {a.active ? 'Active' : 'Inactive'}

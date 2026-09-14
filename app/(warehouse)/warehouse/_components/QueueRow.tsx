@@ -64,7 +64,7 @@ export default function QueueRow({ item, selected, isNew, onSelect, checked, onT
           </span>
         )}
         {item.removed_from_queue && (
-          <span className="inline-flex items-center text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-gray-400/20 text-ink-muted shrink-0">
+          <span className="inline-flex items-center text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-ink-light/20 text-ink-muted shrink-0">
             Removed
           </span>
         )}

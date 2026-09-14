@@ -33,7 +33,7 @@ export default function MetacortexBranding({ size = 'sm', className = '' }: Meta
       href="https://metacortexdefi.com"
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors ${className}`}
+      className={`inline-flex items-center gap-2 text-ink-light hover:text-ink-muted transition-colors ${className}`}
     >
       <MetacortexLogo size={size} />
       <span className={size === 'sm' ? 'text-xs' : 'text-sm'}>

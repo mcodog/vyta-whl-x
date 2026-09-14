@@ -2487,7 +2487,7 @@ function ProductsManagementPage() {
                         className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${
                           product.active
                             ? 'bg-emerald-500/10 text-emerald-600'
-                            : 'bg-gray-500/10 text-ink-muted'
+                            : 'bg-ink-light/10 text-ink-muted'
                         }`}
                       >
                         {product.active ? 'Active' : 'Inactive'}
@@ -2597,7 +2597,7 @@ function ProductsManagementPage() {
                         </div>
                       </div>
                       <div className="mt-1 flex items-center gap-2 flex-wrap">
-                        <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${product.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-gray-500/10 text-ink-muted'}`}>
+                        <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${product.active ? 'bg-emerald-500/10 text-emerald-600' : 'bg-ink-light/10 text-ink-muted'}`}>
                           {product.active ? 'Active' : 'Inactive'}
                         </span>
                         {product.featured && <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-vital/10 text-vital">Featured</span>}
