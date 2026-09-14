@@ -316,20 +316,20 @@ type models `coa_url` as `string[]` and omits the vestigial `stock_qty`.)
 ## 4. UI/UX design overview
 
 ### Design tokens
-Storefront + admin share the custom theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`,
-`surface #F7F7F7`, `line #C9CCD1`; status `emerald-500 #10b981`, `red-500/600`, `amber`. Icons
+Storefront + admin share the custom theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`,
+`surface #F7FAFB`, `line #D5E2E7`; status `emerald-500 #10b981`, `red-500/600`, `amber`. Icons
 `lucide-react`. Cards `bg-white rounded-xl border border-line`; primary buttons `bg-ink
 hover:bg-ink/90 text-white rounded-lg font-medium`; inputs `bg-surface border border-line rounded-lg
-focus:ring-2 focus:ring-bronze/40`.
+focus:ring-2 focus:ring-vital/40`.
 
 ### NotifyMeButton (exact)
 - **Trigger — compact:** `flex items-center gap-1.5 px-3 py-2 bg-surface hover:bg-white text-ink
-  text-xs font-medium rounded-lg border border-line hover:border-bronze/40`, `Bell` icon
-  `text-bronze` (`w-3.5 h-3.5`), label `Notify me` (mobile `Notify`).
+  text-xs font-medium rounded-lg border border-line hover:border-vital/40`, `Bell` icon
+  `text-vital` (`w-3.5 h-3.5`), label `Notify me` (mobile `Notify`).
 - **Trigger — full:** `w-full font-semibold py-3 sm:py-4 rounded-xl … bg-surface text-ink border
-  border-line hover:border-ink/30`, `Bell w-5 h-5 text-bronze`, label `Notify me when back in stock`.
+  border-line hover:border-ink/30`, `Bell w-5 h-5 text-vital`, label `Notify me when back in stock`.
 - **Dialog:** overlay `fixed inset-0 z-[100] … bg-ink/40 backdrop-blur-sm`; panel `max-w-md bg-white
-  rounded-2xl border border-line shadow-xl`; header has a `w-10 h-10 bg-bronze/10 rounded-lg` Bell
+  rounded-2xl border border-line shadow-xl`; header has a `w-10 h-10 bg-vital/10 rounded-lg` Bell
   badge, `Restock alerts` title + `line-clamp-1` product name, and an `X` close.
 - **Subscribed state:** emerald `Check` in a `bg-emerald-500/10 rounded-full` badge; `You're on the
   list` / `Alert is active`; **Remove alert** (`BellOff`, hover red) + **Done** (`bg-ink`).
@@ -354,7 +354,7 @@ focus:ring-2 focus:ring-bronze/40`.
 
 ### Email (restock / low-stock)
 Sent by Cluster 2 senders (`sendBackInStockNotification`, `sendLowStockAlert`) — inline-styled HTML,
-`AMINOCAN` brand header, `#1A1A1A` CTA buttons; low-stock uses red `#B91C1C` (out) vs amber `#B45309`
+`VYTA` brand header, `#07203A` CTA buttons; low-stock uses red `#B91C1C` (out) vs amber `#B45309`
 (low) accents.
 
 ---

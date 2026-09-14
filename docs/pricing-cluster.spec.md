@@ -252,19 +252,19 @@ CREATE INDEX idx_affiliate_overrides_product   ON affiliate_price_overrides(prod
 
 ## 4. UI/UX design overview
 
-Shared admin theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surface #F7F7F7`,
-`line #C9CCD1`; status `emerald`/`red`/`amber`. Icons `lucide-react`.
+Shared admin theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`, `surface #F7FAFB`,
+`line #D5E2E7`; status `emerald`/`red`/`amber`. Icons `lucide-react`.
 
 - **Cards/sections:** `bg-white rounded-xl border border-line`; section titles `text-lg font-semibold
   text-ink`; page titles `text-xl sm:text-2xl font-bold text-ink`.
 - **Buttons:** primary `bg-ink hover:bg-ink/90 text-white rounded-lg font-medium`; the active-pricelist
   badge is an emerald `Check` + `Active`.
-- **Inputs:** `bg-surface border border-line rounded-lg focus:ring-2 focus:ring-bronze/40`; search
+- **Inputs:** `bg-surface border border-line rounded-lg focus:ring-2 focus:ring-vital/40`; search
   inputs use the standard left-icon pattern.
 - **Tables:** header row `text-xs font-semibold text-ink-muted uppercase`; rows `hover:bg-surface`.
 - **Import modals:** standard `bg-black/50` overlay + `bg-white rounded-xl` panel; preview shows
   valid/errors counts and a per-row error column.
-- **Invoice form note:** bronze-highlighted hint that prices default from the active pricelist.
+- **Invoice form note:** vital-highlighted hint that prices default from the active pricelist.
 
 ---
 

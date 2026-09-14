@@ -123,7 +123,6 @@ export async function sendPackingList(
       <div style="padding:32px 24px;text-align:center;border-bottom:1px solid #DCE7EB;">
         <h1 style="font-size:24px;font-weight:700;letter-spacing:5px;color:#07203A;margin:0;">VYTA</h1>
         <p style="font-size:10px;letter-spacing:4px;color:#438B9E;margin:6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size:11px;letter-spacing:0.15em;color:#438B9E;margin:4px 0 0;text-transform:uppercase;">Canadian Peptides</p>
       </div>
       <div style="padding:32px 24px;">
         <h2 style="font-size:20px;font-weight:600;color:#07203A;margin:0 0 8px;">Your shipment is on its way</h2>

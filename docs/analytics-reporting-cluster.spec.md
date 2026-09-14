@@ -86,7 +86,7 @@ Pure HTML builders (no DB):
   escape their own content so they can embed pills/sub-labels — never pass untrusted strings).
 - `pill(text, tone)` — colored chip.
 - **`reportShell({title, filters?, body, footRight?, autoPrint=true})`** — returns a full `<!doctype
-  html>` A4 document with embedded CSS (Aminocan palette: `#1A1A1A` ink, `#6E6E6E` muted, `#C9CCD1`
+  html>` A4 document with embedded CSS (Aminocan palette: `#07203A` ink, `#4E6E85` muted, `#D5E2E7`
   rules, pill color classes green/amber/red/blue/purple), a header (`Aminocan · Generated <now>`), the
   filters chip row, the body, a footer, and — when `autoPrint` — a `window.print()` on load (≈350ms
   delay). This is what makes "open report → Save as PDF" work.
@@ -115,18 +115,18 @@ autoPrint: sp.get('print') !== '0' })` and return `text/html`. `runtime='nodejs'
 ## 4. UI/UX design overview
 
 ### Dashboard (Analytics page)
-Standard admin theme (`ink #1A1A1A`, `bronze #9C8B5A`, `surface #F7F7F7`, `line #C9CCD1`; icons
+Standard admin theme (`ink #07203A`, `vital #438B9E`, `surface #F7FAFB`, `line #D5E2E7`; icons
 `lucide-react`). Date-range inputs + three sections (Inventory / Incoming / Revenue) as
 `bg-white rounded-xl border border-line` cards; PO rows use `PO_STATUS_META` badges; "Download
 Report" / report links open the printable HTML.
 
 ### Printable reports (`reportShell` CSS, exact)
-- A4 page, `-apple-system` font, `#1A1A1A` text on white; `.wrap` max-width 920px.
+- A4 page, `-apple-system` font, `#07203A` text on white; `.wrap` max-width 920px.
 - `h1` 22px; `.sub` muted "Aminocan · Generated <timestamp>".
-- `.filters` chip row (`#F7F7F7` panel, white pills).
+- `.filters` chip row (`#F7FAFB` panel, white pills).
 - `.stats` responsive grid; `.stat` bordered card; tone colors: pending `#B45309`, paid `#047857`,
   danger `#B91C1C`.
-- `table`: 11.5px, `#C9CCD1` header rule, `#F2F2F2` row rules, `.num` right-aligned tabular.
+- `table`: 11.5px, `#D5E2E7` header rule, `#EFF5F7` row rules, `.num` right-aligned tabular.
 - `.pill` tones: green/active/paid/delivered `#D1FAE5/#065F46`; amber/pending/processing
   `#FEF3C7/#92400E`; red/inactive/cancelled/out `#FEE2E2/#991B1B`; blue/shipped/confirmed
   `#DBEAFE/#1E40AF`; purple/admin `#EDE9FE/#6D28D9`.

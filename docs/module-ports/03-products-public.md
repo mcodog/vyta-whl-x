@@ -39,7 +39,7 @@ vestigial. The canonical TypeScript shape lives in `lib/supabase.ts` (`export in
 | `low_stock_threshold` | `INTEGER` | `10` | `NOT NULL` (see Module 4 / Inventory; not surfaced on storefront) |
 | `low_stock_alerted` | `BOOLEAN` | `false` | `NOT NULL` (admin-only dedupe flag) |
 | `strength` | `VARCHAR(50)` | — | e.g. `10mg` |
-| `purity` | `VARCHAR(50)`/`TEXT` | — | e.g. `99%+`; shown as a bronze badge |
+| `purity` | `VARCHAR(50)`/`TEXT` | — | e.g. `99%+`; shown as a vital badge |
 | `form` | `VARCHAR(100)` | — | e.g. `Lyophilized powder / Injectable` |
 | `image_url` | `TEXT` | — | Public URL in the `products` storage bucket; falls back to a Beaker icon when null |
 | `coa_url` | `TEXT[]` (JSON array) | `[]` | **Array of Certificate-of-Analysis PDF URLs.** Replaced the legacy single `certificate_url`. API normalizes to a filtered `string[]` |
@@ -190,9 +190,9 @@ it fetches the product by slug, then fetches its category to build a Related Pro
 
 ## UI/UX specification
 
-Design tokens (Tailwind theme): `ink` (near-black `#1A1A1A`), `ink-muted`, `bronze` /
-`bronze-50` / `bronze-dark`, `surface` (light grey), `line` (borders), `white`. Bronze is the
-accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ring-bronze/40`.
+Design tokens (Tailwind theme): `ink` (near-black `#07203A`), `ink-muted`, `vital` /
+`vital-50` / `vital-dark`, `surface` (light grey), `line` (borders), `white`. Bronze is the
+accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ring-vital/40`.
 
 ### Catalog page `/products`
 
@@ -215,7 +215,7 @@ accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ri
 
    Card anatomy:
    - Square image area (`bg-surface`, `object-contain`, hover scale-105); Beaker fallback icon.
-   - **Purity badge** top-left: bronze text on `bronze-50`, e.g. `99%+`.
+   - **Purity badge** top-left: vital text on `vital-50`, e.g. `99%+`.
    - **COA pill** bottom-left (only if `coa_url.length > 0`): `FileText` icon + label `COA`,
      or `COA ×N` when more than one. Links to `coa_url[0]` in a new tab. `title` =
      "View Certificate of Analysis" / "View Certificate of Analysis (N available)".
@@ -234,24 +234,24 @@ accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ri
      your search or filter", and a "View all compounds" button (resets category + search).
 6. **Trust bar** — dark `bg-ink` rounded panel, 4 stats: `99%+ / Verified Purity`,
    `3rd Party / HPLC Tested`, `Same Day / Order Processing`, `Discreet / Secure Packaging`
-   (first value in bronze).
+   (first value in vital).
 
 ### Product detail `/products/[slug]`
 
 - **Loading**: skeleton — pulsing breadcrumb bar + two-column (square image block, text bars).
 - **Not found**: H1 "Product Not Found", "The product you're looking for doesn't exist.",
-  bronze "Back to Products" link (ArrowLeft).
+  vital "Back to Products" link (ArrowLeft).
 - **Hero**: molecular-grid background, "Back to Products" link, two pills: `{category}` (neutral)
-  and `{purity} Purity` (bronze).
+  and `{purity} Purity` (vital).
 - **Two-column body**:
   - Left: large square image (`bg-surface`, Beaker fallback).
   - Right: H1 name, full `description`.
   - **Specs grid** — adapts: `grid-cols-3` (Purity / Strength / Form) when no COA, else
-    `grid-cols-2 sm:grid-cols-4` adding a **COA tile** (bronze `FileText`, label `COA` or
+    `grid-cols-2 sm:grid-cols-4` adding a **COA tile** (vital `FileText`, label `COA` or
     `COA ×N`) linking to `coa_url[0]`.
   - **All certificates** — when `coa_url.length > 1`, a "All certificates" label + pill list
     `COA #1`, `COA #2`, … each opening its URL in a new tab.
-  - **Benefits** — if present, "Benefits" heading + bullet list (split on `,`), each with a bronze `Check`.
+  - **Benefits** — if present, "Benefits" heading + bullet list (split on `,`), each with a vital `Check`.
   - **Price + qty + CTA** (bordered, `mt-auto`):
     - `price === 0` → big "N/A"; CTA = disabled "Currently Unavailable" button.
     - `stock_quantity === 0` (priced) → full-width `NotifyMeButton variant="full"`.
@@ -260,7 +260,7 @@ accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ri
       flips to a green `Added to Cart!` state for 2s. **Add-to-cart batches in groups of 10**
       (calls `addItem` `quantity/10` times).
     - **Trust badges** row: Lab Tested (Shield), Secure Pack (Package), Fast Ship (Truck).
-  - **Mechanism of Action** card (if `mechanism`): bronze `FlaskConical` icon + heading + text.
+  - **Mechanism of Action** card (if `mechanism`): vital `FlaskConical` icon + heading + text.
   - **Essential Add-on** — dark panel cross-selling "Bacteriostatic Water 30ML" ($20.00,
     "View Product" → `/products/bacteriostatic-water-30ml`), hidden when the current product
     *is* that item.
@@ -271,7 +271,7 @@ accent for purity/COA badges. Cards/inputs use `rounded-xl`; focus rings are `ri
 
 ### Home "Featured Compounds" — `components/Products.tsx`
 
-Section header: bronze pill "Featured Compounds", H2 "Popular Research Peptides", subhead
+Section header: vital pill "Featured Compounds", H2 "Popular Research Peptides", subhead
 "High-purity compounds for scientific research", and a "View full catalog" link → `/products`.
 Grid `grid-cols-2 lg:grid-cols-4`, up to 8 in-stock featured products. Same card pattern
 (purity badge, COA pill, Add / Notify-me). Loading: header-bar skeleton + 8 pulsing cards
@@ -287,12 +287,12 @@ product name, `$price.toFixed(2)`, links to the detail page. Renders nothing whi
 ### `NotifyMeButton` (restock waitlist) — `components/NotifyMeButton.tsx`
 
 Two trigger variants:
-- `compact` (grid cards): small `bg-surface` pill, bronze `Bell` icon, label "Notify me"
+- `compact` (grid cards): small `bg-surface` pill, vital `Bell` icon, label "Notify me"
   (desktop) / "Notify" (mobile).
-- `full` (detail page): full-width bordered button, bronze `Bell`, "Notify me when back in stock".
+- `full` (detail page): full-width bordered button, vital `Bell`, "Notify me when back in stock".
 
 Clicking opens a centered modal (`bg-ink/40` backdrop blur, `role="dialog"`, body scroll locked):
-- Header: bronze Bell tile, title "Restock alerts", product name subtitle, X close.
+- Header: vital Bell tile, title "Restock alerts", product name subtitle, X close.
 - On open it prefills the logged-in customer's email and `GET`s subscription status; while
   checking it shows a centered spinner (`Loader2`).
 - **Already subscribed** view: green `Check`, heading "You're on the list" (just subscribed) or
@@ -306,8 +306,8 @@ Clicking opens a centered modal (`bg-ink/40` backdrop blur, `role="dialog"`, bod
 
 ### Shared loading/error components — `components/LoadingFeedback.tsx`
 
-- **`SlowLoadingNotice`** — bronze-tinted bar: spinning `RefreshCw`, "This is taking a while.",
-  and a bronze "Click here to reload" button.
+- **`SlowLoadingNotice`** — vital-tinted bar: spinning `RefreshCw`, "This is taking a while.",
+  and a vital "Click here to reload" button.
 - **`LoadingError`** — centered: red circle w/ `AlertCircle`, "Please try again later",
   `bg-ink` "Try again" button (`RefreshCw`).
 

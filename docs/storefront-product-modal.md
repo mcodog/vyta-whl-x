@@ -9,7 +9,7 @@ either add to the cart drawer or jump straight to checkout.
 - **Opened from:** `components/Products.tsx` (the featured-products grid). Any
   storefront surface can reuse it the same way.
 - **Design system:** PURA tokens from `tailwind.config.ts`
-  (`ink`, `ink-muted`, `ink-light`, `surface`, `line`, `bronze`).
+  (`ink`, `ink-muted`, `ink-light`, `surface`, `line`, `vital`).
 
 ---
 
@@ -276,7 +276,7 @@ Keep the modal on-brand by reusing PURA tokens rather than raw hex:
 | Panel background         | `bg-white`                                       |
 | Inset / control surface  | `bg-surface`                                     |
 | Borders / dividers       | `border-line`                                    |
-| Accent (strength, badges)| `bronze` family (`bg-bronze-50`, `text-bronze`) |
+| Accent (strength, badges)| `vital` family (`bg-vital-50`, `text-vital`) |
 | Primary action / selected| `bg-ink text-white`                              |
 | Radius                   | `rounded-xl` (controls), `rounded-2xl` (panel)  |
 | Numbers                  | `tabular-nums` for prices & quantities          |
@@ -285,7 +285,7 @@ Keep the modal on-brand by reusing PURA tokens rather than raw hex:
 behaviour changed):
 
 - Stronger header hierarchy: larger product name, `strength` promoted to a
-  bronze pill, and the pack/vial prices emphasised with `font-medium`.
+  vital pill, and the pack/vial prices emphasised with `font-medium`.
 - Selected pack card now carries a check badge and a soft shadow so the active
   choice reads at a glance; the inactive card lifts to `bg-white` on hover.
 - Subtotal is separated by a divider and annotated with a

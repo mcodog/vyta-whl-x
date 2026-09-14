@@ -188,7 +188,7 @@ Index `idx_fulfillment_email_log_invoice (invoice_id, created_at DESC)`. RLS: SE
 - `renderTemplate(tpl, vars)` — replaces `{{ var }}` (regex `/\{\{\s*([a-z_][a-z0-9_]*)\s*\}\}/gi`);
   **unknown vars are left intact** as `{{key}}` (graceful fallback, not blanked).
 - `escapeHtml(s)` and `plainTextToHtml(body)` — wraps escaped text in a `<div>` with inline
-  styles `font-family: -apple-system…; font-size:14px; line-height:1.55; color:#1A1A1A;
+  styles `font-family: -apple-system…; font-size:14px; line-height:1.55; color:#07203A;
   white-space:pre-wrap;` (so plain-text templates render as HTML email with preserved newlines).
 
 #### `lib/email-smtp.ts` — primary SMTP transport + hand-built senders
@@ -198,15 +198,15 @@ Index `idx_fulfillment_email_log_invoice (invoice_id, created_at DESC)`. RLS: SE
 - `fromEmail` = `${SMTP_FROM_NAME||'Aminocan'} <${SMTP_FROM_EMAIL||'noreply@aminocan.com'}>`.
 - Exports (each builds a full inline-styled HTML email and returns `{success, id?|message?, error?}`):
   - `sendCustomerInvoiceSMTP(...)` — e-Transfer invoice to customer (items table, totals,
-    pickup vs ship address, optional referral badge). Subject `Invoice {orderNumber} - Aminocan Peptides`.
+    pickup vs ship address, optional referral badge). Subject `Invoice {orderNumber} - VYTA Biosciences`.
   - `sendAdminInvoiceNotificationSMTP({ adminEmails, ... })` — new-order notification; sends
     to **all** admin emails via `Promise.allSettled`; succeeds if ≥1 send succeeds. Subject
     `New Order {orderNumber} - ${total} {currency}`.
   - `sendBackInStockNotification(...)` — watchlist restock email.
   - `sendLowStockAlert({ adminEmails, ... })` — fan-out to all admin emails; out-vs-low color.
   - `sendAffiliateRequestAdminNotification(...)`, `sendAffiliateRequestDecision({approved})`.
-- All emails share the brand styling: `AMINOCAN` wordmark, bronze eyebrow `#9C8B5A`,
-  `#1A1A1A` text, `#FAFAFA`/`#E5E7EB` cards, `#1A1A1A` CTA buttons, `${baseUrl}` from
+- All emails share the brand styling: `VYTA` wordmark, vital eyebrow `#438B9E`,
+  `#07203A` text, `#F7FAFB`/`#DCE7EB` cards, `#07203A` CTA buttons, `${baseUrl}` from
   `NEXT_PUBLIC_BASE_URL || 'https://aminocan.com'`.
 
 #### `lib/email.ts` — the legacy "Resend" module (now an SMTP shim)
@@ -284,7 +284,7 @@ for the row I/O).
      API key in the payload when the input is non-empty).
   7. **Automatic shipments** — auto-create toggle, courier `<select>`, auto-buy-label toggle.
   8. **Info box** (blue) — reiterates crypto-disabled / SMTP required / auto-buy charges note.
-- Selected radio-cards: `border-bronze bg-bronze/5` with a `bg-bronze` check dot; unselected
+- Selected radio-cards: `border-vital bg-vital/5` with a `bg-vital` check dot; unselected
   `border-line bg-white hover:border-ink/20`.
 
 #### `app/(admin)/admin/settings/email-templates/page.tsx` — **Client**
@@ -329,22 +329,22 @@ are RLS-readable by staff for future tooling.
 ## 4. UI/UX design overview
 
 ### Design tokens (admin area)
-Same custom Tailwind theme as the rest of admin: `ink #1A1A1A`, `ink-muted #6E6E6E`,
-`bronze #9C8B5A`, `surface #F7F7F7`, `line #C9CCD1`; status accents `red-50/500/700`,
+Same custom Tailwind theme as the rest of admin: `ink #07203A`, `ink-muted #4E6E85`,
+`vital #438B9E`, `surface #F7FAFB`, `line #D5E2E7`; status accents `red-50/500/700`,
 `green-50/500/600/700`, `blue-50/200/500/700`. Icons from `lucide-react`.
 
 ### Settings page recipes
 - **Section card:** `bg-white rounded-xl border border-line p-5 sm:p-6`, header = a `w-5 h-5`
   lucide icon + `text-lg font-semibold text-ink`, then a muted `text-sm` description.
 - **Radio-card (toggle):** `p-4 rounded-xl border-2 transition-all text-left`; selected
-  `border-bronze bg-bronze/5` + a `w-5 h-5 bg-bronze rounded-full` containing a white `Check`;
+  `border-vital bg-vital/5` + a `w-5 h-5 bg-vital rounded-full` containing a white `Check`;
   unselected `border-line bg-white hover:border-ink/20`; disabled `opacity-50 cursor-not-allowed`.
 - **Input:** `px-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none
-  focus:ring-2 focus:ring-bronze/40 text-sm text-ink disabled:opacity-50 disabled:cursor-not-allowed`.
+  focus:ring-2 focus:ring-vital/40 text-sm text-ink disabled:opacity-50 disabled:cursor-not-allowed`.
 - **Primary button:** `bg-ink hover:bg-ink/90 text-white rounded-lg … text-sm font-medium
   disabled:opacity-50`.
 - **Email chip row:** `flex items-center justify-between gap-2 p-3 bg-surface rounded-lg
-  border border-line`, leading `w-8 h-8 bg-bronze/10 rounded-lg` icon, trailing `Trash2`
+  border border-line`, leading `w-8 h-8 bg-vital/10 rounded-lg` icon, trailing `Trash2`
   (hover `text-red-500`).
 - **Status banners:** error `bg-red-50 border border-red-200` + `AlertCircle text-red-500` +
   `text-red-700`; success `bg-green-50 border border-green-200` + `Check text-green-500` +
@@ -366,8 +366,8 @@ Same custom Tailwind theme as the rest of admin: `ink #1A1A1A`, `ink-muted #6E6E
 
 ### Email (sent) styling
 Hand-built inline-styled HTML (max-width 600–650px, `-apple-system` font stack), brand
-`AMINOCAN` header with bronze `#9C8B5A` eyebrow, `#FAFAFA`/`#FAFAF9` cards bordered `#E5E7EB`
-(some with a 2px `#9C8B5A` accent), `#1A1A1A` text and CTA buttons, totals tables, amber
+`VYTA` header with vital `#438B9E` eyebrow, `#F7FAFB`/`#F7FAFB` cards bordered `#DCE7EB`
+(some with a 2px `#438B9E` accent), `#07203A` text and CTA buttons, totals tables, amber
 payment-instruction box (`#FFFBEB`/`#FDE68A`), green referral badge (`#F0FDF4`/`#86EFAC`),
 muted footer. `plainTextToHtml` (for the template-driven invoice/fulfillment mails) is far
 simpler: a single `white-space:pre-wrap` div.

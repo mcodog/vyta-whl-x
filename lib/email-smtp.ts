@@ -106,7 +106,6 @@ export async function sendCustomerInvoiceSMTP(data: {
       <div style="padding: 40px 32px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
         <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
         <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #438B9E; margin: 0; text-transform: uppercase; font-weight: 600;">Canadian Peptides</p>
       </div>
 
       <!-- Invoice Title -->
@@ -234,7 +233,6 @@ export async function sendPaymentReceivedSMTP(data: {
       <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB;">
         <h1 style="font-size: 24px; font-weight: 700; color: #07203A; margin: 0; letter-spacing: 0.28em;">VYTA</h1>
         <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #438B9E; margin: 4px 0 0; text-transform: uppercase;">Canadian Peptides</p>
       </div>
       <div style="padding: 32px 24px; text-align: center;">
         <div style="width: 48px; height: 48px; background: #ECFDF5; border-radius: 50%; margin: 0 auto 16px; line-height: 48px; font-size: 24px;">&#10003;</div>
@@ -313,7 +311,7 @@ export async function sendAdminInvoiceNotificationSMTP(data: {
       <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
         <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
         <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #438B9E; margin: 0; text-transform: uppercase; font-weight: 600;">New Order Notification</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #6EB2B8; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">New Order Notification</p>
       </div>
 
       <!-- Alert -->
@@ -722,7 +720,7 @@ export async function sendNewCustomerAdminNotification(data: {
       <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
         <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
         <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #438B9E; margin: 0; text-transform: uppercase; font-weight: 600;">New Customer Registration</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #5B7A8C; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">New Customer Registration</p>
       </div>
 
       <div style="padding: 32px 24px; background: #FFFFFF;">
@@ -825,7 +823,7 @@ export async function sendInactiveCustomerAdminNotification(data: {
       <div style="padding: 32px 24px; text-align: center; border-bottom: 1px solid #DCE7EB; background: #FFFFFF;">
         <h1 style="font-size: 28px; font-weight: 700; color: #07203A; margin: 0 0 4px; letter-spacing: 0.28em;">VYTA</h1>
         <p style="font-size: 10px; font-weight: 500; letter-spacing: 0.42em; color: #438B9E; margin: 6px 0 0;">BIOSCIENCES</p>
-        <p style="font-size: 11px; letter-spacing: 0.15em; color: #438B9E; margin: 0; text-transform: uppercase; font-weight: 600;">Inactive Customer Alert</p>
+        <p style="font-size: 11px; letter-spacing: 0.15em; color: #5B7A8C; margin: 12px 0 0; text-transform: uppercase; font-weight: 600;">Inactive Customer Alert</p>
       </div>
 
       <div style="padding: 32px 24px; background: #FFFFFF;">

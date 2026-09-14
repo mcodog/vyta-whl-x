@@ -185,7 +185,7 @@ into `formData`. Create/Edit submits the full payload to `POST` or `PUT`. Restoc
 
 ## UI/UX specification
 
-Tokens identical to the storefront (`ink`, `ink-muted`, `bronze`/`bronze-50`, `surface`, `line`,
+Tokens identical to the storefront (`ink`, `ink-muted`, `vital`/`vital-50`, `surface`, `line`,
 status greens/ambers/reds). Modals: `fixed inset-0 bg-black/50`, white `rounded-xl` panels.
 
 ### Header
@@ -213,12 +213,12 @@ category, slug.
 - **Category**: text or `-`.
 - **Price** (inline editable): default shows `$NN.NN` with a dashed underline + faint `Pencil`
   on hover (when `canEdit`); clicking swaps to a `number` input (`step 0.01`, `min 0`, autofocus).
-  Enter / blur saves; Escape cancels. While saving, shows a small bronze spinner + the value.
+  Enter / blur saves; Escape cancels. While saving, shows a small vital spinner + the value.
 - **Stock** (inline editable): same interaction; value colored **emerald (>10) / amber (1–10) /
   red (0)**.
 - **Alert at** (inline editable, low-stock threshold): shows `≤ N` (default 10); colored amber
   when `stock_quantity <= threshold`, else muted. `title` = "Click to edit low-stock alert threshold".
-- **Status**: `Active` (emerald pill) / `Inactive` (grey pill); plus a bronze **Featured** pill
+- **Status**: `Active` (emerald pill) / `Inactive` (grey pill); plus a vital **Featured** pill
   when featured.
 - **Actions**: `Edit2` (edit) and, if `canDelete`, `Trash2` (delete, hover red). When `!canEdit`,
   the cell shows "View only".
@@ -245,7 +245,7 @@ Title "Add New Product" / "Edit Product". Scrollable body (`max-h-[60vh]`). Fiel
 6. **Category** / **Strength** (placeholders "e.g., Peptides" / "e.g., 5mg").
 7. **Purity** / **Form** ("e.g., 99%" / "e.g., Lyophilized Powder").
 8. **Short Description** (textarea), **Full Description**, **Benefits**, **Mechanism**.
-9. **Featured Product** & **Active** checkboxes (bronze accent).
+9. **Featured Product** & **Active** checkboxes (vital accent).
 
 Footer: **Cancel** (surface) + **Create Product / Update Product** (`bg-ink`, `Save` icon).
 Client validation message when name/price/stock missing: "Name, price, and stock quantity are
@@ -260,7 +260,7 @@ undone." Buttons: Cancel + **Delete Product** (red, `Trash2`). Success: "Product
 ### Restock confirmation modal (waitlist email gate)
 
 Triggered when an edit (modal save **or** inline stock save) raises stock from `<= 0` to `> 0`
-**and** the product has pending waitlist emails. Header: bronze `Bell` tile, "Notify waitlist?",
+**and** the product has pending waitlist emails. Header: vital `Bell` tile, "Notify waitlist?",
 product name. Body: "Restocking this product will email **N** person/people who asked to be
 notified:" followed by a scrollable email list. Buttons: **Cancel** + **Confirm & notify**
 (`bg-ink`, `Bell`; shows `Loader2` + "Saving..." while running). On confirm it runs the queued
@@ -271,7 +271,7 @@ notified:" followed by a scrollable email list. Buttons: **Cancel** + **Confirm 
 - **Step 1 — Upload**: title "Import Products from CSV". Dropzone "Click to upload CSV (max 5 MB)"
   with helper "Required columns: Code, Product Name, MG, Wholesale Price, CAD Price"; once selected
   shows filename + size. Buttons: Cancel + **Analyze CSV** (shows spinner + "Analyzing...").
-- **Step 2 — Preview & Confirm**: title "Confirm Import". Summary pills: emerald "N New", bronze
+- **Step 2 — Preview & Confirm**: title "Confirm Import". Summary pills: emerald "N New", vital
   "N Updates", amber "N Skipped (no Code)" (when any). Preview table (Status / Slug / Name /
   Strength / Price) with "New"/"Update" badges. Buttons: **Back** + **Confirm Import** (spinner +
   "Importing..."). Success banner "Imported X new and updated Y products".
@@ -280,7 +280,7 @@ notified:" followed by a scrollable email list. Buttons: **Cancel** + **Confirm 
 
 - Stock value: emerald `> 10`, amber `1–10`, red `0`.
 - Threshold: amber when `stock <= threshold`, else muted.
-- Status pills: Active = emerald, Inactive = grey, Featured = bronze.
+- Status pills: Active = emerald, Inactive = grey, Featured = vital.
 
 ### Responsive
 

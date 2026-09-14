@@ -366,7 +366,7 @@ CREATE POLICY audit_log_admin_read ON audit_log FOR SELECT TO authenticated USIN
   and a **Sign Out** button that shows `PeptideLoader "Signing you out..."`, waits **2500 ms**,
   `logout()`, then `router.push('/')`.
 - **Styling note:** this page uses **`slate-*` / `cyan-*`** Tailwind defaults (legacy palette),
-  NOT the `ink`/`bronze` design tokens used elsewhere in the cluster.
+  NOT the `ink`/`vital` design tokens used elsewhere in the cluster.
 
 ### Admin → Customers (Tier E)
 
@@ -489,15 +489,15 @@ Defined in `tailwind.config.ts` (`theme.extend.colors`) and mirrored as CSS vars
 
 | Token (Tailwind class) | Hex | Use |
 |---|---|---|
-| `ink` (`text-ink`, `bg-ink`) | `#1A1A1A` | Primary text, primary buttons, active nav pill |
-| `ink-muted` | `#6E6E6E` | Secondary text, icons, placeholders |
-| `ink-light` | `#8A8A8A` | Tertiary |
-| `bronze` | `#9C8B5A` | Accent: eyebrows, links, focus ring, admin badge |
-| `bronze-light` | `#B8A876` | — |
-| `bronze-dark` | `#7D6F48` | Link hover |
-| `surface` | `#F7F7F7` | Page bg of admin shell, input bg, ghost buttons |
-| `surface-2` | `#F2F2F2` | — |
-| `line` | `#C9CCD1` | All borders & dividers |
+| `ink` (`text-ink`, `bg-ink`) | `#07203A` | Primary text, primary buttons, active nav pill |
+| `ink-muted` | `#4E6E85` | Secondary text, icons, placeholders |
+| `ink-light` | `#7E99AB` | Tertiary |
+| `vital` | `#438B9E` | Accent: eyebrows, links, focus ring, admin badge |
+| `vital-light` | `#6EB2B8` | — |
+| `vital-dark` | `#1B5D83` | Link hover |
+| `surface` | `#F7FAFB` | Page bg of admin shell, input bg, ghost buttons |
+| `surface-2` | `#EFF5F7` | — |
+| `line` | `#D5E2E7` | All borders & dividers |
 | `--success` (globals) | `#22c55e` | — |
 
 Status / accent colors are Tailwind defaults: `emerald-500 #10b981`, `red-500 #ef4444`,
@@ -509,7 +509,7 @@ Status / accent colors are Tailwind defaults: `emerald-500 #10b981`, `red-500 #e
 - `customer` → `bg-gray-500/10 text-ink-muted`
 - `affiliate` → `bg-emerald-500/10 text-emerald-500`
 - `assistant` → `bg-blue-500/10 text-blue-400`
-- `admin` → `bg-bronze/10 text-bronze`
+- `admin` → `bg-vital/10 text-vital`
 - `warehouse` → `bg-indigo-500/10 text-indigo-500`
 
 **Typography:** headings via `font-heading` (Plus Jakarta Sans) where set, body via system
@@ -524,7 +524,7 @@ eyebrows `text-xs font-semibold uppercase tracking-[0.15em]` (admin) / `tracking
 - **Primary button:** `bg-ink hover:bg-ink/90 text-white font-semibold rounded-lg … disabled:opacity-50`.
 - **Ghost/secondary button:** `bg-surface border border-line text-ink hover:bg-line/20`.
 - **Input:** `bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted
-  focus:outline-none focus:ring-2 focus:ring-bronze/40` (auth pages add `focus:border-transparent`
+  focus:outline-none focus:ring-2 focus:ring-vital/40` (auth pages add `focus:border-transparent`
   and an inline left icon at `absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-muted`).
 - **Modal overlay:** `fixed inset-0 bg-black/50 flex items-center justify-center p-4` (`z-50`,
   create-customer uses `z-[60]`); panel `max-w-md`/`max-w-sm`, `max-h-[90vh] overflow-y-auto`.
@@ -541,7 +541,7 @@ eyebrows `text-xs font-semibold uppercase tracking-[0.15em]` (admin) / `tracking
   `AlertCircle text-red-500` + `text-red-700` message; full-width primary submit with leading
   icon + `ArrowRight`.
 - **Admin shell** (`layout.tsx`): `min-h-screen bg-surface`; white header (`bg-white border-b
-  border-line`, `max-w-7xl` container) with `AMINOCAN` logo, `|` divider, role eyebrow, optional
+  border-line`, `max-w-7xl` container) with `VYTA` logo, `|` divider, role eyebrow, optional
   amber `Read Only` pill, and a right-aligned `Back to Store` link. Nav: desktop = wrapping pill
   buttons (active `bg-ink text-white font-medium`, inactive `bg-white border border-line
   text-ink-muted hover:text-ink hover:border-ink/20`); mobile = a full-width toggle button
@@ -568,7 +568,7 @@ eyebrows `text-xs font-semibold uppercase tracking-[0.15em]` (admin) / `tracking
   disabled `bg-line border border-line text-ink-muted`.
 - **Login Link button:** idle `bg-blue-500/10 border-blue-500/20 text-blue-600`; sent
   `bg-green-500/10 … text-green-600`.
-- **Make/Remove Admin:** make `bg-bronze/10 border-bronze/20 text-bronze`; remove
+- **Make/Remove Admin:** make `bg-vital/10 border-vital/20 text-vital`; remove
   `bg-red-500/10 border-red-500/20 text-red-400`.
 
 ### Responsive

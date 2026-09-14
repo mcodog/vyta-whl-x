@@ -202,37 +202,37 @@ Data flow for create-with-backorder: `/new` reads `?backorder=<id>`, GETs `/api/
 
 ## UI/UX specification
 
-Tokens: `ink`, `ink-muted`, `bronze` (~`#9C8B5A`), `surface`, `line` (`#C9CCD1`), white. Cards `bg-white rounded-xl border border-line`.
+Tokens: `ink`, `ink-muted`, `vital` (~`#438B9E`), `surface`, `line` (`#D5E2E7`), white. Cards `bg-white rounded-xl border border-line`.
 
 ### List page (`/admin/purchase-orders`)
 
-- **Header:** `<ClipboardList>` bronze + "Purchase Orders"; subtitle "N order(s)". Right: **"Suppliers"** link (`<Building2>`, outline) → `/admin/purchase-orders/suppliers`; **"Create"** button (`<Plus>`, dark) → `/new`.
-- **Stat cards** (4): "Total Orders" (count), "Total Value" ($ sum), "Open Value" (sum of non-paid/non-cancelled, **highlighted** bronze border/text), "Paid Orders" (count of paid).
+- **Header:** `<ClipboardList>` vital + "Purchase Orders"; subtitle "N order(s)". Right: **"Suppliers"** link (`<Building2>`, outline) → `/admin/purchase-orders/suppliers`; **"Create"** button (`<Plus>`, dark) → `/new`.
+- **Stat cards** (4): "Total Orders" (count), "Total Value" ($ sum), "Open Value" (sum of non-paid/non-cancelled, **highlighted** vital border/text), "Paid Orders" (count of paid).
 - **Toolbar:** search input (`<Search>`, placeholder "Search by PO # or supplier...") + status `<select>` (`<Filter>`, "All Statuses" + each status label).
-- **Table** (`min-w-[820px]`): `PO #` (mono link → detail, hover bronze), `Supplier` (name or `—`), `Items` (count), `Total` ($ bold), `Expected` (date or `—`), `Status` (badge), `Created` (date), actions. Actions: `<Pencil>` icon-link → detail (title "Edit purchase order" or, when locked, "View purchase order"); `<FileText>` button → opens PDF in new tab (`alert('Could not open PDF')` on failure).
+- **Table** (`min-w-[820px]`): `PO #` (mono link → detail, hover vital), `Supplier` (name or `—`), `Items` (count), `Total` ($ bold), `Expected` (date or `—`), `Status` (badge), `Created` (date), actions. Actions: `<Pencil>` icon-link → detail (title "Edit purchase order" or, when locked, "View purchase order"); `<FileText>` button → opens PDF in new tab (`alert('Could not open PDF')` on failure).
 - **Loading:** colspan-8 "Loading…". **Empty:** "No purchase orders yet" (no rows) or "No orders match your filters".
 
 ### New PO page (`/admin/purchase-orders/new`)
 
 - Back arrow (→ `/admin/backorders` if from a backorder, else `/admin/purchase-orders`), title "New Purchase Order", subtitle "Pick a supplier and add line items."
-- If `?backorder` with an invoice number: a bronze info banner (`<PackageX>`) "Fulfilling the backorder for invoice **{invoice_number}**. The backordered quantities are prefilled below — pick a supplier, set costs, and create the PO to clear the backorder."
+- If `?backorder` with an invoice number: a vital info banner (`<PackageX>`) "Fulfilling the backorder for invoice **{invoice_number}**. The backordered quantities are prefilled below — pick a supplier, set costs, and create the PO to clear the backorder."
 - Errors in a red banner. While loading the backorder: spinner "Loading backorder…". Then renders the form.
 
 ### PurchaseOrderForm (create & edit)
 
-Two-column grid (`lg:grid-cols-3`; left spans 2). Helper sub-components: `Card` (title + optional bronze icon), `Field` (uppercase label), `Row` (summary line), `QuickStatusBtn`.
+Two-column grid (`lg:grid-cols-3`; left spans 2). Helper sub-components: `Card` (title + optional vital icon), `Field` (uppercase label), `Row` (summary line), `QuickStatusBtn`.
 
 - **Left column** (dimmed + non-interactive when `itemsLocked`):
   - If receiving started (and not locked): blue banner (`<AlertCircle>`) "Receiving has started, so the supplier and line items are locked. Use the receiving panel above to record deliveries. Tax, dates, and notes can still be edited."
-  - **Supplier card** (`<Building2>`): if a supplier is chosen, shows its name, contact, email, phone, "Lead time: N days" (bronze) and a "Change" link. Otherwise a search box "Search suppliers by name or email..." with a debounced (220ms) dropdown of matches (name + "contact · email"); the dropdown's last row, when there's a query, is bronze **"Create new supplier "{query}""** (`<Plus>`). Below the box a bronze toggle **"Create new supplier"** / **"Cancel new supplier"** opens an inline form (fields: **Name \***, Contact person, Email, Phone, Lead time (days, default 7)) with a dark **"Save supplier"** button.
-  - **Products card** (`<Package>`): search "Search products..."; a 2/3-col grid of toggle cards (name, strength, `$price`); selected cards get bronze border/`bronze/5`. Paginated 10 at a time via **"Show more (N remaining)"**. "No products match." when empty.
+  - **Supplier card** (`<Building2>`): if a supplier is chosen, shows its name, contact, email, phone, "Lead time: N days" (vital) and a "Change" link. Otherwise a search box "Search suppliers by name or email..." with a debounced (220ms) dropdown of matches (name + "contact · email"); the dropdown's last row, when there's a query, is vital **"Create new supplier "{query}""** (`<Plus>`). Below the box a vital toggle **"Create new supplier"** / **"Cancel new supplier"** opens an inline form (fields: **Name \***, Contact person, Email, Phone, Lead time (days, default 7)) with a dark **"Save supplier"** button.
+  - **Products card** (`<Package>`): search "Search products..."; a 2/3-col grid of toggle cards (name, strength, `$price`); selected cards get vital border/`vital/5`. Paginated 10 at a time via **"Show more (N remaining)"**. "No products match." when empty.
   - **Selected Products** card (only if items exist): table `Product | SKU | Unit $ | Qty | Total |` with editable number inputs for unit price (min 0, step .01) and qty (min 1), a live `$` line total, and an `<X>` remove button.
 - **Right column:**
   - **Financial Summary** card: Tax Type segmented toggle **Percentage / Fixed**; a "Tax rate (%)" or "Tax amount ($)" number input; then Subtotal / Tax (label shows the % when percentage) / **Total** (bold).
   - **Status card:** create mode → **"Initial Status"** with status buttons (excluding `partially_fulfilled`); selecting `paid`/`cancelled` shows an amber warning "This PO will be locked immediately. Only the status can change afterwards." Edit mode → **"Quick Status Actions"** with helper text "Fulfillment is tracked in the receiving panel above. These actions set the terminal payment state." and two buttons: **"Mark as Paid"** (emerald, disabled if already paid) and **"Cancel Order"** (ghost, hover red, disabled if already cancelled).
   - **Details card:** "Expected delivery date" (date input) and "Notes" textarea (placeholder "Internal notes (optional)").
   - **Submit** (hidden when locked): full-width dark button "Create Purchase Order" (`<Plus>`) / "Save Changes" (`<Save>`); shows "Saving…" spinner; disabled if no supplier or no items. Client validation messages: "Pick a supplier", "Add at least one line item". Server errors shown in a red `<AlertCircle>` banner.
-- All `disabled` inputs render with surface bg / muted text. Inputs share a `.input` class (white bg, `#C9CCD1` border, bronze focus ring).
+- All `disabled` inputs render with surface bg / muted text. Inputs share a `.input` class (white bg, `#D5E2E7` border, vital focus ring).
 
 ### PO detail page (`/admin/purchase-orders/[id]`)
 
@@ -243,17 +243,17 @@ Two-column grid (`lg:grid-cols-3`; left spans 2). Helper sub-components: `Card` 
 
 ### PurchaseOrderReceiving panel
 
-- **Completion summary card** (`<PackageCheck>` "Receiving" + "X% complete"): a progress bar (bronze, turns **emerald** when fully received), text "R of O units received · M remaining". A per-line table `Item | Ordered | Received | Remaining | Progress`; remaining is amber when >0 else emerald; each line has a mini progress bar. When done: emerald "All items received." (`<CheckCircle2>`).
+- **Completion summary card** (`<PackageCheck>` "Receiving" + "X% complete"): a progress bar (vital, turns **emerald** when fully received), text "R of O units received · M remaining". A per-line table `Item | Ordered | Received | Remaining | Progress`; remaining is amber when >0 else emerald; each line has a mini progress bar. When done: emerald "All items received." (`<CheckCircle2>`).
 - Receive actions (shown when not locked and not fully received): dark **"Receive items"** (`<Plus>`, blank draft) and outline **"Receive all remaining"** (prefills each line's remaining).
-- **Receive form** (bronze-bordered card "Record a receipt"): table `Item | Remaining | Receive now` with per-line number inputs (`min 0, max remaining`, disabled when remaining 0). A "Note (optional)" input (placeholder "e.g. Partial delivery, 2 boxes damaged"). Client errors: "Enter at least one quantity to receive." / `"{item}" only has {N} remaining.`. Buttons: **"Save receipt"** (`<PackageCheck>`, dark; "Saving…" spinner) and **"Cancel"**.
-- **Process History card** (`<History>` "Process History"): a vertical timeline (bronze dots) — each receipt shows datetime, "{N} units", a `+qty {item}` list, and the note in italics/quotes if present. Sorted newest first.
+- **Receive form** (vital-bordered card "Record a receipt"): table `Item | Remaining | Receive now` with per-line number inputs (`min 0, max remaining`, disabled when remaining 0). A "Note (optional)" input (placeholder "e.g. Partial delivery, 2 boxes damaged"). Client errors: "Enter at least one quantity to receive." / `"{item}" only has {N} remaining.`. Buttons: **"Save receipt"** (`<PackageCheck>`, dark; "Saving…" spinner) and **"Cancel"**.
+- **Process History card** (`<History>` "Process History"): a vertical timeline (vital dots) — each receipt shows datetime, "{N} units", a `+qty {item}` list, and the note in italics/quotes if present. Sorted newest first.
 
 ### Suppliers page (`/admin/purchase-orders/suppliers`)
 
 - Header: back arrow, `<Building2>` "Suppliers", "N supplier(s)"; **"Add Supplier"** button (`<Plus>`).
 - Search box "Search suppliers...".
 - Inline **SupplierForm** appears when creating/editing (title "Add Supplier"/"Edit Supplier"): fields **Company name \*** (full width), Contact person, Email, Phone, Lead time (days), Notes. Validation "Name is required". Buttons **Create/Save** (`<Save>`) + **Cancel** (`<X>`). Errors in red banner.
-- List: each row = bronze avatar tile, name + (contact/email/phone), a `"{N}d lead"` chip, and edit (`<Edit2>`) / delete (`<Trash2>`) buttons. Delete uses **two-step inline confirm**: clicking trash swaps to red **"Confirm delete"** + "Cancel".
+- List: each row = vital avatar tile, name + (contact/email/phone), a `"{N}d lead"` chip, and edit (`<Edit2>`) / delete (`<Trash2>`) buttons. Delete uses **two-step inline confirm**: clicking trash swaps to red **"Confirm delete"** + "Cancel".
 - Loading "Loading…"; empty "No suppliers yet. Add your first one." / "No suppliers match.".
 
 ### Status badges (`PO_STATUS_META`)

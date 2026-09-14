@@ -19,7 +19,7 @@ Legend: ✅ accepted / 🅿️ parked (revisit later) / 🔨 in progress / 🚢 
 | 5 | Recently viewed products | ✅ | `localStorage`-backed strip on catalog + product pages. |
 | 8 | Richer product detail page | ✅ | Image gallery/zoom, sticky add-to-cart bar, collapsible info accordions. |
 | 9 | Command-palette / instant global search (⌘K) | ✅ | Nav-level search overlay with instant results + thumbnails. |
-| 10 | Dark mode | ✅ | Theme tokens already semantic (`ink`/`surface`/`line`/`bronze`); add `dark:` set + toggle. |
+| 10 | Dark mode | ✅ | Theme tokens already semantic (`ink`/`surface`/`line`/`vital`); add `dark:` set + toggle. |
 | 11 | Product comparison | ✅ | See "Product comparison — how" section below. |
 | 12 | PWA polish | ✅ | Add-to-home-screen, offline catalog caching, skeleton polish. |
 

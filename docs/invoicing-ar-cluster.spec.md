@@ -233,8 +233,8 @@ and re-check role themselves.)
   / 90+`.
 
 ### PDF — `lib/invoice-pdf.ts`
-- `renderInvoicePdf(inv)` → `Buffer` via **pdfkit**. Brand palette (`ink #1A1A1A`, `bronze #9C8B5A`,
-  `rule #C9CCD1`, `surface #F7F7F7`); draws header + status pill (from `INVOICE_STATUS_META`, status
+- `renderInvoicePdf(inv)` → `Buffer` via **pdfkit**. Brand palette (`ink #07203A`, `vital #438B9E`,
+  `rule #D5E2E7`, `surface #F7FAFB`); draws header + status pill (from `INVOICE_STATUS_META`, status
   via `effectiveStatus`), bill-to, line-item table, totals. `runtime='nodejs'`.
 
 ### UI (Tier D)
@@ -253,8 +253,8 @@ and re-check role themselves.)
 
 ## 4. UI/UX design overview
 
-Shared admin theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surface #F7F7F7`,
-`line #C9CCD1`. Icons `lucide-react`.
+Shared admin theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`, `surface #F7FAFB`,
+`line #D5E2E7`. Icons `lucide-react`.
 
 - **Status badges** (`INVOICE_STATUS_META`): draft `bg-gray-500/10 text-gray-600`; sent
   `bg-blue-500/10 text-blue-600`; partial `bg-amber-500/10 text-amber-600`; paid
@@ -262,12 +262,12 @@ Shared admin theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surfa
   matching `pdfBg`/`pdfFg` hexes.
 - **Cards/buttons/inputs:** standard admin recipe — `bg-white rounded-xl border border-line`;
   primary `bg-ink hover:bg-ink/90 text-white rounded-lg`; inputs `bg-surface border border-line
-  focus:ring-2 focus:ring-bronze/40`.
+  focus:ring-2 focus:ring-vital/40`.
 - **Detail actions:** Record Payment / Send Email / Download PDF / status dropdown, with success/error
   inline banners; the Send-Email modal lets the user choose BCC recipients (defaulting to the
   configured CC list).
 - **Aging:** five labeled buckets with count + outstanding total.
-- **Emails/PDF:** branded `AMINOCAN` documents; the email body is plain-text templates rendered to
+- **Emails/PDF:** branded `VYTA` documents; the email body is plain-text templates rendered to
   HTML via `plainTextToHtml` (Cluster 2), PDF via pdfkit.
 
 ---

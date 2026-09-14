@@ -77,21 +77,21 @@ interface AnalyticsSummary {
 ## UI/UX specification
 
 **Page header (flex row, stacks on mobile):**
-- Title: `Analytics` (h1, `text-xl sm:text-2xl font-bold`) with a bronze `TrendingUp` icon.
+- Title: `Analytics` (h1, `text-xl sm:text-2xl font-bold`) with a vital `TrendingUp` icon.
 - Subtitle: "Stock value, incoming purchase orders, and revenue at a glance."
 - Right side controls: two `DateField`s labeled **From** and **To** (each a white bordered pill with a `Calendar` icon, an uppercase micro-label, and a native `<input type="date">`). When either date is set, a **Clear** text button appears (resets both). A **Refresh** button (white, bordered, `RefreshCw` icon that spins while `refreshing`, disabled while refreshing).
 
 **Top KPI cards** — `grid grid-cols-2 lg:grid-cols-4 gap-3`. Each `KpiCard` = white rounded card, uppercase micro-label top-left, a tinted rounded icon top-right, large `tabular-nums` value, and a small sub-line. The four cards:
 1. **Inventory On Hand** — value `fmtCurrency(inventory.value)`, sub `"{units} units · {sku_count} SKUs"`, icon `Boxes`, tint **emerald**.
 2. **Incoming (Open POs)** — value `fmtCurrency(incoming.value)`, sub `"{units} units · {po_count} POs"`, icon `ClipboardList`, tint **blue**.
-3. **Revenue Paid** — value `fmtCurrency(revenue.paid)`, sub `"{paid_invoice_count} paid invoice(s)"` (pluralized), icon `DollarSign`, tint **bronze**.
+3. **Revenue Paid** — value `fmtCurrency(revenue.paid)`, sub `"{paid_invoice_count} paid invoice(s)"` (pluralized), icon `DollarSign`, tint **vital**.
 4. **Outstanding** — value `fmtCurrency(revenue.outstanding)`, sub `"{unpaidInvoiceCount} invoice(s) unpaid"`, icon `TrendingUp`, tint **amber** when `outstanding > 0` else **neutral**.
 
-**Tint palette** (`TINTS`): emerald `text-emerald-700 / bg-emerald-100`; blue `text-blue-700 / bg-blue-100`; bronze `text-bronze / bg-bronze/10`; amber `text-amber-700 / bg-amber-100`; neutral `text-ink / bg-surface`.
+**Tint palette** (`TINTS`): emerald `text-emerald-700 / bg-emerald-100`; blue `text-blue-700 / bg-blue-100`; vital `text-vital / bg-vital/10`; amber `text-amber-700 / bg-amber-100`; neutral `text-ink / bg-surface`.
 
 **Detail cards** — `grid lg:grid-cols-3 gap-6`. Each `DetailCard` = white card with tinted icon + title header, a body of label/value rows, and a footer link. Rows can carry an accent (`emerald`/`amber`) color and an optional row icon.
 1. **Inventory Snapshot** (emerald, `Boxes`): rows "Total units", "Total value", "SKUs tracked", "Low stock SKUs" (shows `AlertTriangle` + amber accent when `low_stock_count > 0`). Footer link → `/admin/products` "View inventory →".
-2. **Revenue** (bronze, `DollarSign`): rows "Invoiced", "Paid" (emerald accent), "Outstanding" (amber accent when outstanding), "Paid / total" = `"{paid_invoice_count} / {invoice_count}"`. Footer link → `/admin/invoices` "View invoices →".
+2. **Revenue** (vital, `DollarSign`): rows "Invoiced", "Paid" (emerald accent), "Outstanding" (amber accent when outstanding), "Paid / total" = `"{paid_invoice_count} / {invoice_count}"`. Footer link → `/admin/invoices` "View invoices →".
 3. **Incoming Stock** (blue, `ClipboardList`): rows "Open POs", "Incoming units", "Incoming value". Footer link → `/admin/purchase-orders` "View POs →".
 
 **Open Purchase Orders table** — white rounded card. Header row: `ClipboardList` icon + "Open Purchase Orders".
@@ -100,7 +100,7 @@ interface AnalyticsSummary {
 
 **Global states:**
 - **Loading:** centered `"Loading analytics…"` with a spinning `Loader2`.
-- **Error / null summary:** centered "Could not load analytics." + a bronze **"Try again"** button (`RefreshCw` icon) that re-runs `load`.
+- **Error / null summary:** centered "Could not load analytics." + a vital **"Try again"** button (`RefreshCw` icon) that re-runs `load`.
 
 **Responsive:** header controls wrap; KPI grid is 2-up on mobile, 4-up on large; detail cards stack then go 3-up; the PO table scrolls horizontally with a min width.
 

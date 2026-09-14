@@ -197,7 +197,7 @@ set — Cluster 1).
 
 ## 4. UI/UX design overview
 
-Standard admin/portal theme (`ink #1A1A1A`, `bronze #9C8B5A`, `surface #F7F7F7`, `line #C9CCD1`;
+Standard admin/portal theme (`ink #07203A`, `vital #438B9E`, `surface #F7FAFB`, `line #D5E2E7`;
 `lucide-react`). The admin role eyebrow renders **"Client"** for the `affiliate` role (Cluster 1);
 the affiliate badge is `bg-emerald-500/10 text-emerald-500` (`getRoleBadgeClasses`). Affiliate portal
 pages reuse the auth-card recipe (`bg-white rounded-xl border border-line shadow-sm`); the dashboard

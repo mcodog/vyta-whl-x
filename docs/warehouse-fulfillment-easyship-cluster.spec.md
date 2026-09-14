@@ -216,7 +216,7 @@ email-permission toggle.
 
 ### UI
 - **`app/(warehouse)/warehouse/layout.tsx`** — gates on `canAccessWarehouse(role)` (`warehouse` or
-  `admin`); shows `AMINOCAN` shell or `Access Denied`.
+  `admin`); shows `VYTA` shell or `Access Denied`.
 - **`app/(warehouse)/warehouse/page.tsx`** + `_components/QueueRow`/`QueueDetail` — summary cards, the
   Realtime-backed queue, per-card status stepper, checklist, per-line fulfill/backorder, photo upload,
   notify modal (shown only when `viewer.can_send_emails`).
@@ -227,8 +227,8 @@ email-permission toggle.
 
 ## 4. UI/UX design overview
 
-Shared admin/warehouse theme: `ink #1A1A1A`, `ink-muted #6E6E6E`, `bronze #9C8B5A`, `surface #F7F7F7`,
-`line #C9CCD1`; accents emerald (complete), amber (pending/packed), indigo (performance). Icons
+Shared admin/warehouse theme: `ink #07203A`, `ink-muted #4E6E85`, `vital #438B9E`, `surface #F7FAFB`,
+`line #D5E2E7`; accents emerald (complete), amber (pending/packed), indigo (performance). Icons
 `lucide-react`.
 
 - **Queue status labels:** `pending → "To pack"`, `packed → "Packed"`, `shipped → "Shipped"`,
