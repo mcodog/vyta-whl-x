@@ -31,6 +31,12 @@ export default function SiteBrand({
   const isHouseBrand =
     !config.logo_url && config.store_name === DEFAULT_SITE_CONFIG.store_name;
 
+  // The guidelines put the full lockup's floor at 160px wide. At this
+  // component's proportions the lockup is ~3.25x the icon height, so below a
+  // ~50px icon it would breach that — drop the BIOSCIENCES sub-line rather than
+  // render it too small to read. The icon's own 32px floor still applies.
+  const showSubline = size >= 50;
+
   if (isHouseBrand) {
     return (
       <span
@@ -40,7 +46,11 @@ export default function SiteBrand({
         aria-label={DEFAULT_SITE_CONFIG.store_name}
       >
         <VytaMark size={size} tone={reversed ? 'light' : 'color'} />
-        <VytaWordmark height={size * 0.72} tone={reversed ? 'light' : 'color'} />
+        <VytaWordmark
+          height={size * (showSubline ? 0.72 : 0.46)}
+          tone={reversed ? 'light' : 'color'}
+          withSubline={showSubline}
+        />
       </span>
     );
   }

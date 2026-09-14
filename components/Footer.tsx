@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="col-span-2">
             {/* Logo — the reversed VYTA lockup on the Midnight Navy ground. */}
             <div className="mb-5">
-              <SiteBrand tone="light" size={44} />
+              <SiteBrand tone="light" size={52} />
             </div>
 
             <p className="text-white/60 mb-6 leading-relaxed text-sm max-w-sm">
