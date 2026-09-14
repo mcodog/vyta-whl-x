@@ -51,10 +51,10 @@ export default function GuideReaderPage() {
       {/* Header */}
       <header className="mb-8 border-b border-line pb-6">
         <div className="mb-4 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-bronze/10 text-bronze">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-vital/10 text-vital">
             <Icon className="h-5 w-5" />
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-bronze">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-vital">
             {guide.category}
           </span>
         </div>
@@ -85,16 +85,16 @@ export default function GuideReaderPage() {
                 <Link
                   key={g.slug}
                   href={`/admin/guides/${g.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-line bg-white p-4 transition-all hover:border-bronze/40 hover:shadow-sm"
+                  className="group flex items-center gap-3 rounded-xl border border-line bg-white p-4 transition-all hover:border-vital/40 hover:shadow-sm"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-bronze/10 text-bronze">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-vital/10 text-vital">
                     <OIcon className="h-4 w-4" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-semibold text-ink">{g.title}</span>
                     <span className="block truncate text-xs text-ink-muted">{g.summary}</span>
                   </span>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-ink-light transition-colors group-hover:text-bronze" />
+                  <ArrowRight className="h-4 w-4 shrink-0 text-ink-light transition-colors group-hover:text-vital" />
                 </Link>
               );
             })}

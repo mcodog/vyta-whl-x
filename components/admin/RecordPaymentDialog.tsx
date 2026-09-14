@@ -160,7 +160,7 @@ export default function RecordPaymentDialog({
                   onKeyDown={(e) => { if (e.key === 'Enter') goToConfirm(); }}
                   placeholder={amountDue.toFixed(2)}
                   autoFocus
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 {amountDue > 0 && (
                   <p className="text-xs text-ink-muted mt-1">Outstanding: ${amountDue.toFixed(2)}</p>
@@ -183,7 +183,7 @@ export default function RecordPaymentDialog({
                         aria-pressed={active}
                         className={`flex flex-col items-center justify-center gap-1.5 px-2 py-3 rounded-xl border text-xs font-medium transition-colors ${
                           active
-                            ? 'border-bronze bg-bronze/10 text-bronze'
+                            ? 'border-vital bg-vital/10 text-vital'
                             : 'border-line bg-surface text-ink-muted hover:text-ink hover:border-ink/20'
                         }`}
                       >
@@ -205,7 +205,7 @@ export default function RecordPaymentDialog({
                   value={reference}
                   onChange={(e) => setReference(e.target.value)}
                   placeholder="Txn ID / cheque #"
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
 
@@ -273,13 +273,13 @@ export default function RecordPaymentDialog({
                 >
                   <span className="flex items-center gap-1.5 text-left">
                     {willEmail
-                      ? <Mail className="w-4 h-4 text-bronze" />
+                      ? <Mail className="w-4 h-4 text-vital" />
                       : <MailX className="w-4 h-4 text-ink-muted" />}
                     Email payment confirmation
                   </span>
                   <span
                     className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                      willEmail ? 'bg-bronze' : 'bg-line'
+                      willEmail ? 'bg-vital' : 'bg-line'
                     }`}
                   >
                     <span

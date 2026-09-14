@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
       amount: total,
       currency,
       customer_email: email,
-      description: `Aminocan Order: ${description}`,
+      description: `VYTA Order: ${description}`,
       metadata: {
         order_id: orderId,
         items,

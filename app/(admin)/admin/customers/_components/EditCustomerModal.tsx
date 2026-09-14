@@ -114,7 +114,7 @@ export default function EditCustomerModal({ customer, onClose, onUpdated }: Prop
   };
 
   const fld =
-    'w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40';
+    'w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
@@ -381,7 +381,7 @@ export default function EditCustomerModal({ customer, onClose, onUpdated }: Prop
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full pl-3 pr-10 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
                   placeholder="Leave blank to keep current"
                 />
                 <button
@@ -405,7 +405,7 @@ export default function EditCustomerModal({ customer, onClose, onUpdated }: Prop
             <button
               type="button"
               onClick={handleGeneratePassword}
-              className="inline-flex items-center gap-1.5 text-xs text-bronze hover:text-bronze/80 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-vital hover:text-vital/80 transition-colors"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               Generate new password
@@ -421,7 +421,7 @@ export default function EditCustomerModal({ customer, onClose, onUpdated }: Prop
               id="active-edit-customer"
               checked={active}
               onChange={(e) => setActive(e.target.checked)}
-              className="rounded border-line accent-bronze"
+              className="rounded border-line accent-vital"
             />
             <label htmlFor="active-edit-customer" className="text-sm text-ink">
               Active (can log in)

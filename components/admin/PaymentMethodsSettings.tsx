@@ -167,7 +167,7 @@ export default function PaymentMethodsSettings({
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           disabled={isReadOnly}
-          className="w-full px-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink disabled:opacity-50 mb-4"
+          className="w-full px-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink disabled:opacity-50 mb-4"
         />
 
         <label className="block text-sm font-medium text-ink mb-1.5" htmlFor="payment-email-body">
@@ -179,7 +179,7 @@ export default function PaymentMethodsSettings({
           onChange={(e) => setBodyText(e.target.value)}
           rows={11}
           disabled={isReadOnly}
-          className="w-full px-4 py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink font-mono leading-relaxed disabled:opacity-50"
+          className="w-full px-4 py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink font-mono leading-relaxed disabled:opacity-50"
         />
         <p className="text-[11px] text-ink-muted mt-2">
           The <code className="text-ink">{'{{payment_url}}'}</code> line becomes a
@@ -293,7 +293,7 @@ export default function PaymentMethodsSettings({
                     checked={w.enabled}
                     disabled={isReadOnly}
                     onChange={(e) => patchWallet(w.id, { enabled: e.target.checked })}
-                    className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40"
+                    className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40"
                   />
                   Show this wallet to customers
                 </label>
@@ -321,7 +321,7 @@ export default function PaymentMethodsSettings({
           rows={4}
           placeholder="Leave blank to use the built-in wording (send only on the named network, sender pays network fees)."
           disabled={isReadOnly}
-          className="w-full px-4 py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink leading-relaxed disabled:opacity-50"
+          className="w-full px-4 py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink leading-relaxed disabled:opacity-50"
         />
 
         {walletError && (
@@ -373,12 +373,12 @@ function MethodToggle({
   return (
     <div
       className={`rounded-xl border-2 p-4 transition-colors ${
-        checked ? 'border-bronze bg-bronze/5' : 'border-line bg-white'
+        checked ? 'border-vital bg-vital/5' : 'border-line bg-white'
       }`}
     >
       <label className="flex items-start justify-between gap-3 cursor-pointer">
         <span className="flex items-start gap-2.5 min-w-0">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-bronze/10 text-bronze flex-shrink-0">
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-vital/10 text-vital flex-shrink-0">
             {icon}
           </span>
           <span className="min-w-0">
@@ -391,7 +391,7 @@ function MethodToggle({
           checked={checked}
           disabled={disabled}
           onChange={(e) => onChange(e.target.checked)}
-          className="w-4 h-4 mt-1 rounded border-line text-bronze focus:ring-bronze/40 flex-shrink-0 disabled:opacity-50"
+          className="w-4 h-4 mt-1 rounded border-line text-vital focus:ring-vital/40 flex-shrink-0 disabled:opacity-50"
         />
       </label>
       {warning && (
@@ -430,7 +430,7 @@ function Input({
         placeholder={placeholder}
         disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full px-3 py-2 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink disabled:opacity-50 ${
+        className={`w-full px-3 py-2 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink disabled:opacity-50 ${
           mono ? 'font-mono' : ''
         }`}
       />

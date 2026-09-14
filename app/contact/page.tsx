@@ -22,11 +22,11 @@ export default function ContactPage() {
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="molecular-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1.5" fill="#1A1A1A" />
-                <circle cx="0" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="0" cy="60" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="60" r="1" fill="#1A1A1A" />
+                <circle cx="30" cy="30" r="1.5" fill="#07203A" />
+                <circle cx="0" cy="0" r="1" fill="#07203A" />
+                <circle cx="60" cy="0" r="1" fill="#07203A" />
+                <circle cx="0" cy="60" r="1" fill="#07203A" />
+                <circle cx="60" cy="60" r="1" fill="#07203A" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#molecular-grid)" />
@@ -39,9 +39,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-2xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/10 border border-bronze/20 rounded-full mb-4">
-              <Beaker className="w-3.5 h-3.5 text-bronze" />
-              <span className="text-xs font-medium text-bronze">Research Support Team</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-vital/10 border border-vital/20 rounded-full mb-4">
+              <Beaker className="w-3.5 h-3.5 text-vital" />
+              <span className="text-xs font-medium text-vital">Research Support Team</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ink">
               Contact Us
@@ -99,15 +99,15 @@ export default function ContactPage() {
               className="group relative bg-white rounded-2xl border border-line p-5 sm:p-8 hover:shadow-xl hover:shadow-ink/5 hover:border-ink/20 transition-all"
             >
               <div className="flex items-start gap-4 sm:gap-5">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-bronze/10 rounded-2xl flex items-center justify-center group-hover:bg-bronze/20 transition-colors flex-shrink-0">
-                  <Mail className="w-7 h-7 text-bronze" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-vital/10 rounded-2xl flex items-center justify-center group-hover:bg-vital/20 transition-colors flex-shrink-0">
+                  <Mail className="w-7 h-7 text-vital" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-lg sm:text-xl font-bold text-ink mb-2">Email Support</h3>
                   <p className="text-ink-muted mb-4 text-sm">
                     For detailed inquiries, order issues, or documentation requests. We respond within 24 hours.
                   </p>
-                  <p className="text-base sm:text-lg font-semibold text-bronze break-words">support@aminocan.com</p>
+                  <p className="text-base sm:text-lg font-semibold text-vital break-words">support@aminocan.com</p>
                 </div>
               </div>
             </motion.a>
@@ -122,7 +122,7 @@ export default function ContactPage() {
               className="bg-surface rounded-2xl p-6 border border-line"
             >
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 border border-line">
-                <Clock className="w-6 h-6 text-bronze" />
+                <Clock className="w-6 h-6 text-vital" />
               </div>
               <h4 className="font-semibold text-ink mb-2">Business Hours</h4>
               <p className="text-sm text-ink-muted">
@@ -139,7 +139,7 @@ export default function ContactPage() {
               className="bg-surface rounded-2xl p-6 border border-line"
             >
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 border border-line">
-                <MessageSquare className="w-6 h-6 text-bronze" />
+                <MessageSquare className="w-6 h-6 text-vital" />
               </div>
               <h4 className="font-semibold text-ink mb-2">Response Time</h4>
               <p className="text-sm text-ink-muted">
@@ -156,7 +156,7 @@ export default function ContactPage() {
               className="bg-surface rounded-2xl p-6 border border-line"
             >
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 border border-line">
-                <MapPin className="w-6 h-6 text-bronze" />
+                <MapPin className="w-6 h-6 text-vital" />
               </div>
               <h4 className="font-semibold text-ink mb-2">Shipping Region</h4>
               <p className="text-sm text-ink-muted">
@@ -225,8 +225,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="bg-ink rounded-2xl sm:rounded-3xl p-6 sm:p-12 text-center">
             <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 bg-bronze/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <ShieldCheck className="w-8 h-8 text-bronze" />
+              <div className="w-16 h-16 bg-vital/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="w-8 h-8 text-vital" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 Quality You Can Trust

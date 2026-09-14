@@ -441,8 +441,8 @@ export function selectionSum(rows: RowView[], sel: Rect): string | null {
 const PRINT_CSS = `
   @page { size: A4 landscape; margin: 10mm; }
   :root {
-    --ink: #1A1A1A; --ink-muted: #6E6E6E; --line: #C9CCD1;
-    --surface: #F7F7F7; --surface-2: #F2F2F2;
+    --ink: #07203A; --ink-muted: #4E6E85; --line: #D5E2E7;
+    --surface: #F7FAFB; --surface-2: #EFF5F7;
   }
   * { box-sizing: border-box; }
   body {
@@ -1511,7 +1511,7 @@ export default function CellEditGrid({
         onKeyDown={onGridKeyDown}
         onCopy={handleCopy}
         onPaste={handlePaste}
-        className="isolate overflow-auto max-h-[70vh] outline-none focus:ring-2 focus:ring-inset focus:ring-bronze/30"
+        className="isolate overflow-auto max-h-[70vh] outline-none focus:ring-2 focus:ring-inset focus:ring-vital/30"
       >
         <table
           className="table-fixed w-full border-separate border-spacing-0 text-sm"
@@ -1543,7 +1543,7 @@ export default function CellEditGrid({
                     scope="col"
                     className={`sticky top-0 border-b border-r border-line px-3 py-2 text-left align-bottom ${
                       pinned ? 'z-40' : 'z-30'
-                    } ${inSelection ? 'bg-bronze/15' : 'bg-surface-2'}`}
+                    } ${inSelection ? 'bg-vital/15' : 'bg-surface-2'}`}
                     style={pinned ? { left: FROZEN_LEFT[i] } : undefined}
                   >
                     <div className="text-[11px] font-semibold text-ink uppercase tracking-wider leading-tight">
@@ -1585,12 +1585,12 @@ export default function CellEditGrid({
                         frozen ? 'sticky left-0 z-20' : ''
                       } ${
                         rowSelected
-                          ? 'bg-bronze/15 text-ink font-semibold'
+                          ? 'bg-vital/15 text-ink font-semibold'
                           : 'bg-surface-2 text-ink-muted font-normal'
                       }`}
                     >
                       {status === 'saving' ? (
-                        <span className="inline-block h-3 w-3 rounded-full border-b-2 border-bronze animate-spin align-middle" />
+                        <span className="inline-block h-3 w-3 rounded-full border-b-2 border-vital animate-spin align-middle" />
                       ) : status === 'saved' ? (
                         <Check className="w-3.5 h-3.5 text-emerald-600 inline-block align-middle" />
                       ) : status === 'error' ? (
@@ -1743,7 +1743,7 @@ function GridCell({
       : isDirty
         ? 'bg-amber-50'
         : isSelected && !isActive
-          ? 'bg-bronze/10'
+          ? 'bg-vital/10'
           : 'bg-white';
 
   // z-index ladder, bottom to top: plain cell → active cell → pinned cell →
@@ -1769,7 +1769,7 @@ function GridCell({
       className={`relative border-b border-r border-line px-3 py-2 h-9 align-middle ${background} ${layer} ${
         col.numeric ? 'text-right tabular-nums' : 'text-left'
       } ${editable ? 'cursor-cell' : 'cursor-default'} ${
-        isActive ? 'ring-2 ring-inset ring-bronze' : ''
+        isActive ? 'ring-2 ring-inset ring-vital' : ''
       } ${isSaving ? 'opacity-60' : ''} ${
         hasError && isDirty ? 'ring-1 ring-inset ring-red-400' : ''
       }`}
@@ -1804,7 +1804,7 @@ function GridCell({
               e.target.select();
             }
           }}
-          className={`absolute inset-0 w-full h-full px-3 bg-white text-sm text-ink outline-none ring-2 ring-inset ring-bronze ${
+          className={`absolute inset-0 w-full h-full px-3 bg-white text-sm text-ink outline-none ring-2 ring-inset ring-vital ${
             col.numeric ? 'text-right tabular-nums' : 'text-left'
           }`}
         />
@@ -1912,7 +1912,7 @@ const SHORTCUTS: Array<[string, string]> = [
 
 function HelpPanel() {
   return (
-    <div className="grid gap-6 md:grid-cols-2 px-4 py-4 border-b border-line bg-bronze-50/60 text-xs text-ink-muted">
+    <div className="grid gap-6 md:grid-cols-2 px-4 py-4 border-b border-line bg-vital-50/60 text-xs text-ink-muted">
       <div>
         <h3 className="text-[11px] font-semibold text-ink uppercase tracking-wider mb-2">
           How cases &amp; vials interact
@@ -1962,8 +1962,8 @@ function RestockDialog({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60] p-4">
       <div className="bg-white rounded-xl max-w-md w-full p-6">
         <div className="flex items-start gap-3 mb-4">
-          <div className="w-9 h-9 rounded-lg bg-bronze/10 flex items-center justify-center flex-shrink-0">
-            <Bell className="w-4 h-4 text-bronze" />
+          <div className="w-9 h-9 rounded-lg bg-vital/10 flex items-center justify-center flex-shrink-0">
+            <Bell className="w-4 h-4 text-vital" />
           </div>
           <div className="min-w-0">
             <h2 className="text-lg font-bold text-ink">Notify waitlists?</h2>

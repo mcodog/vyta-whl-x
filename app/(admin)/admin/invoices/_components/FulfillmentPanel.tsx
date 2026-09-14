@@ -213,7 +213,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
     return (
       <div className="bg-white rounded-xl border border-line p-5">
         <h3 className="text-sm font-semibold text-ink mb-3 flex items-center gap-2">
-          <PackageCheck className="w-4 h-4 text-bronze" /> Fulfillment
+          <PackageCheck className="w-4 h-4 text-vital" /> Fulfillment
         </h3>
         <div className="flex items-center gap-2 text-sm text-ink-muted">
           <Loader2 className="w-4 h-4 animate-spin" /> Loading fulfillment…
@@ -237,7 +237,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
       {/* Header */}
       <div className="flex items-center justify-between gap-2 px-5 py-4 border-b border-line">
         <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
-          <PackageCheck className="w-4 h-4 text-bronze" /> Fulfillment
+          <PackageCheck className="w-4 h-4 text-vital" /> Fulfillment
         </h3>
         <span
           className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full ${
@@ -265,10 +265,10 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
           receives only a Packing List. Surfaced here so the packer sees the
           real destination without leaving the fulfillment view. */}
       {item.ships_to_client && (
-        <div className="mx-5 mt-3 rounded-lg border border-bronze/30 bg-bronze/5 p-3">
+        <div className="mx-5 mt-3 rounded-lg border border-vital/30 bg-vital/5 p-3">
           <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted mb-1.5 flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" /> Ship to
-            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-bronze/15 text-bronze">
+            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-vital/15 text-vital">
               <Users className="w-2.5 h-2.5" /> Client
             </span>
           </div>
@@ -348,7 +348,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
                         onChange={(e) =>
                           setQtyDraft((p) => ({ ...p, [li.id]: parseInt(e.target.value, 10) || 1 }))
                         }
-                        className="w-14 px-2 py-1 rounded-md border border-line bg-surface text-sm text-ink tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                        className="w-14 px-2 py-1 rounded-md border border-line bg-surface text-sm text-ink tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40"
                       />
                       <span className="text-ink-muted">/ {rem}</span>
                     </label>
@@ -525,7 +525,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
                 title={isDraft ? 'Mark the invoice ready (Sent) before fulfilling' : undefined}
                 onChange={(e) => handleStatusChange(e.target.value as FulfillmentStatus)}
                 aria-label="Shipping status"
-                className="bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-50 cursor-pointer"
+                className="bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-50 cursor-pointer"
               >
                 <option value="pending">To pack</option>
                 <option value="packed">Packed</option>
@@ -538,7 +538,7 @@ export default function FulfillmentPanel({ invoiceId, canAct = true, onChanged }
                   <option value="picked_up">Picked up</option>
                 )}
               </select>
-              {savingStatus && <Loader2 className="w-4 h-4 animate-spin text-bronze" />}
+              {savingStatus && <Loader2 className="w-4 h-4 animate-spin text-vital" />}
               {done && !savingStatus && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
             </div>
             {isDraft && (

@@ -90,12 +90,12 @@ export default function PriceSheetEmailModal({
 
   const label = entityName || (type === 'customer' ? 'customer' : 'sales rep');
   const greeting = firstNameOf(entityName);
-  const [subject, setSubject] = useState('Your PuraMass price list');
+  const [subject, setSubject] = useState('Your VYTA Biosciences price list');
   const [bodyText, setBodyText] = useState(
     `Hi${greeting ? ` ${greeting}` : ''},\n\n` +
-      `Please find your current PuraMass price list attached as a PDF. ` +
+      `Please find your current VYTA Biosciences price list attached as a PDF. ` +
       `It lists each product with its SKU, case price and single-vial price${initialInventory ? ', along with current inventory' : ''}.\n\n` +
-      `If anything looks off, just reply to this email and we'll sort it out.\n\n— PuraMass`,
+      `If anything looks off, just reply to this email and we'll sort it out.\n\n— VYTA Biosciences`,
   );
 
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
@@ -245,7 +245,7 @@ export default function PriceSheetEmailModal({
         <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-line">
           <div className="min-w-0">
             <h3 className="text-base font-bold text-ink flex items-center gap-2">
-              <Mail className="w-4 h-4 text-bronze shrink-0" /> Preview &amp; send price list
+              <Mail className="w-4 h-4 text-vital shrink-0" /> Preview &amp; send price list
             </h3>
             <p className="text-xs text-ink-muted mt-0.5 truncate">
               {type === 'customer' ? 'Customer' : 'Sales rep'}: <span className="text-ink">{label}</span>
@@ -273,7 +273,7 @@ export default function PriceSheetEmailModal({
                   href={pdfUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-bronze hover:underline"
+                  className="inline-flex items-center gap-1 text-xs text-vital hover:underline"
                 >
                   Open <ExternalLink className="w-3 h-3" />
                 </a>
@@ -289,7 +289,7 @@ export default function PriceSheetEmailModal({
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-6">
                   <AlertCircle className="w-6 h-6 text-red-500" />
                   <p className="text-sm text-red-600">{pdfError}</p>
-                  <button onClick={loadPreview} className="text-xs text-bronze hover:underline">
+                  <button onClick={loadPreview} className="text-xs text-vital hover:underline">
                     Try again
                   </button>
                 </div>
@@ -340,7 +340,7 @@ export default function PriceSheetEmailModal({
                   value={to}
                   onChange={(e) => setTo(e.target.value)}
                   placeholder="name@example.com, another@example.com"
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 <RecipientChips valid={toParsed.valid} invalid={toParsed.invalid} />
                 <p className="text-[11px] text-ink-muted mt-1">Separate multiple recipients with a comma.</p>
@@ -356,7 +356,7 @@ export default function PriceSheetEmailModal({
                   value={cc}
                   onChange={(e) => setCc(e.target.value)}
                   placeholder="cc@example.com"
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
                 <RecipientChips valid={ccParsed.valid} invalid={ccParsed.invalid} />
               </div>
@@ -368,7 +368,7 @@ export default function PriceSheetEmailModal({
                   type="text"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
 
@@ -379,14 +379,14 @@ export default function PriceSheetEmailModal({
                   value={bodyText}
                   onChange={(e) => setBodyText(e.target.value)}
                   rows={8}
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink leading-relaxed resize-y focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink leading-relaxed resize-y focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
 
               {/* Attachment chip */}
               <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-line bg-surface">
-                <div className="w-8 h-8 rounded-lg bg-bronze/10 flex items-center justify-center shrink-0">
-                  <Paperclip className="w-4 h-4 text-bronze" />
+                <div className="w-8 h-8 rounded-lg bg-vital/10 flex items-center justify-center shrink-0">
+                  <Paperclip className="w-4 h-4 text-vital" />
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-medium text-ink truncate">{fileName}</div>
@@ -451,7 +451,7 @@ export default function PriceSheetEmailModal({
                 <button
                   onClick={send}
                   disabled={sending || sent || toParsed.valid.length === 0}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-bronze hover:bg-bronze/90 text-white text-sm font-semibold rounded-lg disabled:opacity-50 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-vital hover:bg-vital/90 text-white text-sm font-semibold rounded-lg disabled:opacity-50 transition-colors"
                 >
                   {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   {sending ? 'Sending…' : 'Send'}
@@ -491,7 +491,7 @@ function HistoryRow({ entry }: { entry: HistoryEntry }) {
         {cc.length > 0 && <> · CC {cc.join(', ')}</>}
       </div>
       <div className="flex flex-wrap gap-1 mt-1.5">
-        <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium ${entry.include_inventory ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'}`}>
+        <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium ${entry.include_inventory ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'}`}>
           <Package className="w-2.5 h-2.5" /> {entry.include_inventory ? 'With inventory' : 'Prices only'}
         </span>
         {entry.currency && (
@@ -518,7 +518,7 @@ function RecipientChips({ valid, invalid }: { valid: string[]; invalid: string[]
       {valid.map((e) => (
         <span
           key={`v-${e}`}
-          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-bronze/10 text-bronze text-xs"
+          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-vital/10 text-vital text-xs"
         >
           <Check className="w-3 h-3" /> {e}
         </span>

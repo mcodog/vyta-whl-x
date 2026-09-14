@@ -384,7 +384,7 @@ function SalesPeople() {
               placeholder="Search by name, email, phone, or referral code…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
           <button
@@ -438,7 +438,7 @@ function SalesPeople() {
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
-                className="pl-8 pr-8 py-2 bg-white border border-line rounded-lg text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="pl-8 pr-8 py-2 bg-white border border-line rounded-lg text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               >
                 {(Object.keys(SORT_LABELS) as SortKey[]).map((k) => (
                   <option key={k} value={k}>{SORT_LABELS[k]}</option>
@@ -480,19 +480,19 @@ function SalesPeople() {
                     <tr
                       key={p.id}
                       onClick={() => openPerson(p.id)}
-                      className={`group cursor-pointer transition-colors ${marked ? 'bg-bronze/5' : 'hover:bg-surface'}`}
+                      className={`group cursor-pointer transition-colors ${marked ? 'bg-vital/5' : 'hover:bg-surface'}`}
                     >
                       {/* Person */}
                       <td className="px-5 py-3.5 relative">
                         <span className="pointer-events-none absolute left-14 -top-1 z-20 -translate-y-full whitespace-nowrap rounded-lg border border-line bg-white px-2.5 py-1.5 text-xs font-medium text-ink shadow-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                          <span className="inline-flex items-center gap-1.5"><MousePointerClick className="w-3.5 h-3.5 text-bronze" /> Click to view profile</span>
+                          <span className="inline-flex items-center gap-1.5"><MousePointerClick className="w-3.5 h-3.5 text-vital" /> Click to view profile</span>
                           <span className="absolute left-5 top-full h-2 w-2 -translate-y-1 rotate-45 border-b border-r border-line bg-white" />
                         </span>
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-9 h-9 rounded-full bg-bronze/10 text-bronze flex items-center justify-center text-xs font-bold shrink-0">{initials(p)}</div>
+                          <div className="w-9 h-9 rounded-full bg-vital/10 text-vital flex items-center justify-center text-xs font-bold shrink-0">{initials(p)}</div>
                           <div className="min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-medium text-ink text-sm whitespace-nowrap group-hover:text-bronze transition-colors">{nameOf(p)}</span>
+                              <span className="font-medium text-ink text-sm whitespace-nowrap group-hover:text-vital transition-colors">{nameOf(p)}</span>
                               <TierBadge affiliate={p.is_affiliate} />
                             </div>
                             <div className="text-xs text-ink-muted break-all">{p.email || '—'}</div>
@@ -510,7 +510,7 @@ function SalesPeople() {
                             <span className="text-sm font-semibold text-ink tabular-nums">{p.invoice_count}</span>
                             <div className="text-[11px] text-ink-muted tabular-nums">
                               <span className="text-emerald-600">{money(p.paid_earnings)} paid</span>
-                              {p.pending_earnings > 0 && <span className="text-bronze"> · {money(p.pending_earnings)} pending</span>}
+                              {p.pending_earnings > 0 && <span className="text-vital"> · {money(p.pending_earnings)} pending</span>}
                             </div>
                           </div>
                         ) : (
@@ -575,7 +575,7 @@ function SalesPeople() {
                                 <Trash2 className="w-4 h-4" />
                               </button>
                             )}
-                            <ChevronRight className="w-4 h-4 text-ink-light group-hover:text-bronze transition-colors" />
+                            <ChevronRight className="w-4 h-4 text-ink-light group-hover:text-vital transition-colors" />
                           </div>
                         </td>
                       )}
@@ -621,10 +621,10 @@ function SalesPeople() {
                   <li
                     key={p.id}
                     onClick={() => openPerson(p.id)}
-                    className={`px-4 py-3.5 cursor-pointer transition-colors ${marked ? 'bg-bronze/5' : 'active:bg-surface'}`}
+                    className={`px-4 py-3.5 cursor-pointer transition-colors ${marked ? 'bg-vital/5' : 'active:bg-surface'}`}
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-full bg-bronze/10 text-bronze flex items-center justify-center text-xs font-bold shrink-0">{initials(p)}</div>
+                      <div className="w-9 h-9 rounded-full bg-vital/10 text-vital flex items-center justify-center text-xs font-bold shrink-0">{initials(p)}</div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex items-center gap-2 flex-wrap min-w-0">
@@ -645,7 +645,7 @@ function SalesPeople() {
                           <div className="mt-1.5 text-xs text-ink-muted">
                             <span className="text-sm font-semibold text-ink tabular-nums">{p.invoice_count}</span> inv ·{' '}
                             <span className="text-emerald-600 tabular-nums">{money(p.paid_earnings)} paid</span>
-                            {p.pending_earnings > 0 && <span className="text-bronze tabular-nums"> · {money(p.pending_earnings)} pending</span>}
+                            {p.pending_earnings > 0 && <span className="text-vital tabular-nums"> · {money(p.pending_earnings)} pending</span>}
                           </div>
                         )}
                         {p.is_affiliate && (

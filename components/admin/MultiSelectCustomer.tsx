@@ -122,7 +122,7 @@ export default function MultiSelectCustomer({
       {/* Input Container with Chips */}
       <div
         ref={triggerRef}
-        className={`min-h-[42px] w-full px-3 py-2 bg-surface border border-line rounded-lg focus-within:ring-2 focus-within:ring-bronze/40 focus-within:border-transparent ${
+        className={`min-h-[42px] w-full px-3 py-2 bg-surface border border-line rounded-lg focus-within:ring-2 focus-within:ring-vital/40 focus-within:border-transparent ${
           disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-text'
         }`}
         onClick={() => !disabled && setIsOpen(true)}
@@ -132,7 +132,7 @@ export default function MultiSelectCustomer({
           {selectedCustomers.map((customer) => (
             <div
               key={customer.id}
-              className="inline-flex items-center gap-1 px-2 py-1 bg-bronze/10 text-bronze text-xs rounded-md"
+              className="inline-flex items-center gap-1 px-2 py-1 bg-vital/10 text-vital text-xs rounded-md"
             >
               <span className="font-medium">{getCustomerName(customer)}</span>
               {!disabled && (
@@ -141,7 +141,7 @@ export default function MultiSelectCustomer({
                     e.stopPropagation();
                     handleRemoveCustomer(customer.id);
                   }}
-                  className="hover:bg-bronze/20 rounded transition-colors"
+                  className="hover:bg-vital/20 rounded transition-colors"
                   type="button"
                 >
                   <X className="w-3 h-3" />
@@ -195,7 +195,7 @@ export default function MultiSelectCustomer({
           <div className="p-2 border-b border-line bg-surface">
             <button
               onClick={handleSelectAll}
-              className="w-full px-3 py-2 text-xs font-medium text-ink hover:bg-bronze/10 rounded transition-colors text-left"
+              className="w-full px-3 py-2 text-xs font-medium text-ink hover:bg-vital/10 rounded transition-colors text-left"
               type="button"
             >
               Select All ({customers.length})
@@ -227,7 +227,7 @@ export default function MultiSelectCustomer({
                       </div>
                     </div>
                     {isSelected && (
-                      <Check className="w-4 h-4 text-bronze flex-shrink-0 ml-2" />
+                      <Check className="w-4 h-4 text-vital flex-shrink-0 ml-2" />
                     )}
                   </button>
                 );

@@ -26,10 +26,10 @@ export interface SiteConfig {
   tracking_consent_required: boolean;
 }
 
-// Built-in fallback — matches the storefront's historical hardcoded branding, so
-// nothing looks broken before the migration runs or if a fetch fails.
+// Built-in fallback — the VYTA Biosciences house brand, so nothing looks
+// broken before the migration runs or if a fetch fails.
 export const DEFAULT_SITE_CONFIG: SiteConfig = {
-  store_name: 'Aminocan Peptides',
+  store_name: 'VYTA Biosciences',
   store_tagline: 'Research Peptides',
   logo_url: null,
   favicon_url: null,

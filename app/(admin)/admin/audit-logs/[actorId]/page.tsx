@@ -83,8 +83,8 @@ export default function AdminAuditDetail() {
         {/* Sticky identity sidebar */}
         <aside className="lg:sticky lg:top-6">
           <div className="bg-white rounded-xl border border-line shadow-sm overflow-hidden">
-            <div className="flex flex-col items-center text-center px-6 pt-8 pb-6 bg-gradient-to-b from-bronze/10 to-transparent">
-              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-bronze/20 text-bronze-dark font-bold text-2xl mb-3">
+            <div className="flex flex-col items-center text-center px-6 pt-8 pb-6 bg-gradient-to-b from-vital/10 to-transparent">
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-vital/20 text-vital-dark font-bold text-2xl mb-3">
                 {actorInitials(actor)}
               </div>
               <h2 className="text-lg font-bold text-ink">
@@ -207,7 +207,7 @@ function Stat({
 }) {
   return (
     <div className="flex flex-col items-center py-4">
-      <Icon className="w-4 h-4 text-bronze mb-1" />
+      <Icon className="w-4 h-4 text-vital mb-1" />
       <span className="text-xl font-bold text-ink tabular-nums leading-none">{value}</span>
       <span className="text-[11px] text-ink-muted mt-1 uppercase tracking-wide">{label}</span>
     </div>

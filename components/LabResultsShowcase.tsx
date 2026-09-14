@@ -117,7 +117,7 @@ export default function LabResultsShowcase() {
   return (
     <section
       id="lab-results"
-      className="relative py-16 sm:py-24 bg-ink text-white scroll-mt-[104px] overflow-hidden"
+      className="relative py-20 sm:py-28 bg-ink text-white scroll-mt-[104px] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -127,12 +127,12 @@ export default function LabResultsShowcase() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/20 border border-bronze/30 rounded-full mb-4">
-              <FlaskConical className="w-3.5 h-3.5 text-bronze" />
-              <span className="text-xs font-medium text-bronze">Third-Party Verified</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-vital/20 border border-vital/30 rounded-full mb-4">
+              <FlaskConical className="w-3.5 h-3.5 text-aqua" />
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-aqua">Third-Party Verified</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl font-semibold mb-4 leading-tight">
               We Show Our Work
             </h2>
 
@@ -153,8 +153,8 @@ export default function LabResultsShowcase() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-start gap-3.5"
                 >
-                  <div className="w-11 h-11 bg-bronze/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <pillar.icon className="w-5 h-5 text-bronze" />
+                  <div className="w-11 h-11 bg-vital/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <pillar.icon className="w-5 h-5 text-aqua" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-base mb-0.5">
@@ -172,7 +172,7 @@ export default function LabResultsShowcase() {
             <div className="mt-10">
               <Link
                 href="/lab-results"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-bronze hover:bg-bronze-light text-ink font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-vital hover:bg-vital-light text-ink font-semibold rounded-xl transition-colors"
               >
                 Explore Lab Results
                 <ArrowRight className="w-4 h-4" />
@@ -190,19 +190,19 @@ export default function LabResultsShowcase() {
             {/* Bronze corner ticks */}
             <div
               aria-hidden="true"
-              className="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-bronze/50 rounded-tl-sm"
+              className="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-vital/50 rounded-tl-sm"
             />
             <div
               aria-hidden="true"
-              className="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-bronze/50 rounded-tr-sm"
+              className="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-vital/50 rounded-tr-sm"
             />
             <div
               aria-hidden="true"
-              className="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-bronze/50 rounded-bl-sm"
+              className="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-vital/50 rounded-bl-sm"
             />
             <div
               aria-hidden="true"
-              className="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-bronze/50 rounded-br-sm"
+              className="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-vital/50 rounded-br-sm"
             />
 
             {/* Panel */}
@@ -258,7 +258,7 @@ export default function LabResultsShowcase() {
                       d={TRACE_D}
                       pathLength={1}
                       fill="none"
-                      stroke="#B8A876"
+                      stroke="#438B9E"
                       strokeWidth={7}
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -269,7 +269,7 @@ export default function LabResultsShowcase() {
                       d={TRACE_D}
                       pathLength={1}
                       fill="none"
-                      stroke="#9C8B5A"
+                      stroke="#6EB2B8"
                       strokeWidth={2.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -299,7 +299,7 @@ export default function LabResultsShowcase() {
                   )}
 
                   {/* Hover wash */}
-                  <div className="absolute inset-0 bg-bronze/0 group-hover:bg-bronze/5 transition-colors" />
+                  <div className="absolute inset-0 bg-vital/0 group-hover:bg-vital/5 transition-colors" />
                 </div>
               </Link>
 
@@ -322,10 +322,10 @@ export default function LabResultsShowcase() {
               {/* Caption bar — styled like an exhibit label */}
               <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3 border-t border-white/10 bg-white/[0.04]">
                 <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-white/50">
-                  <FlaskConical className="w-3.5 h-3.5 text-bronze" />
+                  <FlaskConical className="w-3.5 h-3.5 text-aqua" />
                   HPLC-UV · PPB Analytical Inc.
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-semibold text-bronze-light tabular-nums whitespace-nowrap">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-aqua tabular-nums whitespace-nowrap">
                   99%+ Verified
                 </span>
               </div>

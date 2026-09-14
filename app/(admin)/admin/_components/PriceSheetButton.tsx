@@ -132,7 +132,7 @@ export default function PriceSheetButton({
             onClick={() => { setOpen(false); setEmailOpen(true); }}
             className="inline-flex items-center justify-center gap-2 w-full mt-2 px-3 py-2 rounded-lg border border-line bg-white text-ink text-sm font-semibold hover:bg-surface transition-colors"
           >
-            <Mail className="w-4 h-4 text-bronze" /> Preview &amp; email
+            <Mail className="w-4 h-4 text-vital" /> Preview &amp; email
           </button>
         </div>
       )}

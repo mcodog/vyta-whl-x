@@ -160,7 +160,7 @@ export default function AdminCategoriesPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-            <Tags className="w-6 h-6 text-bronze" /> Categories
+            <Tags className="w-6 h-6 text-vital" /> Categories
           </h1>
           <p className="text-sm text-ink-muted mt-1 max-w-2xl">
             Control the storefront category taxonomy — rename, reorder, re-icon, show/hide,
@@ -248,7 +248,7 @@ export default function AdminCategoriesPage() {
                           value={d.name}
                           disabled={readOnly}
                           onChange={(e) => patchDraft(c.id, { name: e.target.value })}
-                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60"
+                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60"
                         />
                         <p className="text-[11px] text-ink-light mt-1 truncate">
                           slug: <span className="font-mono">{c.slug}</span>
@@ -260,7 +260,7 @@ export default function AdminCategoriesPage() {
                           value={CATEGORY_ICON_KEYS.includes(d.icon) ? d.icon : DEFAULT_CATEGORY_ICON}
                           disabled={readOnly}
                           onChange={(e) => patchDraft(c.id, { icon: e.target.value })}
-                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60"
+                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60"
                         >
                           {CATEGORY_ICON_KEYS.map((k) => (
                             <option key={k} value={k}>{k}</option>
@@ -274,7 +274,7 @@ export default function AdminCategoriesPage() {
                           disabled={readOnly}
                           onChange={(e) => patchDraft(c.id, { home_label: e.target.value })}
                           placeholder={d.name}
-                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60"
+                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60"
                         />
                       </div>
                       <div>
@@ -284,7 +284,7 @@ export default function AdminCategoriesPage() {
                           disabled={readOnly}
                           onChange={(e) => patchDraft(c.id, { description: e.target.value })}
                           placeholder="e.g., GLP-1 Agonists"
-                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60"
+                          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60"
                         />
                       </div>
                     </div>
@@ -307,10 +307,10 @@ export default function AdminCategoriesPage() {
                         disabled={readOnly}
                         title={d.featured ? 'Shown on homepage grid' : 'Not on homepage grid'}
                         className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium transition-colors disabled:opacity-60 ${
-                          d.featured ? 'bg-bronze/10 text-bronze' : 'bg-gray-500/10 text-ink-muted'
+                          d.featured ? 'bg-vital/10 text-vital' : 'bg-gray-500/10 text-ink-muted'
                         }`}
                       >
-                        <Star className={`w-3.5 h-3.5 ${d.featured ? 'fill-bronze' : ''}`} />
+                        <Star className={`w-3.5 h-3.5 ${d.featured ? 'fill-vital' : ''}`} />
                         {d.featured ? 'Homepage' : 'Off'}
                       </button>
                       <div className="flex items-center gap-1.5 mt-1">
@@ -446,7 +446,7 @@ function CreateCategoryModal({ onClose, onCreated }: { onClose: () => void; onCr
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               placeholder="e.g., Weight Loss / Metabolic"
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
           <div>
@@ -455,7 +455,7 @@ function CreateCategoryModal({ onClose, onCreated }: { onClose: () => void; onCr
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g., Metabolic"
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -465,7 +465,7 @@ function CreateCategoryModal({ onClose, onCreated }: { onClose: () => void; onCr
                 value={homeLabel}
                 onChange={(e) => setHomeLabel(e.target.value)}
                 placeholder={name || 'optional'}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
             <div>
@@ -477,7 +477,7 @@ function CreateCategoryModal({ onClose, onCreated }: { onClose: () => void; onCr
                 <select
                   value={icon}
                   onChange={(e) => setIcon(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 >
                   {CATEGORY_ICON_KEYS.map((k) => (
                     <option key={k} value={k}>{k}</option>
@@ -492,11 +492,11 @@ function CreateCategoryModal({ onClose, onCreated }: { onClose: () => void; onCr
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="e.g., GLP-1 Agonists"
-              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
           <label className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" checked={featured} onChange={(e) => setFeatured(e.target.checked)} className="rounded border-line accent-bronze" />
+            <input type="checkbox" checked={featured} onChange={(e) => setFeatured(e.target.checked)} className="rounded border-line accent-vital" />
             <span className="text-sm text-ink">Show on homepage grid</span>
           </label>
           <div className="flex gap-3 pt-2">

@@ -18,7 +18,15 @@ import SiteTracking from '@/components/SiteTracking';
 import { getSupabase } from '@/lib/supabase';
 import { readSiteConfigRow, DEFAULT_SITE_CONFIG } from '@/lib/site-config';
 
-const inter = Inter({ subsets: ['latin'] });
+// Inter carries both roles from the brand guidelines: body copy/UI at its text
+// optical size, and "Inter Display" for headings — the same family driven to
+// opsz 32 by the `.font-display` utility and the heading rules in globals.css.
+const inter = Inter({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 // Branding-aware metadata: the store name and favicon come from the editable
 // site config (/admin/marketing), falling back to the built-in defaults.
@@ -32,10 +40,11 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   return {
     title: `${config.store_name} - ${config.store_tagline}`,
-    description: 'Your trusted source for high-quality peptides worldwide. Fast shipping, secure payment options including cryptocurrency.',
-    keywords: 'peptides, research peptides, BPC-157, TB-500, laboratory peptides',
+    description: 'Premium bioscience. Human vitality. Clinical credibility. Research-grade peptides, HPLC-verified and shipped worldwide.',
+    keywords: 'peptides, research peptides, bioscience, BPC-157, TB-500, laboratory peptides',
     icons: {
       icon: config.favicon_url || '/favicon.png',
+      apple: '/apple-touch-icon.png',
     },
   };
 }
@@ -56,7 +65,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${inter.className}`}>
         <SiteConfigProvider>
           <Web3Provider>
             <LanguageProvider>

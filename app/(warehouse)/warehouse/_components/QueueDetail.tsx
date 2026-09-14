@@ -364,7 +364,7 @@ export default function QueueDetail({ item, canSendEmails, onAdvance, onNotify, 
               )}
               <span
                 className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                  item.with_labels ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'
+                  item.with_labels ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'
                 }`}
                 title={
                   item.with_labels
@@ -570,7 +570,7 @@ export default function QueueDetail({ item, canSendEmails, onAdvance, onNotify, 
           </div>
           <span
             className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-              item.with_labels ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'
+              item.with_labels ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'
             }`}
           >
             <Tags className="w-3 h-3" />

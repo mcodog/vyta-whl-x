@@ -1,6 +1,6 @@
 /**
  * Affiliate System Utility Functions
- * Aminocan Peptides - 10% Commission Program
+ * VYTA Biosciences - 10% Commission Program
  */
 
 /**

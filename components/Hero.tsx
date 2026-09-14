@@ -284,20 +284,23 @@ export default function Hero() {
               className="lg:col-span-7"
             >
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-bronze/20 border border-bronze/30 rounded-full mb-4 sm:mb-6">
-                <Beaker className="w-3.5 h-3.5 text-bronze" />
-                <span className="text-[10px] sm:text-xs font-medium text-bronze">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-aqua/15 border border-aqua/30 rounded-full mb-5 sm:mb-7">
+                <Beaker className="w-3.5 h-3.5 text-aqua" />
+                <span className="text-[10px] sm:text-xs font-medium tracking-[0.14em] uppercase text-aqua">
                   Pharmaceutical Grade Research
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.05] tracking-tight text-white">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold mb-5 sm:mb-6 leading-[1.05] text-white">
                 Advanced
                 <br />
                 Peptide Research
               </h1>
 
-              <p className="text-base sm:text-lg text-white/70 mb-6 sm:mb-8 max-w-lg leading-relaxed">
+              {/* Brand rule — the navy → aqua sweep from the identity. */}
+              <div className="brand-rule h-[3px] w-28 rounded-full mb-5 sm:mb-6" aria-hidden="true" />
+
+              <p className="text-base sm:text-lg text-white/70 mb-7 sm:mb-9 max-w-lg leading-relaxed">
                 HPLC-verified peptides with 99%+ purity for scientific research. Each
                 batch independently tested with full Certificate of Analysis.
               </p>
@@ -333,8 +336,8 @@ export default function Hero() {
                     aria-label={`${label} — view lab documentation`}
                     className="group inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/[0.07] hover:bg-white/[0.14] border border-white/15 backdrop-blur-md transition-all hover:-translate-y-0.5"
                   >
-                    <span className="w-6 h-6 rounded-full bg-bronze/20 flex items-center justify-center">
-                      <Icon className="w-3.5 h-3.5 text-bronze" />
+                    <span className="w-6 h-6 rounded-full bg-vital/20 flex items-center justify-center">
+                      <Icon className="w-3.5 h-3.5 text-aqua" />
                     </span>
                     <span className="text-[10px] sm:text-xs font-medium text-white/80 group-hover:text-white">
                       {label}
@@ -397,7 +400,7 @@ export default function Hero() {
                 className="flex items-center text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-white/45"
               >
                 {item}
-                <span className="mx-5 sm:mx-8 text-bronze/60">•</span>
+                <span className="mx-5 sm:mx-8 text-aqua/60">•</span>
               </span>
             ))}
           </div>
@@ -448,12 +451,12 @@ function FeaturedCard({
     <div className="backdrop-blur-xl bg-white/[0.08] border border-white/15 rounded-2xl shadow-2xl shadow-black/40 p-4 sm:p-5">
       {/* Header */}
       <div className="flex items-center justify-between gap-2 mb-4">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-bronze/20 border border-bronze/30 rounded-full text-[10px] font-medium text-bronze">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-aqua/15 border border-aqua/30 rounded-full text-[10px] font-medium text-aqua">
           <Beaker className="w-3 h-3" />
           Featured Compound
         </span>
         {product.purity && product.purity.trim() && (
-          <span className="text-[10px] font-semibold text-bronze-light bg-bronze/15 border border-bronze/30 px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-semibold text-aqua bg-aqua/15 border border-aqua/30 px-2 py-0.5 rounded-full">
             {product.purity}
           </span>
         )}
@@ -509,7 +512,7 @@ function FeaturedCard({
             type="button"
             onClick={() => onAdd(product)}
             aria-label={`Add ${product.name} to cart`}
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-bronze hover:bg-bronze-light text-ink text-xs font-semibold rounded-lg transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-vital hover:bg-vital-light text-ink text-xs font-semibold rounded-lg transition-colors flex-shrink-0"
           >
             <ShoppingCart className="w-3.5 h-3.5" />
             Add
@@ -523,7 +526,7 @@ function FeaturedCard({
 
       {/* Footer */}
       <div className="flex items-center gap-1.5 mt-4 pt-3 border-t border-white/10 text-[10px] text-white/40">
-        <FileCheck className="w-3 h-3 text-bronze" />
+        <FileCheck className="w-3 h-3 text-aqua" />
         COA verified — PPB Analytical Inc.
       </div>
     </div>
@@ -554,8 +557,8 @@ function TrustCard() {
     <div className="backdrop-blur-xl bg-white/[0.08] border border-white/15 rounded-2xl shadow-2xl shadow-black/40 p-5 sm:p-6 space-y-5">
       {rows.map(({ icon: Icon, title, sub }) => (
         <div key={title} className="flex items-center gap-4">
-          <div className="w-11 h-11 bg-bronze/20 rounded-xl flex items-center justify-center flex-shrink-0">
-            <Icon className="w-5 h-5 text-bronze" />
+          <div className="w-11 h-11 bg-vital/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Icon className="w-5 h-5 text-aqua" />
           </div>
           <div>
             <p className="font-semibold text-white text-sm">{title}</p>

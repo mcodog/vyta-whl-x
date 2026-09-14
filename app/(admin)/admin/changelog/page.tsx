@@ -243,7 +243,7 @@ export default function AdminChangelog() {
         <select
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
         >
           <option value="all">Everyone</option>
           {authors.map((a) => (
@@ -299,7 +299,7 @@ export default function AdminChangelog() {
       {/* Header */}
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-1">
-          <History className="w-5 h-5 text-bronze" />
+          <History className="w-5 h-5 text-vital" />
           <h1 className="text-xl font-bold text-ink">Changelog</h1>
         </div>
         <p className="text-sm text-ink-muted">
@@ -315,7 +315,7 @@ export default function AdminChangelog() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search title or content…"
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
         <button
@@ -380,7 +380,7 @@ export default function AdminChangelog() {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm text-bronze hover:text-bronze-dark font-medium"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm text-vital hover:text-vital-dark font-medium"
                 >
                   <X className="w-4 h-4" /> Clear filters
                 </button>

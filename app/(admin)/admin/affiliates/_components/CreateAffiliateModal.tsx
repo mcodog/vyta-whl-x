@@ -161,7 +161,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                   <span className="text-sm font-semibold">Promoted to affiliate</span>
                 </div>
                 <div className="flex items-start gap-2 p-3 bg-surface border border-line rounded-lg text-sm text-ink">
-                  <Users className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <Users className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <span>
                     <span className="font-medium break-all">{sent.email}</span> is now an affiliate.
                     They keep their existing login and history, and now have access to the affiliate
@@ -185,7 +185,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                   <span className="text-sm font-semibold">Affiliate created</span>
                 </div>
                 <div className="flex items-start gap-2 p-3 bg-surface border border-line rounded-lg text-sm text-ink">
-                  <Mail className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                   <span>
                     A set-up link was emailed to{' '}
                     <span className="font-medium break-all">{sent.email}</span>. They&apos;ll
@@ -219,7 +219,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                   placeholder="Jane"
                 />
               </div>
@@ -229,7 +229,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                   placeholder="Doe"
                 />
               </div>
@@ -241,7 +241,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="affiliate@example.com"
               />
             </div>
@@ -252,7 +252,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                 type="text"
                 value={walletAddress}
                 onChange={(e) => setWalletAddress(e.target.value)}
-                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-vital/40"
                 placeholder="0x..."
               />
             </div>
@@ -293,7 +293,7 @@ export default function CreateAffiliateModal({ onClose, onCreated }: Props) {
                 id="active-create"
                 checked={active}
                 onChange={(e) => setActive(e.target.checked)}
-                className="rounded border-line accent-bronze"
+                className="rounded border-line accent-vital"
               />
               <label htmlFor="active-create" className="text-sm text-ink">Active (can log in)</label>
             </div>

@@ -49,7 +49,7 @@ export default function Navigation() {
               <span className={`text-xl font-semibold tracking-tight transition-colors duration-300 ${
                 isScrolled ? "text-neutral-900" : "text-white"
               }`}>
-                Aminocan
+                VYTA
               </span>
             </Link>
 

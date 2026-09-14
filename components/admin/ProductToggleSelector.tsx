@@ -40,7 +40,7 @@ export default function ProductToggleSelector({
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search products..."
           disabled={disabled}
-          className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-ink placeholder-ink-muted text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-ink placeholder-ink-muted text-sm disabled:opacity-50 disabled:cursor-not-allowed"
         />
       </div>
 
@@ -61,7 +61,7 @@ export default function ProductToggleSelector({
                   disabled={disabled}
                   className={`w-full px-4 py-3 text-left transition-all ${
                     isSelected
-                      ? 'bg-bronze/10 border-l-2 border-l-bronze'
+                      ? 'bg-vital/10 border-l-2 border-l-vital'
                       : 'hover:bg-surface border-l-2 border-l-transparent'
                   } ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
                   type="button"
@@ -70,7 +70,7 @@ export default function ProductToggleSelector({
                     <div className="flex-1 min-w-0">
                       <div
                         className={`text-sm font-medium truncate ${
-                          isSelected ? 'text-bronze' : 'text-ink'
+                          isSelected ? 'text-vital' : 'text-ink'
                         }`}
                       >
                         {product.name}
@@ -78,7 +78,7 @@ export default function ProductToggleSelector({
                     </div>
                     <div
                       className={`ml-3 text-sm font-semibold tabular-nums ${
-                        isSelected ? 'text-bronze' : 'text-ink-muted'
+                        isSelected ? 'text-vital' : 'text-ink-muted'
                       }`}
                     >
                       ${product.price.toFixed(2)}

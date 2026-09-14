@@ -66,7 +66,7 @@ export const translations: Record<Language, Translations> = {
       learnMore: 'Learn More',
     },
     features: {
-      title: 'Why Choose Aminocan Peptides',
+      title: 'Why Choose VYTA Biosciences',
       worldwide: {
         title: 'Worldwide Shipping',
         description: 'Fast and discreet delivery to customers around the globe',
@@ -95,7 +95,7 @@ export const translations: Record<Language, Translations> = {
       quickLinks: 'Quick Links',
       support: 'Support',
       paymentMethods: 'Payment Methods',
-      copyright: '© 2025 Aminocan Peptides. All rights reserved.',
+      copyright: '© 2025 VYTA Biosciences. All rights reserved.',
     },
   },
   es: {
@@ -114,7 +114,7 @@ export const translations: Record<Language, Translations> = {
       learnMore: 'Saber Más',
     },
     features: {
-      title: 'Por Qué Elegir Aminocan Peptides',
+      title: 'Por Qué Elegir VYTA Biosciences',
       worldwide: {
         title: 'Envío Mundial',
         description: 'Entrega rápida y discreta a clientes en todo el mundo',
@@ -143,7 +143,7 @@ export const translations: Record<Language, Translations> = {
       quickLinks: 'Enlaces Rápidos',
       support: 'Soporte',
       paymentMethods: 'Métodos de Pago',
-      copyright: '© 2025 Aminocan Peptides. Todos los derechos reservados.',
+      copyright: '© 2025 VYTA Biosciences. Todos los derechos reservados.',
     },
   },
   vi: {
@@ -162,7 +162,7 @@ export const translations: Record<Language, Translations> = {
       learnMore: 'Tìm Hiểu Thêm',
     },
     features: {
-      title: 'Tại Sao Chọn Aminocan Peptides',
+      title: 'Tại Sao Chọn VYTA Biosciences',
       worldwide: {
         title: 'Giao Hàng Toàn Cầu',
         description: 'Giao hàng nhanh chóng và kín đáo đến khách hàng trên toàn thế giới',
@@ -191,7 +191,7 @@ export const translations: Record<Language, Translations> = {
       quickLinks: 'Liên Kết Nhanh',
       support: 'Hỗ Trợ',
       paymentMethods: 'Phương Thức Thanh Toán',
-      copyright: '© 2025 Aminocan Peptides. Đã đăng ký bản quyền.',
+      copyright: '© 2025 VYTA Biosciences. Đã đăng ký bản quyền.',
     },
   },
 };

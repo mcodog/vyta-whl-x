@@ -94,7 +94,7 @@ export default function QueueRow({ item, selected, isNew, onSelect, checked, onT
         )}
         <span
           className={`inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
-            item.with_labels ? 'bg-bronze/10 text-bronze' : 'bg-ink/5 text-ink-muted'
+            item.with_labels ? 'bg-vital/10 text-vital' : 'bg-ink/5 text-ink-muted'
           }`}
           title={
             item.with_labels

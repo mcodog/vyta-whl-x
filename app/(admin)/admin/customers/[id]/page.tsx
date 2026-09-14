@@ -237,7 +237,7 @@ function AddClientModal({
       <input
         value={form[k]}
         onChange={(e) => set(k, e.target.value)}
-        className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+        className="w-full px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
       />
     </div>
   );
@@ -542,11 +542,11 @@ export default function CustomerDetailPage() {
   }
   for (const cl of data.clients) {
     const clName = `${cl.first_name ?? ''} ${cl.last_name ?? ''}`.trim() || cl.address;
-    activity.push({ date: cl.created_at, icon: Users, tone: 'text-bronze', label: 'Ship-to client added', sub: clName });
+    activity.push({ date: cl.created_at, icon: Users, tone: 'text-vital', label: 'Ship-to client added', sub: clName });
   }
   if (data.assignment.assignedAt) {
     activity.push({
-      date: data.assignment.assignedAt, icon: Handshake, tone: 'text-bronze',
+      date: data.assignment.assignedAt, icon: Handshake, tone: 'text-vital',
       label: `Taken over by ${data.assignment.assignedAdminName ?? 'an admin'}`,
     });
   }
@@ -563,8 +563,8 @@ export default function CustomerDetailPage() {
       {/* Header */}
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-12 h-12 rounded-xl bg-bronze/10 flex items-center justify-center shrink-0">
-            <User className="w-6 h-6 text-bronze" />
+          <div className="w-12 h-12 rounded-xl bg-vital/10 flex items-center justify-center shrink-0">
+            <User className="w-6 h-6 text-vital" />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
@@ -583,7 +583,7 @@ export default function CustomerDetailPage() {
                 </span>
               )}
               {takenOver && (
-                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide bg-bronze/10 text-bronze">
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide bg-vital/10 text-vital">
                   <UserCheck className="w-3 h-3" />
                   {data.assignment.isMine ? 'Yours' : data.assignment.assignedAdminName || 'Taken over'}
                 </span>
@@ -606,7 +606,7 @@ export default function CustomerDetailPage() {
           <PriceSheetButton type="customer" id={id} defaultEmail={c.email ?? ''} entityName={name} />
           {mayEdit && (
             <>
-              <button onClick={() => setPricingOpen(true)} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-bronze/20 bg-bronze/10 text-bronze text-sm font-medium hover:bg-bronze/20 transition-colors">
+              <button onClick={() => setPricingOpen(true)} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-vital/20 bg-vital/10 text-vital text-sm font-medium hover:bg-vital/20 transition-colors">
                 <Tag className="w-4 h-4" /> Pricing
               </button>
               <button onClick={() => setEditing(true)} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-line bg-white text-ink text-sm font-medium hover:bg-surface transition-colors">
@@ -737,13 +737,13 @@ export default function CustomerDetailPage() {
                 key={t.key}
                 onClick={() => setTab(t.key)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                  active ? 'border-bronze text-ink' : 'border-transparent text-ink-muted hover:text-ink'
+                  active ? 'border-vital text-ink' : 'border-transparent text-ink-muted hover:text-ink'
                 }`}
               >
                 <Icon className="w-4 h-4" />
                 {t.label}
                 {count != null && count > 0 && (
-                  <span className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold ${active ? 'bg-bronze/15 text-bronze' : 'bg-surface text-ink-muted'}`}>
+                  <span className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold ${active ? 'bg-vital/15 text-vital' : 'bg-surface text-ink-muted'}`}>
                     {count}
                   </span>
                 )}
@@ -758,12 +758,12 @@ export default function CustomerDetailPage() {
         <div className="grid lg:grid-cols-2 gap-6">
           <Card title="Contact details" icon={User}>
             <div className="space-y-3">
-              <Row icon={Mail}><a href={`mailto:${c.email}`} className="text-bronze font-medium break-all hover:underline">{c.email}</a></Row>
+              <Row icon={Mail}><a href={`mailto:${c.email}`} className="text-vital font-medium break-all hover:underline">{c.email}</a></Row>
               {c.alternate_email && (
                 <Row icon={Mail}><span className="break-all">{c.alternate_email} <span className="text-ink-muted text-xs">(alt)</span></span></Row>
               )}
               <Row icon={Phone}>
-                {c.phone ? <a href={`tel:${c.phone}`} className="text-bronze font-medium hover:underline">{c.phone}</a> : <span className="text-ink-muted">No phone on file</span>}
+                {c.phone ? <a href={`tel:${c.phone}`} className="text-vital font-medium hover:underline">{c.phone}</a> : <span className="text-ink-muted">No phone on file</span>}
               </Row>
               <Row icon={MapPin}>{address || <span className="text-ink-muted">No address on file</span>}</Row>
               <Row icon={Calendar}>Registered {dateShort(c.created_at)}{daysSince(c.created_at) != null ? ` · ${daysSince(c.created_at)}d ago` : ''}</Row>
@@ -800,7 +800,7 @@ export default function CustomerDetailPage() {
                     <button
                       type="button"
                       onClick={() => setTab('sales')}
-                      className="text-xs text-bronze hover:underline"
+                      className="text-xs text-vital hover:underline"
                     >
                       Manage
                     </button>
@@ -812,7 +812,7 @@ export default function CustomerDetailPage() {
                       <button
                         type="button"
                         onClick={() => setTab('sales')}
-                        className="text-xs text-bronze hover:underline"
+                        className="text-xs text-vital hover:underline"
                       >
                         Assign
                       </button>
@@ -851,14 +851,14 @@ export default function CustomerDetailPage() {
           <Card
             title="Recent invoices"
             icon={FileText}
-            action={data.invoices.length > 5 ? <button onClick={() => setTab('invoices')} className="text-xs text-bronze hover:underline">View all</button> : undefined}
+            action={data.invoices.length > 5 ? <button onClick={() => setTab('invoices')} className="text-xs text-vital hover:underline">View all</button> : undefined}
           >
             {recentInvoices.length === 0 ? (
               <p className="text-sm text-ink-muted">No invoices yet.</p>
             ) : (
               <div className="space-y-2">
                 {recentInvoices.map((inv) => (
-                  <Link key={inv.id} href={`/admin/invoices/${inv.id}`} className="flex items-center justify-between gap-3 p-2.5 bg-surface rounded-lg border border-line hover:border-bronze/40 transition-colors">
+                  <Link key={inv.id} href={`/admin/invoices/${inv.id}`} className="flex items-center justify-between gap-3 p-2.5 bg-surface rounded-lg border border-line hover:border-vital/40 transition-colors">
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-ink truncate">{inv.invoice_number}</span>
@@ -921,12 +921,12 @@ export default function CustomerDetailPage() {
                   {data.invoices.map((inv) => (
                     <tr key={inv.id} className="hover:bg-surface transition-colors">
                       <td className="px-5 py-3">
-                        <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-bronze">
+                        <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-vital">
                           {inv.invoice_number}
                         </Link>
                         <div className="flex items-center gap-1.5 mt-1 flex-wrap">
                           {inv.invoice_type === 'prepaid' && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600">Prepaid</span>}
-                          {inv.ships_to_client && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-bronze/10 text-bronze">Ships to client</span>}
+                          {inv.ships_to_client && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-vital/10 text-vital">Ships to client</span>}
                           {inv.is_backorder && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600">Backorder</span>}
                           {inv.fulfillment_type === 'pickup' && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-surface text-ink-muted border border-line">Pickup</span>}
                         </div>
@@ -952,12 +952,12 @@ export default function CustomerDetailPage() {
                 <li key={inv.id} className="px-4 py-3.5">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-bronze">
+                      <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-ink hover:text-vital">
                         {inv.invoice_number}
                       </Link>
                       <div className="flex items-center gap-1.5 mt-1 flex-wrap">
                         {inv.invoice_type === 'prepaid' && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600">Prepaid</span>}
-                        {inv.ships_to_client && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-bronze/10 text-bronze">Ships to client</span>}
+                        {inv.ships_to_client && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-vital/10 text-vital">Ships to client</span>}
                         {inv.is_backorder && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600">Backorder</span>}
                         {inv.fulfillment_type === 'pickup' && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-surface text-ink-muted border border-line">Pickup</span>}
                       </div>
@@ -1014,8 +1014,8 @@ export default function CustomerDetailPage() {
                 return (
                   <div key={cl.id} className="bg-white rounded-xl border border-line p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-bronze/10 flex items-center justify-center shrink-0">
-                        <Users className="w-4 h-4 text-bronze" />
+                      <div className="w-8 h-8 rounded-lg bg-vital/10 flex items-center justify-center shrink-0">
+                        <Users className="w-4 h-4 text-vital" />
                       </div>
                       <span className="font-semibold text-ink text-sm truncate">{clName || 'Unnamed client'}</span>
                     </div>
@@ -1038,7 +1038,7 @@ export default function CustomerDetailPage() {
                               <Link
                                 key={s.id}
                                 href={`/admin/invoices/${s.id}`}
-                                className="flex items-center justify-between gap-2 p-2 rounded-lg bg-surface border border-line hover:border-bronze/40 transition-colors"
+                                className="flex items-center justify-between gap-2 p-2 rounded-lg bg-surface border border-line hover:border-vital/40 transition-colors"
                               >
                                 <div className="min-w-0">
                                   <span className="block text-xs font-medium text-ink truncate">{s.invoice_number}</span>
@@ -1068,7 +1068,7 @@ export default function CustomerDetailPage() {
             ) : (
               <div className="space-y-2">
                 {data.orders.map((o) => (
-                  <Link key={o.id} href={`/admin/orders/${o.id}`} className="flex items-center justify-between gap-3 p-3 bg-surface rounded-lg border border-line hover:border-bronze/40 transition-colors">
+                  <Link key={o.id} href={`/admin/orders/${o.id}`} className="flex items-center justify-between gap-3 p-3 bg-surface rounded-lg border border-line hover:border-vital/40 transition-colors">
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-ink truncate">{o.order_number}</p>
                       <p className="text-[11px] text-ink-muted">{dateShort(o.created_at)}</p>
@@ -1116,7 +1116,7 @@ export default function CustomerDetailPage() {
           <Card
             title="Pricing setup"
             icon={Tag}
-            action={mayEdit ? <button onClick={() => setPricingOpen(true)} className="text-xs text-bronze hover:underline">Manage</button> : undefined}
+            action={mayEdit ? <button onClick={() => setPricingOpen(true)} className="text-xs text-vital hover:underline">Manage</button> : undefined}
           >
             <div className="space-y-3">
               <Row icon={Tag}>
@@ -1134,7 +1134,7 @@ export default function CustomerDetailPage() {
                 <ExternalLink className="w-4 h-4" /> Per-product editor
               </Link>
               {mayEdit && (
-                <button onClick={() => setPricingOpen(true)} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-bronze/20 bg-bronze/10 text-bronze text-sm font-medium hover:bg-bronze/20 transition-colors">
+                <button onClick={() => setPricingOpen(true)} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-vital/20 bg-vital/10 text-vital text-sm font-medium hover:bg-vital/20 transition-colors">
                   <Tag className="w-4 h-4" /> Apply a price list
                 </button>
               )}
@@ -1143,10 +1143,10 @@ export default function CustomerDetailPage() {
 
           <Card title="How pricing resolves" icon={DollarSign}>
             <ol className="space-y-2 text-sm text-ink-muted">
-              <li className="flex gap-2"><span className="font-bold text-bronze">1.</span> This customer&apos;s custom price (box / unlabeled / vial), if set</li>
-              <li className="flex gap-2"><span className="font-bold text-bronze">2.</span> The globally active price list</li>
-              <li className="flex gap-2"><span className="font-bold text-bronze">3.</span> The product catalog price</li>
-              <li className="flex gap-2"><span className="font-bold text-bronze">4.</span> Per-vial fallback (catalog vial price, or box ÷ vials-per-box)</li>
+              <li className="flex gap-2"><span className="font-bold text-vital">1.</span> This customer&apos;s custom price (box / unlabeled / vial), if set</li>
+              <li className="flex gap-2"><span className="font-bold text-vital">2.</span> The globally active price list</li>
+              <li className="flex gap-2"><span className="font-bold text-vital">3.</span> The product catalog price</li>
+              <li className="flex gap-2"><span className="font-bold text-vital">4.</span> Per-vial fallback (catalog vial price, or box ÷ vials-per-box)</li>
             </ol>
             <p className="text-xs text-ink-muted mt-4">
               New invoices for {name} auto-apply this. Currency and labeled/unlabeled follow the account preferences above.

@@ -2,7 +2,7 @@
  * Attachable PDF rendering for a per-entity price sheet.
  *
  * Turns the render-agnostic {@link PriceSheetData} into a clean, branded PDF
- * (PURAMASS header, bronze accents) using pdfkit — the same toolkit and visual
+ * (VYTA header, vital accents) using pdfkit — the same toolkit and visual
  * language as the invoice PDF, so an emailed price list matches the rest of the
  * document set. The data is identical to the print-ready HTML view; only the
  * presentation differs.
@@ -15,13 +15,13 @@ import type { PriceSheetData } from '@/lib/admin/price-sheet';
 const money = (n: unknown) => `$${Number(n ?? 0).toFixed(2)}`;
 
 const COLORS = {
-  ink: '#1A1A1A',
-  muted: '#6B7280',
-  faint: '#9CA3AF',
-  rule: '#C9CCD1',
-  rowRule: '#F2F2F2',
-  surface: '#F7F7F7',
-  bronze: '#9C8B5A',
+  ink: '#07203A',
+  muted: '#5B7A8C',
+  faint: '#8FA9B6',
+  rule: '#D5E2E7',
+  rowRule: '#EFF5F7',
+  surface: '#F7FAFB',
+  vital: '#438B9E',
 };
 
 type PDFDoc = InstanceType<typeof PDFDocument>;
@@ -44,7 +44,7 @@ function drawHeader(ctx: Ctx): void {
     .fillColor(COLORS.ink)
     .font('Helvetica-Bold')
     .fontSize(22)
-    .text('PURAMASS', marginLeft, top, { lineBreak: false });
+    .text('VYTA', marginLeft, top, { lineBreak: false, characterSpacing: 4 });
   doc
     .fillColor(COLORS.muted)
     .font('Helvetica')
@@ -250,7 +250,7 @@ export async function renderPriceSheetPdf(data: PriceSheetData): Promise<Buffer>
     size: 'A4',
     margins: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN },
     bufferPages: true,
-    info: { Title: `Price List — ${data.name}`, Author: 'PuraMass' },
+    info: { Title: `Price List — ${data.name}`, Author: 'VYTA Biosciences' },
   });
 
   const chunks: Buffer[] = [];

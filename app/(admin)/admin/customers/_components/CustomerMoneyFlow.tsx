@@ -60,7 +60,7 @@ type ViewMode = 'chart' | 'text';
  */
 const EARNER_COLORS = [
   { bar: 'bg-purple-500', tint: 'bg-purple-100 text-purple-700', dot: 'bg-purple-500' },
-  { bar: 'bg-bronze', tint: 'bg-bronze/15 text-bronze-dark', dot: 'bg-bronze' },
+  { bar: 'bg-vital', tint: 'bg-vital/15 text-vital-dark', dot: 'bg-vital' },
   { bar: 'bg-sky-500', tint: 'bg-sky-100 text-sky-700', dot: 'bg-sky-500' },
   { bar: 'bg-emerald-500', tint: 'bg-emerald-100 text-emerald-700', dot: 'bg-emerald-500' },
   { bar: 'bg-rose-500', tint: 'bg-rose-100 text-rose-700', dot: 'bg-rose-500' },
@@ -99,7 +99,7 @@ export default function CustomerMoneyFlow({
     <div className="bg-white rounded-xl border border-line overflow-hidden">
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-b border-line">
         <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-bronze" />
+          <TrendingUp className="w-4 h-4 text-vital" />
           Where the money goes
         </h3>
         {/* Two views of the same numbers — a picture, and the receipts. */}
@@ -230,8 +230,8 @@ function FlowChart({
       {/* The same split as a flow: one source, one branch per destination. The
           rail + elbow are drawn with borders so it stays crisp at any zoom. */}
       <div>
-        <div className="inline-flex items-center gap-2 rounded-lg border border-bronze/30 bg-bronze/5 px-3 py-2">
-          <div className="w-7 h-7 rounded-full bg-bronze/15 text-bronze flex items-center justify-center shrink-0">
+        <div className="inline-flex items-center gap-2 rounded-lg border border-vital/30 bg-vital/5 px-3 py-2">
+          <div className="w-7 h-7 rounded-full bg-vital/15 text-vital flex items-center justify-center shrink-0">
             <TrendingUp className="w-3.5 h-3.5" />
           </div>
           <div className="min-w-0">

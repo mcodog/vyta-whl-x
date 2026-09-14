@@ -11,12 +11,12 @@ import { PO_STATUS_LABEL, type StockReportData, type StockReportRow } from '@/li
 
 const COLORS = {
   ink: '#161616',
-  muted: '#6B7280',
-  faint: '#9CA3AF',
+  muted: '#5B7A8C',
+  faint: '#8FA9B6',
   rule: '#D2D5DA',
-  zebra: '#FAFAFA',
-  surface: '#F4F4F5',
-  bronze: '#9C8B5A',
+  zebra: '#F7FAFB',
+  surface: '#EFF5F7',
+  vital: '#438B9E',
   greenBg: '#D1FAE5',
   greenFg: '#065F46',
   amberBg: '#FEF3C7',
@@ -49,9 +49,9 @@ function drawTitle(ctx: Ctx, generatedAt: Date): void {
   const { doc, left, right } = ctx;
   const top = doc.y;
 
-  doc.fillColor(COLORS.ink).font('Helvetica-Bold').fontSize(26).text('PURAMASS', left, top, { lineBreak: false });
+  doc.fillColor(COLORS.ink).font('Helvetica-Bold').fontSize(26).text('VYTA', left, top, { lineBreak: false, characterSpacing: 4 });
   doc
-    .fillColor(COLORS.bronze)
+    .fillColor(COLORS.vital)
     .font('Helvetica-Bold')
     .fontSize(11)
     .text('STOCK REPORT', left, doc.y + 4, { characterSpacing: 2 });
@@ -66,7 +66,7 @@ function drawTitle(ctx: Ctx, generatedAt: Date): void {
     });
 
   const ruleY = doc.y + 12;
-  doc.moveTo(left, ruleY).lineTo(right, ruleY).lineWidth(2).strokeColor(COLORS.bronze).stroke();
+  doc.moveTo(left, ruleY).lineTo(right, ruleY).lineWidth(2).strokeColor(COLORS.vital).stroke();
   doc.y = ruleY + 18;
 }
 
@@ -253,7 +253,7 @@ function paginateFooters(doc: PDFDoc, left: number, right: number): void {
     drawInFooterStrip(doc, () => {
       doc.moveTo(left, y).lineTo(right, y).lineWidth(0.5).strokeColor(COLORS.rule).stroke();
       doc.fillColor(COLORS.faint).font('Helvetica').fontSize(8.5);
-      doc.text('PURAMASS · Stock Report', left, y + 8, { lineBreak: false });
+      doc.text('VYTA BIOSCIENCES · Stock Report', left, y + 8, { lineBreak: false });
       doc.text(`Page ${i - range.start + 1} of ${range.count}`, left, y + 8, {
         align: 'right',
         width: right - left,
@@ -271,7 +271,7 @@ export async function renderStockReportPdf(
   const doc = new PDFDocument({
     size: 'A4',
     margins: { top: PAGE_MARGIN, bottom: PAGE_MARGIN, left: PAGE_MARGIN, right: PAGE_MARGIN },
-    info: { Title: 'PuraMass Stock Report', Author: 'PuraMass', Creator: 'PuraMass Admin' },
+    info: { Title: 'VYTA Stock Report', Author: 'VYTA Biosciences', Creator: 'VYTA Admin' },
     bufferPages: true,
   });
 

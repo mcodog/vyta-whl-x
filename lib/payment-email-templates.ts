@@ -29,7 +29,7 @@ You can pay by crypto or by Visa / Mastercard — pick whichever you prefer on t
 
 If anything looks off, just reply to this email and we'll sort it out.
 
-— PuraMass`;
+— VYTA Biosciences`;
 
 /**
  * Merge variables available in the payment email: everything the invoice email
@@ -85,14 +85,14 @@ export function paymentEmailHtml(body: string, paymentUrl: string): string {
       ? `<div style="white-space:pre-wrap;margin:0 0 20px;">${escapeHtml(text)}</div>`
       : '';
 
-  return `<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.55;color:#1A1A1A;max-width:560px;">
+  return `<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.55;color:#07203A;max-width:560px;">
 ${block(before)}
 <div style="margin:0 0 20px;">
-  <a href="${escapeHtml(paymentUrl)}" style="display:inline-block;background:#9C8B5A;color:#ffffff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 24px;border-radius:10px;">Pay invoice</a>
+  <a href="${escapeHtml(paymentUrl)}" style="display:inline-block;background:#438B9E;color:#ffffff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 24px;border-radius:10px;">Pay invoice</a>
 </div>
-<div style="margin:0 0 20px;font-size:12px;color:#6E6E6E;">Or paste this link into your browser:<br /><a href="${escapeHtml(
+<div style="margin:0 0 20px;font-size:12px;color:#4E6E85;">Or paste this link into your browser:<br /><a href="${escapeHtml(
     paymentUrl,
-  )}" style="color:#7D6F48;word-break:break-all;">${escapeHtml(paymentUrl)}</a></div>
+  )}" style="color:#1B5D83;word-break:break-all;">${escapeHtml(paymentUrl)}</a></div>
 ${block(after)}
 </div>`;
 }

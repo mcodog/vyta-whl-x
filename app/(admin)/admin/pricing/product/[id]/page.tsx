@@ -263,7 +263,7 @@ export default function ProductPricingDetailPage() {
                         <div className="text-xs text-ink-muted">{o.customers.email}</div>
                       </td>
                       <td className="px-5 py-4 font-semibold text-ink tabular-nums">${defaultPrice.toFixed(2)}</td>
-                      <td className="px-5 py-4 font-semibold text-bronze tabular-nums">${o.override_price.toFixed(2)}</td>
+                      <td className="px-5 py-4 font-semibold text-vital tabular-nums">${o.override_price.toFixed(2)}</td>
                       <td className="px-5 py-4">
                         <span className={`text-sm font-medium ${discount > 0 ? 'text-emerald-600' : discount < 0 ? 'text-red-600' : 'text-ink-muted'}`}>
                           {discount > 0 ? '-' : discount < 0 ? '+' : ''}{Math.abs(discount).toFixed(1)}%
@@ -329,7 +329,7 @@ export default function ProductPricingDetailPage() {
                     </div>
                     <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-ink-muted">
                       <span>Default <span className="text-ink font-semibold tabular-nums">${defaultPrice.toFixed(2)}</span></span>
-                      <span>Override <span className="text-bronze font-semibold tabular-nums">${o.override_price.toFixed(2)}</span></span>
+                      <span>Override <span className="text-vital font-semibold tabular-nums">${o.override_price.toFixed(2)}</span></span>
                       <span className={`font-medium ${discount > 0 ? 'text-emerald-600' : discount < 0 ? 'text-red-600' : 'text-ink-muted'}`}>
                         {discount > 0 ? '-' : discount < 0 ? '+' : ''}{Math.abs(discount).toFixed(1)}%
                       </span>

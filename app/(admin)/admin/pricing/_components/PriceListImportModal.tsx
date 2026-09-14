@@ -134,7 +134,7 @@ export default function PriceListImportModal({
       >
         <div className="flex items-center justify-between p-5 border-b border-line">
           <div className="flex items-center gap-2">
-            <Upload className="w-5 h-5 text-bronze" />
+            <Upload className="w-5 h-5 text-vital" />
             <h2 className="text-lg font-bold text-ink">Import price list (CSV)</h2>
           </div>
           <button onClick={onClose} className="text-ink-muted hover:text-ink">
@@ -275,7 +275,7 @@ export default function PriceListImportModal({
             <button
               onClick={() => send('apply')}
               disabled={!canApply}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-bronze text-white rounded-lg hover:bg-bronze/90 text-sm font-medium disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-vital text-white rounded-lg hover:bg-vital/90 text-sm font-medium disabled:opacity-50"
             >
               {busy === 'apply' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
               Apply prices

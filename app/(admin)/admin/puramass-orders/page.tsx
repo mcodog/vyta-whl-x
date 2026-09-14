@@ -231,7 +231,7 @@ export default function PuramassOrdersPage() {
                           href={o.payment_link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-bronze hover:underline font-mono text-xs"
+                          className="inline-flex items-center gap-1 text-vital hover:underline font-mono text-xs"
                           title={o.transaction_id || undefined}
                         >
                           {o.transaction_id

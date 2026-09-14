@@ -197,8 +197,8 @@ export default function CustomerTakeoverPage() {
       {/* Header */}
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-12 h-12 rounded-xl bg-bronze/10 flex items-center justify-center shrink-0">
-            <User className="w-6 h-6 text-bronze" />
+          <div className="w-12 h-12 rounded-xl bg-vital/10 flex items-center justify-center shrink-0">
+            <User className="w-6 h-6 text-vital" />
           </div>
           <div className="min-w-0">
             <h1 className="text-2xl font-bold text-ink truncate">{name}</h1>
@@ -206,7 +206,7 @@ export default function CustomerTakeoverPage() {
           </div>
         </div>
         {takenOver ? (
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-bronze/10 text-bronze border border-bronze/20">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-vital/10 text-vital border border-vital/20">
             <UserCheck className="w-4 h-4" />
             {assignment.isMine ? 'Taken over by you' : `Taken over by ${assignment.assignedAdminName || 'an admin'}`}
           </span>
@@ -340,12 +340,12 @@ export default function CustomerTakeoverPage() {
           <div className="space-y-3 text-sm">
             <div className="flex items-start gap-3">
               <Mail className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />
-              <a href={`mailto:${customer.email}`} className="text-bronze font-medium break-all hover:underline">{customer.email}</a>
+              <a href={`mailto:${customer.email}`} className="text-vital font-medium break-all hover:underline">{customer.email}</a>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="w-4 h-4 text-ink-muted mt-0.5 shrink-0" />
               {customer.phone
-                ? <a href={`tel:${customer.phone}`} className="text-bronze font-medium hover:underline">{customer.phone}</a>
+                ? <a href={`tel:${customer.phone}`} className="text-vital font-medium hover:underline">{customer.phone}</a>
                 : <span className="text-ink-muted">No phone on file</span>}
             </div>
             <div className="flex items-start gap-3">
@@ -416,7 +416,7 @@ export default function CustomerTakeoverPage() {
               <Link
                 key={o.id}
                 href={`/admin/orders/${o.id}`}
-                className="flex items-center justify-between gap-3 p-3 bg-surface rounded-lg border border-line hover:border-bronze/40 transition-colors"
+                className="flex items-center justify-between gap-3 p-3 bg-surface rounded-lg border border-line hover:border-vital/40 transition-colors"
               >
                 <div className="min-w-0">
                   <p className="text-sm font-medium text-ink truncate">{o.order_number}</p>

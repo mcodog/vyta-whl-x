@@ -7,7 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { canAccessAdmin, canAccessAdminPage, adminLandingPage, getRoleName, type UserRole } from '@/lib/permissions';
 import { getLowStockProducts } from '@/lib/admin/api';
-import PuraLoader from '@/components/PuraLoader';
+import VytaLoader from '@/components/VytaLoader';
 
 // Create context for user role
 const UserRoleContext = createContext<UserRole>('customer');
@@ -277,7 +277,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   // Loading state
   if (isChecking) {
-    return <PuraLoader label="Admin Panel" message="Verifying access" />;
+    return <VytaLoader label="Admin Panel" message="Verifying access" />;
   }
 
   // Not logged in - show inline login form
@@ -287,8 +287,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="w-full max-w-sm">
           <div className="bg-white rounded-xl p-6 sm:p-8 border border-line shadow-sm">
             <div className="text-center mb-6">
-              <h1 className="text-xl font-bold text-ink">AMINOCAN</h1>
-              <p className="text-xs text-bronze font-semibold uppercase tracking-[0.15em] mt-1">Admin Panel</p>
+              <h1 className="font-display text-xl font-semibold tracking-[0.28em] text-ink">VYTA</h1>
+              <p className="text-xs text-vital font-semibold uppercase tracking-[0.15em] mt-1">Admin Panel</p>
             </div>
 
             {loginError && (
@@ -307,7 +307,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink"
+                    className="w-full pl-10 pr-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink"
                     placeholder="admin@example.com"
                   />
                 </div>
@@ -320,7 +320,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink"
+                    className="w-full pl-10 pr-4 py-2.5 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink"
                     placeholder="Enter your password"
                   />
                 </div>
@@ -396,10 +396,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="flex h-full flex-col">
       {/* Brand + collapse toggle */}
       <div className={`flex items-center gap-2 border-b border-line px-4 h-16 shrink-0 ${collapsed ? 'lg:justify-center lg:px-0' : ''}`}>
-        <Link href="/" className={`text-base font-bold text-ink shrink-0 ${collapsed ? 'lg:hidden' : ''}`}>
-          PURAMASS
+        <Link href="/" className={`font-display text-base font-semibold tracking-[0.28em] text-ink shrink-0 ${collapsed ? 'lg:hidden' : ''}`}>
+          VYTA
         </Link>
-        <span className={`text-[10px] font-semibold text-bronze uppercase tracking-[0.15em] ${collapsed ? 'lg:hidden' : ''}`}>
+        <span className={`text-[10px] font-semibold text-vital uppercase tracking-[0.15em] ${collapsed ? 'lg:hidden' : ''}`}>
           {roleLabel}
         </span>
         <button
@@ -453,9 +453,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                       {badge > 0 && (
                         <span className={`hidden ${collapsed ? 'lg:block' : ''} absolute -top-1 -right-1 w-2 h-2 rounded-full ${badgeColor} ring-2 ring-white`} />
                       )}
-                      {/* Collapsed rail: "New" shrinks to a bronze dot */}
+                      {/* Collapsed rail: "New" shrinks to a vital dot */}
                       {showNew && (
-                        <span className={`hidden ${collapsed ? 'lg:block' : ''} absolute -top-1 -right-1 w-2 h-2 rounded-full bg-bronze ring-2 ring-white`} />
+                        <span className={`hidden ${collapsed ? 'lg:block' : ''} absolute -top-1 -right-1 w-2 h-2 rounded-full bg-vital ring-2 ring-white`} />
                       )}
                     </span>
                     <span className={`truncate ${collapsed ? 'lg:hidden' : ''}`}>{item.label}</span>
@@ -465,7 +465,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                       </span>
                     )}
                     {showNew && (
-                      <span className={`ml-auto inline-flex items-center px-1.5 py-0.5 rounded-full bg-bronze text-white text-[10px] font-bold uppercase tracking-wide leading-none ${collapsed ? 'lg:hidden' : ''}`}>
+                      <span className={`ml-auto inline-flex items-center px-1.5 py-0.5 rounded-full bg-vital text-white text-[10px] font-bold uppercase tracking-wide leading-none ${collapsed ? 'lg:hidden' : ''}`}>
                         New
                       </span>
                     )}
@@ -517,7 +517,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <span className="truncate">{activeItem?.label ?? 'Menu'}</span>
             </span>
           </button>
-          <span className="text-sm font-bold text-ink shrink-0">PURAMASS</span>
+          <span className="font-display text-sm font-semibold tracking-[0.28em] text-ink shrink-0">VYTA</span>
         </div>
       </header>
 

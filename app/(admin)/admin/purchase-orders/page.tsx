@@ -157,7 +157,7 @@ function PurchaseOrdersIndex() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-            <ClipboardList className="w-6 h-6 text-bronze" /> Purchase Orders
+            <ClipboardList className="w-6 h-6 text-vital" /> Purchase Orders
           </h1>
           <p className="text-sm text-ink-muted mt-1">{totals.count} order{totals.count !== 1 ? 's' : ''}</p>
         </div>
@@ -200,7 +200,7 @@ function PurchaseOrdersIndex() {
             placeholder="Search by PO # or supplier..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
         <div className="relative">
@@ -208,7 +208,7 @@ function PurchaseOrdersIndex() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as any)}
-            className="pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+            className="pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
           >
             <option value="all">All Statuses</option>
             {PO_STATUSES.map((s) => (
@@ -220,7 +220,7 @@ function PurchaseOrdersIndex() {
 
       {/* Bulk action bar */}
       {canDelete && visibleSelectedIds.length > 0 && (
-        <div className="flex items-center justify-between gap-3 mb-4 px-4 py-3 bg-bronze/5 border border-bronze/30 rounded-lg">
+        <div className="flex items-center justify-between gap-3 mb-4 px-4 py-3 bg-vital/5 border border-vital/30 rounded-lg">
           <span className="text-sm font-medium text-ink">
             {visibleSelectedIds.length} selected
           </span>
@@ -259,7 +259,7 @@ function PurchaseOrdersIndex() {
                       checked={allVisibleSelected}
                       onChange={toggleAllVisible}
                       aria-label="Select all purchase orders"
-                      className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                      className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                     />
                   </th>
                 )}
@@ -279,7 +279,7 @@ function PurchaseOrdersIndex() {
                 const meta = PO_STATUS_META[po.status];
                 const selected = selectedIds.has(po.id);
                 return (
-                  <tr key={po.id} className={`transition-colors ${selected ? 'bg-bronze/5' : 'hover:bg-surface'}`}>
+                  <tr key={po.id} className={`transition-colors ${selected ? 'bg-vital/5' : 'hover:bg-surface'}`}>
                     {canDelete && (
                       <td className="px-5 py-4">
                         <input
@@ -287,12 +287,12 @@ function PurchaseOrdersIndex() {
                           checked={selected}
                           onChange={() => toggleOne(po.id)}
                           aria-label={`Select ${po.po_number}`}
-                          className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+                          className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
                         />
                       </td>
                     )}
                     <td className="px-5 py-4">
-                      <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-bronze">
+                      <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-vital">
                         {po.po_number}
                       </Link>
                     </td>
@@ -357,7 +357,7 @@ function PurchaseOrdersIndex() {
                 const meta = PO_STATUS_META[po.status];
                 const selected = selectedIds.has(po.id);
                 return (
-                  <li key={po.id} className={`px-4 py-3.5 ${selected ? 'bg-bronze/5' : ''}`}>
+                  <li key={po.id} className={`px-4 py-3.5 ${selected ? 'bg-vital/5' : ''}`}>
                     <div className="flex items-start gap-3">
                       {canDelete && (
                         <input
@@ -365,12 +365,12 @@ function PurchaseOrdersIndex() {
                           checked={selected}
                           onChange={() => toggleOne(po.id)}
                           aria-label={`Select ${po.po_number}`}
-                          className="mt-1 w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer shrink-0"
+                          className="mt-1 w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer shrink-0"
                         />
                       )}
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
-                          <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-bronze">
+                          <Link href={`/admin/purchase-orders/${po.id}`} className="font-mono text-sm text-ink hover:text-vital">
                             {po.po_number}
                           </Link>
                           <span className={`inline-flex shrink-0 px-2 py-0.5 rounded text-xs font-medium ${meta.badge}`}>{meta.label}</span>
@@ -470,9 +470,9 @@ export default function PurchaseOrdersPage() {
 
 function StatCard({ label, value, highlight }: { label: string; value: string | number; highlight?: boolean }) {
   return (
-    <div className={`bg-white rounded-xl border ${highlight ? 'border-bronze/40' : 'border-line'} p-4`}>
+    <div className={`bg-white rounded-xl border ${highlight ? 'border-vital/40' : 'border-line'} p-4`}>
       <div className="text-xs font-semibold text-ink-muted uppercase tracking-wider">{label}</div>
-      <div className={`mt-1 text-xl font-bold tabular-nums ${highlight ? 'text-bronze' : 'text-ink'}`}>{value}</div>
+      <div className={`mt-1 text-xl font-bold tabular-nums ${highlight ? 'text-vital' : 'text-ink'}`}>{value}</div>
     </div>
   );
 }

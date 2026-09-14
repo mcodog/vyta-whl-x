@@ -49,7 +49,7 @@ export default function PurchaseOrderDetail() {
     return (
       <div className="text-center py-20">
         <p className="text-ink-muted text-sm">Purchase order not found.</p>
-        <Link href="/admin/purchase-orders" className="mt-3 inline-block text-bronze">Back to list</Link>
+        <Link href="/admin/purchase-orders" className="mt-3 inline-block text-vital">Back to list</Link>
       </div>
     );
   }

@@ -2066,7 +2066,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
   };
 
   // ---- render -------------------------------------------------------------
-  const fld = 'w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40';
+  const fld = 'w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40';
 
   return (
     <div className="grid lg:grid-cols-3 gap-6 items-start">
@@ -2079,9 +2079,9 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
             <div ref={customerBoxRef}>
               <label className="block text-xs font-medium text-ink-muted uppercase tracking-wider mb-1">Customer</label>
               {customer ? (
-                <div className="flex items-center justify-between gap-3 p-3 bg-bronze/5 border border-bronze/30 rounded-lg">
+                <div className="flex items-center justify-between gap-3 p-3 bg-vital/5 border border-vital/30 rounded-lg">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-bronze/10 text-bronze flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-full bg-vital/10 text-vital flex items-center justify-center">
                       <User className="w-4 h-4" />
                     </div>
                     <div>
@@ -2109,7 +2109,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                     onFocus={() => setCustomerOpen(true)}
                     onChange={(e) => { setCustomerQuery(e.target.value); setCustomerOpen(true); }}
                     placeholder="Search customers or type a name for a guest invoice..."
-                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                   {customerOpen && (customerResults.length > 0 || customerQuery.trim()) && (
                     <div className="absolute z-20 mt-1 w-full bg-white border border-line rounded-lg shadow-lg max-h-72 overflow-auto">
@@ -2126,7 +2126,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                       {customerQuery.trim() && (
                         <button
                           onClick={() => openNewCustomerModal()}
-                          className="w-full text-left px-4 py-2.5 hover:bg-bronze/5 text-sm flex items-center gap-2 text-bronze border-t border-line/50"
+                          className="w-full text-left px-4 py-2.5 hover:bg-vital/5 text-sm flex items-center gap-2 text-vital border-t border-line/50"
                         >
                           <UserPlus className="w-4 h-4" /> Create new customer "{customerQuery.trim()}"
                         </button>
@@ -2186,15 +2186,15 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                     ) : (
                       // No match — this looks like a brand-new account. Offer to
                       // capture the optional phone + address up front.
-                      <div className="mt-1.5 flex items-start gap-2 px-3 py-2 bg-bronze/5 border border-bronze/20 rounded-lg text-xs">
-                        <UserPlus className="w-4 h-4 mt-0.5 flex-shrink-0 text-bronze" />
+                      <div className="mt-1.5 flex items-start gap-2 px-3 py-2 bg-vital/5 border border-vital/20 rounded-lg text-xs">
+                        <UserPlus className="w-4 h-4 mt-0.5 flex-shrink-0 text-vital" />
                         <div className="text-ink-muted">
                           <span className="text-ink">&quot;{trimmedCustomerQuery}&quot;</span>{' '}
                           looks like a new account — it&apos;ll be saved as a guest customer.{' '}
                           <button
                             type="button"
                             onClick={() => openNewCustomerModal({ isNewAccount: true })}
-                            className="font-semibold text-bronze underline hover:text-bronze/80"
+                            className="font-semibold text-vital underline hover:text-vital/80"
                           >
                             Add phone &amp; address (optional)
                           </button>
@@ -2295,7 +2295,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                     value={selectedPricelistId}
                     onChange={(e) => void changePricelist(e.target.value)}
                     disabled={pricelistsInitializing || pricelistLoading}
-                    className="w-full appearance-none pl-9 pr-9 py-2.5 rounded-lg text-sm font-medium border border-line bg-surface text-ink hover:border-ink/20 focus:border-bronze focus:outline-none disabled:opacity-60 disabled:cursor-wait"
+                    className="w-full appearance-none pl-9 pr-9 py-2.5 rounded-lg text-sm font-medium border border-line bg-surface text-ink hover:border-ink/20 focus:border-vital focus:outline-none disabled:opacity-60 disabled:cursor-wait"
                   >
                     <option value={DEFAULT_PRICELIST_ID}>
                       Website Pricing (default catalog price)
@@ -2341,17 +2341,17 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         onClick={() => changeFillGaps(!fillGapsFromList)}
                         className={`w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                           fillGapsFromList
-                            ? 'bg-bronze/5 text-ink border-bronze/40'
+                            ? 'bg-vital/5 text-ink border-vital/40'
                             : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                         }`}
                       >
                         <span className="flex items-center gap-1.5 min-w-0">
-                          <Layers className={`w-4 h-4 flex-shrink-0 ${fillGapsFromList ? 'text-bronze' : 'text-ink-muted'}`} />
+                          <Layers className={`w-4 h-4 flex-shrink-0 ${fillGapsFromList ? 'text-vital' : 'text-ink-muted'}`} />
                           <span className="truncate">Fill gaps</span>
                         </span>
                         <span
                           className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                            fillGapsFromList ? 'bg-bronze' : 'bg-line'
+                            fillGapsFromList ? 'bg-vital' : 'bg-line'
                           }`}
                         >
                           <span
@@ -2366,7 +2366,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 )}
               </div>
               {/* Status row: the list currently filling prices, plus compact
-                  tags. The "Customer price list" tag is active (bronze) when the
+                  tags. The "Customer price list" tag is active (vital) when the
                   linked customer has their own list, greyed otherwise; the detail
                   lives in its hover tooltip so the panel stays uncluttered. */}
               <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
@@ -2406,7 +2406,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         <span
                           className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-semibold border cursor-help transition-colors ${
                             hasCustomerPricelist
-                              ? 'bg-bronze/10 text-bronze border-bronze/30'
+                              ? 'bg-vital/10 text-vital border-vital/30'
                               : 'bg-surface text-ink-muted/60 border-line'
                           }`}
                         >
@@ -2495,7 +2495,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         : affiliatePricelistName ?? 'Standard pricing'}
                     </span>
                     {affiliatePricingMode === 'dedicated' ? (
-                      <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-bronze/10 text-bronze">
+                      <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-vital/10 text-vital">
                         <Tag className="w-3 h-3" /> Dedicated
                       </span>
                     ) : (
@@ -2608,17 +2608,17 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                   onClick={() => changeLabels(!withLabels)}
                   className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                     withLabels
-                      ? 'bg-bronze/5 text-ink border-bronze/40'
+                      ? 'bg-vital/5 text-ink border-vital/40'
                       : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                   }`}
                 >
                   <span className="flex items-center gap-1.5">
-                    <Tag className={`w-4 h-4 ${withLabels ? 'text-bronze' : 'text-ink-muted'}`} />
+                    <Tag className={`w-4 h-4 ${withLabels ? 'text-vital' : 'text-ink-muted'}`} />
                     {withLabels ? 'With labels' : 'Without labels'}
                   </span>
                   <span
                     className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                      withLabels ? 'bg-bronze' : 'bg-line'
+                      withLabels ? 'bg-vital' : 'bg-line'
                     }`}
                   >
                     <span
@@ -2672,7 +2672,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                   <span className="flex items-center gap-1.5">
                     Ship to
                     {clientScenarioActive && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-bronze/10 px-1.5 py-0.5 text-[9px] font-medium normal-case tracking-normal text-bronze">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-vital/10 px-1.5 py-0.5 text-[9px] font-medium normal-case tracking-normal text-vital">
                         <Info className="w-2.5 h-2.5" /> Customer details only
                       </span>
                     )}
@@ -2728,7 +2728,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 {/* Offer to save the Ship to details onto the customer profile
                     — backfilling an empty record or updating a changed one. */}
                 {customer && shipDiffersFromCustomer && !shipToSaved && (
-                  <div className="flex items-center justify-between gap-3 px-3 py-2 bg-bronze/5 border border-bronze/20 rounded-lg text-xs">
+                  <div className="flex items-center justify-between gap-3 px-3 py-2 bg-vital/5 border border-vital/20 rounded-lg text-xs">
                     <span className="text-ink-muted">
                       {customerHadShipOnFile ? (
                         <>
@@ -2747,7 +2747,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                       type="button"
                       onClick={saveShipToCustomer}
                       disabled={savingShipTo}
-                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-bronze/10 text-bronze font-medium hover:bg-bronze/20 disabled:opacity-50"
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-vital/10 text-vital font-medium hover:bg-vital/20 disabled:opacity-50"
                     >
                       {savingShipTo ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                       {customerHadShipOnFile ? 'Update profile' : 'Save to profile'}
@@ -2779,12 +2779,12 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 onClick={() => setShipsToClient((v) => !v)}
                 className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                   shipsToClient
-                    ? 'bg-bronze/5 text-ink border-bronze/40'
+                    ? 'bg-vital/5 text-ink border-vital/40'
                     : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                 }`}
               >
                 <span className="flex items-center gap-2 text-left">
-                  <Users className={`w-4 h-4 flex-shrink-0 ${shipsToClient ? 'text-bronze' : 'text-ink-muted'}`} />
+                  <Users className={`w-4 h-4 flex-shrink-0 ${shipsToClient ? 'text-vital' : 'text-ink-muted'}`} />
                   <span>
                     Items ship to the customer&apos;s client
                     <span className="block text-[11px] font-normal text-ink-muted">
@@ -2794,7 +2794,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 </span>
                 <span
                   className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                    shipsToClient ? 'bg-bronze' : 'bg-line'
+                    shipsToClient ? 'bg-vital' : 'bg-line'
                   }`}
                 >
                   <span
@@ -2857,7 +2857,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                           value={clientSearch}
                           onChange={(e) => setClientSearch(e.target.value)}
                           placeholder="Search saved clients…"
-                          className="w-full pl-10 pr-4 py-2 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-full pl-10 pr-4 py-2 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                       </div>
                       <div className="space-y-1.5 max-h-56 overflow-auto">
@@ -2869,7 +2869,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                               key={c.id}
                               className={`flex items-stretch gap-1 w-full rounded-lg border text-sm transition-colors ${
                                 selected
-                                  ? 'border-bronze bg-bronze/5'
+                                  ? 'border-vital bg-vital/5'
                                   : 'border-line bg-white hover:border-ink/20'
                               }`}
                             >
@@ -2880,7 +2880,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                               >
                                 <div className="flex items-center justify-between gap-2">
                                   <span className="font-medium text-ink">{name}</span>
-                                  {selected && <Check className="w-4 h-4 text-bronze flex-shrink-0" />}
+                                  {selected && <Check className="w-4 h-4 text-vital flex-shrink-0" />}
                                 </div>
                                 <div className="text-xs text-ink-muted">
                                   {[c.address, c.city, c.state, c.postal_code].filter(Boolean).join(', ')}
@@ -2896,7 +2896,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                                 onClick={() => openEditClient(c)}
                                 title={`Edit ${name}`}
                                 aria-label={`Edit ${name}`}
-                                className="flex-shrink-0 self-start mt-1.5 ml-1.5 p-1.5 rounded-md text-ink-muted hover:text-bronze hover:bg-bronze/10 transition-colors"
+                                className="flex-shrink-0 self-start mt-1.5 ml-1.5 p-1.5 rounded-md text-ink-muted hover:text-vital hover:bg-vital/10 transition-colors"
                               >
                                 <Pencil className="w-3.5 h-3.5" />
                               </button>
@@ -3028,7 +3028,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                               setSpOpen(true);
                             }}
                             placeholder={index === 0 ? 'Search salespeople...' : 'Search another salesperson...'}
-                            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                           />
                           {searching && spOpen && (spResults.length > 0 || spQuery.trim()) && (
                             <div className="absolute z-20 mt-1 w-full bg-white border border-line rounded-lg shadow-lg max-h-72 overflow-auto">
@@ -3162,11 +3162,11 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
             <div className="flex items-start justify-between gap-3 flex-wrap -mt-1">
               <div className="text-xs text-ink-muted">
                 {isAffiliate ? (
-                  <>Prices come from <span className="font-medium text-bronze">your assigned price list</span> (set by an admin in Pricing). You can apply a discount, but not change the unit price.</>
+                  <>Prices come from <span className="font-medium text-vital">your assigned price list</span> (set by an admin in Pricing). You can apply a discount, but not change the unit price.</>
                 ) : customer && Object.keys(customerPrices).length > 0 ? (
-                  <>Prices default from <span className="font-medium text-bronze">{customer.first_name} {customer.last_name}</span>&rsquo;s price list (editable per line).</>
+                  <>Prices default from <span className="font-medium text-vital">{customer.first_name} {customer.last_name}</span>&rsquo;s price list (editable per line).</>
                 ) : pricelist.pricelist ? (
-                  <>Prices default from active pricelist <span className="font-medium text-bronze">{pricelist.pricelist.name}</span> (editable per line).</>
+                  <>Prices default from active pricelist <span className="font-medium text-vital">{pricelist.pricelist.name}</span> (editable per line).</>
                 ) : (
                   <>No active pricelist — using product default prices.</>
                 )}
@@ -3180,7 +3180,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                       key={d}
                       type="button"
                       onClick={() => applyDiscountToAll(d)}
-                      className="px-1.5 py-0.5 rounded border border-line bg-white font-medium text-ink hover:border-bronze hover:text-bronze"
+                      className="px-1.5 py-0.5 rounded border border-line bg-white font-medium text-ink hover:border-vital hover:text-vital"
                     >
                       {d}%
                     </button>
@@ -3247,7 +3247,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                       }}
                       onFocus={() => { setActiveLineIdx(idx); setProductSearch(line.description); }}
                       placeholder="Search products or type a description…"
-                      className="w-full bg-white border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                      className="w-full bg-white border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                     />
                     {activeLineIdx === idx && filteredProducts.length > 0 && (
                       <div className="absolute z-10 mt-1 w-full bg-white border border-line rounded-lg shadow-lg max-h-60 overflow-auto">
@@ -3303,7 +3303,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                           <button
                             type="button"
                             onClick={() => openQuickStock(line.product_id as string, line.description || 'Product', stock ?? 0)}
-                            className="inline-flex items-center gap-0.5 text-bronze hover:text-bronze/80 font-medium"
+                            className="inline-flex items-center gap-0.5 text-vital hover:text-vital/80 font-medium"
                             title="Quick edit stock"
                           >
                             <Pencil className="w-3 h-3" /> Quick edit
@@ -3332,7 +3332,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         placeholder="0"
                         value={line.qty}
                         onChange={(v) => patchLine(idx, { qty: v })}
-                        className={`w-full bg-white border ${stockErr ? 'border-amber-400 ring-1 ring-amber-300' : 'border-line'} rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40`}
+                        className={`w-full bg-white border ${stockErr ? 'border-amber-400 ring-1 ring-amber-300' : 'border-line'} rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40`}
                       />
                     </div>
                     <div className="col-span-1 sm:col-span-3">
@@ -3345,7 +3345,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         onChange={(v) => patchLine(idx, { unit_price: v })}
                         readOnly={!canEditLinePrices}
                         title={canEditLinePrices ? undefined : 'Only admins can change the unit price. This price comes from your assigned price list.'}
-                        className={`w-full border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40 ${canEditLinePrices ? 'bg-white' : 'bg-surface text-ink-muted cursor-not-allowed'}`}
+                        className={`w-full border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40 ${canEditLinePrices ? 'bg-white' : 'bg-surface text-ink-muted cursor-not-allowed'}`}
                       />
                     </div>
                     <div className="col-span-2 sm:col-span-5">
@@ -3357,7 +3357,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                           placeholder="0"
                           value={line.discount_pct}
                           onChange={(v) => setLineDiscount(idx, v)}
-                          className="w-14 flex-shrink-0 bg-white border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="w-14 flex-shrink-0 bg-white border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                         {/* One-click discount presets. */}
                         <div className="flex items-center gap-1">
@@ -3369,8 +3369,8 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                               title={`Set ${d}% discount`}
                               className={`px-1.5 py-1 rounded border text-[11px] font-medium transition-colors ${
                                 (line.discount_pct ?? 0) === d
-                                  ? 'border-bronze bg-bronze/10 text-bronze'
-                                  : 'border-line bg-white text-ink-muted hover:border-bronze hover:text-bronze'
+                                  ? 'border-vital bg-vital/10 text-vital'
+                                  : 'border-line bg-white text-ink-muted hover:border-vital hover:text-vital'
                               }`}
                             >
                               {d}
@@ -3400,7 +3400,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
             })}
             <button
               onClick={addLine}
-              className="w-full py-2 border border-dashed border-line rounded-lg text-sm text-ink-muted hover:text-bronze hover:border-bronze flex items-center justify-center gap-2"
+              className="w-full py-2 border border-dashed border-line rounded-lg text-sm text-ink-muted hover:text-vital hover:border-vital flex items-center justify-center gap-2"
             >
               <Plus className="w-4 h-4" /> Add another item
             </button>
@@ -3449,12 +3449,12 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 onClick={() => setCreateEasyship((v) => !v)}
                 className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                   createEasyship
-                    ? 'bg-bronze/5 text-ink border-bronze/40'
+                    ? 'bg-vital/5 text-ink border-vital/40'
                     : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                 }`}
               >
                 <span className="flex items-center gap-2 text-left">
-                  <Truck className={`w-4 h-4 flex-shrink-0 ${createEasyship ? 'text-bronze' : 'text-ink-muted'}`} />
+                  <Truck className={`w-4 h-4 flex-shrink-0 ${createEasyship ? 'text-vital' : 'text-ink-muted'}`} />
                   <span>
                     Create shipment record
                     <span className="block text-[11px] font-normal text-ink-muted">
@@ -3464,7 +3464,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 </span>
                 <span
                   className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                    createEasyship ? 'bg-bronze' : 'bg-line'
+                    createEasyship ? 'bg-vital' : 'bg-line'
                   }`}
                 >
                   <span
@@ -3564,12 +3564,12 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         onClick={() => setApplyCourierFee((v) => !v)}
                         className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                           applyCourierFee
-                            ? 'bg-bronze/5 text-ink border-bronze/40'
+                            ? 'bg-vital/5 text-ink border-vital/40'
                             : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                         }`}
                       >
                         <span className="flex items-center gap-2 text-left">
-                          <Tag className={`w-4 h-4 flex-shrink-0 ${applyCourierFee ? 'text-bronze' : 'text-ink-muted'}`} />
+                          <Tag className={`w-4 h-4 flex-shrink-0 ${applyCourierFee ? 'text-vital' : 'text-ink-muted'}`} />
                           <span>
                             Add processing fee
                             <span className="block text-[11px] font-normal text-ink-muted">
@@ -3581,7 +3581,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         </span>
                         <span
                           className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                            applyCourierFee ? 'bg-bronze' : 'bg-line'
+                            applyCourierFee ? 'bg-vital' : 'bg-line'
                           }`}
                         >
                           <span
@@ -3632,7 +3632,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                               onClick={() => setEasyshipHandover(opt.value)}
                               className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                                 easyshipHandover === opt.value
-                                  ? 'bg-bronze/5 text-ink border-bronze/40'
+                                  ? 'bg-vital/5 text-ink border-vital/40'
                                   : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                               }`}
                             >
@@ -3649,12 +3649,12 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         onClick={() => setEasyshipInsured((v) => !v)}
                         className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                           easyshipInsured
-                            ? 'bg-bronze/5 text-ink border-bronze/40'
+                            ? 'bg-vital/5 text-ink border-vital/40'
                             : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                         }`}
                       >
                         <span className="flex items-center gap-2 text-left">
-                          <Package className={`w-4 h-4 flex-shrink-0 ${easyshipInsured ? 'text-bronze' : 'text-ink-muted'}`} />
+                          <Package className={`w-4 h-4 flex-shrink-0 ${easyshipInsured ? 'text-vital' : 'text-ink-muted'}`} />
                           <span>
                             Insure shipment
                             <span className="block text-[11px] font-normal text-ink-muted">
@@ -3664,7 +3664,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                         </span>
                         <span
                           className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                            easyshipInsured ? 'bg-bronze' : 'bg-line'
+                            easyshipInsured ? 'bg-vital' : 'bg-line'
                           }`}
                         >
                           <span
@@ -3715,7 +3715,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
               <button
                 type="button"
                 onClick={() => setShippingOverridden(false)}
-                className="mt-1 text-[11px] text-bronze hover:text-bronze/80"
+                className="mt-1 text-[11px] text-vital hover:text-vital/80"
               >
                 Reset to {selectedCourier.courier} rate (${selectedCourier.cost.toFixed(2)})
               </button>
@@ -3730,13 +3730,13 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
               onClick={() => setChargeShippingOnCheckout((v) => !v)}
               className={`mt-2 w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                 chargeShippingOnCheckout
-                  ? 'bg-bronze/5 text-ink border-bronze/40'
+                  ? 'bg-vital/5 text-ink border-vital/40'
                   : 'bg-surface text-ink-muted border-line hover:border-ink/20'
               }`}
             >
               <span className="flex items-center gap-1.5 text-left">
                 <Truck
-                  className={`w-4 h-4 ${chargeShippingOnCheckout ? 'text-bronze' : 'text-ink-muted'}`}
+                  className={`w-4 h-4 ${chargeShippingOnCheckout ? 'text-vital' : 'text-ink-muted'}`}
                 />
                 {chargeShippingOnCheckout
                   ? 'Charged on the card payment link'
@@ -3744,7 +3744,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
               </span>
               <span
                 className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                  chargeShippingOnCheckout ? 'bg-bronze' : 'bg-line'
+                  chargeShippingOnCheckout ? 'bg-vital' : 'bg-line'
                 }`}
               >
                 <span
@@ -3779,17 +3779,17 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 onClick={() => setShowProcessingFee((v) => !v)}
                 className={`mt-2 w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                   showProcessingFee
-                    ? 'bg-bronze/5 text-ink border-bronze/40'
+                    ? 'bg-vital/5 text-ink border-vital/40'
                     : 'bg-surface text-ink-muted border-line hover:border-ink/20'
                 }`}
               >
                 <span className="flex items-center gap-1.5 text-left">
-                  <Tag className={`w-4 h-4 ${showProcessingFee ? 'text-bronze' : 'text-ink-muted'}`} />
+                  <Tag className={`w-4 h-4 ${showProcessingFee ? 'text-vital' : 'text-ink-muted'}`} />
                   {showProcessingFee ? 'Shown on invoice' : 'Hidden (not charged)'}
                 </span>
                 <span
                   className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                    showProcessingFee ? 'bg-bronze' : 'bg-line'
+                    showProcessingFee ? 'bg-vital' : 'bg-line'
                   }`}
                 >
                   <span
@@ -3833,12 +3833,12 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                       }`}
                     >
                       <span className="flex items-center gap-1.5 text-left">
-                        <FileText className={`w-4 h-4 ${emailOnCreate && hasRecipient ? 'text-bronze' : 'text-ink-muted'}`} />
+                        <FileText className={`w-4 h-4 ${emailOnCreate && hasRecipient ? 'text-vital' : 'text-ink-muted'}`} />
                         Email invoice to customer
                       </span>
                       <span
                         className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition-colors ${
-                          emailOnCreate && hasRecipient ? 'bg-bronze' : 'bg-line'
+                          emailOnCreate && hasRecipient ? 'bg-vital' : 'bg-line'
                         }`}
                       >
                         <span
@@ -4306,7 +4306,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
       {/* Edit a saved client — writes straight to the customer's address book,
           so the correction applies to this invoice and every future one. */}
       {editClient && (
-        <Modal title="Edit client" accent="bronze" onClose={() => setEditClient(null)}>
+        <Modal title="Edit client" accent="vital" onClose={() => setEditClient(null)}>
           <p className="text-sm text-ink-muted mb-4">
             Updates {customer ? `${customer.first_name} ${customer.last_name}` : 'the customer'}
             &apos;s saved client. Only the address is required.
@@ -4390,7 +4390,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
           <ModalError message={editClientError} />
           <ModalActions
             primaryLabel="Save client"
-            primaryClass="bg-bronze hover:bg-bronze/90"
+            primaryClass="bg-vital hover:bg-vital/90"
             onPrimary={submitEditClient}
             onCancel={() => setEditClient(null)}
             busy={editClientBusy}
@@ -4412,7 +4412,7 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
           `${used} invoice${used === 1 ? '' : 's'} still ` +
           `${used === 1 ? 'ships' : 'ship'} to this client, so it can’t be deleted.`;
         return (
-          <Modal title="Delete client" accent="bronze" onClose={() => setDeleteClient(null)}>
+          <Modal title="Delete client" accent="vital" onClose={() => setDeleteClient(null)}>
             <p className="text-sm text-ink mb-1">
               Remove <span className="font-semibold">{clientName(deleteClient)}</span> from{' '}
               {customer ? `${customer.first_name} ${customer.last_name}` : 'the customer'}
@@ -4502,10 +4502,10 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 setClientContactPrompt(null);
                 void submit(action);
               }}
-              className="w-full text-left px-4 py-3 rounded-lg border border-line hover:border-bronze/40 hover:bg-bronze/5 transition-colors"
+              className="w-full text-left px-4 py-3 rounded-lg border border-line hover:border-vital/40 hover:bg-vital/5 transition-colors"
             >
               <div className="text-sm font-medium text-ink flex items-center gap-2">
-                <User className="w-4 h-4 text-bronze" /> Use the customer&apos;s contact
+                <User className="w-4 h-4 text-vital" /> Use the customer&apos;s contact
               </div>
               <div className="text-xs text-ink-muted mt-0.5">
                 {[customer?.email, customer?.phone].filter(Boolean).join(' · ') || 'No contact on the customer record'}
@@ -4520,10 +4520,10 @@ export default function InvoiceForm({ mode, invoiceId, initial, prepaid }: Props
                 setClientContactPrompt(null);
                 void submit(action);
               }}
-              className="w-full text-left px-4 py-3 rounded-lg border border-line hover:border-bronze/40 hover:bg-bronze/5 transition-colors"
+              className="w-full text-left px-4 py-3 rounded-lg border border-line hover:border-vital/40 hover:bg-vital/5 transition-colors"
             >
               <div className="text-sm font-medium text-ink flex items-center gap-2">
-                <FileText className="w-4 h-4 text-bronze" /> Use the default contact
+                <FileText className="w-4 h-4 text-vital" /> Use the default contact
               </div>
               <div className="text-xs text-ink-muted mt-0.5">
                 {DEFAULT_CLIENT_EMAIL} · {DEFAULT_CLIENT_PHONE}
@@ -4558,7 +4558,7 @@ function Card({
   return (
     <div className={`bg-white rounded-xl border border-line ${tight ? 'p-4' : 'p-5'}`}>
       <h3 className="text-sm font-semibold text-ink flex items-center gap-2 mb-3">
-        {Icon && <Icon className="w-4 h-4 text-bronze" />} {title}
+        {Icon && <Icon className="w-4 h-4 text-vital" />} {title}
       </h3>
       {children}
     </div>
@@ -4628,9 +4628,9 @@ function clientName(c: Pick<CustomerClient, 'first_name' | 'last_name'>): string
 
 function Modal({
   title, children, accent, onClose,
-}: { title: string; children: React.ReactNode; accent: 'emerald' | 'purple' | 'bronze'; onClose: () => void }) {
+}: { title: string; children: React.ReactNode; accent: 'emerald' | 'purple' | 'vital'; onClose: () => void }) {
   const accentText =
-    accent === 'emerald' ? 'text-emerald-600' : accent === 'bronze' ? 'text-bronze' : 'text-purple-600';
+    accent === 'emerald' ? 'text-emerald-600' : accent === 'vital' ? 'text-vital' : 'text-purple-600';
   return (
     <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl border border-line shadow-xl w-full max-w-lg p-4 sm:p-6 max-h-[90vh] overflow-y-auto">

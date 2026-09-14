@@ -11,6 +11,7 @@ import { getStoredReferral, clearStoredReferral } from '@/lib/affiliate/referral
 import { useCustomer } from '@/contexts/CustomerContext';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { VytaMark } from '@/components/VytaLogo';
 
 function SignupContent() {
   const router = useRouter();
@@ -106,7 +107,7 @@ function SignupContent() {
             </p>
             <Link
               href="/login"
-              className="inline-flex items-center gap-2 text-bronze hover:text-bronze-dark font-semibold text-sm"
+              className="inline-flex items-center gap-2 text-vital hover:text-vital-dark font-semibold text-sm"
             >
               Go to Login
               <ArrowRight className="w-4 h-4" />
@@ -126,9 +127,7 @@ function SignupContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
           <div className="bg-white rounded-xl p-5 sm:p-6 md:p-8 border border-line shadow-sm">
             <div className="text-center mb-5 sm:mb-6">
-              <div className="w-12 sm:w-14 h-12 sm:h-14 bg-ink rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Beaker className="w-6 sm:w-7 h-6 sm:h-7 text-white" />
-              </div>
+              <VytaMark size={56} className="block mx-auto mb-3 sm:mb-4" title="VYTA Biosciences" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-1.5 sm:mb-2">Create Account</h2>
               <p className="text-ink-muted text-xs sm:text-sm">Join us for exclusive access and order tracking</p>
             </div>
@@ -151,7 +150,7 @@ function SignupContent() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-2 sm:pr-3 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                      className="w-full pl-10 pr-2 sm:pr-3 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                       placeholder="John"
                     />
                   </div>
@@ -163,7 +162,7 @@ function SignupContent() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full px-3 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full px-3 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="Doe"
                   />
                 </div>
@@ -178,7 +177,7 @@ function SignupContent() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -193,7 +192,7 @@ function SignupContent() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -208,7 +207,7 @@ function SignupContent() {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted"
                     placeholder="Min. 6 characters"
                   />
                 </div>
@@ -223,7 +222,7 @@ function SignupContent() {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className={`w-full pl-10 pr-10 py-2.5 sm:py-3 bg-surface rounded-lg border focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted ${
+                    className={`w-full pl-10 pr-10 py-2.5 sm:py-3 bg-surface rounded-lg border focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted ${
                       formData.confirmPassword
                         ? formData.password === formData.confirmPassword
                           ? 'border-emerald-300'
@@ -258,7 +257,7 @@ function SignupContent() {
             <div className="mt-5 sm:mt-6 text-center">
               <p className="text-ink-muted text-xs sm:text-sm">
                 Already have an account?{' '}
-                <Link href="/login" className="text-bronze hover:text-bronze-dark font-medium">
+                <Link href="/login" className="text-vital hover:text-vital-dark font-medium">
                   Sign in
                 </Link>
               </p>
@@ -267,7 +266,7 @@ function SignupContent() {
             <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-line text-center">
               <p className="text-[10px] sm:text-xs text-ink-muted">
                 Want to become an affiliate?{' '}
-                <Link href="/affiliate/signup" className="text-bronze">
+                <Link href="/affiliate/signup" className="text-vital">
                   Apply here
                 </Link>
               </p>

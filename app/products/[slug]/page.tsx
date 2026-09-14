@@ -255,7 +255,7 @@ export default function ProductDetailPage() {
               </button>
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 text-bronze hover:text-bronze-dark font-medium text-sm"
+                className="inline-flex items-center gap-2 text-vital hover:text-vital-dark font-medium text-sm"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Products</span>
@@ -282,7 +282,7 @@ export default function ProductDetailPage() {
             </p>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-bronze hover:text-bronze-dark font-medium"
+              className="inline-flex items-center gap-2 text-vital hover:text-vital-dark font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Products</span>
@@ -311,11 +311,11 @@ export default function ProductDetailPage() {
                 height="60"
                 patternUnits="userSpaceOnUse"
               >
-                <circle cx="30" cy="30" r="1.5" fill="#1A1A1A" />
-                <circle cx="0" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="0" r="1" fill="#1A1A1A" />
-                <circle cx="0" cy="60" r="1" fill="#1A1A1A" />
-                <circle cx="60" cy="60" r="1" fill="#1A1A1A" />
+                <circle cx="30" cy="30" r="1.5" fill="#07203A" />
+                <circle cx="0" cy="0" r="1" fill="#07203A" />
+                <circle cx="60" cy="0" r="1" fill="#07203A" />
+                <circle cx="0" cy="60" r="1" fill="#07203A" />
+                <circle cx="60" cy="60" r="1" fill="#07203A" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#molecular-grid)" />
@@ -338,7 +338,7 @@ export default function ProductDetailPage() {
               <span className="text-[10px] sm:text-xs font-medium text-ink bg-surface px-2 sm:px-3 py-1 rounded-full border border-line">
                 {product.category}
               </span>
-              <span className="text-[10px] sm:text-xs font-semibold text-bronze bg-bronze-50 px-2 sm:px-3 py-1 rounded-full border border-bronze/20">
+              <span className="text-[10px] sm:text-xs font-semibold text-vital bg-vital-50 px-2 sm:px-3 py-1 rounded-full border border-vital/20">
                 {product.purity} Purity
               </span>
             </div>
@@ -405,7 +405,7 @@ export default function ProductDetailPage() {
                       <div className="text-[9px] sm:text-[10px] text-ink-muted uppercase tracking-wider mb-1">
                         Purity
                       </div>
-                      <div className="text-bronze font-bold text-sm sm:text-base">
+                      <div className="text-vital font-bold text-sm sm:text-base">
                         {product.purity}
                       </div>
                     </div>
@@ -430,14 +430,14 @@ export default function ProductDetailPage() {
                         href={coas[0]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-surface rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-line hover:border-bronze hover:bg-bronze/5 transition-all cursor-pointer group"
+                        className="bg-surface rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-line hover:border-vital hover:bg-vital/5 transition-all cursor-pointer group"
                         title={coas.length > 1 ? `${coas.length} certificates available` : 'View Certificate of Analysis'}
                       >
-                        <div className="text-[9px] sm:text-[10px] text-ink-muted uppercase tracking-wider mb-1 group-hover:text-bronze transition-colors">
+                        <div className="text-[9px] sm:text-[10px] text-ink-muted uppercase tracking-wider mb-1 group-hover:text-vital transition-colors">
                           COA{coas.length > 1 ? ` ×${coas.length}` : ''}
                         </div>
                         <div className="flex items-center justify-center">
-                          <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-bronze" />
+                          <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-vital" />
                         </div>
                       </a>
                     )}
@@ -458,7 +458,7 @@ export default function ProductDetailPage() {
                           href={url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-medium text-bronze bg-bronze/5 hover:bg-bronze hover:text-white px-3 py-1.5 rounded-full border border-bronze/20 transition-all"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium text-vital bg-vital/5 hover:bg-vital hover:text-white px-3 py-1.5 rounded-full border border-vital/20 transition-all"
                         >
                           <FileText className="w-3 h-3" />
                           COA #{i + 1}
@@ -478,7 +478,7 @@ export default function ProductDetailPage() {
                   <ul className="space-y-1.5 sm:space-y-2">
                     {product.benefits.split(",").map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-vital flex-shrink-0 mt-0.5" />
                         <span className="text-ink-muted text-xs sm:text-sm">
                           {benefit.trim()}
                         </span>
@@ -646,7 +646,7 @@ export default function ProductDetailPage() {
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-line">
                   <div className="flex flex-col items-center text-center">
                     <div className="w-8 sm:w-10 h-8 sm:h-10 bg-surface rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 border border-line">
-                      <Shield className="w-4 sm:w-5 h-4 sm:h-5 text-bronze" />
+                      <Shield className="w-4 sm:w-5 h-4 sm:h-5 text-vital" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-ink-muted">
                       Lab Tested
@@ -654,7 +654,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="flex flex-col items-center text-center">
                     <div className="w-8 sm:w-10 h-8 sm:h-10 bg-surface rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 border border-line">
-                      <Package className="w-4 sm:w-5 h-4 sm:h-5 text-bronze" />
+                      <Package className="w-4 sm:w-5 h-4 sm:h-5 text-vital" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-ink-muted">
                       Secure Pack
@@ -662,7 +662,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="flex flex-col items-center text-center">
                     <div className="w-8 sm:w-10 h-8 sm:h-10 bg-surface rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 border border-line">
-                      <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-bronze" />
+                      <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-vital" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-ink-muted">
                       Fast Ship
@@ -682,8 +682,8 @@ export default function ProductDetailPage() {
               className="bg-surface rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-line mb-8 sm:mb-10"
             >
               <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <div className="w-9 sm:w-10 h-9 sm:h-10 bg-bronze/10 rounded-lg sm:rounded-xl flex items-center justify-center">
-                  <FlaskConical className="w-4 sm:w-5 h-4 sm:h-5 text-bronze" />
+                <div className="w-9 sm:w-10 h-9 sm:h-10 bg-vital/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                  <FlaskConical className="w-4 sm:w-5 h-4 sm:h-5 text-vital" />
                 </div>
                 <h2 className="text-base sm:text-lg md:text-xl font-bold text-ink">
                   Mechanism of Action
@@ -713,7 +713,7 @@ export default function ProductDetailPage() {
                     />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <div className="text-[10px] sm:text-xs font-medium text-bronze mb-0.5 sm:mb-1">
+                    <div className="text-[10px] sm:text-xs font-medium text-vital mb-0.5 sm:mb-1">
                       You&apos;ll also need
                     </div>
                     <h3 className="text-base sm:text-lg font-bold mb-0.5 sm:mb-1">
@@ -754,8 +754,8 @@ export default function ProductDetailPage() {
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
                 <div className="flex flex-col items-center text-center p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl border border-white/10">
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-bronze/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3">
-                    <Beaker className="w-5 sm:w-6 h-5 sm:h-6 text-bronze" />
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-vital/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                    <Beaker className="w-5 sm:w-6 h-5 sm:h-6 text-vital" />
                   </div>
                   <h3 className="font-semibold text-white mb-0.5 sm:mb-1 text-xs sm:text-sm">
                     99%+ Purity

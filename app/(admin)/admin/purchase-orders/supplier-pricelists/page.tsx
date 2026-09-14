@@ -264,7 +264,7 @@ function SupplierPricelistsPage() {
           </Link>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-              <Tags className="w-6 h-6 text-bronze" /> Supplier Pricelists
+              <Tags className="w-6 h-6 text-vital" /> Supplier Pricelists
               <InfoHint
                 side="bottom"
                 content="Set what each supplier charges you per product. These prices auto-fill purchase order line items and power the cheaper-supplier alert on the PO page. Blank/untouched products use the product's default price."
@@ -286,7 +286,7 @@ function SupplierPricelistsPage() {
       ) : suppliers.length === 0 ? (
         <div className="bg-white rounded-xl border border-line p-12 text-center">
           <p className="text-sm text-ink-muted mb-3">No suppliers yet — add one first.</p>
-          <Link href="/admin/purchase-orders/suppliers" className="text-bronze text-sm">Go to Suppliers</Link>
+          <Link href="/admin/purchase-orders/suppliers" className="text-vital text-sm">Go to Suppliers</Link>
         </div>
       ) : (
         <>
@@ -302,7 +302,7 @@ function SupplierPricelistsPage() {
                   <select
                     value={supplierId}
                     onChange={(e) => setSupplierId(e.target.value)}
-                    className="w-full pl-10 pr-8 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+                    className="w-full pl-10 pr-8 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
                   >
                     {suppliers.map((s) => (
                       <option key={s.id} value={s.id}>{s.name}</option>
@@ -321,7 +321,7 @@ function SupplierPricelistsPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Name, SKU or strength…"
-                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="w-full pl-10 pr-4 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                 </div>
               </div>
@@ -440,7 +440,7 @@ function SupplierPricelistsPage() {
                                   value={val}
                                   onChange={(e) => setValue(r.product_id, e.target.value)}
                                   onKeyDown={(e) => onCellKeyDown(e, index)}
-                                  className={`w-28 text-right pl-5 pr-2 py-1.5 rounded-lg border text-sm tabular-nums bg-white focus:outline-none focus:ring-2 focus:ring-bronze/40 ${
+                                  className={`w-28 text-right pl-5 pr-2 py-1.5 rounded-lg border text-sm tabular-nums bg-white focus:outline-none focus:ring-2 focus:ring-vital/40 ${
                                     dirty ? 'border-amber-400 bg-amber-50/40' : 'border-line'
                                   } ${cheaper ? 'text-emerald-600' : 'text-ink'}`}
                                 />
@@ -485,7 +485,7 @@ function SupplierPricelistsPage() {
                             step="0.01"
                             value={val}
                             onChange={(e) => setValue(r.product_id, e.target.value)}
-                            className={`w-28 text-right pl-5 pr-2 py-2 rounded-lg border text-base tabular-nums bg-white focus:outline-none focus:ring-2 focus:ring-bronze/40 ${
+                            className={`w-28 text-right pl-5 pr-2 py-2 rounded-lg border text-base tabular-nums bg-white focus:outline-none focus:ring-2 focus:ring-vital/40 ${
                               dirty ? 'border-amber-400 bg-amber-50/40' : 'border-line'
                             } ${cheaper ? 'text-emerald-600' : 'text-ink'}`}
                           />

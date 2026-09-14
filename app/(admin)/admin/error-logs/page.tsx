@@ -125,7 +125,7 @@ export default function AdminErrorLogs() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-ink flex items-center gap-2">
-          <Bug className="w-6 h-6 text-bronze" />
+          <Bug className="w-6 h-6 text-vital" />
           Error Logs
         </h1>
         <p className="text-sm text-ink-muted mt-1">
@@ -160,7 +160,7 @@ export default function AdminErrorLogs() {
           {/* Repeated errors */}
           <div className="lg:col-span-2 bg-white rounded-xl border border-line shadow-sm overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-line/70">
-              <Repeat className="w-4 h-4 text-bronze" />
+              <Repeat className="w-4 h-4 text-vital" />
               <h2 className="text-sm font-semibold text-ink">Repeated errors</h2>
               <span className="text-xs text-ink-muted">recent window</span>
             </div>
@@ -187,7 +187,7 @@ export default function AdminErrorLogs() {
                         setStatus('all');
                         setSearch(g.message.slice(0, 40));
                       }}
-                      className="inline-flex items-center gap-1 text-xs text-bronze-dark hover:underline shrink-0"
+                      className="inline-flex items-center gap-1 text-xs text-vital-dark hover:underline shrink-0"
                     >
                       View <ChevronRight className="w-3.5 h-3.5" />
                     </button>
@@ -210,7 +210,7 @@ export default function AdminErrorLogs() {
           {/* Area breakdown */}
           <div className="bg-white rounded-xl border border-line shadow-sm overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-line/70">
-              <Layers className="w-4 h-4 text-bronze" />
+              <Layers className="w-4 h-4 text-vital" />
               <h2 className="text-sm font-semibold text-ink">Errors by area</h2>
             </div>
             {stats.areas.length === 0 ? (
@@ -229,12 +229,12 @@ export default function AdminErrorLogs() {
                       className="w-full text-left group"
                     >
                       <div className="flex items-center justify-between text-xs mb-1">
-                        <span className={`truncate ${active ? 'text-bronze-dark font-medium' : 'text-ink'}`}>{a.area}</span>
+                        <span className={`truncate ${active ? 'text-vital-dark font-medium' : 'text-ink'}`}>{a.area}</span>
                         <span className="text-ink-muted tabular-nums ml-2">{a.count}</span>
                       </div>
                       <div className="h-1.5 rounded-full bg-surface-2 overflow-hidden">
                         <div
-                          className={`h-full rounded-full ${active ? 'bg-bronze' : 'bg-bronze/50 group-hover:bg-bronze/70'}`}
+                          className={`h-full rounded-full ${active ? 'bg-vital' : 'bg-vital/50 group-hover:bg-vital/70'}`}
                           style={{ width: `${pct}%` }}
                         />
                       </div>
@@ -255,7 +255,7 @@ export default function AdminErrorLogs() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search message, route, or area…"
-            className="w-full pl-10 pr-9 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 text-sm text-ink"
+            className="w-full pl-10 pr-9 py-2.5 bg-white rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 text-sm text-ink"
           />
           {search && (
             <button

@@ -111,31 +111,32 @@ export async function sendPackingList(
 
   const ref = order.order_number || inv.invoice_number;
   const trackingBlock = order.tracking_number
-    ? `<p style="font-size:14px;color:#1A1A1A;margin:0 0 8px;">
+    ? `<p style="font-size:14px;color:#07203A;margin:0 0 8px;">
          Carrier: <strong>${order.carrier || "Courier"}</strong><br/>
          Tracking: <span style="font-family:monospace;">${order.tracking_number}</span>
-         ${order.tracking_url ? `<br/><a href="${order.tracking_url}" style="color:#9C8B5A;">Track your shipment</a>` : ""}
+         ${order.tracking_url ? `<br/><a href="${order.tracking_url}" style="color:#438B9E;">Track your shipment</a>` : ""}
        </p>`
-    : `<p style="font-size:14px;color:#6B7280;margin:0 0 8px;">Tracking details will follow shortly.</p>`;
+    : `<p style="font-size:14px;color:#5B7A8C;margin:0 0 8px;">Tracking details will follow shortly.</p>`;
 
   const html = `
     <div style="max-width:600px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-      <div style="padding:32px 24px;text-align:center;border-bottom:1px solid #E5E7EB;">
-        <h1 style="font-size:24px;font-weight:700;color:#1A1A1A;margin:0;">PURAMASS</h1>
-        <p style="font-size:11px;letter-spacing:0.15em;color:#9C8B5A;margin:4px 0 0;text-transform:uppercase;">Canadian Peptides</p>
+      <div style="padding:32px 24px;text-align:center;border-bottom:1px solid #DCE7EB;">
+        <h1 style="font-size:24px;font-weight:700;letter-spacing:5px;color:#07203A;margin:0;">VYTA</h1>
+        <p style="font-size:10px;letter-spacing:4px;color:#438B9E;margin:6px 0 0;">BIOSCIENCES</p>
+        <p style="font-size:11px;letter-spacing:0.15em;color:#438B9E;margin:4px 0 0;text-transform:uppercase;">Canadian Peptides</p>
       </div>
       <div style="padding:32px 24px;">
-        <h2 style="font-size:20px;font-weight:600;color:#1A1A1A;margin:0 0 8px;">Your shipment is on its way</h2>
-        <p style="font-size:14px;color:#6B7280;margin:0 0 20px;">
+        <h2 style="font-size:20px;font-weight:600;color:#07203A;margin:0 0 8px;">Your shipment is on its way</h2>
+        <p style="font-size:14px;color:#5B7A8C;margin:0 0 20px;">
           A packing list for shipment <strong>${ref}</strong> is attached.
         </p>
-        <div style="background:#F7F7F7;border-radius:8px;padding:16px;margin-bottom:16px;">
+        <div style="background:#F7FAFB;border-radius:8px;padding:16px;margin-bottom:16px;">
           ${trackingBlock}
         </div>
-        <p style="font-size:12px;color:#9CA3AF;margin:0;">The attached PDF lists the contents of your parcel.</p>
+        <p style="font-size:12px;color:#8FA9B6;margin:0;">The attached PDF lists the contents of your parcel.</p>
       </div>
-      <div style="padding:24px;text-align:center;background:#F7F7F7;border-top:1px solid #E5E7EB;">
-        <p style="font-size:12px;color:#9CA3AF;margin:0;">PuraMass Peptides &bull; Canada</p>
+      <div style="padding:24px;text-align:center;background:#F7FAFB;border-top:1px solid #DCE7EB;">
+        <p style="font-size:12px;color:#8FA9B6;margin:0;">VYTA Biosciences &bull; Canada</p>
       </div>
     </div>`;
 

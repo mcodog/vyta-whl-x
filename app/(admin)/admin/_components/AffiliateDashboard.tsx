@@ -149,7 +149,7 @@ function OverviewTab() {
         ) : (
           <>
             <StatCard icon={Users} tint="blue" value={String(data?.boundCustomers ?? 0)} label="Your Customers" />
-            <StatCard icon={Clock} tint="bronze" value={`$${(data?.pendingEarnings ?? 0).toFixed(2)}`} label="Pending Earnings" />
+            <StatCard icon={Clock} tint="vital" value={`$${(data?.pendingEarnings ?? 0).toFixed(2)}`} label="Pending Earnings" />
             <StatCard icon={DollarSign} tint="emerald" value={`$${(data?.paidEarnings ?? 0).toFixed(2)}`} label="Paid Earnings" />
           </>
         )}
@@ -200,7 +200,7 @@ function CommissionsTab() {
       {slow && loading && <SlowLoadingNotice onReload={reload} />}
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <StatCard icon={Clock} tint="bronze" value={`$${totals.pending.toFixed(2)}`} label="Pending" loading={loading} />
+        <StatCard icon={Clock} tint="vital" value={`$${totals.pending.toFixed(2)}`} label="Pending" loading={loading} />
         <StatCard icon={DollarSign} tint="emerald" value={`$${totals.paid.toFixed(2)}`} label="Paid" loading={loading} />
         <StatCard icon={Receipt} tint="blue" value={`$${totals.total.toFixed(2)}`} label="Total" loading={loading} />
       </div>
@@ -311,7 +311,7 @@ function InvoicesTab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <StatCard icon={FileText} tint="blue" value={String(totals.count)} label="Your Invoices" loading={loading} />
-        <StatCard icon={Clock} tint="bronze" value={`$${totals.outstanding.toFixed(2)}`} label="Outstanding" loading={loading} />
+        <StatCard icon={Clock} tint="vital" value={`$${totals.outstanding.toFixed(2)}`} label="Outstanding" loading={loading} />
         <StatCard icon={DollarSign} tint="emerald" value={String(totals.paid)} label="Paid" loading={loading} />
       </div>
 
@@ -345,7 +345,7 @@ function InvoicesTab() {
                 {rows.map((inv) => (
                   <tr key={inv.id} className="hover:bg-surface transition-colors">
                     <td className="px-5 py-4">
-                      <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-mono font-medium text-ink hover:text-bronze inline-flex items-center gap-1">
+                      <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-mono font-medium text-ink hover:text-vital inline-flex items-center gap-1">
                         {inv.invoice_number || inv.id.slice(0, 8)}
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
@@ -383,7 +383,7 @@ function InvoicesTab() {
             ) : rows.map((inv) => (
               <li key={inv.id} className="px-4 py-3.5">
                 <div className="flex items-start justify-between gap-2">
-                  <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-mono font-medium text-ink hover:text-bronze inline-flex items-center gap-1">
+                  <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-mono font-medium text-ink hover:text-vital inline-flex items-center gap-1">
                     {inv.invoice_number || inv.id.slice(0, 8)}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
@@ -413,14 +413,14 @@ function StatCard({
   loading,
 }: {
   icon: React.ComponentType<{ className?: string }>;
-  tint: 'blue' | 'bronze' | 'emerald';
+  tint: 'blue' | 'vital' | 'emerald';
   value: string;
   label: string;
   loading?: boolean;
 }) {
   const tints: Record<string, string> = {
     blue: 'bg-blue-500/10 text-blue-400',
-    bronze: 'bg-bronze/10 text-bronze',
+    vital: 'bg-vital/10 text-vital',
     emerald: 'bg-emerald-500/10 text-emerald-400',
   };
   if (loading) {

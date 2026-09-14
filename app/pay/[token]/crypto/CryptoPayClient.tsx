@@ -215,7 +215,7 @@ export default function CryptoPayClient({ token }: { token: string }) {
                 onClick={() => setWalletId(w.id)}
                 className={`text-left rounded-xl border-2 px-4 py-3 transition-colors ${
                   w.id === wallet.id
-                    ? 'border-bronze bg-bronze-50'
+                    ? 'border-vital bg-vital-50'
                     : 'border-line bg-white hover:border-ink/20'
                 }`}
               >
@@ -293,12 +293,12 @@ export default function CryptoPayClient({ token }: { token: string }) {
             placeholder="e.g. 0x9f4c…"
             maxLength={200}
             disabled={submitting}
-            className="flex-1 min-w-0 rounded-xl border border-line px-4 py-2.5 text-sm text-ink font-mono placeholder:font-sans placeholder:text-ink-light focus:outline-none focus:border-bronze disabled:opacity-60"
+            className="flex-1 min-w-0 rounded-xl border border-line px-4 py-2.5 text-sm text-ink font-mono placeholder:font-sans placeholder:text-ink-light focus:outline-none focus:border-vital disabled:opacity-60"
           />
           <button
             type="submit"
             disabled={submitting}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-bronze px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-bronze-dark disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-vital px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-vital-dark disabled:opacity-60"
           >
             {submitting ? (
               <>

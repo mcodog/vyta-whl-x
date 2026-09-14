@@ -252,17 +252,17 @@ function onOrderNoteHtml(data: StockReportData): string {
   return `
     <div class="filters" style="margin-top:22px;">
       <strong>How “On Order” is calculated</strong>
-      <p style="margin:8px 0 0; font-size:11.5px; line-height:1.55; color:#374151;">
+      <p style="margin:8px 0 0; font-size:11.5px; line-height:1.55; color:#1B3A52;">
         <em>On Order</em> counts the units still to be received (ordered − already
         received) from purchase orders that are <strong>Pending</strong> or
         <strong>Partially Fulfilled</strong>. Fulfilled, paid, and cancelled orders
         are excluded. <em>Need To Order</em> = Min Quantity − (Stock + On Order),
         and is never below 0.
       </p>
-      <p style="margin:10px 0 4px; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:#6E6E6E;">
+      <p style="margin:10px 0 4px; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:#4E6E85;">
         Purchase orders considered (${data.contributingPos.length})
       </p>
-      <ul style="margin:0; padding-left:18px; font-size:11.5px; line-height:1.6; color:#374151;">
+      <ul style="margin:0; padding-left:18px; font-size:11.5px; line-height:1.6; color:#1B3A52;">
         ${poListHtml}
       </ul>
     </div>

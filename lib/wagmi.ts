@@ -10,7 +10,7 @@ export const config = createConfig({
     injected(),
     walletConnect({ projectId }),
     coinbaseWallet({
-      appName: 'Aminocan Peptides',
+      appName: 'VYTA Biosciences',
     }),
   ],
   transports: {

@@ -127,7 +127,7 @@ function SuppliersPage() {
           </Link>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-              <Building2 className="w-6 h-6 text-bronze" /> Suppliers
+              <Building2 className="w-6 h-6 text-vital" /> Suppliers
             </h1>
             <p className="text-sm text-ink-muted">{suppliers.length} supplier{suppliers.length !== 1 ? 's' : ''}</p>
           </div>
@@ -154,7 +154,7 @@ function SuppliersPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search suppliers..."
-          className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+          className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
         />
       </div>
 
@@ -180,7 +180,7 @@ function SuppliersPage() {
           <ul className="divide-y divide-line/50">
             {filtered.map((s) => (
               <li key={s.id} className="px-5 py-4 flex items-center gap-4 hover:bg-surface transition-colors">
-                <div className="w-10 h-10 rounded-full bg-bronze/10 text-bronze flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-vital/10 text-vital flex items-center justify-center flex-shrink-0">
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -258,7 +258,7 @@ function SupplierForm({
   error: string | null;
   isNew: boolean;
 }) {
-  const fld = 'w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40';
+  const fld = 'w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40';
   return (
     <div className="bg-white rounded-xl border border-line p-5 mb-5">
       <h3 className="text-sm font-semibold text-ink mb-4">

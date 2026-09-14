@@ -33,7 +33,7 @@ function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
           href={safe}
           target={safe.startsWith('http') ? '_blank' : undefined}
           rel="noopener noreferrer"
-          className="text-bronze underline underline-offset-2 hover:text-bronze-dark"
+          className="text-vital underline underline-offset-2 hover:text-vital-dark"
         >
           {match[1]}
         </a>,

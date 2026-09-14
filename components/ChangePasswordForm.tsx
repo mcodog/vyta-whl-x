@@ -18,7 +18,7 @@ interface ChangePasswordFormProps {
 }
 
 // Two palettes so the form blends into whichever surface it sits on: the
-// customer dashboard (slate/cyan) or the admin panel (ink/bronze).
+// customer dashboard (slate/cyan) or the admin panel (ink/vital).
 const themes = {
   customer: {
     field:
@@ -30,11 +30,11 @@ const themes = {
   },
   admin: {
     field:
-      'w-full pl-10 pr-11 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent',
+      'w-full pl-10 pr-11 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent',
     icon: 'text-ink-muted',
     button:
       'w-full bg-ink hover:bg-ink/90 text-white py-2.5 rounded-lg text-sm font-semibold disabled:opacity-50 transition-colors',
-    link: 'text-bronze hover:text-bronze/80',
+    link: 'text-vital hover:text-vital/80',
   },
 } as const;
 

@@ -114,7 +114,7 @@ export default function PeptideLoader({ message = 'Loading...', type = 'login' }
         transition={{ delay: 0.7 }}
         className="mt-4 text-sm text-primary-600 font-semibold"
       >
-        Aminocan Peptides
+        VYTA Biosciences
       </motion.p>
     </motion.div>
   );

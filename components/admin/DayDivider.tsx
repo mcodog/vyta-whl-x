@@ -44,7 +44,7 @@ export default function DayDividerRow({
           checked={allSelected}
           onChange={onToggleSelect}
           onClick={(e) => e.stopPropagation()}
-          className="w-4 h-4 rounded border-line text-bronze focus:ring-bronze/40 cursor-pointer"
+          className="w-4 h-4 rounded border-line text-vital focus:ring-vital/40 cursor-pointer"
         />
       )}
       <CalendarDays className="w-3.5 h-3.5 text-ink-muted" />

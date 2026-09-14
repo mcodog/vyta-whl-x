@@ -5,7 +5,7 @@ import { ArrowLeft, Mail, Lock, LogIn, AlertCircle, PackageCheck } from 'lucide-
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { canAccessWarehouse, type UserRole } from '@/lib/permissions';
-import PuraLoader from '@/components/PuraLoader';
+import VytaLoader from '@/components/VytaLoader';
 
 export default function WarehouseLayout({ children }: { children: React.ReactNode }) {
   const [authState, setAuthState] = useState<
@@ -79,7 +79,7 @@ export default function WarehouseLayout({ children }: { children: React.ReactNod
   };
 
   if (authState === 'checking') {
-    return <PuraLoader label="Warehouse" message="Verifying access" />;
+    return <VytaLoader label="Warehouse" message="Verifying access" />;
   }
 
   if (authState === 'not_logged_in') {
@@ -88,7 +88,7 @@ export default function WarehouseLayout({ children }: { children: React.ReactNod
         <div className="w-full max-w-sm">
           <div className="bg-white rounded-xl p-6 sm:p-8 border border-line shadow-sm">
             <div className="text-center mb-6">
-              <h1 className="text-xl font-bold text-ink">AMINOCAN</h1>
+              <h1 className="font-display text-xl font-semibold tracking-[0.28em] text-ink">VYTA</h1>
               <p className="text-xs text-indigo-500 font-semibold uppercase tracking-[0.15em] mt-1">
                 Warehouse
               </p>
@@ -168,13 +168,13 @@ export default function WarehouseLayout({ children }: { children: React.ReactNod
       <header className="bg-white border-b border-line">
         <div className="max-w-[1720px] mx-auto px-3 sm:px-5 lg:px-6 py-4 flex justify-between items-center gap-3">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <Link href="/" className="text-base sm:text-lg font-bold text-ink shrink-0">AMINOCAN</Link>
+            <Link href="/" className="font-display text-base sm:text-lg font-semibold tracking-[0.28em] text-ink shrink-0">VYTA</Link>
             <span className="text-line hidden sm:inline">|</span>
             <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-indigo-500 uppercase tracking-[0.15em] truncate">
               <PackageCheck className="w-3.5 h-3.5" /> Warehouse
             </span>
             {userRole === 'admin' && (
-              <span className="hidden sm:inline ml-1 text-[10px] bg-bronze/10 text-bronze px-2 py-0.5 rounded-full font-medium shrink-0">
+              <span className="hidden sm:inline ml-1 text-[10px] bg-vital/10 text-vital px-2 py-0.5 rounded-full font-medium shrink-0">
                 Admin view
               </span>
             )}

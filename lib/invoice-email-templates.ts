@@ -1,7 +1,7 @@
 import type { Invoice } from '@/lib/supabase';
 
 export const DEFAULT_CUSTOMER_SUBJECT =
-  'Your PuraMass invoice {{invoice_number}}';
+  'Your VYTA Biosciences invoice {{invoice_number}}';
 
 export const DEFAULT_CUSTOMER_BODY = `Hi {{customer_first_name}},
 
@@ -9,7 +9,7 @@ Thanks again for your order. Your invoice {{invoice_number}} is attached as a PD
 
 If anything looks off, just reply to this email and we'll sort it out.
 
-— PuraMass`;
+— VYTA Biosciences`;
 
 export const DEFAULT_ADMIN_SUBJECT =
   '[Copy] Invoice {{invoice_number}} sent to {{customer_email}}';
@@ -42,7 +42,7 @@ export const MERGE_VARS: MergeVarSpec[] = [
   { name: 'issue_date', description: 'Issue date (locale string)', sample: 'May 28, 2026' },
   { name: 'currency', description: 'Invoice currency', sample: 'CAD' },
   { name: 'sent_by_email', description: 'Admin who sent the email', sample: 'admin@aminocan.com' },
-  { name: 'company_name', description: 'Company name', sample: 'PuraMass' },
+  { name: 'company_name', description: 'Company name', sample: 'VYTA Biosciences' },
 ];
 
 export type InvoiceMergeVars = Record<string, string>;
@@ -66,7 +66,7 @@ export function buildInvoiceMergeVars({
   customerEmail,
   sentByEmail,
   currency = 'CAD',
-  companyName = 'PuraMass',
+  companyName = 'VYTA Biosciences',
 }: BuildVarsInput): InvoiceMergeVars {
   const [first, ...rest] = customerName.split(' ').filter(Boolean);
   return {
@@ -108,7 +108,7 @@ const escapeHtml = (s: string) =>
     .replace(/"/g, '&quot;');
 
 export function plainTextToHtml(body: string): string {
-  return `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.55; color: #1A1A1A; white-space: pre-wrap;">${escapeHtml(
+  return `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.55; color: #07203A; white-space: pre-wrap;">${escapeHtml(
     body,
   )}</div>`;
 }

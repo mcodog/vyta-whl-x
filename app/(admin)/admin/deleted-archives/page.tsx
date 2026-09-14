@@ -43,7 +43,7 @@ const KIND_LABEL: Record<Kind, string> = {
 
 const KIND_BADGE: Record<Kind, string> = {
   customer: 'bg-blue-500/10 text-blue-600',
-  sales_person: 'bg-bronze/10 text-bronze-dark',
+  sales_person: 'bg-vital/10 text-vital-dark',
   user: 'bg-purple-500/10 text-purple-600',
 };
 

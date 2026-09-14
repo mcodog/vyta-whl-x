@@ -112,7 +112,7 @@ export default function AdminUsersPage() {
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl sm:text-2xl font-bold text-ink flex items-center gap-2">
-          <UserCog className="w-6 h-6 text-bronze" /> Users
+          <UserCog className="w-6 h-6 text-vital" /> Users
         </h1>
         <p className="text-sm text-ink-muted mt-1 max-w-2xl">
           Everyone with an account — staff and customers. Manage roles, access and activation.
@@ -123,7 +123,7 @@ export default function AdminUsersPage() {
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 mb-6">
         <StatTile icon={Users} tint="ink" label="Total" value={stats.total}
           sub={`${stats.active} active`} loading={loading} />
-        <StatTile icon={ShieldCheck} tint="bronze" label="Admins" value={stats.admins}
+        <StatTile icon={ShieldCheck} tint="vital" label="Admins" value={stats.admins}
           sub="full access" loading={loading} />
         <StatTile icon={UserCog} tint="blue" label="Assistants" value={stats.assistants}
           sub="read-only" loading={loading} />
@@ -142,7 +142,7 @@ export default function AdminUsersPage() {
             placeholder="Search users by name or email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
         <div className="relative">
@@ -150,7 +150,7 @@ export default function AdminUsersPage() {
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value)}
-            className="pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+            className="pl-10 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
           >
             <option value="all">All Roles</option>
             <option value="customer">Customer</option>
@@ -165,7 +165,7 @@ export default function AdminUsersPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 appearance-none"
+            className="px-3 pr-8 py-2.5 bg-white border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 appearance-none"
           >
             <option value="all">All Statuses</option>
             <option value="active">Active</option>

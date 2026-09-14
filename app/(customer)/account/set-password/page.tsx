@@ -58,7 +58,7 @@ export default function SetPasswordPage() {
   };
 
   const fld =
-    'w-full pl-10 pr-11 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-bronze/40 focus:border-transparent text-sm text-ink placeholder-ink-muted';
+    'w-full pl-10 pr-11 py-2.5 sm:py-3 bg-surface rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-vital/40 focus:border-transparent text-sm text-ink placeholder-ink-muted';
 
   return (
     <main className="min-h-screen bg-white">
@@ -191,7 +191,7 @@ export default function SetPasswordPage() {
 
                 <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-line text-center">
                   <p className="text-[10px] sm:text-xs text-ink-muted inline-flex items-center justify-center gap-1.5">
-                    <Beaker className="w-3 h-3 text-bronze" /> Research Only · Shipping to Canada
+                    <Beaker className="w-3 h-3 text-vital" /> Research Only · Shipping to Canada
                   </p>
                 </div>
               </>

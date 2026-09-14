@@ -98,7 +98,7 @@ export default function PricelistsTab() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-ink flex items-center gap-2">
-            <Tag className="w-5 h-5 text-bronze" /> Pricelists
+            <Tag className="w-5 h-5 text-vital" /> Pricelists
           </h2>
           <p className="text-sm text-ink-muted mt-1">
             The active pricelist sets default unit prices when adding invoice line items.
@@ -130,7 +130,7 @@ export default function PricelistsTab() {
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 placeholder="e.g. Wholesale, Retail…"
-                className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               />
             </div>
             <div>
@@ -138,7 +138,7 @@ export default function PricelistsTab() {
               <select
                 value={newSource}
                 onChange={(e) => setNewSource(e.target.value)}
-                className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
               >
                 <option value="">Product default prices</option>
                 {pricelists.map((pl) => (
@@ -157,7 +157,7 @@ export default function PricelistsTab() {
             <button
               onClick={submitCreate}
               disabled={creating}
-              className="px-4 py-2 bg-bronze hover:bg-bronze/90 text-white text-sm font-medium rounded-lg inline-flex items-center gap-2 disabled:opacity-60"
+              className="px-4 py-2 bg-vital hover:bg-vital/90 text-white text-sm font-medium rounded-lg inline-flex items-center gap-2 disabled:opacity-60"
             >
               {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
               Create
@@ -193,7 +193,7 @@ export default function PricelistsTab() {
                 <tr key={pl.id} className="hover:bg-surface transition-colors">
                   <td className="px-5 py-4">
                     <div className="text-sm font-medium text-ink flex items-center gap-2">
-                      {pl.is_active && <Star className="w-4 h-4 text-bronze fill-bronze" />}
+                      {pl.is_active && <Star className="w-4 h-4 text-vital fill-vital" />}
                       {pl.name}
                     </div>
                   </td>
@@ -215,7 +215,7 @@ export default function PricelistsTab() {
                         <button
                           onClick={() => activate(pl.id)}
                           disabled={busyId === pl.id}
-                          className="px-3 py-1.5 text-xs font-medium rounded-lg border border-line text-ink hover:border-bronze hover:text-bronze disabled:opacity-50 inline-flex items-center gap-1"
+                          className="px-3 py-1.5 text-xs font-medium rounded-lg border border-line text-ink hover:border-vital hover:text-vital disabled:opacity-50 inline-flex items-center gap-1"
                         >
                           {busyId === pl.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Star className="w-3 h-3" />}
                           Set active
@@ -252,7 +252,7 @@ export default function PricelistsTab() {
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
                     <div className="text-sm font-medium text-ink flex items-center gap-2">
-                      {pl.is_active && <Star className="w-4 h-4 text-bronze fill-bronze shrink-0" />}
+                      {pl.is_active && <Star className="w-4 h-4 text-vital fill-vital shrink-0" />}
                       {pl.name}
                     </div>
                     <div className="mt-1 text-xs text-ink-muted tabular-nums">{pl.item_count ?? 0} products</div>
@@ -270,7 +270,7 @@ export default function PricelistsTab() {
                     <button
                       onClick={() => activate(pl.id)}
                       disabled={busyId === pl.id}
-                      className="px-3 py-2 text-xs font-medium rounded-lg border border-line text-ink hover:border-bronze hover:text-bronze disabled:opacity-50 inline-flex items-center gap-1"
+                      className="px-3 py-2 text-xs font-medium rounded-lg border border-line text-ink hover:border-vital hover:text-vital disabled:opacity-50 inline-flex items-center gap-1"
                     >
                       {busyId === pl.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Star className="w-3 h-3" />}
                       Set active
@@ -372,7 +372,7 @@ function PriceEditor({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search products…"
-              className="w-full pl-10 pr-4 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+              className="w-full pl-10 pr-4 py-2 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
             />
           </div>
         </div>
@@ -399,7 +399,7 @@ function PriceEditor({
                   step="0.01"
                   value={prices[it.product_id] ?? ''}
                   onChange={(e) => setPrices((p) => ({ ...p, [it.product_id]: e.target.value }))}
-                  className="w-28 bg-white border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-28 bg-white border border-line rounded-lg px-2 py-1.5 text-sm text-right tabular-nums focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
             </div>

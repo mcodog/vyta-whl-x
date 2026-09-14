@@ -125,7 +125,7 @@ export default function PayClient({ token }: { token: string }) {
   return (
     <PaymentShell>
       <header className="mb-7">
-        <p className="text-xs uppercase tracking-[0.12em] text-bronze font-semibold mb-2">
+        <p className="text-xs uppercase tracking-[0.12em] text-vital font-semibold mb-2">
           Invoice {invoice.invoice_number}
         </p>
         <h1 className="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">
@@ -157,8 +157,8 @@ export default function PayClient({ token }: { token: string }) {
       )}
 
       {invoice.crypto_payment_declared_at && !settled && (
-        <div className="mb-6 flex items-start gap-2.5 rounded-xl border border-bronze/30 bg-bronze-50 px-4 py-3 text-sm text-ink">
-          <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-bronze" />
+        <div className="mb-6 flex items-start gap-2.5 rounded-xl border border-vital/30 bg-vital-50 px-4 py-3 text-sm text-ink">
+          <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-vital" />
           <span>
             Thanks — we have your transaction reference and are confirming it on-chain. We&apos;ll
             email you as soon as the payment clears.
@@ -252,15 +252,15 @@ function MethodCard({
       onClick={onClick}
       disabled={disabled}
       className={`group text-left bg-white rounded-2xl border-2 p-5 transition-all ${
-        busy ? 'border-bronze' : 'border-line hover:border-bronze hover:shadow-sm'
+        busy ? 'border-vital' : 'border-line hover:border-vital hover:shadow-sm'
       } ${disabled && !busy ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
-      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-bronze-50 text-bronze mb-3">
+      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vital-50 text-vital mb-3">
         {icon}
       </span>
       <h3 className="text-base font-semibold text-ink">{title}</h3>
       <p className="mt-1 text-sm text-ink-muted leading-snug">{description}</p>
-      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-bronze-dark">
+      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-vital-dark">
         {busy ? (
           <>
             <Loader2 className="w-4 h-4 animate-spin" /> Starting…

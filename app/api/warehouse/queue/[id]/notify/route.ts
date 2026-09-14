@@ -41,27 +41,27 @@ function defaultTemplate(kind: Kind, isPickup: boolean): { subject: string; body
   if (kind === "packed") {
     return isPickup
       ? {
-          subject: "Your PuraMass order {{order_number}} is ready for pickup",
+          subject: "Your VYTA order {{order_number}} is ready for pickup",
           body:
-            "Hi {{customer_first_name}},\n\nGood news — your order {{order_number}} is packed and ready for collection. Come by at your convenience and quote your order number.\n\n— PuraMass",
+            "Hi {{customer_first_name}},\n\nGood news — your order {{order_number}} is packed and ready for collection. Come by at your convenience and quote your order number.\n\n— VYTA Biosciences",
         }
       : {
-          subject: "Your PuraMass order {{order_number}} is packed",
+          subject: "Your VYTA order {{order_number}} is packed",
           body:
-            "Hi {{customer_first_name}},\n\nYour order {{order_number}} has been packed and is on its way out the door. We'll send tracking as soon as it ships.\n\n— PuraMass",
+            "Hi {{customer_first_name}},\n\nYour order {{order_number}} has been packed and is on its way out the door. We'll send tracking as soon as it ships.\n\n— VYTA Biosciences",
         };
   }
   // shipped
   return isPickup
     ? {
-        subject: "Thanks for collecting your PuraMass order {{order_number}}",
+        subject: "Thanks for collecting your VYTA order {{order_number}}",
         body:
-          "Hi {{customer_first_name}},\n\nThis confirms your order {{order_number}} has been collected. Thanks for choosing PuraMass!\n\n— PuraMass",
+          "Hi {{customer_first_name}},\n\nThis confirms your order {{order_number}} has been collected. Thanks for choosing VYTA Biosciences!\n\n— VYTA Biosciences",
       }
     : {
-        subject: "Your PuraMass order {{order_number}} has shipped",
+        subject: "Your VYTA order {{order_number}} has shipped",
         body:
-          "Hi {{customer_first_name}},\n\nYour order {{order_number}} is on its way via {{carrier}}.\n\nTracking number: {{tracking_number}}\n{{tracking_url}}\n\n— PuraMass",
+          "Hi {{customer_first_name}},\n\nYour order {{order_number}} is on its way via {{carrier}}.\n\nTracking number: {{tracking_number}}\n{{tracking_url}}\n\n— VYTA Biosciences",
       };
 }
 
@@ -75,7 +75,7 @@ function buildTransport() {
 }
 
 function buildFrom() {
-  const name = process.env.SMTP_FROM_NAME || "PuraMass";
+  const name = process.env.SMTP_FROM_NAME || "VYTA Biosciences";
   const addr = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || "info@aminocan.com";
   return `${name} <${addr}>`;
 }

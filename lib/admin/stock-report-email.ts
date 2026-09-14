@@ -16,10 +16,10 @@ import { escapeHtml } from '@/lib/admin/report-html';
 function statTile(label: string, value: string, meta: string, danger = false): string {
   return `
     <td style="padding:6px;" valign="top">
-      <div style="border:1px solid #E5E7EB; border-radius:10px; padding:14px;">
-        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:#6E6E6E; margin-bottom:6px;">${escapeHtml(label)}</div>
-        <div style="font-size:18px; font-weight:700; color:${danger ? '#B91C1C' : '#1A1A1A'};">${escapeHtml(value)}</div>
-        <div style="font-size:11px; color:#6E6E6E; margin-top:2px;">${escapeHtml(meta)}</div>
+      <div style="border:1px solid #DCE7EB; border-radius:10px; padding:14px;">
+        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:#4E6E85; margin-bottom:6px;">${escapeHtml(label)}</div>
+        <div style="font-size:18px; font-weight:700; color:${danger ? '#B91C1C' : '#07203A'};">${escapeHtml(value)}</div>
+        <div style="font-size:11px; color:#4E6E85; margin-top:2px;">${escapeHtml(meta)}</div>
       </div>
     </td>`;
 }
@@ -39,14 +39,15 @@ export function renderStockReportEmailHtml(
   const csvName = opts.csvFilename || 'stock-report.csv';
 
   return `
-  <div style="max-width:640px; margin:0 auto; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#FFFFFF; color:#1A1A1A;">
-    <div style="padding:28px 24px; text-align:center; border-bottom:2px solid #1A1A1A;">
-      <h1 style="font-size:24px; font-weight:700; margin:0;">PURAMASS</h1>
-      <p style="font-size:11px; letter-spacing:0.15em; color:#9C8B5A; margin:4px 0 0; text-transform:uppercase;">Stock Report</p>
+  <div style="max-width:640px; margin:0 auto; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#FFFFFF; color:#07203A;">
+    <div style="padding:28px 24px; text-align:center; border-bottom:2px solid #07203A;">
+      <h1 style="font-size:24px; font-weight:700; letter-spacing:5px; margin:0;">VYTA</h1>
+      <p style="font-size:10px; letter-spacing:4px; margin:6px 0 0;">BIOSCIENCES</p>
+      <p style="font-size:11px; letter-spacing:0.15em; color:#438B9E; margin:4px 0 0; text-transform:uppercase;">Stock Report</p>
     </div>
 
     <div style="padding:24px;">
-      <p style="font-size:13px; color:#6E6E6E; margin:0 0 18px;">Generated ${escapeHtml(generated)}</p>
+      <p style="font-size:13px; color:#4E6E85; margin:0 0 18px;">Generated ${escapeHtml(generated)}</p>
 
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate; margin-bottom:18px;">
         <tr>
@@ -57,9 +58,9 @@ export function renderStockReportEmailHtml(
         </tr>
       </table>
 
-      <div style="background:#F7F7F7; border:1px solid #E5E7EB; border-radius:10px; padding:16px; text-align:center;">
-        <p style="font-size:14px; color:#1A1A1A; margin:0; font-weight:600;">📎 Full Stock Report attached</p>
-        <p style="font-size:12px; color:#6E6E6E; margin:6px 0 0;">
+      <div style="background:#F7FAFB; border:1px solid #DCE7EB; border-radius:10px; padding:16px; text-align:center;">
+        <p style="font-size:14px; color:#07203A; margin:0; font-weight:600;">📎 Full Stock Report attached</p>
+        <p style="font-size:12px; color:#4E6E85; margin:6px 0 0;">
           The complete per-product breakdown (stock, min quantity, on order, need to order) is
           attached as a PDF (<strong>${escapeHtml(filename)}</strong>) and a spreadsheet
           (<strong>${escapeHtml(csvName)}</strong>).
@@ -67,14 +68,14 @@ export function renderStockReportEmailHtml(
       </div>
 
       <div style="text-align:center; margin-top:22px;">
-        <a href="${baseUrl}/admin/products" style="display:inline-block; padding:12px 24px; background:#1A1A1A; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:600;">
+        <a href="${baseUrl}/admin/products" style="display:inline-block; padding:12px 24px; background:#07203A; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:600;">
           Open Products in Admin
         </a>
       </div>
     </div>
 
-    <div style="padding:20px 24px; text-align:center; background:#F7F7F7; border-top:1px solid #E5E7EB;">
-      <p style="font-size:11px; color:#9CA3AF; margin:0;">Automated Stock Report from PuraMass Admin</p>
+    <div style="padding:20px 24px; text-align:center; background:#F7FAFB; border-top:1px solid #DCE7EB;">
+      <p style="font-size:11px; color:#8FA9B6; margin:0;">Automated Stock Report from VYTA Admin</p>
     </div>
   </div>`;
 }
@@ -123,7 +124,7 @@ export async function sendStockReportEmail(
     data.totals.needToOrder > 0
       ? ` — ${data.totals.needToOrder} unit${data.totals.needToOrder === 1 ? '' : 's'} to order`
       : '';
-  const subject = `PuraMass Stock Report (${data.totals.products} products${needLine})`;
+  const subject = `VYTA Stock Report (${data.totals.products} products${needLine})`;
 
   const res = await sendEmail({
     to,

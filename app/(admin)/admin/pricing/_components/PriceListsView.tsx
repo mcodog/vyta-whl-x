@@ -240,7 +240,7 @@ export default function PriceListsView() {
             placeholder="Search price lists..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
           />
         </div>
         <div className="inline-flex rounded-lg border border-line bg-surface p-1 self-start">
@@ -316,7 +316,7 @@ export default function PriceListsView() {
               </thead>
               <tbody className="divide-y divide-line/50">
                 {showDefault && (
-                  <tr className="bg-bronze/5">
+                  <tr className="bg-vital/5">
                     <td className="px-5 py-4">
                       <div className="flex items-start gap-2">
                         <Lock className="w-3.5 h-3.5 text-ink-muted mt-0.5 flex-shrink-0" />
@@ -371,7 +371,7 @@ export default function PriceListsView() {
                   <tr key={list.id} className="hover:bg-surface transition-colors">
                     <td className="px-5 py-4">
                       <Link href={`/admin/pricing/list/${list.id}`} className="group inline-flex flex-col">
-                        <span className="font-semibold text-ink text-sm group-hover:text-bronze transition-colors">{list.name}</span>
+                        <span className="font-semibold text-ink text-sm group-hover:text-vital transition-colors">{list.name}</span>
                         {list.description && (
                           <span className="text-xs text-ink-muted line-clamp-1 max-w-md">{list.description}</span>
                         )}
@@ -428,7 +428,7 @@ export default function PriceListsView() {
         )}
         <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4${layout === 'table' ? ' lg:hidden' : ''}`}>
           {showDefault && (
-            <div className="bg-bronze/5 rounded-xl border border-bronze/20 p-5 flex flex-col">
+            <div className="bg-vital/5 rounded-xl border border-vital/20 p-5 flex flex-col">
               <div className="flex items-start justify-between gap-3 mb-2">
                 <div className="min-w-0 flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-ink-muted flex-shrink-0" />
@@ -453,7 +453,7 @@ export default function PriceListsView() {
                   <div className="font-medium text-ink truncate">Catalog</div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mt-auto pt-3 border-t border-bronze/20">
+              <div className="flex items-center gap-2 mt-auto pt-3 border-t border-vital/20">
                 {canCreate && !defaultEffective && (
                   <button
                     onClick={handleUseDefault}
@@ -465,7 +465,7 @@ export default function PriceListsView() {
                 )}
                 <Link
                   href="/admin/products"
-                  className="inline-flex items-center gap-1 text-xs font-medium text-bronze hover:text-bronze/80 ml-auto"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-vital hover:text-vital/80 ml-auto"
                 >
                   Edit in Products <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
@@ -481,7 +481,7 @@ export default function PriceListsView() {
             <div key={list.id} className="bg-white rounded-xl border border-line p-5 flex flex-col">
               <div className="flex items-start justify-between gap-3 mb-2">
                 <Link href={`/admin/pricing/list/${list.id}`} className="min-w-0 group">
-                  <div className="text-sm font-semibold text-ink truncate group-hover:text-bronze transition-colors">{list.name}</div>
+                  <div className="text-sm font-semibold text-ink truncate group-hover:text-vital transition-colors">{list.name}</div>
                 </Link>
                 <StatusBadge active={list.is_active} />
               </div>
@@ -516,7 +516,7 @@ export default function PriceListsView() {
                 </button>
                 <Link
                   href={`/admin/pricing/list/${list.id}`}
-                  className="inline-flex items-center gap-1 text-xs font-medium text-bronze hover:text-bronze/80 ml-auto"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-vital hover:text-vital/80 ml-auto"
                 >
                   Open <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -556,7 +556,7 @@ export default function PriceListsView() {
                   onChange={(e) => setNewName(e.target.value)}
                   placeholder="e.g. Wholesale 2026"
                   autoFocus
-                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
               <div>
@@ -566,7 +566,7 @@ export default function PriceListsView() {
                   onChange={(e) => setNewDescription(e.target.value)}
                   rows={2}
                   placeholder="What is this price list for?"
-                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40 resize-none"
+                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40 resize-none"
                 />
               </div>
               <div>
@@ -576,7 +576,7 @@ export default function PriceListsView() {
                 <select
                   value={copyFromId}
                   onChange={(e) => setCopyFromId(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full px-3 py-2.5 bg-surface border border-line rounded-lg text-sm text-ink focus:outline-none focus:ring-2 focus:ring-vital/40"
                 >
                   <option value="">Default product prices</option>
                   {lists.map((l) => (

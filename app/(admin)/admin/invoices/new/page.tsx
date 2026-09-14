@@ -24,7 +24,7 @@ function NewInvoiceInner() {
               {isPrepaid ? 'New Prepaid Invoice' : 'New Invoice'}
             </h1>
             {isPrepaid && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-bronze/10 text-bronze">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-vital/10 text-vital">
                 <Package className="w-3 h-3" /> Prepaid
               </span>
             )}

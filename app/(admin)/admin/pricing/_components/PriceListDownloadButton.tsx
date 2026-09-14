@@ -171,9 +171,9 @@ export default function PriceListDownloadButton({
             className="w-full inline-flex items-center gap-2.5 px-2 py-2 rounded-lg text-sm text-ink hover:bg-surface transition-colors disabled:opacity-50 text-left"
           >
             {busy === 'pdf' ? (
-              <Loader2 className="w-4 h-4 animate-spin text-bronze" />
+              <Loader2 className="w-4 h-4 animate-spin text-vital" />
             ) : (
-              <FileText className="w-4 h-4 text-bronze" />
+              <FileText className="w-4 h-4 text-vital" />
             )}
             <span>
               PDF

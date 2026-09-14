@@ -56,7 +56,7 @@ function renderPreview(tpl: string, inv: Invoice): string {
     }),
     currency: inv.currency === 'USD' ? 'USD' : 'CAD',
     sent_by_email: '',
-    company_name: 'Aminocan',
+    company_name: 'VYTA Biosciences',
   };
   return tpl.replace(/\{\{\s*([a-z_][a-z0-9_]*)\s*\}\}/gi, (_, k) => vars[k] ?? `{{${k}}}`);
 }
@@ -521,7 +521,7 @@ export default function InvoiceDetail() {
     return (
       <div className="text-center py-20">
         <p className="text-ink-muted text-sm">Invoice not found.</p>
-        <Link href="/admin/invoices" scroll={false} className="mt-3 inline-block text-bronze">Back</Link>
+        <Link href="/admin/invoices" scroll={false} className="mt-3 inline-block text-vital">Back</Link>
       </div>
     );
   }
@@ -600,7 +600,7 @@ export default function InvoiceDetail() {
             <div className="flex items-center gap-2">
               <h1 className="text-2xl font-bold text-ink font-mono">{invoice.invoice_number}</h1>
               {invoice.invoice_type === 'prepaid' && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-bronze/10 text-bronze">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-vital/10 text-vital">
                   <Package className="w-3 h-3" /> Prepaid
                 </span>
               )}
@@ -635,7 +635,7 @@ export default function InvoiceDetail() {
             {isAdmin && invoice.invoice_type !== 'prepaid' && (
               <button
                 onClick={() => { setConvertError(''); setShowConvert(true); }}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-white border border-line hover:border-bronze/50 text-ink-muted hover:text-bronze rounded-lg text-sm"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-white border border-line hover:border-vital/50 text-ink-muted hover:text-vital rounded-lg text-sm"
                 title="Turn this into a prepaid procurement invoice"
               >
                 <Package className="w-4 h-4" /> Convert to Prepaid
@@ -652,7 +652,7 @@ export default function InvoiceDetail() {
             {isAdmin && (
               <button
                 onClick={openEmailModal}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-bronze hover:bg-bronze/90 text-white rounded-lg text-sm font-medium"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-vital hover:bg-vital/90 text-white rounded-lg text-sm font-medium"
               >
                 <Send className="w-4 h-4" /> Send Email
               </button>
@@ -713,7 +713,7 @@ export default function InvoiceDetail() {
                 value={statusDraft}
                 onChange={(e) => setStatusDraft(e.target.value as InvoiceStatus)}
                 disabled={savingStatus}
-                className="flex-1 min-w-0 bg-surface border border-line rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40 disabled:opacity-60"
+                className="flex-1 min-w-0 bg-surface border border-line rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40 disabled:opacity-60"
               >
                 {INVOICE_STATUSES.map((s) => (
                   <option key={s} value={s}>{INVOICE_STATUS_META[s].label}</option>
@@ -785,7 +785,7 @@ export default function InvoiceDetail() {
               <Check className="w-5 h-5" /> Paid
             </div>
           ) : (
-            <div className="text-2xl font-bold text-bronze tabular-nums">${amountDue.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-vital tabular-nums">${amountDue.toFixed(2)}</div>
           )}
           <div className="text-xs text-ink-muted mt-0.5 tabular-nums">
             ${invoice.total.toFixed(2)} total{amountPaid > 0 ? ` · $${amountPaid.toFixed(2)} paid` : ''}
@@ -839,7 +839,7 @@ export default function InvoiceDetail() {
                 <Truck className="w-3 h-3" /> {String(trackStatus).replace(/_/g, ' ')}
               </span>
               {trackUrl && (
-                <a href={trackUrl} target="_blank" rel="noopener noreferrer" className="block text-xs text-bronze hover:underline">
+                <a href={trackUrl} target="_blank" rel="noopener noreferrer" className="block text-xs text-vital hover:underline">
                   Track shipment →
                 </a>
               )}
@@ -850,7 +850,7 @@ export default function InvoiceDetail() {
                 <Truck className="w-3 h-3" /> Tracking added
               </span>
               {trackUrl && (
-                <a href={trackUrl} target="_blank" rel="noopener noreferrer" className="block text-xs text-bronze hover:underline">
+                <a href={trackUrl} target="_blank" rel="noopener noreferrer" className="block text-xs text-vital hover:underline">
                   Track shipment →
                 </a>
               )}
@@ -891,7 +891,7 @@ export default function InvoiceDetail() {
                         {li.description}
                         <span
                           className={`inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide ${
-                            li.price_type === 'vial' ? 'bg-indigo-500/10 text-indigo-600' : 'bg-bronze/10 text-bronze'
+                            li.price_type === 'vial' ? 'bg-indigo-500/10 text-indigo-600' : 'bg-vital/10 text-vital'
                           }`}
                           title={
                             li.price_type === 'vial'
@@ -923,7 +923,7 @@ export default function InvoiceDetail() {
                 {amountPaid > 0 && (
                   <tr><td colSpan={5} className="px-5 py-2 text-right text-ink-muted">Paid</td><td className="px-5 py-2 text-right tabular-nums">− ${amountPaid.toFixed(2)}</td></tr>
                 )}
-                <tr><td colSpan={5} className="px-5 py-3 text-right text-bronze font-semibold">Amount Due</td><td className="px-5 py-3 text-right text-bronze font-bold tabular-nums">${amountDue.toFixed(2)}</td></tr>
+                <tr><td colSpan={5} className="px-5 py-3 text-right text-vital font-semibold">Amount Due</td><td className="px-5 py-3 text-right text-vital font-bold tabular-nums">${amountDue.toFixed(2)}</td></tr>
               </tfoot>
             </table>
             </div>
@@ -941,7 +941,7 @@ export default function InvoiceDetail() {
                           <span className="font-mono text-[11px] text-ink-muted">{lineItemSku(li) || '—'}</span>
                           <span
                             className={`inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide ${
-                              li.price_type === 'vial' ? 'bg-indigo-500/10 text-indigo-600' : 'bg-bronze/10 text-bronze'
+                              li.price_type === 'vial' ? 'bg-indigo-500/10 text-indigo-600' : 'bg-vital/10 text-vital'
                             }`}
                             title={
                               li.price_type === 'vial'
@@ -976,7 +976,7 @@ export default function InvoiceDetail() {
                 {amountPaid > 0 && (
                   <div className="flex justify-between gap-3"><dt className="text-ink-muted">Paid</dt><dd className="tabular-nums text-ink">− ${amountPaid.toFixed(2)}</dd></div>
                 )}
-                <div className="flex justify-between gap-3"><dt className="text-bronze font-semibold">Amount Due</dt><dd className="text-bronze font-bold tabular-nums">${amountDue.toFixed(2)}</dd></div>
+                <div className="flex justify-between gap-3"><dt className="text-vital font-semibold">Amount Due</dt><dd className="text-vital font-bold tabular-nums">${amountDue.toFixed(2)}</dd></div>
               </dl>
             </div>
           </div>
@@ -1006,7 +1006,7 @@ export default function InvoiceDetail() {
             <div className="bg-white rounded-xl border border-line p-5">
               <div className="flex items-center justify-between gap-2 mb-3">
                 <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-bronze" /> Payment History
+                  <CreditCard className="w-4 h-4 text-vital" /> Payment History
                 </h3>
                 {isAdmin && (
                   <button
@@ -1064,7 +1064,7 @@ export default function InvoiceDetail() {
                   <div className="flex items-center justify-between gap-2">
                     <Link
                       href={`/admin/orders/${linkedOrder.id}`}
-                      className="font-mono text-sm text-ink hover:text-bronze inline-flex items-center gap-1"
+                      className="font-mono text-sm text-ink hover:text-vital inline-flex items-center gap-1"
                     >
                       {linkedOrder.order_number ?? linkedOrder.id.slice(0, 8)}
                       <ExternalLink className="w-3 h-3" />
@@ -1142,7 +1142,7 @@ export default function InvoiceDetail() {
                           href={trackUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs text-bronze hover:underline"
+                          className="inline-flex items-center gap-1 text-xs text-vital hover:underline"
                         >
                           Track shipment <ExternalLink className="w-3 h-3" />
                         </a>
@@ -1169,13 +1169,13 @@ export default function InvoiceDetail() {
                           value={trackingInput}
                           onChange={(e) => setTrackingInput(e.target.value)}
                           placeholder="Enter tracking number"
-                          className="flex-1 min-w-0 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                          className="flex-1 min-w-0 px-3 py-2 bg-surface border border-line rounded-lg text-sm text-ink placeholder-ink-muted focus:outline-none focus:ring-2 focus:ring-vital/40"
                         />
                         <button
                           onClick={handleSaveTracking}
                           disabled={savingTracking}
                           title="Save tracking number"
-                          className="px-3 py-2 bg-bronze/10 border border-bronze/20 text-bronze rounded-lg text-sm hover:bg-bronze/20 transition-colors disabled:opacity-50"
+                          className="px-3 py-2 bg-vital/10 border border-vital/20 text-vital rounded-lg text-sm hover:bg-vital/20 transition-colors disabled:opacity-50"
                         >
                           {savingTracking ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                         </button>
@@ -1371,7 +1371,7 @@ export default function InvoiceDetail() {
                         <button
                           onClick={switchCurrency}
                           disabled={switchingCurrency}
-                          className="inline-flex items-center gap-1 text-xs text-bronze hover:text-bronze/80 disabled:opacity-60"
+                          className="inline-flex items-center gap-1 text-xs text-vital hover:text-vital/80 disabled:opacity-60"
                           title={`Switch this invoice to ${invoice.currency === 'USD' ? 'CAD' : 'USD'} — keeps the same amounts, only changes the currency label`}
                         >
                           {switchingCurrency ? (
@@ -1389,7 +1389,7 @@ export default function InvoiceDetail() {
                     <span
                       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${
                         invoice.with_labels !== false
-                          ? 'bg-bronze/10 text-bronze'
+                          ? 'bg-vital/10 text-vital'
                           : 'bg-ink/5 text-ink-muted'
                       }`}
                     >
@@ -1411,12 +1411,12 @@ export default function InvoiceDetail() {
                           value={dueDateDraft}
                           onChange={(e) => setDueDateDraft(e.target.value)}
                           disabled={savingDueDate}
-                          className="px-2 py-1 border border-line rounded-lg text-sm text-ink focus:border-bronze focus:outline-none"
+                          className="px-2 py-1 border border-line rounded-lg text-sm text-ink focus:border-vital focus:outline-none"
                         />
                         <button
                           onClick={saveDueDate}
                           disabled={savingDueDate}
-                          className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-bronze text-white hover:bg-bronze/90 disabled:opacity-60"
+                          className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-vital text-white hover:bg-vital/90 disabled:opacity-60"
                           title="Save due date"
                         >
                           {savingDueDate ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />}
@@ -1438,7 +1438,7 @@ export default function InvoiceDetail() {
                       {canEditInv && (
                         <button
                           onClick={startEditDueDate}
-                          className="inline-flex items-center gap-1 text-xs text-bronze hover:text-bronze/80"
+                          className="inline-flex items-center gap-1 text-xs text-vital hover:text-vital/80"
                           title="Edit due date"
                         >
                           <Pencil className="w-3 h-3" /> Edit
@@ -1540,7 +1540,7 @@ export default function InvoiceDetail() {
           <div className="bg-white rounded-2xl border border-line shadow-xl w-full max-w-lg p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base font-bold text-ink flex items-center gap-2">
-                <Send className="w-4 h-4 text-bronze" /> Send invoice email
+                <Send className="w-4 h-4 text-vital" /> Send invoice email
               </h3>
               <button onClick={() => setShowEmailModal(false)} className="text-ink-muted hover:text-ink">
                 <X className="w-5 h-5" />
@@ -1554,7 +1554,7 @@ export default function InvoiceDetail() {
                   type="email"
                   value={emailRecipient}
                   onChange={(e) => setEmailRecipient(e.target.value)}
-                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                  className="w-full bg-surface border border-line rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                 />
               </div>
 
@@ -1565,7 +1565,7 @@ export default function InvoiceDetail() {
                 {bccList.length === 0 ? (
                   <p className="text-xs text-ink-muted">
                     No admin copy recipients configured.{' '}
-                    <Link href="/admin/settings" className="text-bronze hover:underline">
+                    <Link href="/admin/settings" className="text-vital hover:underline">
                       Add some
                     </Link>{' '}
                     or paste one below to send just for this email.
@@ -1582,11 +1582,11 @@ export default function InvoiceDetail() {
                             type="checkbox"
                             checked={b.checked}
                             onChange={() => toggleBcc(b.email)}
-                            className="w-4 h-4 accent-bronze"
+                            className="w-4 h-4 accent-vital"
                           />
                           <span className="text-sm text-ink truncate">{b.email}</span>
                           {b.label && (
-                            <span className="text-[10px] uppercase tracking-wider text-bronze bg-bronze/10 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-[10px] uppercase tracking-wider text-vital bg-vital/10 px-1.5 py-0.5 rounded flex-shrink-0">
                               {b.label}
                             </span>
                           )}
@@ -1623,7 +1623,7 @@ export default function InvoiceDetail() {
                       }
                     }}
                     placeholder="Add another email (won't be saved)"
-                    className="flex-1 bg-surface border border-line rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-bronze/40"
+                    className="flex-1 bg-surface border border-line rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-vital/40"
                   />
                   <button
                     type="button"
@@ -1639,7 +1639,7 @@ export default function InvoiceDetail() {
                 )}
                 <p className="text-xs text-ink-muted mt-1">
                   Configured under{' '}
-                  <Link href="/admin/settings" className="text-bronze hover:underline">
+                  <Link href="/admin/settings" className="text-vital hover:underline">
                     Settings → Invoice Emails
                   </Link>
                   . Adding here only affects this send.
@@ -1667,7 +1667,7 @@ export default function InvoiceDetail() {
 
               <p className="text-xs text-ink-muted">
                 Edit the template under{' '}
-                <Link href="/admin/settings/email-templates" className="text-bronze hover:underline">
+                <Link href="/admin/settings/email-templates" className="text-vital hover:underline">
                   Settings → Email templates
                 </Link>.
               </p>
@@ -1694,7 +1694,7 @@ export default function InvoiceDetail() {
               <button
                 onClick={submitSendEmail}
                 disabled={emailSending}
-                className="px-4 py-2 bg-bronze hover:bg-bronze/90 text-white text-sm font-medium rounded-lg flex items-center gap-2 disabled:opacity-50"
+                className="px-4 py-2 bg-vital hover:bg-vital/90 text-white text-sm font-medium rounded-lg flex items-center gap-2 disabled:opacity-50"
               >
                 {emailSending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 Send
@@ -1781,9 +1781,9 @@ function ClientShipTo({
   const name = [client.first_name, client.last_name].filter(Boolean).join(' ') || 'Client';
   const cityLine = [client.city, client.state, client.postal_code].filter(Boolean).join(', ');
   return (
-    <div className="mb-2 rounded-lg border border-bronze/30 bg-bronze/5 p-2.5">
+    <div className="mb-2 rounded-lg border border-vital/30 bg-vital/5 p-2.5">
       <div className="flex items-center gap-1.5 mb-1">
-        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-bronze/15 text-bronze whitespace-nowrap">
+        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-vital/15 text-vital whitespace-nowrap">
           <Users className="w-2.5 h-2.5" /> Ships to client
         </span>
       </div>

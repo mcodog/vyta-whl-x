@@ -16,14 +16,14 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aminocan | Premium Research Peptides",
+  title: "VYTA Biosciences | Premium Research Peptides",
   description: "Your trusted source for premium research-grade peptides. Lab-certified, 99%+ purity, worldwide shipping.",
   keywords: ["peptides", "research peptides", "BPC-157", "TB-500", "semaglutide", "retatrutide"],
   openGraph: {
-    title: "Aminocan | Premium Research Peptides",
+    title: "VYTA Biosciences | Premium Research Peptides",
     description: "Your trusted source for premium research-grade peptides.",
     url: "https://puramass.com",
-    siteName: "Aminocan",
+    siteName: "VYTA",
     type: "website",
   },
 };

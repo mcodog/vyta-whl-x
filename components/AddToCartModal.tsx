@@ -211,7 +211,7 @@ export default function AddToCartModal({
               {product.name}
             </h3>
             <div className="mt-1.5">
-              <span className="inline-flex items-center rounded-full bg-bronze-50 border border-bronze/20 px-2 py-0.5 text-[11px] font-medium text-bronze">
+              <span className="inline-flex items-center rounded-full bg-vital-50 border border-vital/20 px-2 py-0.5 text-[11px] font-medium text-vital">
                 {product.strength}
               </span>
             </div>

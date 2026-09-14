@@ -72,12 +72,12 @@ export default function PendingAffiliateRequests({
   if (!loading && requests.length === 0) return null;
 
   return (
-    <div className="bg-white rounded-xl border border-bronze/30 overflow-hidden mb-6">
-      <div className="p-5 border-b border-line flex items-center gap-2 bg-bronze/5">
-        <UserPlus className="w-5 h-5 text-bronze" />
+    <div className="bg-white rounded-xl border border-vital/30 overflow-hidden mb-6">
+      <div className="p-5 border-b border-line flex items-center gap-2 bg-vital/5">
+        <UserPlus className="w-5 h-5 text-vital" />
         <h2 className="text-lg font-bold text-ink">Affiliate Requests</h2>
         {!loading && (
-          <span className="ml-1 inline-flex items-center justify-center min-w-[1.5rem] h-6 px-2 rounded-full bg-bronze text-white text-xs font-semibold">
+          <span className="ml-1 inline-flex items-center justify-center min-w-[1.5rem] h-6 px-2 rounded-full bg-vital text-white text-xs font-semibold">
             {requests.length}
           </span>
         )}

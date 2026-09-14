@@ -83,39 +83,39 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
   @page { size: A4; margin: 18mm; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         color: #1A1A1A; margin: 0; padding: 32px; background: #fff; }
+         color: #07203A; margin: 0; padding: 32px; background: #fff; }
   .wrap { max-width: 760px; margin: 0 auto; }
   .head { display: flex; justify-content: space-between; align-items: flex-start;
-          border-bottom: 2px solid #1A1A1A; padding-bottom: 16px; }
+          border-bottom: 2px solid #07203A; padding-bottom: 16px; }
   .brand h1 { margin: 0 0 4px; font-size: 24px; letter-spacing: 0.04em; }
-  .brand p { margin: 0; font-size: 11px; color: #6E6E6E; }
+  .brand p { margin: 0; font-size: 11px; color: #4E6E85; }
   .doc { text-align: right; }
   .doc h2 { margin: 0 0 4px; font-size: 18px; }
-  .doc .num { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: #6E6E6E; }
+  .doc .num { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: #4E6E85; }
   .pill { display: inline-block; padding: 4px 10px; border-radius: 999px;
           font-size: 11px; font-weight: 600; margin-top: 8px;
           background: ${meta.pdfBg}; color: ${meta.pdfFg}; }
   .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-          margin-top: 20px; padding: 16px 0; border-bottom: 1px solid #C9CCD1; }
+          margin-top: 20px; padding: 16px 0; border-bottom: 1px solid #D5E2E7; }
   .meta h3 { margin: 0 0 6px; font-size: 10px; text-transform: uppercase;
-             letter-spacing: 0.1em; color: #6E6E6E; }
+             letter-spacing: 0.1em; color: #4E6E85; }
   .meta p { margin: 0; font-size: 13px; line-height: 1.5; }
   table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 13px; }
   th { text-align: left; font-size: 10px; text-transform: uppercase;
-       letter-spacing: 0.08em; color: #6E6E6E; padding: 10px 8px;
-       border-bottom: 1px solid #C9CCD1; }
-  td { padding: 10px 8px; border-bottom: 1px solid #F2F2F2; vertical-align: top; }
+       letter-spacing: 0.08em; color: #4E6E85; padding: 10px 8px;
+       border-bottom: 1px solid #D5E2E7; }
+  td { padding: 10px 8px; border-bottom: 1px solid #EFF5F7; vertical-align: top; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .totals { margin-top: 12px; margin-left: auto; width: 280px; font-size: 13px; }
   .totals .row { display: flex; justify-content: space-between; padding: 6px 0; }
-  .totals .row.total { border-top: 1px solid #1A1A1A; margin-top: 6px;
+  .totals .row.total { border-top: 1px solid #07203A; margin-top: 6px;
                        padding-top: 10px; font-weight: 700; font-size: 15px; }
-  .notes { margin-top: 24px; padding: 14px 16px; background: #F7F7F7;
+  .notes { margin-top: 24px; padding: 14px 16px; background: #F7FAFB;
            border-radius: 8px; font-size: 12px; line-height: 1.5; }
   .notes h3 { margin: 0 0 6px; font-size: 10px; text-transform: uppercase;
-              letter-spacing: 0.1em; color: #6E6E6E; }
-  .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid #C9CCD1;
-          display: flex; justify-content: space-between; font-size: 11px; color: #6E6E6E; }
+              letter-spacing: 0.1em; color: #4E6E85; }
+  .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid #D5E2E7;
+          display: flex; justify-content: space-between; font-size: 11px; color: #4E6E85; }
   @media print { body { padding: 0; } .no-print { display: none !important; } }
 </style>
 </head>
@@ -123,7 +123,8 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
 <div class="wrap">
   <div class="head">
     <div class="brand">
-      <h1>PURAMASS</h1>
+      <h1>VYTA</h1>
+      <p class="brandsub">BIOSCIENCES</p>
       <p>puramass.com · info@aminocan.com</p>
     </div>
     <div class="doc">
@@ -149,7 +150,7 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
     </div>
     <div>
       <h3>Issued By</h3>
-      <p>PuraMass Procurement</p>
+      <p>VYTA Biosciences Procurement</p>
       <p class="num">PO #${escape(po.po_number)}</p>
     </div>
   </div>
@@ -180,10 +181,10 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
     </tbody>
   </table>
   ${hidePrices ? `
-  <p style="margin-top:8px;font-size:10px;color:#6E6E6E;">
+  <p style="margin-top:8px;font-size:10px;color:#4E6E85;">
     Total units: ${items.reduce((s: number, it: any) => s + Number(it.qty || 0), 0)} · Line count: ${items.length}
   </p>` : `
-  <p style="margin-top:8px;font-size:10px;color:#6E6E6E;">
+  <p style="margin-top:8px;font-size:10px;color:#4E6E85;">
     Landed / unit includes each line's share of shipping and discount, allocated by value — the true per-unit cost.
   </p>
 
@@ -198,7 +199,7 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
   ${po.notes ? `<div class="notes"><h3>Notes</h3>${escape(po.notes).replace(/\n/g, "<br/>")}</div>` : ""}
 
   <div class="foot">
-    <span>PURAMASS · puramass.com</span>
+    <span>VYTA BIOSCIENCES · puramass.com</span>
     <span>Generated ${escape(new Date().toLocaleString())} · ${escape(po.po_number)}</span>
   </div>
 </div>
